@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,
+    initial-scale=1.0,
+    maximum-scale=1.0,
+    user-scalable=no"
+  >
+
+  <title>Roshan — Dota 2 Hub</title>
+
+  <!-- Telegram Mini App -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <style>
+
+    /* =========================
+       ОСНОВА
+    ========================= */
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #08090b;
+      color: #f2f2f2;
+      font-family: Arial, Helvetica, sans-serif;
+      padding-bottom: 88px;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 620px;
+      margin: auto;
+      padding: 18px;
+    }
+
+
+    /* =========================
+       ЛОГОТИП
+    ========================= */
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          #4b1515,
+          #1d0909
+        );
+
+      border: 1px solid #713030;
+
+      box-shadow:
+        inset 0 0 15px rgba(190, 45, 45, .12),
+        0 0 18px rgba(190, 45, 45, .08);
+
+      font-size: 20px;
+    }
+
+    .logo-text {
+      color: #fff;
+    }
+
+    .logo-text span {
+      color: #d74646;
+    }
+
+    .profile-button {
+      width: 42px;
+      height: 42px;
+
+      border-radius: 50%;
+      border: 1px solid #292c31;
+
+      background: #131519;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 19px;
+    }
+
+
+    /* =========================
+       СТРАНИЦЫ
+    ========================= */
+
+    .page {
+      display: none;
+      animation: pageIn .18s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes pageIn {
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    /* =========================
+       ГЛАВНЫЙ БАННЕР
+    ========================= */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      padding: 24px;
+
+      border-radius: 22px;
+
+      background:
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(180, 45, 45, .22),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #241010,
+          #111216 65%
+        );
+
+      border: 1px solid #402020;
+
+      margin-bottom: 22px;
+    }
+
+    .hero:before {
+      content: "ROSHAN";
+
+      position: absolute;
+
+      right: -20px;
+      bottom: -10px;
+
+      font-size: 54px;
+      font-weight: 900;
+
+      color: rgba(255,255,255,.025);
+
+      transform: rotate(-8deg);
+    }
+
+    .hero-label {
+      color: #c84a4a;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+    }
+
+    .hero h1 {
+      margin: 9px 0 8px;
+
+      font-size: 30px;
+      line-height: 1.05;
+    }
+
+    .hero p {
+      margin: 0 0 20px;
+
+      color: #999da5;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+
+    /* =========================
+       КНОПКИ
+    ========================= */
+
+    .button {
+      border: 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          #d84949,
+          #a72e2e
+        );
+
+      color: #fff;
+
+      padding: 13px 18px;
+
+      border-radius: 12px;
+
+      font-size: 13px;
+      font-weight: 900;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 6px 20px rgba(180, 45, 45, .15);
+
+      transition: .15s;
+    }
+
+    .button:active {
+      transform: scale(.96);
+    }
+
+
+    /* =========================
+       ЗАГОЛОВКИ
+    ========================= */
+
+    .section-title {
+      margin: 25px 0 13px;
+
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .section-subtitle {
+      color: #777b82;
+      font-size: 12px;
+      margin-top: -7px;
+      margin-bottom: 14px;
+    }
+
+
+    /* =========================
+       КАРТОЧКИ
+    ========================= */
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 11px;
+    }
+
+    .card {
+      background: #121419;
+
+      border: 1px solid #24272d;
+
+      border-radius: 17px;
+
+      padding: 18px;
+
+      cursor: pointer;
+
+      transition: .15s;
+    }
+
+    .card:active {
+      transform: scale(.97);
+      background: #17191e;
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #1c1e23;
+
+      border: 1px solid #2a2d34;
+
+      border-radius: 12px;
+
+      font-size: 21px;
+
+      margin-bottom: 13px;
+    }
+
+    .card h3 {
+      margin: 0 0 5px;
+
+      font-size: 15px;
+    }
+
+    .card p {
+      margin: 0;
+
+      color: #777b83;
+
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+
+    /* =========================
+       ЧЕЛЛЕНДЖ
+    ========================= */
+
+    .challenge {
+      background:
+        linear-gradient(
+          135deg,
+          #17191e,
+          #111216
+        );
+
+      border: 1px solid #292c32;
+
+      border-radius: 18px;
+
+      padding: 18px;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .challenge-label {
+      color: #d74646;
+
+      font-size: 11px;
+      font-weight: 900;
+
+      letter-spacing: 1px;
+    }
+
+    .challenge h3 {
+      margin: 9px 0 6px;
+
+      font-size: 17px;
+    }
+
+    .challenge p {
+      color: #858991;
+
+      font-size: 12px;
+
+      margin: 0;
+    }
+
+
+    /* =========================
+       META
+    ========================= */
+
+    .top-title {
+      font-size: 24px;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+
+    .meta-description {
+      color: #777b82;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero-card {
+      display: flex;
+      align-items: center;
+
+      gap: 13px;
+
+      background: #121419;
+
+      border: 1px solid #25282e;
+
+      border-radius: 16px;
+
+      padding: 13px;
+
+      margin-bottom: 9px;
+
+      cursor: pointer;
+
+      transition: .15s;
+    }
+
+    .hero-card:active {
+      transform: scale(.98);
+    }
+
+    .hero-avatar {
+      width: 54px;
+      height: 54px;
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #342020,
+          #1b1d21
+        );
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 24px;
+
+      border: 1px solid #393034;
+    }
+
+    .hero-info {
+      flex: 1;
+    }
+
+    .hero-info h3 {
+      margin: 0 0 5px;
+
+      font-size: 15px;
+    }
+
+    .role {
+      color: #777b83;
+      font-size: 11px;
+    }
+
+    .winrate {
+      color: #70c98a;
+
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+
+    /* =========================
+       RANDOM
+    ========================= */
+
+    .random-box {
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(190, 45, 45, .14),
+          transparent 50%
+        ),
+        #121419;
+
+      border: 1px solid #292c32;
+
+      border-radius: 22px;
+
+      padding: 35px 18px;
+    }
+
+    .random-label {
+      color: #777b82;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+    }
+
+    .random-icon {
+      width: 90px;
+      height: 90px;
+
+      margin: 22px auto 18px;
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #3a1717,
+          #18191d
+        );
+
+      border: 1px solid #4a2929;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 43px;
+
+      box-shadow:
+        0 0 35px rgba(180, 40, 40, .1);
+    }
+
+    .random-name {
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .random-role {
+      color: #777b82;
+
+      margin: 6px 0 22px;
+
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       ГАЙДЫ
+    ========================= */
+
+    .guide {
+      background: #121419;
+
+      border: 1px solid #25282e;
+
+      border-radius: 17px;
+
+      padding: 17px;
+
+      margin-bottom: 10px;
+
+      cursor: pointer;
+
+      transition: .15s;
+    }
+
+    .guide:active {
+      transform: scale(.98);
+    }
+
+    .guide-top {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .guide-icon {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 11px;
+
+      background: #1c1e23;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 19px;
+    }
+
+    .guide h3 {
+      margin: 0;
+
+      font-size: 14px;
+    }
+
+    .guide p {
+      color: #777b82;
+
+      margin: 9px 0 0;
+
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+
+    /* =========================
+       ПРОФИЛЬ
+    ========================= */
+
+    .profile {
+      text-align: center;
+    }
+
+    .profile-avatar {
+      width: 82px;
+      height: 82px;
+
+      margin: 10px auto 15px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #d54848,
+          #7d2020
+        );
+
+      border: 3px solid #351818;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 30px;
+      font-weight: 900;
+
+      box-shadow:
+        0 0 25px rgba(190, 45, 45, .15);
+    }
+
+    .profile h2 {
+      margin: 0;
+
+      font-size: 21px;
+    }
+
+    .profile-description {
+      color: #777b82;
+
+      font-size: 12px;
+
+      margin-top: 5px;
+    }
+
+    .stats {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 8px;
+
+      margin-top: 24px;
+    }
+
+    .stat {
+      background: #121419;
+
+      border: 1px solid #25282e;
+
+      border-radius: 14px;
+
+      padding: 14px 5px;
+    }
+
+    .stat strong {
+      display: block;
+
+      font-size: 18px;
+
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: #666a71;
+
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+
+    /* =========================
+       НИЖНЯЯ НАВИГАЦИЯ
+    ========================= */
+
+    .bottom-nav {
+      position: fixed;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      max-width: 620px;
+
+      margin: auto;
+
+      height: 72px;
+
+      background:
+        rgba(12, 13, 16, .96);
+
+      border-top: 1px solid #25282e;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      z-index: 100;
+
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-item {
+      width: 20%;
+
+      color: #646870;
+
+      text-align: center;
+
+      font-size: 9px;
+
+      cursor: pointer;
+
+      transition: .15s;
+    }
+
+    .nav-icon {
+      font-size: 20px;
+
+      margin-bottom: 4px;
+
+      transition: .15s;
+    }
+
+    .nav-item.active {
+      color: #fff;
+    }
+
+    .nav-item.active .nav-icon {
+      color: #d74646;
+
+      transform: translateY(-1px);
+    }
+
+
+    /* =========================
+       АДАПТАЦИЯ
+    ========================= */
+
+    @media (max-width: 380px) {
+
+      .app {
+        padding: 14px;
+      }
+
+      .hero {
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .card {
+        padding: 15px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+  <!-- =====================
+       ГЛАВНАЯ
+  ====================== -->
+
+  <div id="home" class="page active">
+
+    <div class="header">
+
+      <div class="logo">
+
+        <div class="logo-icon">
+          🪨
+        </div>
+
+        <div class="logo-text">
+          ROSH<span>AN</span>
+        </div>
+
+      </div>
+
+      <div
+        class="profile-button"
+        onclick="showPage('profile')"
+      >
+        👤
+      </div>
+
+    </div>
+
+
+    <div class="hero">
+
+      <div class="hero-label">
+        DOTA 2 • 7.41b
+      </div>
+
+      <h1>
+        Добро пожаловать<br>
+        в Roshan
+      </h1>
+
+      <p>
+        Мета, гайды, контрпики,
+        рандомайзер и челленджи
+        для игроков Dota 2.
+      </p>
+
+      <button
+        class="button"
+        onclick="showPage('meta')"
+      >
+        🔥 Смотреть мету
+      </button>
+
+    </div>
+
+
+    <div class="section-title">
+      Быстрый доступ
+    </div>
+
+
+    <div class="grid">
+
+      <div
+        class="card"
+        onclick="showPage('meta')"
+      >
+
+        <div class="card-icon">
+          🔥
+        </div>
+
+        <h3>
+          Мета
+        </h3>
+
+        <p>
+          Лучшие герои текущего патча
+        </p>
+
+      </div>
+
+
+      <div
+        class="card"
+        onclick="showPage('random')"
+      >
+
+        <div class="card-icon">
+          🎲
+        </div>
+
+        <h3>
+          Рандом
+        </h3>
+
+        <p>
+          Не знаешь кого пикнуть?
+        </p>
+
+      </div>
+
+
+      <div
+        class="card"
+        onclick="showPage('guides')"
+      >
+
+        <div class="card-icon">
+          📚
+        </div>
+
+        <h3>
+          Гайды
+        </h3>
+
+        <p>
+          Учись играть лучше
+        </p>
+
+      </div>
+
+
+      <div
+        class="card"
+        onclick="alert('Раздел контрпиков скоро появится')"
+      >
+
+        <div class="card-icon">
+          ⚔️
+        </div>
+
+        <h3>
+          Контрпик
+        </h3>
+
+        <p>
+          Найди лучшую контру
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-title">
+      🎯 Челлендж дня
+    </div>
+
+
+    <div class="challenge">
+
+      <div class="challenge-label">
+        DAILY CHALLENGE
+      </div>
+
+      <h3>
+        Сегодня играем на Techies
+      </h3>
+
+      <p>
+        Сделай 3 убийства с помощью
+        мин и получи XP.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================
+       META
+  ====================== -->
+
+  <div id="meta" class="page">
+
+    <div class="top-title">
+      🔥 Мета
+    </div>
+
+    <div class="meta-description">
+      Сильнейшие герои текущего патча
+    </div>
+
+
+    <div class="hero-card">
+
+      <div class="hero-avatar">
+        ⚔️
+      </div>
+
+      <div class="hero-info">
+
+        <h3>
+          Sven
+        </h3>
+
+        <div class="role">
+          Carry
+        </div>
+
+      </div>
+
+      <div class="winrate">
+        52.8%
+      </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+      <div class="hero-avatar">
+        🗡️
+      </div>
+
+      <div class="hero-info">
+
+        <h3>
+          Juggernaut
+        </h3>
+
+        <div class="role">
+          Carry
+        </div>
+
+      </div>
+
+      <div class="winrate">
+        51.9%
+      </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+      <div class="hero-avatar">
+        🔥
+      </div>
+
+      <div class="hero-info">
+
+        <h3>
+          Legion Commander
+        </h3>
+
+        <div class="role">
+          Offlane
+        </div>
+
+      </div>
+
+      <div class="winrate">
+        51.6%
+      </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+      <div class="hero-avatar">
+        🧙
+      </div>
+
+      <div class="hero-info">
+
+        <h3>
+          Invoker
+        </h3>
+
+        <div class="role">
+          Mid
+        </div>
+
+      </div>
+
+      <div class="winrate">
+        51.3%
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================
+       RANDOM
+  ====================== -->
+
+  <div id="random" class="page">
+
+    <div class="top-title">
+      🎲 Рандомайзер
+    </div>
+
+    <div class="meta-description">
+      Доверь свой пик судьбе
+    </div>
+
+
+    <div class="random-box">
+
+      <div class="random-label">
+        КОГО СЕГОДНЯ ПИКНУТЬ?
+      </div>
+
+
+      <div class="random-icon">
+        🎲
+      </div>
+
+
+      <div
+        id="randomName"
+        class="random-name"
+      >
+        ?
+      </div>
+
+
+      <div
+        id="randomRole"
+        class="random-role"
+      >
+        Нажми кнопку ниже
+      </div>
+
+
+      <button
+        class="button"
+        onclick="randomHero()"
+      >
+        🎲 Выбрать героя
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================
+       ГАЙДЫ
+  ====================== -->
+
+  <div id="guides" class="page">
+
+    <div class="top-title">
+      📚 Гайды
+    </div>
+
+    <div class="meta-description">
+      Полезные материалы для Dota 2
+    </div>
+
+
+    <div class="guide">
+
+      <div class="guide-top">
+
+        <div class="guide-icon">
+          ⚔️
+        </div>
+
+        <h3>
+          Как играть на Juggernaut
+        </h3>
+
+      </div>
+
+      <p>
+        Предметы, способности,
+        лайнинг и основные ошибки.
+      </p>
+
+    </div>
+
+
+    <div class="guide">
+
+      <div class="guide-top">
+
+        <div class="guide-icon">
+          🕷️
+        </div>
+
+        <h3>
+          Как играть против Broodmother
+        </h3>
+
+      </div>
+
+      <p>
+        Лучшие герои и способы
+        остановить паука.
+      </p>
+
+    </div>
+
+
+    <div class="guide">
+
+      <div class="guide-top">
+
+        <div class="guide-icon">
+          🔥
+        </div>
+
+        <h3>
+          Лучшие керри патча
+        </h3>
+
+      </div>
+
+      <p>
+        Кого стоит выбирать
+        на первую позицию.
+      </p>
+
+    </div>
+
+
+    <div class="guide">
+
+      <div class="guide-top">
+
+        <div class="guide-icon">
+          🛡️
+        </div>
+
+        <h3>
+          Как правильно играть саппортом
+        </h3>
+
+      </div>
+
+      <p>
+        Варды, стаки, ганги
+        и контроль карты.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================
+       PROFILE
+  ====================== -->
+
+  <div id="profile" class="page">
+
+    <div class="top-title">
+      👤 Профиль
+    </div>
+
+
+    <div class="profile">
+
+      <div
+        id="profileAvatar"
+        class="profile-avatar"
+      >
+        R
+      </div>
+
+
+      <h2 id="username">
+        Игрок Roshan
+      </h2>
+
+
+      <div class="profile-description">
+        Dota 2 Player
+      </div>
+
+
+      <div class="stats">
+
+        <div class="stat">
+
+          <strong>
+            12
+          </strong>
+
+          <span>
+            LEVEL
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>
+            37
+          </strong>
+
+          <span>
+            ГАЙДОВ
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>
+            24
+          </strong>
+
+          <span>
+            ГЕРОЯ
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =========================
+     НИЖНЯЯ НАВИГАЦИЯ
+========================= -->
+
+<div class="bottom-nav">
+
+  <div
+    class="nav-item active"
+    onclick="showPage('home', this)"
+  >
+
+    <div class="nav-icon">
+      🏠
+    </div>
+
+    Главная
+
+  </div>
+
+
+  <div
+    class="nav-item"
+    onclick="showPage('meta', this)"
+  >
+
+    <div class="nav-icon">
+      🔥
+    </div>
+
+    Мета
+
+  </div>
+
+
+  <div
+    class="nav-item"
+    onclick="showPage('random', this)"
+  >
+
+    <div class="nav-icon">
+      🎲
+    </div>
+
+    Рандом
+
+  </div>
+
+
+  <div
+    class="nav-item"
+    onclick="showPage('guides', this)"
+  >
+
+    <div class="nav-icon">
+      📚
+    </div>
+
+    Гайды
+
+  </div>
+
+
+  <div
+    class="nav-item"
+    onclick="showPage('profile', this)"
+  >
+
+    <div class="nav-icon">
+      👤
+    </div>
+
+    Профиль
+
+  </div>
+
+</div>
+
+
+
+<script>
+
+  /* =========================
+     TELEGRAM
+  ========================= */
+
+  const tg = window.Telegram.WebApp;
+
+  tg.ready();
+  tg.expand();
+
+
+  /* =========================
+     НАВИГАЦИЯ
+  ========================= */
+
+  function showPage(page, element) {
+
+    document
+      .querySelectorAll(".page")
+      .forEach(p => {
+        p.classList.remove("active");
+      });
+
+
+    const selectedPage =
+      document.getElementById(page);
+
+    if (selectedPage) {
+      selectedPage.classList.add("active");
+    }
+
+
+    document
+      .querySelectorAll(".nav-item")
+      .forEach(n => {
+        n.classList.remove("active");
+      });
+
+
+    if (element) {
+
+      element.classList.add("active");
+
+    } else {
+
+      const nav =
+        document.querySelector(
+          `.nav-item[onclick*="'${page}'"]`
+        );
+
+      if (nav) {
+        nav.classList.add("active");
+      }
+
+    }
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+
+    if (tg.HapticFeedback) {
+      tg.HapticFeedback.selectionChanged();
+    }
+
+  }
+
+
+  /* =========================
+     РАНДОМАЙЗЕР
+  ========================= */
+
+  const heroes = [
+
+    ["Sven", "Carry"],
+    ["Juggernaut", "Carry"],
+    ["Pudge", "Support"],
+    ["Invoker", "Mid"],
+    ["Axe", "Offlane"],
+    ["Drow Ranger", "Carry"],
+    ["Lion", "Support"],
+    ["Earthshaker", "Support"],
+    ["Queen of Pain", "Mid"],
+    ["Legion Commander", "Offlane"],
+    ["Techies", "Support"],
+    ["Puck", "Mid"],
+    ["Mars", "Offlane"],
+    ["Lina", "Mid"],
+    ["Phantom Assassin", "Carry"]
+
+  ];
+
+
+  function randomHero() {
+
+    const random =
+      heroes[
+        Math.floor(
+          Math.random() * heroes.length
+        )
+      ];
+
+
+    document
+      .getElementById("randomName")
+      .innerText = random[0];
+
+
+    document
+      .getElementById("randomRole")
+      .innerText = random[1];
+
+
+    if (tg.HapticFeedback) {
+
+      tg.HapticFeedback
+        .impactOccurred("medium");
+
+    }
+
+  }
+
+
+  /* =========================
+     TELEGRAM USER
+  ========================= */
+
+  if (
+    tg.initDataUnsafe &&
+    tg.initDataUnsafe.user
+  ) {
+
+    const user =
+      tg.initDataUnsafe.user;
+
+
+    const name =
+      user.first_name ||
+      "Игрок";
+
+
+    document
+      .getElementById("username")
+      .innerText = name;
+
+
+    const firstLetter =
+      name.charAt(0).toUpperCase();
+
+
+    document
+      .getElementById("profileAvatar")
+      .innerText = firstLetter;
+
+  }
+
+</script>
+
+</body>
+</html>
