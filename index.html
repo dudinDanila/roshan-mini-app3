@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <title>Roshan — Dota 2 Hub</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -22,8 +23,13 @@ body{
     padding-bottom:95px;
 }
 
-button{
+button,
+select{
     font-family:inherit;
+}
+
+button{
+    -webkit-appearance:none;
 }
 
 .app{
@@ -32,7 +38,7 @@ button{
     padding:18px 16px 30px;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 .header{
     display:flex;
@@ -79,7 +85,7 @@ button{
     font-size:18px;
 }
 
-/* PAGES */
+/* ================= PAGES ================= */
 
 .page{
     display:none;
@@ -89,7 +95,7 @@ button{
     display:block;
 }
 
-/* HOME */
+/* ================= HOME ================= */
 
 .hero{
     position:relative;
@@ -97,9 +103,15 @@ button{
     min-height:245px;
     border-radius:22px;
     padding:25px 22px;
+
     background:
-        radial-gradient(circle at 85% 35%,rgba(150,20,20,.35),transparent 35%),
+        radial-gradient(
+            circle at 85% 35%,
+            rgba(150,20,20,.35),
+            transparent 35%
+        ),
         linear-gradient(145deg,#171717,#090909);
+
     border:1px solid #3a1818;
     margin-bottom:20px;
 }
@@ -156,7 +168,7 @@ button{
     font-size:13px;
 }
 
-/* QUICK ACCESS */
+/* ================= QUICK ACCESS ================= */
 
 .section-title{
     font-size:17px;
@@ -202,7 +214,7 @@ button{
     font-size:11px;
 }
 
-/* DAILY */
+/* ================= DAILY ================= */
 
 .daily{
     margin-top:20px;
@@ -235,7 +247,7 @@ button{
     line-height:1.45;
 }
 
-/* META */
+/* ================= META ================= */
 
 .meta-card{
     background:#111;
@@ -277,7 +289,7 @@ button{
     text-align:center;
 }
 
-/* RANDOM */
+/* ================= RANDOM ================= */
 
 .random-box{
     background:#111;
@@ -316,7 +328,7 @@ button{
     font-size:14px;
 }
 
-/* GUIDES */
+/* ================= GUIDES ================= */
 
 .guides-title{
     margin-bottom:15px;
@@ -358,7 +370,41 @@ button{
     text-overflow:ellipsis;
 }
 
-/* MODAL */
+/* ================= COUNTERPICK ================= */
+
+.counter-select{
+    width:100%;
+    padding:14px;
+    border-radius:13px;
+    border:1px solid #333;
+    background:#181818;
+    color:white;
+    font-size:14px;
+    font-weight:700;
+    outline:none;
+}
+
+.counter-select:focus{
+    border-color:#8d2929;
+}
+
+.counter-result{
+    display:none;
+}
+
+.counter-result.active{
+    display:block;
+}
+
+.counter-description{
+    color:#777;
+    font-size:12px;
+    line-height:1.4;
+    margin-top:-5px;
+    margin-bottom:15px;
+}
+
+/* ================= MODAL ================= */
 
 .modal{
     position:fixed;
@@ -386,8 +432,13 @@ button{
 }
 
 @keyframes slideUp{
-    from{transform:translateY(100%)}
-    to{transform:translateY(0)}
+    from{
+        transform:translateY(100%);
+    }
+
+    to{
+        transform:translateY(0);
+    }
 }
 
 .modal-image{
@@ -413,7 +464,7 @@ button{
     font-weight:800;
 }
 
-/* PROFILE */
+/* ================= PROFILE ================= */
 
 .profile-card{
     background:#111;
@@ -447,7 +498,7 @@ button{
     font-size:13px;
 }
 
-/* NAV */
+/* ================= BOTTOM NAV ================= */
 
 .bottom-nav{
     position:fixed;
@@ -486,15 +537,17 @@ button{
     background:#281111;
 }
 
-/* DESKTOP */
+/* ================= DESKTOP ================= */
 
 @media(min-width:700px){
+
     .hero-grid{
         grid-template-columns:repeat(4,1fr);
     }
+
 }
 
-/* SCROLLBAR */
+/* ================= SCROLLBAR ================= */
 
 ::-webkit-scrollbar{
     width:4px;
@@ -511,231 +564,517 @@ button{
 
 <div class="app">
 
-    <!-- ================= HOME ================= -->
+<!-- ================================================= -->
+<!-- HOME -->
+<!-- ================================================= -->
 
-    <section id="home" class="page active">
+<section id="home" class="page active">
 
-        <div class="header">
-            <div class="logo">
-                <div class="logo-icon">🪨</div>
-                <div class="logo-text">ROSH<span>AN</span></div>
-            </div>
+    <div class="header">
 
-            <button class="profile-btn" onclick="showPage('profile')">
-                👤
-            </button>
-        </div>
+        <div class="logo">
 
-        <div class="hero">
-            <div class="hero-content">
-                <div class="version">DOTA 2 • 7.41b</div>
-
-                <h1>Добро пожаловать<br>в Roshan</h1>
-
-                <p>
-                    Всё самое интересное о Dota 2 —
-                    мета, герои, гайды и случайные пики.
-                </p>
-
-                <button class="meta-btn" onclick="showPage('meta')">
-                    🔥 Смотреть мету
-                </button>
-            </div>
-        </div>
-
-        <div class="section-title">
-            Быстрый доступ
-        </div>
-
-        <div class="quick-grid">
-
-            <button class="quick-card" onclick="showPage('meta')">
-                <div class="quick-icon">🔥</div>
-                <h3>Мета</h3>
-                <p>Актуальные герои</p>
-            </button>
-
-            <button class="quick-card" onclick="showPage('random')">
-                <div class="quick-icon">🎲</div>
-                <h3>Рандом</h3>
-                <p>Случайный герой</p>
-            </button>
-
-            <button class="quick-card" onclick="showPage('guides')">
-                <div class="quick-icon">📖</div>
-                <h3>Гайды</h3>
-                <p>Все герои Dota 2</p>
-            </button>
-
-            <button class="quick-card" onclick="showPage('guides')">
-                <div class="quick-icon">⚔️</div>
-                <h3>Контрпик</h3>
-                <p>Выбери героя</p>
-            </button>
-
-        </div>
-
-        <div class="daily">
-            <div class="daily-top">
-                <div class="daily-icon">🎯</div>
-                <h3>Задание дня</h3>
-            </div>
-
-            <p>
-                Сегодня сыграй игру на Techies и попробуй
-                сделать минимум 10 убийств.
-            </p>
-        </div>
-
-    </section>
-
-
-    <!-- ================= META ================= -->
-
-    <section id="meta" class="page">
-
-        <div class="header">
-            <div class="logo">
-                <div class="logo-icon">🔥</div>
-                <div class="logo-text">МЕТА</div>
-            </div>
-        </div>
-
-        <div class="meta-card">
-            <div class="meta-title">
-                🔥 Популярный пик
-            </div>
-
-            <div class="meta-heroes">
-
-                <div class="meta-hero">
-                    <img src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png">
-                    <div class="meta-name">PUDGE</div>
-                </div>
-
-                <div class="meta-hero">
-                    <img src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png">
-                    <div class="meta-name">INVOKER</div>
-                </div>
-
-                <div class="meta-hero">
-                    <img src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png">
-                    <div class="meta-name">JUGGERNAUT</div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="meta-card">
-            <div class="meta-title">
-                📊 Патч 7.41b
-            </div>
-
-            <p style="color:#888;font-size:13px;line-height:1.5;margin:0;">
-                Следи за изменениями героев и выбирай
-                сильнейшие пики для своих игр.
-            </p>
-        </div>
-
-    </section>
-
-
-    <!-- ================= RANDOM ================= -->
-
-    <section id="random" class="page">
-
-        <div class="header">
-            <div class="logo">
-                <div class="logo-icon">🎲</div>
-                <div class="logo-text">РАНДОМ</div>
-            </div>
-        </div>
-
-        <div class="random-box">
-
-            <img
-                id="randomImage"
-                class="random-image"
-                src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png"
-                alt="Random hero"
-            >
-
-            <div id="randomName" class="random-name">
-                PUDGE
-            </div>
-
-            <button class="random-btn" onclick="randomHero()">
-                🎲 СЛУЧАЙНЫЙ ГЕРОЙ
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= GUIDES ================= -->
-
-    <section id="guides" class="page">
-
-        <div class="header">
-            <div class="logo">
-                <div class="logo-icon">📖</div>
-                <div class="logo-text">ГАЙДЫ</div>
-            </div>
-        </div>
-
-        <div class="section-title guides-title">
-            Все герои
-        </div>
-
-        <div id="heroGrid" class="hero-grid"></div>
-
-    </section>
-
-
-    <!-- ================= PROFILE ================= -->
-
-    <section id="profile" class="page">
-
-        <div class="header">
-            <div class="logo">
-                <div class="logo-icon">●</div>
-                <div class="logo-text">ПРОФИЛЬ</div>
-            </div>
-        </div>
-
-        <div class="profile-card">
-
-            <div class="profile-avatar">
+            <div class="logo-icon">
                 🪨
             </div>
 
-            <div id="profileName" class="profile-name">
-                Игрок
-            </div>
-
-            <div id="profileUsername" class="profile-username">
-                @telegram
+            <div class="logo-text">
+                ROSH<span>AN</span>
             </div>
 
         </div>
 
-    </section>
+        <button
+            class="profile-btn"
+            onclick="showPage('profile')"
+        >
+            👤
+        </button>
+
+    </div>
+
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <div class="version">
+                DOTA 2 • 7.41b
+            </div>
+
+            <h1>
+                Добро пожаловать<br>
+                в Roshan
+            </h1>
+
+            <p>
+                Всё самое интересное о Dota 2 —
+                мета, герои, гайды и случайные пики.
+            </p>
+
+            <button
+                class="meta-btn"
+                onclick="showPage('meta')"
+            >
+                🔥 Смотреть мету
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="section-title">
+        Быстрый доступ
+    </div>
+
+
+    <div class="quick-grid">
+
+        <button
+            class="quick-card"
+            onclick="showPage('meta')"
+        >
+
+            <div class="quick-icon">
+                🔥
+            </div>
+
+            <h3>
+                Мета
+            </h3>
+
+            <p>
+                Актуальные герои
+            </p>
+
+        </button>
+
+
+        <button
+            class="quick-card"
+            onclick="showPage('random')"
+        >
+
+            <div class="quick-icon">
+                🎲
+            </div>
+
+            <h3>
+                Рандом
+            </h3>
+
+            <p>
+                Случайный герой
+            </p>
+
+        </button>
+
+
+        <button
+            class="quick-card"
+            onclick="showPage('guides')"
+        >
+
+            <div class="quick-icon">
+                📖
+            </div>
+
+            <h3>
+                Гайды
+            </h3>
+
+            <p>
+                Все герои Dota 2
+            </p>
+
+        </button>
+
+
+        <!-- ТОЛЬКО ЗДЕСЬ ИЗМЕНЕНО -->
+        <button
+            class="quick-card"
+            onclick="showPage('counter')"
+        >
+
+            <div class="quick-icon">
+                ⚔️
+            </div>
+
+            <h3>
+                Контрпик
+            </h3>
+
+            <p>
+                Выбери героя
+            </p>
+
+        </button>
+
+    </div>
+
+
+    <div class="daily">
+
+        <div class="daily-top">
+
+            <div class="daily-icon">
+                🎯
+            </div>
+
+            <h3>
+                Задание дня
+            </h3>
+
+        </div>
+
+        <p>
+            Сегодня сыграй игру на Techies и попробуй
+            сделать минимум 10 убийств.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- META -->
+<!-- ================================================= -->
+
+<section id="meta" class="page">
+
+    <div class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🔥
+            </div>
+
+            <div class="logo-text">
+                МЕТА
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="meta-card">
+
+        <div class="meta-title">
+            🔥 Популярный пик
+        </div>
+
+
+        <div class="meta-heroes">
+
+            <div class="meta-hero">
+
+                <img
+                    src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png"
+                    alt="Pudge"
+                >
+
+                <div class="meta-name">
+                    PUDGE
+                </div>
+
+            </div>
+
+
+            <div class="meta-hero">
+
+                <img
+                    src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png"
+                    alt="Invoker"
+                >
+
+                <div class="meta-name">
+                    INVOKER
+                </div>
+
+            </div>
+
+
+            <div class="meta-hero">
+
+                <img
+                    src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png"
+                    alt="Juggernaut"
+                >
+
+                <div class="meta-name">
+                    JUGGERNAUT
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="meta-card">
+
+        <div class="meta-title">
+            📊 Патч 7.41b
+        </div>
+
+        <p style="
+            color:#888;
+            font-size:13px;
+            line-height:1.5;
+            margin:0;
+        ">
+            Следи за изменениями героев и выбирай
+            сильнейшие пики для своих игр.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- RANDOM -->
+<!-- ================================================= -->
+
+<section id="random" class="page">
+
+    <div class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🎲
+            </div>
+
+            <div class="logo-text">
+                РАНДОМ
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="random-box">
+
+        <img
+            id="randomImage"
+            class="random-image"
+            src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png"
+            alt="Random hero"
+        >
+
+
+        <div
+            id="randomName"
+            class="random-name"
+        >
+            PUDGE
+        </div>
+
+
+        <button
+            class="random-btn"
+            onclick="randomHero()"
+        >
+            🎲 СЛУЧАЙНЫЙ ГЕРОЙ
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- GUIDES -->
+<!-- ================================================= -->
+
+<section id="guides" class="page">
+
+    <div class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                📖
+            </div>
+
+            <div class="logo-text">
+                ГАЙДЫ
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="section-title guides-title">
+        Все герои
+    </div>
+
+
+    <div
+        id="heroGrid"
+        class="hero-grid"
+    ></div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- COUNTERPICK -->
+<!-- ================================================= -->
+
+<section id="counter" class="page">
+
+    <div class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ⚔️
+            </div>
+
+            <div class="logo-text">
+                КОНТРПИК
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="meta-card">
+
+        <div class="meta-title">
+            ⚔️ Выбери героя противника
+        </div>
+
+        <p class="counter-description">
+            Выбери героя, против которого хочешь подобрать контрпик.
+        </p>
+
+
+        <select
+            id="counterSelect"
+            class="counter-select"
+            onchange="showCounters()"
+        >
+
+            <option value="">
+                Выбери героя
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div
+        id="counterResult"
+        class="counter-result"
+    >
+
+        <div class="section-title">
+            Лучшие контрпики
+        </div>
+
+        <div
+            id="counterHeroes"
+            class="hero-grid"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- PROFILE -->
+<!-- ================================================= -->
+
+<section id="profile" class="page">
+
+    <div class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ●
+            </div>
+
+            <div class="logo-text">
+                ПРОФИЛЬ
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="profile-card">
+
+        <div class="profile-avatar">
+            🪨
+        </div>
+
+        <div
+            id="profileName"
+            class="profile-name"
+        >
+            Игрок
+        </div>
+
+        <div
+            id="profileUsername"
+            class="profile-username"
+        >
+            @telegram
+        </div>
+
+    </div>
+
+</section>
 
 </div>
 
 
-<!-- ================= HERO MODAL ================= -->
+<!-- ================================================= -->
+<!-- MODAL -->
+<!-- ================================================= -->
 
-<div id="heroModal" class="modal" onclick="closeModal(event)">
+<div
+    id="heroModal"
+    class="modal"
+    onclick="closeModal(event)"
+>
 
-    <div class="modal-content" onclick="event.stopPropagation()">
+    <div
+        class="modal-content"
+        onclick="event.stopPropagation()"
+    >
 
-        <img id="modalImage" class="modal-image" src="" alt="Hero">
+        <img
+            id="modalImage"
+            class="modal-image"
+            src=""
+            alt="Hero"
+        >
 
-        <div id="modalName" class="modal-name"></div>
+        <div
+            id="modalName"
+            class="modal-name"
+        ></div>
 
-        <button class="close-btn" onclick="closeHeroModal()">
+        <button
+            class="close-btn"
+            onclick="closeHeroModal()"
+        >
             Закрыть
         </button>
 
@@ -744,31 +1083,52 @@ button{
 </div>
 
 
-<!-- ================= BOTTOM NAV ================= -->
+<!-- ================================================= -->
+<!-- BOTTOM NAV -->
+<!-- ================================================= -->
 
 <nav class="bottom-nav">
 
-    <button class="nav-btn active" onclick="showPage('home',this)">
+    <button
+        class="nav-btn active"
+        onclick="showPage('home',this)"
+    >
         ⌂
         <span>Главная</span>
     </button>
 
-    <button class="nav-btn" onclick="showPage('meta',this)">
+
+    <button
+        class="nav-btn"
+        onclick="showPage('meta',this)"
+    >
         ⚔
         <span>Мета</span>
     </button>
 
-    <button class="nav-btn" onclick="showPage('random',this)">
+
+    <button
+        class="nav-btn"
+        onclick="showPage('random',this)"
+    >
         🎲
         <span>Рандом</span>
     </button>
 
-    <button class="nav-btn" onclick="showPage('guides',this)">
+
+    <button
+        class="nav-btn"
+        onclick="showPage('guides',this)"
+    >
         📖
         <span>Гайды</span>
     </button>
 
-    <button class="nav-btn" onclick="showPage('profile',this)">
+
+    <button
+        class="nav-btn"
+        onclick="showPage('profile',this)"
+    >
         ●
         <span>Профиль</span>
     </button>
@@ -778,62 +1138,110 @@ button{
 
 <script>
 
-/* ================= TELEGRAM ================= */
+/* ================================================= */
+/* TELEGRAM */
+/* ================================================= */
 
-const tg = window.Telegram && window.Telegram.WebApp
-    ? window.Telegram.WebApp
-    : null;
+const tg =
+    window.Telegram &&
+    window.Telegram.WebApp
+        ? window.Telegram.WebApp
+        : null;
+
 
 if(tg){
+
     tg.ready();
+
     tg.expand();
+
 }
 
 
-/* ================= NAVIGATION ================= */
+/* ================================================= */
+/* NAVIGATION */
+/* ================================================= */
 
-function showPage(pageId, button){
+function showPage(pageId,button){
 
-    document.querySelectorAll('.page').forEach(page=>{
-        page.classList.remove('active');
-    });
+    document
+        .querySelectorAll('.page')
+        .forEach(page=>{
+            page.classList.remove('active');
+        });
 
-    const page = document.getElementById(pageId);
+
+    const page =
+        document.getElementById(pageId);
+
 
     if(page){
         page.classList.add('active');
     }
 
-    document.querySelectorAll('.nav-btn').forEach(btn=>{
-        btn.classList.remove('active');
-    });
+
+    document
+        .querySelectorAll('.nav-btn')
+        .forEach(btn=>{
+            btn.classList.remove('active');
+        });
+
 
     if(button){
+
         button.classList.add('active');
+
     }else{
-        const pages = ['home','meta','random','guides','profile'];
-        const index = pages.indexOf(pageId);
+
+        const pages = [
+            'home',
+            'meta',
+            'random',
+            'guides',
+            'profile'
+        ];
+
+        const index =
+            pages.indexOf(pageId);
+
 
         if(index !== -1){
-            const navButtons = document.querySelectorAll('.nav-btn');
+
+            const navButtons =
+                document.querySelectorAll('.nav-btn');
+
+
             if(navButtons[index]){
                 navButtons[index].classList.add('active');
             }
+
         }
+
     }
+
 
     window.scrollTo({
         top:0,
         behavior:'smooth'
     });
 
-    if(tg && tg.HapticFeedback){
-        tg.HapticFeedback.impactOccurred('light');
+
+    if(
+        tg &&
+        tg.HapticFeedback
+    ){
+
+        tg.HapticFeedback
+            .impactOccurred('light');
+
     }
+
 }
 
 
-/* ================= HEROES ================= */
+/* ================================================= */
+/* HEROES */
+/* ================================================= */
 
 const heroes = [
 
@@ -966,131 +1374,649 @@ const heroes = [
 ];
 
 
-/* ================= GUIDES GRID ================= */
+/* ================================================= */
+/* GUIDES */
+/* ================================================= */
 
-const sortedHeroes = [...heroes].sort((a,b)=>
-    a.name.localeCompare(b.name)
-);
+const sortedHeroes =
+    [...heroes].sort((a,b)=>
+        a.name.localeCompare(b.name)
+    );
 
-const heroGrid = document.getElementById("heroGrid");
+
+const heroGrid =
+    document.getElementById("heroGrid");
+
 
 sortedHeroes.forEach(hero=>{
 
-    const card = document.createElement("div");
-    card.className = "hero-card";
+    const card =
+        document.createElement("div");
+
+    card.className =
+        "hero-card";
+
 
     card.innerHTML = `
+
         <img
             src="${hero.img}"
             alt="${hero.name}"
             loading="lazy"
         >
+
         <div class="hero-card-name">
             ${hero.name}
         </div>
+
     `;
+
 
     card.onclick = ()=>{
         openHero(hero);
     };
 
+
     heroGrid.appendChild(card);
+
 });
 
 
-/* ================= RANDOM HERO ================= */
+/* ================================================= */
+/* RANDOM HERO */
+/* ================================================= */
 
 let lastHero = null;
+
 
 function randomHero(){
 
     let hero;
 
+
     do{
-        hero = heroes[Math.floor(Math.random() * heroes.length)];
-    }while(heroes.length > 1 && hero === lastHero);
+
+        hero =
+            heroes[
+                Math.floor(
+                    Math.random() *
+                    heroes.length
+                )
+            ];
+
+    }while(
+        heroes.length > 1 &&
+        hero === lastHero
+    );
+
 
     lastHero = hero;
 
-    const image = document.getElementById("randomImage");
-    const name = document.getElementById("randomName");
+
+    const image =
+        document.getElementById("randomImage");
+
+
+    const name =
+        document.getElementById("randomName");
+
 
     image.style.opacity = "0";
+
 
     setTimeout(()=>{
 
         image.src = hero.img;
+
         image.alt = hero.name;
-        name.textContent = hero.name;
+
+        name.textContent =
+            hero.name;
+
 
         image.onload = ()=>{
+
             image.style.opacity = "1";
+
         };
 
+
         if(image.complete){
+
             image.style.opacity = "1";
+
         }
 
     },120);
 
-    if(tg && tg.HapticFeedback){
-        tg.HapticFeedback.impactOccurred('medium');
+
+    if(
+        tg &&
+        tg.HapticFeedback
+    ){
+
+        tg.HapticFeedback
+            .impactOccurred('medium');
+
     }
+
 }
 
 
-/* ================= MODAL ================= */
+/* ================================================= */
+/* COUNTERPICKS */
+/* ================================================= */
+
+const counters = {
+
+    "ABADDON":[
+        "ANCIENT APPARITION",
+        "AXE",
+        "NECROPHOS"
+    ],
+
+    "ALCHEMIST":[
+        "ANTI-MAGE",
+        "AXE",
+        "NECROPHOS"
+    ],
+
+    "ANTI-MAGE":[
+        "AXE",
+        "LEGION COMMANDER",
+        "BLOODSEEKER"
+    ],
+
+    "AXE":[
+        "URSA",
+        "VENOMANCER",
+        "VIPER"
+    ],
+
+    "BLOODSEEKER":[
+        "PHANTOM LANCER",
+        "AXE",
+        "OMNIKNIGHT"
+    ],
+
+    "BRISTLEBACK":[
+        "VIPER",
+        "NECROPHOS",
+        "AXE"
+    ],
+
+    "BROODMOTHER":[
+        "AXE",
+        "LEGION COMMANDER",
+        "EMBER SPIRIT"
+    ],
+
+    "CENTAUR WARRUNNER":[
+        "URSA",
+        "NECROPHOS",
+        "VIPER"
+    ],
+
+    "DROW RANGER":[
+        "PHANTOM ASSASSIN",
+        "SPIRIT BREAKER",
+        "TINY"
+    ],
+
+    "INVOKER":[
+        "ANTI-MAGE",
+        "SILENCER",
+        "NYX ASSASSIN"
+    ],
+
+    "JUGGERNAUT":[
+        "AXE",
+        "PHANTOM LANCER",
+        "NECROPHOS"
+    ],
+
+    "LINA":[
+        "ANTI-MAGE",
+        "NYX ASSASSIN",
+        "PUCK"
+    ],
+
+    "LION":[
+        "ANTI-MAGE",
+        "NYX ASSASSIN",
+        "SILENCER"
+    ],
+
+    "MARCI":[
+        "AXE",
+        "DISRUPTOR",
+        "PHANTOM LANCER"
+    ],
+
+    "MEEPO":[
+        "EARTHSHAKER",
+        "WINTER WYVERN",
+        "LION"
+    ],
+
+    "MORPHLING":[
+        "ANCIENT APPARITION",
+        "AXE",
+        "LION"
+    ],
+
+    "NAGA SIREN":[
+        "EMBER SPIRIT",
+        "AXE",
+        "SHADOW FIEND"
+    ],
+
+    "NECROPHOS":[
+        "ANTI-MAGE",
+        "LEGION COMMANDER",
+        "ANCIENT APPARITION"
+    ],
+
+    "PHANTOM ASSASSIN":[
+        "AXE",
+        "OMNIKNIGHT",
+        "SPECTRE"
+    ],
+
+    "PHANTOM LANCER":[
+        "AXE",
+        "SVEN",
+        "EMBER SPIRIT"
+    ],
+
+    "PUDGE":[
+        "NECROPHOS",
+        "DROW RANGER",
+        "RAZOR"
+    ],
+
+    "PUCK":[
+        "DOOM",
+        "NYX ASSASSIN",
+        "SILENCER"
+    ],
+
+    "QUEEN OF PAIN":[
+        "ANTI-MAGE",
+        "PUCK",
+        "SILENCER"
+    ],
+
+    "RAZOR":[
+        "ANTI-MAGE",
+        "PHANTOM LANCER",
+        "DROW RANGER"
+    ],
+
+    "RUBICK":[
+        "NYX ASSASSIN",
+        "ANTI-MAGE",
+        "SILENCER"
+    ],
+
+    "SLARK":[
+        "AXE",
+        "BLOODSEEKER",
+        "LEGION COMMANDER"
+    ],
+
+    "SPECTRE":[
+        "ANTI-MAGE",
+        "VIPER",
+        "NECROPHOS"
+    ],
+
+    "STORM SPIRIT":[
+        "ANTI-MAGE",
+        "SILENCER",
+        "NYX ASSASSIN"
+    ],
+
+    "SVEN":[
+        "PHANTOM LANCER",
+        "URSA",
+        "TIMBERSAW"
+    ],
+
+    "TERRORBLADE":[
+        "PHANTOM LANCER",
+        "LION",
+        "AXE"
+    ],
+
+    "TIMBERSAW":[
+        "VIPER",
+        "URSA",
+        "NECROPHOS"
+    ],
+
+    "TROLL WARLORD":[
+        "PHANTOM LANCER",
+        "AXE",
+        "VENOMANCER"
+    ],
+
+    "UNDERLORD":[
+        "URSA",
+        "LIFESTEALER",
+        "VIPER"
+    ],
+
+    "WITCH DOCTOR":[
+        "SILENCER",
+        "NYX ASSASSIN",
+        "RUBICK"
+    ],
+
+    "ZEUS":[
+        "ANTI-MAGE",
+        "NYX ASSASSIN",
+        "STORM SPIRIT"
+    ]
+
+};
+
+
+/* ================================================= */
+/* COUNTERPICK SELECT */
+/* ================================================= */
+
+const counterSelect =
+    document.getElementById(
+        "counterSelect"
+    );
+
+
+heroes.forEach(hero=>{
+
+    const option =
+        document.createElement("option");
+
+
+    option.value =
+        hero.name;
+
+
+    option.textContent =
+        hero.name;
+
+
+    counterSelect.appendChild(
+        option
+    );
+
+});
+
+
+/* ================================================= */
+/* SHOW COUNTERS */
+/* ================================================= */
+
+function showCounters(){
+
+    const selected =
+        counterSelect.value;
+
+
+    const result =
+        document.getElementById(
+            "counterResult"
+        );
+
+
+    const container =
+        document.getElementById(
+            "counterHeroes"
+        );
+
+
+    if(!selected){
+
+        result.classList.remove(
+            "active"
+        );
+
+        container.innerHTML = "";
+
+        return;
+
+    }
+
+
+    let counterNames =
+        counters[selected];
+
+
+    /*
+       Если для героя ещё нет
+       отдельной базы контрпиков,
+       показываем 3 случайных героя.
+    */
+
+    if(!counterNames){
+
+        const randomCounters =
+            [...heroes]
+
+                .filter(hero =>
+                    hero.name !== selected
+                )
+
+                .sort(() =>
+                    Math.random() - 0.5
+                )
+
+                .slice(0,3);
+
+
+        counterNames =
+            randomCounters.map(
+                hero => hero.name
+            );
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    counterNames.forEach(
+        counterName => {
+
+            const hero =
+                heroes.find(
+                    h =>
+                    h.name.toUpperCase() ===
+                    counterName.toUpperCase()
+                );
+
+
+            if(!hero){
+                return;
+            }
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "hero-card";
+
+
+            card.innerHTML = `
+
+                <img
+                    src="${hero.img}"
+                    alt="${hero.name}"
+                    loading="lazy"
+                >
+
+                <div class="hero-card-name">
+                    ${hero.name}
+                </div>
+
+            `;
+
+
+            card.onclick = ()=>{
+                openHero(hero);
+            };
+
+
+            container.appendChild(card);
+
+        }
+    );
+
+
+    result.classList.add(
+        "active"
+    );
+
+
+    if(
+        tg &&
+        tg.HapticFeedback
+    ){
+
+        tg.HapticFeedback
+            .impactOccurred('light');
+
+    }
+
+}
+
+
+/* ================================================= */
+/* MODAL */
+/* ================================================= */
 
 function openHero(hero){
 
-    document.getElementById("modalImage").src = hero.img;
-    document.getElementById("modalImage").alt = hero.name;
-    document.getElementById("modalName").textContent = hero.name;
+    document.getElementById(
+        "modalImage"
+    ).src = hero.img;
 
-    document.getElementById("heroModal").classList.add("active");
 
-    if(tg && tg.HapticFeedback){
-        tg.HapticFeedback.impactOccurred('light');
+    document.getElementById(
+        "modalImage"
+    ).alt = hero.name;
+
+
+    document.getElementById(
+        "modalName"
+    ).textContent =
+        hero.name;
+
+
+    document.getElementById(
+        "heroModal"
+    ).classList.add(
+        "active"
+    );
+
+
+    if(
+        tg &&
+        tg.HapticFeedback
+    ){
+
+        tg.HapticFeedback
+            .impactOccurred('light');
+
     }
+
 }
+
 
 function closeHeroModal(){
-    document.getElementById("heroModal").classList.remove("active");
+
+    document.getElementById(
+        "heroModal"
+    ).classList.remove(
+        "active"
+    );
+
 }
+
 
 function closeModal(event){
-    if(event.target.id === "heroModal"){
+
+    if(
+        event.target.id ===
+        "heroModal"
+    ){
+
         closeHeroModal();
+
     }
+
 }
 
 
-/* ================= TELEGRAM PROFILE ================= */
+/* ================================================= */
+/* TELEGRAM PROFILE */
+/* ================================================= */
 
-if(tg && tg.initDataUnsafe && tg.initDataUnsafe.user){
+if(
+    tg &&
+    tg.initDataUnsafe &&
+    tg.initDataUnsafe.user
+){
 
-    const user = tg.initDataUnsafe.user;
+    const user =
+        tg.initDataUnsafe.user;
+
 
     const fullName =
-        [user.first_name,user.last_name]
+        [
+            user.first_name,
+            user.last_name
+        ]
         .filter(Boolean)
         .join(" ");
 
+
     if(fullName){
-        document.getElementById("profileName").textContent = fullName;
+
+        document.getElementById(
+            "profileName"
+        ).textContent =
+            fullName;
+
     }
 
+
     if(user.username){
-        document.getElementById("profileUsername").textContent =
+
+        document.getElementById(
+            "profileUsername"
+        ).textContent =
             "@" + user.username;
+
     }else{
-        document.getElementById("profileUsername").textContent =
+
+        document.getElementById(
+            "profileUsername"
+        ).textContent =
             "Telegram пользователь";
+
     }
+
 }
 
 
-/* ================= INITIAL ================= */
+/* ================================================= */
+/* INITIAL */
+/* ================================================= */
 
 randomHero();
 
