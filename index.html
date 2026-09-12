@@ -3,559 +3,656 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 <title>Roshan — Dota 2 Hub</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 <style>
 *{
-    box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
 
 body{
-    margin:0;
-    background:#080808;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
-    min-height:100vh;
-    padding-bottom:95px;
+  margin:0;
+  background:#080808;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  padding-bottom:95px;
 }
 
 button,
 select{
-    font-family:inherit;
+  font-family:inherit;
 }
 
 button{
-    -webkit-appearance:none;
+  border:0;
+  cursor:pointer;
 }
 
 .app{
-    max-width:600px;
-    margin:auto;
-    padding:18px 16px 30px;
+  max-width:600px;
+  margin:auto;
+  padding:16px;
 }
-
-/* ================= HEADER ================= */
-
-.header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:22px;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:9px;
-}
-
-.logo-icon{
-    width:38px;
-    height:38px;
-    border-radius:11px;
-    background:linear-gradient(145deg,#3a0909,#160707);
-    border:1px solid #552020;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:22px;
-}
-
-.logo-text{
-    font-size:23px;
-    font-weight:900;
-    letter-spacing:1px;
-}
-
-.logo-text span{
-    color:#d83232;
-}
-
-.profile-btn{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    border:1px solid #333;
-    background:#151515;
-    color:white;
-    font-size:18px;
-}
-
-/* ================= PAGES ================= */
 
 .page{
-    display:none;
+  display:none;
 }
 
 .page.active{
-    display:block;
+  display:block;
 }
 
-/* ================= HOME ================= */
+/* HEADER */
+
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:18px;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.logo span{
+  color:#d71920;
+}
+
+.profile-btn{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#151515;
+  border:1px solid #292929;
+  color:#fff;
+  font-size:20px;
+}
+
+/* HERO */
 
 .hero{
-    position:relative;
-    overflow:hidden;
-    min-height:245px;
-    border-radius:22px;
-    padding:25px 22px;
-
-    background:
-        radial-gradient(
-            circle at 85% 35%,
-            rgba(150,20,20,.35),
-            transparent 35%
-        ),
-        linear-gradient(145deg,#171717,#090909);
-
-    border:1px solid #3a1818;
-    margin-bottom:20px;
+  position:relative;
+  overflow:hidden;
+  min-height:230px;
+  padding:24px;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 85% 50%,rgba(215,25,32,.35),transparent 38%),
+    linear-gradient(135deg,#171717,#080808 65%);
+  border:1px solid #292929;
+  margin-bottom:18px;
 }
 
 .hero:after{
-    content:"🪨";
-    position:absolute;
-    right:-15px;
-    bottom:-32px;
-    font-size:145px;
-    opacity:.13;
-    transform:rotate(-8deg);
-    pointer-events:none;
+  content:"🪨";
+  position:absolute;
+  right:-5px;
+  bottom:-18px;
+  font-size:130px;
+  opacity:.13;
+  transform:rotate(-10deg);
 }
 
 .hero-content{
-    position:relative;
-    z-index:2;
-    max-width:390px;
+  position:relative;
+  z-index:2;
+  max-width:80%;
 }
 
-.version{
-    display:inline-block;
-    font-size:11px;
-    font-weight:800;
-    color:#ff5555;
-    background:#260d0d;
-    border:1px solid #4b1919;
-    padding:7px 10px;
-    border-radius:8px;
-    margin-bottom:15px;
+.hero-tag{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:8px;
+  background:#281012;
+  color:#e33;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:12px;
 }
 
 .hero h1{
-    font-size:30px;
-    line-height:1.05;
-    margin:0 0 12px;
+  font-size:28px;
+  line-height:1.05;
+  margin:0 0 10px;
 }
 
 .hero p{
-    color:#999;
-    font-size:14px;
-    line-height:1.5;
-    margin:0 0 19px;
+  color:#999;
+  font-size:13px;
+  line-height:1.5;
+  margin:0 0 18px;
 }
 
-.meta-btn{
-    border:none;
-    background:linear-gradient(135deg,#e33434,#9d1717);
-    color:#fff;
-    font-weight:800;
-    padding:13px 17px;
-    border-radius:12px;
-    font-size:13px;
+.red-btn{
+  background:#d71920;
+  color:#fff;
+  padding:12px 17px;
+  border-radius:12px;
+  font-weight:800;
 }
 
-/* ================= QUICK ACCESS ================= */
+/* QUICK */
 
 .section-title{
-    font-size:17px;
-    font-weight:900;
-    margin:22px 0 12px;
+  font-size:17px;
+  font-weight:900;
+  margin:22px 0 12px;
 }
 
 .quick-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:11px;
 }
 
 .quick-card{
-    position:relative;
-    min-height:115px;
-    padding:17px;
-    border-radius:17px;
-    background:#111;
-    border:1px solid #282828;
-    overflow:hidden;
-    text-align:left;
-    color:white;
+  min-height:100px;
+  text-align:left;
+  padding:17px;
+  border-radius:17px;
+  color:#fff;
+  background:#111;
+  border:1px solid #242424;
+  transition:.15s;
 }
 
 .quick-card:active{
-    transform:scale(.98);
+  transform:scale(.97);
 }
 
 .quick-icon{
-    font-size:27px;
-    margin-bottom:12px;
+  font-size:27px;
+  margin-bottom:10px;
 }
 
-.quick-card h3{
-    margin:0 0 5px;
-    font-size:15px;
+.quick-name{
+  font-weight:900;
+  font-size:15px;
 }
 
-.quick-card p{
-    margin:0;
-    color:#777;
-    font-size:11px;
+.quick-desc{
+  color:#777;
+  font-size:11px;
+  margin-top:4px;
 }
 
-/* ================= DAILY ================= */
+/* DAILY */
 
 .daily{
-    margin-top:20px;
-    background:linear-gradient(145deg,#151010,#0d0d0d);
-    border:1px solid #352020;
-    border-radius:17px;
-    padding:18px;
+  margin-top:14px;
+  padding:17px;
+  border-radius:17px;
+  background:linear-gradient(135deg,#151515,#0e0e0e);
+  border:1px solid #292929;
 }
 
-.daily-top{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:9px;
+.daily-title{
+  font-weight:900;
+  margin-bottom:7px;
 }
 
-.daily-icon{
-    font-size:25px;
+.daily-text{
+  color:#888;
+  font-size:13px;
+  line-height:1.45;
 }
 
-.daily h3{
-    margin:0;
-    font-size:15px;
+/* META */
+
+.meta-header{
+  margin-bottom:16px;
 }
 
-.daily p{
-    margin:0;
-    color:#888;
-    font-size:13px;
-    line-height:1.45;
+.meta-header h2{
+  margin:0;
+  font-size:25px;
 }
 
-/* ================= META ================= */
-
-.meta-card{
-    background:#111;
-    border:1px solid #292929;
-    border-radius:19px;
-    padding:17px;
-    margin-bottom:13px;
+.meta-sub{
+  color:#777;
+  font-size:12px;
+  margin-top:6px;
 }
 
-.meta-title{
-    font-size:17px;
-    font-weight:900;
-    margin-bottom:15px;
+.patch-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-top:12px;
+  padding:8px 11px;
+  border-radius:10px;
+  background:#1c0b0d;
+  border:1px solid #482024;
+  color:#e0444a;
+  font-size:11px;
+  font-weight:800;
 }
 
-.meta-heroes{
-    display:flex;
-    gap:10px;
+.role-tabs{
+  display:flex;
+  gap:7px;
+  overflow-x:auto;
+  padding-bottom:5px;
+  margin-bottom:15px;
+  scrollbar-width:none;
 }
 
-.meta-hero{
-    flex:1;
-    overflow:hidden;
-    border-radius:13px;
-    background:#181818;
+.role-tabs::-webkit-scrollbar{
+  display:none;
 }
 
-.meta-hero img{
-    width:100%;
-    display:block;
-    aspect-ratio:16/9;
-    object-fit:cover;
+.role-tab{
+  flex:0 0 auto;
+  padding:10px 13px;
+  border-radius:11px;
+  background:#111;
+  color:#888;
+  border:1px solid #252525;
+  font-size:12px;
+  font-weight:800;
+}
+
+.role-tab.active{
+  color:#fff;
+  background:#c9161d;
+  border-color:#c9161d;
+}
+
+.meta-info{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:13px 14px;
+  margin-bottom:12px;
+  background:#101010;
+  border:1px solid #222;
+  border-radius:14px;
+}
+
+.meta-info-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.meta-info-icon{
+  width:35px;
+  height:35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:#1d0b0d;
+  font-size:17px;
+}
+
+.meta-info-title{
+  font-size:12px;
+  font-weight:800;
+}
+
+.meta-info-sub{
+  margin-top:3px;
+  color:#666;
+  font-size:10px;
+}
+
+.meta-source{
+  color:#666;
+  font-size:9px;
+  text-align:right;
+}
+
+.meta-list{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.meta-item{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:10px;
+  border-radius:15px;
+  background:#101010;
+  border:1px solid #242424;
+}
+
+.meta-rank{
+  width:24px;
+  text-align:center;
+  color:#666;
+  font-size:12px;
+  font-weight:900;
+}
+
+.meta-avatar{
+  width:53px;
+  height:38px;
+  object-fit:cover;
+  border-radius:8px;
+  background:#181818;
+}
+
+.meta-main{
+  flex:1;
+  min-width:0;
 }
 
 .meta-name{
-    padding:9px 7px;
-    font-size:10px;
-    font-weight:800;
-    text-align:center;
+  font-size:13px;
+  font-weight:900;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-/* ================= RANDOM ================= */
+.meta-stats{
+  display:flex;
+  gap:10px;
+  margin-top:5px;
+  color:#666;
+  font-size:9px;
+}
+
+.meta-rating{
+  min-width:42px;
+  text-align:right;
+}
+
+.meta-rating-number{
+  font-size:14px;
+  font-weight:900;
+  color:#eee;
+}
+
+.meta-rating-label{
+  color:#555;
+  font-size:8px;
+  margin-top:2px;
+}
+
+.meta-role-card{
+  margin-top:18px;
+  padding:15px;
+  border-radius:17px;
+  background:linear-gradient(135deg,#151515,#0c0c0c);
+  border:1px solid #252525;
+}
+
+.meta-role-title{
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:4px;
+}
+
+.meta-role-description{
+  color:#666;
+  font-size:11px;
+  line-height:1.4;
+}
+
+/* RANDOM */
 
 .random-box{
-    background:#111;
-    border:1px solid #2b2b2b;
-    border-radius:20px;
-    padding:15px;
-    text-align:center;
+  text-align:center;
 }
 
 .random-image{
-    width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-    border-radius:15px;
-    display:block;
-    margin-bottom:14px;
-    transition:opacity .18s ease;
-    background:#181818;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:18px;
+  background:#111;
+  transition:opacity .15s;
+  border:1px solid #292929;
 }
 
 .random-name{
-    font-size:22px;
-    font-weight:900;
-    letter-spacing:1px;
-    margin-bottom:15px;
+  margin:15px 0;
+  font-size:23px;
+  font-weight:900;
 }
 
-.random-btn{
-    width:100%;
-    border:0;
-    border-radius:13px;
-    padding:15px;
-    background:linear-gradient(135deg,#e33434,#941515);
-    color:white;
-    font-weight:900;
-    font-size:14px;
+.random-button{
+  width:100%;
+  padding:15px;
+  border-radius:14px;
+  background:#d71920;
+  color:#fff;
+  font-size:14px;
+  font-weight:900;
 }
 
-/* ================= GUIDES ================= */
-
-.guides-title{
-    margin-bottom:15px;
-}
+/* GUIDES */
 
 .hero-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:9px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
 }
 
 .hero-card{
-    background:#111;
-    border:1px solid #252525;
-    border-radius:12px;
-    overflow:hidden;
-    cursor:pointer;
-}
-
-.hero-card:active{
-    transform:scale(.97);
+  overflow:hidden;
+  background:#111;
+  border:1px solid #232323;
+  border-radius:12px;
 }
 
 .hero-card img{
-    width:100%;
-    display:block;
-    aspect-ratio:1.45;
-    object-fit:cover;
+  width:100%;
+  aspect-ratio:1.35;
+  object-fit:cover;
+  display:block;
 }
 
 .hero-card-name{
-    font-size:9px;
-    font-weight:800;
-    text-align:center;
-    padding:8px 3px;
-    color:#ddd;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+  padding:8px 5px;
+  font-size:9px;
+  font-weight:800;
+  text-align:center;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-/* ================= COUNTERPICK ================= */
+/* COUNTER */
+
+.counter-title{
+  margin:0 0 6px;
+  font-size:25px;
+}
+
+.counter-sub{
+  color:#777;
+  font-size:12px;
+  margin-bottom:17px;
+}
 
 .counter-select{
-    width:100%;
-    padding:14px;
-    border-radius:13px;
-    border:1px solid #333;
-    background:#181818;
-    color:white;
-    font-size:14px;
-    font-weight:700;
-    outline:none;
-}
-
-.counter-select:focus{
-    border-color:#8d2929;
+  width:100%;
+  padding:14px;
+  border-radius:13px;
+  border:1px solid #292929;
+  background:#111;
+  color:#fff;
+  outline:none;
+  margin-bottom:15px;
 }
 
 .counter-result{
-    display:none;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
 }
 
-.counter-result.active{
-    display:block;
+.counter-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:11px;
+  background:#111;
+  border:1px solid #242424;
+  border-radius:14px;
 }
 
-.counter-description{
-    color:#777;
-    font-size:12px;
-    line-height:1.4;
-    margin-top:-5px;
-    margin-bottom:15px;
+.counter-card img{
+  width:65px;
+  height:45px;
+  object-fit:cover;
+  border-radius:8px;
 }
 
-/* ================= MODAL ================= */
+.counter-card-name{
+  font-size:13px;
+  font-weight:900;
+}
+
+/* MODAL */
 
 .modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.78);
-    display:none;
-    align-items:flex-end;
-    z-index:100;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:flex-end;
+  z-index:100;
 }
 
 .modal.active{
-    display:flex;
+  display:flex;
 }
 
 .modal-content{
-    width:100%;
-    max-width:600px;
-    margin:auto;
-    background:#111;
-    border:1px solid #333;
-    border-bottom:0;
-    border-radius:24px 24px 0 0;
-    padding:18px;
-    animation:slideUp .2s ease;
+  width:100%;
+  max-width:600px;
+  margin:auto;
+  background:#111;
+  border:1px solid #292929;
+  border-bottom:0;
+  border-radius:24px 24px 0 0;
+  padding:16px;
+  animation:slideUp .2s ease;
 }
 
 @keyframes slideUp{
-    from{
-        transform:translateY(100%);
-    }
+  from{transform:translateY(100%)}
+  to{transform:translateY(0)}
+}
 
-    to{
-        transform:translateY(0);
-    }
+.modal-close{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  background:#202020;
+  color:#fff;
+  font-weight:800;
+  margin-top:12px;
 }
 
 .modal-image{
-    width:100%;
-    border-radius:17px;
-    display:block;
+  width:100%;
+  border-radius:15px;
+  display:block;
 }
 
 .modal-name{
-    text-align:center;
-    font-size:22px;
-    font-weight:900;
-    margin:15px 0;
+  text-align:center;
+  font-size:20px;
+  font-weight:900;
+  margin-top:12px;
 }
 
-.close-btn{
-    width:100%;
-    border:1px solid #333;
-    background:#1b1b1b;
-    color:white;
-    border-radius:13px;
-    padding:13px;
-    font-weight:800;
-}
-
-/* ================= PROFILE ================= */
+/* PROFILE */
 
 .profile-card{
-    background:#111;
-    border:1px solid #292929;
-    border-radius:20px;
-    padding:25px 18px;
-    text-align:center;
+  padding:24px;
+  text-align:center;
+  border-radius:20px;
+  background:#111;
+  border:1px solid #292929;
 }
 
 .profile-avatar{
-    width:75px;
-    height:75px;
-    margin:auto auto 14px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#1c1c1c;
-    border:2px solid #492020;
-    font-size:38px;
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#1a1a1a;
+  font-size:42px;
 }
 
 .profile-name{
-    font-size:20px;
-    font-weight:900;
-    margin-bottom:6px;
+  margin-top:14px;
+  font-size:20px;
+  font-weight:900;
 }
 
 .profile-username{
-    color:#777;
-    font-size:13px;
+  color:#666;
+  font-size:12px;
+  margin-top:5px;
 }
 
-/* ================= BOTTOM NAV ================= */
+/* BOTTOM NAV */
 
 .bottom-nav{
-    position:fixed;
-    left:50%;
-    bottom:13px;
-    transform:translateX(-50%);
-    width:calc(100% - 24px);
-    max-width:570px;
-    background:rgba(17,17,17,.96);
-    border:1px solid #303030;
-    border-radius:19px;
-    padding:7px;
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    z-index:50;
-    box-shadow:0 8px 30px rgba(0,0,0,.45);
+  position:fixed;
+  left:50%;
+  bottom:12px;
+  transform:translateX(-50%);
+  width:calc(100% - 24px);
+  max-width:580px;
+  height:65px;
+  padding:7px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:4px;
+  background:rgba(17,17,17,.96);
+  border:1px solid #292929;
+  border-radius:20px;
+  backdrop-filter:blur(15px);
+  z-index:50;
 }
 
 .nav-btn{
-    border:0;
-    background:transparent;
-    color:#777;
-    padding:7px 3px;
-    border-radius:13px;
-    font-size:20px;
+  background:transparent;
+  color:#666;
+  border-radius:14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:4px;
+  font-size:10px;
+  font-weight:800;
 }
 
-.nav-btn span{
-    display:block;
-    font-size:9px;
-    margin-top:3px;
+.nav-btn .nav-icon{
+  font-size:18px;
 }
 
 .nav-btn.active{
-    color:#fff;
-    background:#281111;
+  background:#231012;
+  color:#e13b42;
 }
 
-/* ================= DESKTOP ================= */
+/* DESKTOP */
 
-@media(min-width:700px){
-
-    .hero-grid{
-        grid-template-columns:repeat(4,1fr);
-    }
-
-}
-
-/* ================= SCROLLBAR ================= */
-
-::-webkit-scrollbar{
-    width:4px;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#333;
-    border-radius:5px;
+@media(min-width:601px){
+  .hero-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
 }
 </style>
 </head>
@@ -564,1461 +661,1168 @@ button{
 
 <div class="app">
 
-<!-- ================================================= -->
 <!-- HOME -->
-<!-- ================================================= -->
-
 <section id="home" class="page active">
 
-    <div class="header">
+  <div class="header">
+    <div class="logo">🪨 ROSH<span>AN</span></div>
+    <button class="profile-btn" onclick="showPage('profile')">👤</button>
+  </div>
 
-        <div class="logo">
-
-            <div class="logo-icon">
-                🪨
-            </div>
-
-            <div class="logo-text">
-                ROSH<span>AN</span>
-            </div>
-
-        </div>
-
-        <button
-            class="profile-btn"
-            onclick="showPage('profile')"
-        >
-            👤
-        </button>
-
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">DOTA 2 • 7.41e</div>
+      <h1>Добро пожаловать<br>в Roshan</h1>
+      <p>
+        Твоя компактная база по Dota 2:
+        мета, рандомные герои, гайды и контрпики.
+      </p>
+      <button class="red-btn" onclick="showPage('meta')">
+        🔥 Смотреть мету
+      </button>
     </div>
+  </div>
 
+  <div class="section-title">Быстрый доступ</div>
 
-    <div class="hero">
+  <div class="quick-grid">
 
-        <div class="hero-content">
+    <button class="quick-card" onclick="showPage('meta')">
+      <div class="quick-icon">🔥</div>
+      <div class="quick-name">Мета</div>
+      <div class="quick-desc">Сильнейшие герои</div>
+    </button>
 
-            <div class="version">
-                DOTA 2 • 7.41b
-            </div>
+    <button class="quick-card" onclick="showPage('random')">
+      <div class="quick-icon">🎲</div>
+      <div class="quick-name">Рандом</div>
+      <div class="quick-desc">Случайный герой</div>
+    </button>
 
-            <h1>
-                Добро пожаловать<br>
-                в Roshan
-            </h1>
+    <button class="quick-card" onclick="showPage('guides')">
+      <div class="quick-icon">📖</div>
+      <div class="quick-name">Гайды</div>
+      <div class="quick-desc">Все герои</div>
+    </button>
 
-            <p>
-                Всё самое интересное о Dota 2 —
-                мета, герои, гайды и случайные пики.
-            </p>
+    <button class="quick-card" onclick="showPage('counter')">
+      <div class="quick-icon">⚔️</div>
+      <div class="quick-name">Контрпик</div>
+      <div class="quick-desc">Чем ответить герою</div>
+    </button>
 
-            <button
-                class="meta-btn"
-                onclick="showPage('meta')"
-            >
-                🔥 Смотреть мету
-            </button>
+  </div>
 
-        </div>
-
+  <div class="daily">
+    <div class="daily-title">🔥 Задание дня</div>
+    <div class="daily-text">
+      Сегодня попробуй сыграть на Techies и выиграть игру,
+      используя необычный билд.
     </div>
-
-
-    <div class="section-title">
-        Быстрый доступ
-    </div>
-
-
-    <div class="quick-grid">
-
-        <button
-            class="quick-card"
-            onclick="showPage('meta')"
-        >
-
-            <div class="quick-icon">
-                🔥
-            </div>
-
-            <h3>
-                Мета
-            </h3>
-
-            <p>
-                Актуальные герои
-            </p>
-
-        </button>
-
-
-        <button
-            class="quick-card"
-            onclick="showPage('random')"
-        >
-
-            <div class="quick-icon">
-                🎲
-            </div>
-
-            <h3>
-                Рандом
-            </h3>
-
-            <p>
-                Случайный герой
-            </p>
-
-        </button>
-
-
-        <button
-            class="quick-card"
-            onclick="showPage('guides')"
-        >
-
-            <div class="quick-icon">
-                📖
-            </div>
-
-            <h3>
-                Гайды
-            </h3>
-
-            <p>
-                Все герои Dota 2
-            </p>
-
-        </button>
-
-
-        <!-- ТОЛЬКО ЗДЕСЬ ИЗМЕНЕНО -->
-        <button
-            class="quick-card"
-            onclick="showPage('counter')"
-        >
-
-            <div class="quick-icon">
-                ⚔️
-            </div>
-
-            <h3>
-                Контрпик
-            </h3>
-
-            <p>
-                Выбери героя
-            </p>
-
-        </button>
-
-    </div>
-
-
-    <div class="daily">
-
-        <div class="daily-top">
-
-            <div class="daily-icon">
-                🎯
-            </div>
-
-            <h3>
-                Задание дня
-            </h3>
-
-        </div>
-
-        <p>
-            Сегодня сыграй игру на Techies и попробуй
-            сделать минимум 10 убийств.
-        </p>
-
-    </div>
+  </div>
 
 </section>
 
 
-<!-- ================================================= -->
 <!-- META -->
-<!-- ================================================= -->
-
 <section id="meta" class="page">
 
-    <div class="header">
+  <div class="meta-header">
+    <h2>Мета</h2>
 
-        <div class="logo">
+    <div class="meta-sub">
+      Актуальная статистика сильнейших героев
+    </div>
 
-            <div class="logo-icon">
-                🔥
-            </div>
+    <div class="patch-badge">
+      🔴 PATCH 7.41e
+      <span>•</span>
+      7000+ MMR
+    </div>
+  </div>
 
-            <div class="logo-text">
-                МЕТА
-            </div>
+  <div class="role-tabs">
 
+    <button class="role-tab active" onclick="setMetaRole('all',this)">
+      Все
+    </button>
+
+    <button class="role-tab" onclick="setMetaRole('carry',this)">
+      Керри
+    </button>
+
+    <button class="role-tab" onclick="setMetaRole('mid',this)">
+      Мид
+    </button>
+
+    <button class="role-tab" onclick="setMetaRole('offlane',this)">
+      Оффлейн
+    </button>
+
+    <button class="role-tab" onclick="setMetaRole('support',this)">
+      Саппорт
+    </button>
+
+    <button class="role-tab" onclick="setMetaRole('hardSupport',this)">
+      Хард-саппорт
+    </button>
+
+  </div>
+
+  <div class="meta-info">
+
+    <div class="meta-info-left">
+
+      <div class="meta-info-icon">
+        📊
+      </div>
+
+      <div>
+        <div class="meta-info-title" id="metaRoleTitle">
+          Лучшие герои
         </div>
+
+        <div class="meta-info-sub" id="metaRoleSub">
+          Последние 8 дней
+        </div>
+      </div>
 
     </div>
 
-
-    <div class="meta-card">
-
-        <div class="meta-title">
-            🔥 Популярный пик
-        </div>
-
-
-        <div class="meta-heroes">
-
-            <div class="meta-hero">
-
-                <img
-                    src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png"
-                    alt="Pudge"
-                >
-
-                <div class="meta-name">
-                    PUDGE
-                </div>
-
-            </div>
-
-
-            <div class="meta-hero">
-
-                <img
-                    src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png"
-                    alt="Invoker"
-                >
-
-                <div class="meta-name">
-                    INVOKER
-                </div>
-
-            </div>
-
-
-            <div class="meta-hero">
-
-                <img
-                    src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png"
-                    alt="Juggernaut"
-                >
-
-                <div class="meta-name">
-                    JUGGERNAUT
-                </div>
-
-            </div>
-
-        </div>
-
+    <div class="meta-source">
+      D2PT<br>
+      LIVE DATA
     </div>
 
+  </div>
 
-    <div class="meta-card">
+  <div id="metaList" class="meta-list"></div>
 
-        <div class="meta-title">
-            📊 Патч 7.41b
-        </div>
+  <div class="meta-role-card">
 
-        <p style="
-            color:#888;
-            font-size:13px;
-            line-height:1.5;
-            margin:0;
-        ">
-            Следи за изменениями героев и выбирай
-            сильнейшие пики для своих игр.
-        </p>
-
+    <div class="meta-role-title">
+      💡 Как читать мету
     </div>
+
+    <div class="meta-role-description">
+      Чем выше D2PT Rating и винрейт героя,
+      тем сильнее его текущая позиция в высоком рейтинге.
+      При выборе героя также учитывай состав своей команды
+      и матчапы.
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- ================================================= -->
 <!-- RANDOM -->
-<!-- ================================================= -->
-
 <section id="random" class="page">
 
-    <div class="header">
+  <div class="section-title">🎲 Случайный герой</div>
 
-        <div class="logo">
+  <div class="random-box">
 
-            <div class="logo-icon">
-                🎲
-            </div>
+    <img
+      id="randomImage"
+      class="random-image"
+      src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png"
+      alt="PUDGE"
+    >
 
-            <div class="logo-text">
-                РАНДОМ
-            </div>
-
-        </div>
-
+    <div id="randomName" class="random-name">
+      PUDGE
     </div>
 
+    <button class="random-button" onclick="randomHero()">
+      🎲 СЛУЧАЙНЫЙ ГЕРОЙ
+    </button>
 
-    <div class="random-box">
-
-        <img
-            id="randomImage"
-            class="random-image"
-            src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png"
-            alt="Random hero"
-        >
-
-
-        <div
-            id="randomName"
-            class="random-name"
-        >
-            PUDGE
-        </div>
-
-
-        <button
-            class="random-btn"
-            onclick="randomHero()"
-        >
-            🎲 СЛУЧАЙНЫЙ ГЕРОЙ
-        </button>
-
-    </div>
+  </div>
 
 </section>
 
 
-<!-- ================================================= -->
 <!-- GUIDES -->
-<!-- ================================================= -->
-
 <section id="guides" class="page">
 
-    <div class="header">
+  <div class="section-title">
+    📖 Гайды
+  </div>
 
-        <div class="logo">
+  <div class="meta-sub" style="margin-bottom:15px;">
+    Выбери героя
+  </div>
 
-            <div class="logo-icon">
-                📖
-            </div>
-
-            <div class="logo-text">
-                ГАЙДЫ
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="section-title guides-title">
-        Все герои
-    </div>
-
-
-    <div
-        id="heroGrid"
-        class="hero-grid"
-    ></div>
+  <div id="heroGrid" class="hero-grid"></div>
 
 </section>
 
 
-<!-- ================================================= -->
-<!-- COUNTERPICK -->
-<!-- ================================================= -->
-
+<!-- COUNTER -->
 <section id="counter" class="page">
 
-    <div class="header">
+  <h2 class="counter-title">
+    ⚔️ Контрпик
+  </h2>
 
-        <div class="logo">
+  <div class="counter-sub">
+    Выбери героя, против которого хочешь подобрать ответ.
+  </div>
 
-            <div class="logo-icon">
-                ⚔️
-            </div>
+  <select id="counterSelect" class="counter-select"
+    onchange="showCounters()">
+  </select>
 
-            <div class="logo-text">
-                КОНТРПИК
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="meta-card">
-
-        <div class="meta-title">
-            ⚔️ Выбери героя противника
-        </div>
-
-        <p class="counter-description">
-            Выбери героя, против которого хочешь подобрать контрпик.
-        </p>
-
-
-        <select
-            id="counterSelect"
-            class="counter-select"
-            onchange="showCounters()"
-        >
-
-            <option value="">
-                Выбери героя
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <div
-        id="counterResult"
-        class="counter-result"
-    >
-
-        <div class="section-title">
-            Лучшие контрпики
-        </div>
-
-        <div
-            id="counterHeroes"
-            class="hero-grid"
-        ></div>
-
-    </div>
+  <div id="counterResult" class="counter-result"></div>
 
 </section>
 
 
-<!-- ================================================= -->
 <!-- PROFILE -->
-<!-- ================================================= -->
-
 <section id="profile" class="page">
 
-    <div class="header">
+  <div class="section-title">
+    👤 Профиль
+  </div>
 
-        <div class="logo">
+  <div class="profile-card">
 
-            <div class="logo-icon">
-                ●
-            </div>
-
-            <div class="logo-text">
-                ПРОФИЛЬ
-            </div>
-
-        </div>
-
+    <div class="profile-avatar">
+      🪨
     </div>
 
-
-    <div class="profile-card">
-
-        <div class="profile-avatar">
-            🪨
-        </div>
-
-        <div
-            id="profileName"
-            class="profile-name"
-        >
-            Игрок
-        </div>
-
-        <div
-            id="profileUsername"
-            class="profile-username"
-        >
-            @telegram
-        </div>
-
+    <div id="profileName" class="profile-name">
+      Roshan User
     </div>
+
+    <div id="profileUsername" class="profile-username">
+      Telegram
+    </div>
+
+  </div>
 
 </section>
 
 </div>
 
 
-<!-- ================================================= -->
 <!-- MODAL -->
-<!-- ================================================= -->
+<div id="heroModal" class="modal">
 
-<div
-    id="heroModal"
-    class="modal"
-    onclick="closeModal(event)"
->
+  <div class="modal-content">
 
-    <div
-        class="modal-content"
-        onclick="event.stopPropagation()"
-    >
+    <img id="modalImage" class="modal-image">
 
-        <img
-            id="modalImage"
-            class="modal-image"
-            src=""
-            alt="Hero"
-        >
+    <div id="modalName" class="modal-name"></div>
 
-        <div
-            id="modalName"
-            class="modal-name"
-        ></div>
+    <button class="modal-close" onclick="closeModal()">
+      Закрыть
+    </button>
 
-        <button
-            class="close-btn"
-            onclick="closeHeroModal()"
-        >
-            Закрыть
-        </button>
-
-    </div>
+  </div>
 
 </div>
 
 
-<!-- ================================================= -->
 <!-- BOTTOM NAV -->
-<!-- ================================================= -->
-
 <nav class="bottom-nav">
 
-    <button
-        class="nav-btn active"
-        onclick="showPage('home',this)"
-    >
-        ⌂
-        <span>Главная</span>
-    </button>
+  <button class="nav-btn active" onclick="showPage('home',this)">
+    <div class="nav-icon">⌂</div>
+    Главная
+  </button>
 
+  <button class="nav-btn" onclick="showPage('meta',this)">
+    <div class="nav-icon">⚔</div>
+    Мета
+  </button>
 
-    <button
-        class="nav-btn"
-        onclick="showPage('meta',this)"
-    >
-        ⚔
-        <span>Мета</span>
-    </button>
+  <button class="nav-btn" onclick="showPage('random',this)">
+    <div class="nav-icon">🎲</div>
+    Рандом
+  </button>
 
+  <button class="nav-btn" onclick="showPage('guides',this)">
+    <div class="nav-icon">📖</div>
+    Гайды
+  </button>
 
-    <button
-        class="nav-btn"
-        onclick="showPage('random',this)"
-    >
-        🎲
-        <span>Рандом</span>
-    </button>
-
-
-    <button
-        class="nav-btn"
-        onclick="showPage('guides',this)"
-    >
-        📖
-        <span>Гайды</span>
-    </button>
-
-
-    <button
-        class="nav-btn"
-        onclick="showPage('profile',this)"
-    >
-        ●
-        <span>Профиль</span>
-    </button>
+  <button class="nav-btn" onclick="showPage('profile',this)">
+    <div class="nav-icon">●</div>
+    Профиль
+  </button>
 
 </nav>
 
 
 <script>
 
-/* ================================================= */
-/* TELEGRAM */
-/* ================================================= */
-
-const tg =
-    window.Telegram &&
-    window.Telegram.WebApp
-        ? window.Telegram.WebApp
-        : null;
-
+const tg = window.Telegram && Telegram.WebApp
+  ? Telegram.WebApp
+  : null;
 
 if(tg){
-
-    tg.ready();
-
-    tg.expand();
-
+  tg.ready();
+  tg.expand();
 }
 
 
-/* ================================================= */
-/* NAVIGATION */
-/* ================================================= */
+/* =========================
+   NAVIGATION
+========================= */
 
-function showPage(pageId,button){
+function showPage(page,btn){
 
-    document
-        .querySelectorAll('.page')
-        .forEach(page=>{
-            page.classList.remove('active');
-        });
+  document.querySelectorAll(".page")
+    .forEach(p=>p.classList.remove("active"));
 
+  document.getElementById(page)
+    .classList.add("active");
 
-    const page =
-        document.getElementById(pageId);
+  if(btn){
 
+    document.querySelectorAll(".nav-btn")
+      .forEach(b=>b.classList.remove("active"));
 
-    if(page){
-        page.classList.add('active');
-    }
+    btn.classList.add("active");
 
+  }else{
 
-    document
-        .querySelectorAll('.nav-btn')
-        .forEach(btn=>{
-            btn.classList.remove('active');
-        });
+    const navMap={
+      home:0,
+      meta:1,
+      random:2,
+      guides:3,
+      profile:4
+    };
 
+    if(navMap[page]!==undefined){
 
-    if(button){
+      document.querySelectorAll(".nav-btn")
+        .forEach(b=>b.classList.remove("active"));
 
-        button.classList.add('active');
-
-    }else{
-
-        const pages = [
-            'home',
-            'meta',
-            'random',
-            'guides',
-            'profile'
-        ];
-
-        const index =
-            pages.indexOf(pageId);
-
-
-        if(index !== -1){
-
-            const navButtons =
-                document.querySelectorAll('.nav-btn');
-
-
-            if(navButtons[index]){
-                navButtons[index].classList.add('active');
-            }
-
-        }
+      document.querySelectorAll(".nav-btn")
+        [navMap[page]]
+        .classList.add("active");
 
     }
 
+  }
 
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
-    });
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
-
-    if(
-        tg &&
-        tg.HapticFeedback
-    ){
-
-        tg.HapticFeedback
-            .impactOccurred('light');
-
-    }
-
+  if(tg && tg.HapticFeedback){
+    tg.HapticFeedback.selectionChanged();
+  }
 }
 
 
-/* ================================================= */
-/* HEROES */
-/* ================================================= */
+/* =========================
+   HEROES
+========================= */
 
-const heroes = [
+const heroes=[
 
-{name:"ABADDON",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/abaddon.png"},
-{name:"ALCHEMIST",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png"},
-{name:"ANCIENT APPARITION",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/ancient_apparition.png"},
-{name:"ANTI-MAGE",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png"},
-{name:"ARC WARDEN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/arc_warden.png"},
-{name:"AXE",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/axe.png"},
-{name:"BANE",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/bane.png"},
-{name:"BATRIDER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/batrider.png"},
-{name:"BEASTMASTER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/beastmaster.png"},
-{name:"BLOODSEEKER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/bloodseeker.png"},
-{name:"BOUNTY HUNTER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/bounty_hunter.png"},
-{name:"BREWMASTER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/brewmaster.png"},
-{name:"BRISTLEBACK",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/bristleback.png"},
-{name:"BROODMOTHER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/broodmother.png"},
-{name:"CENTAUR WARRUNNER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/centaur.png"},
-{name:"CHAOS KNIGHT",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/chaos_knight.png"},
-{name:"CHEN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/chen.png"},
-{name:"CLINKZ",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/clinkz.png"},
-{name:"CLOCKWERK",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/rattletrap.png"},
-{name:"CRYSTAL MAIDEN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/crystal_maiden.png"},
-{name:"DARK SEER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_seer.png"},
-{name:"DARK WILLOW",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_willow.png"},
-{name:"DAWNBREAKER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/dawnbreaker.png"},
-{name:"DAZZLE",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/dazzle.png"},
-{name:"DEATH PROPHET",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/death_prophet.png"},
-{name:"DISRUPTOR",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/disruptor.png"},
-{name:"DOOM",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/doom_bringer.png"},
-{name:"DRAGON KNIGHT",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/dragon_knight.png"},
-{name:"DROW RANGER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/drow_ranger.png"},
-{name:"EARTH SPIRIT",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/earth_spirit.png"},
-{name:"EARTHSHAKER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/earthshaker.png"},
-{name:"ELDER TITAN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/elder_titan.png"},
-{name:"EMBER SPIRIT",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/ember_spirit.png"},
-{name:"ENCHANTRESS",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/enchantress.png"},
-{name:"ENIGMA",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/enigma.png"},
-{name:"FACELESS VOID",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png"},
-{name:"GRIMSTROKE",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/grimstroke.png"},
-{name:"GYROCOPTER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/gyrocopter.png"},
-{name:"HOODWINK",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png"},
-{name:"HUSKAR",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/huskar.png"},
-{name:"INVOKER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png"},
-{name:"IO",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/wisp.png"},
-{name:"JAKIRO",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/jakiro.png"},
-{name:"JUGGERNAUT",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png"},
-{name:"KEEPER OF THE LIGHT",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/keeper_of_the_light.png"},
-{name:"KEZ",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/kez.png"},
-{name:"KUNKKA",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/kunkka.png"},
-{name:"LEGION COMMANDER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/legion_commander.png"},
-{name:"LESHRAC",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/leshrac.png"},
-{name:"LICH",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/lich.png"},
-{name:"LIFESTEALER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/life_stealer.png"},
-{name:"LINA",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/lina.png"},
-{name:"LION",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/lion.png"},
-{name:"LONE DRUID",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/lone_druid.png"},
-{name:"LUNA",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/luna.png"},
-{name:"LYCAN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/lycan.png"},
-{name:"MAGNUS",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/magnataur.png"},
-{name:"MARCI",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/marci.png"},
-{name:"MEDUSA",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/medusa.png"},
-{name:"MEEPO",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/meepo.png"},
-{name:"MIRANA",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png"},
-{name:"MONKEY KING",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/monkey_king.png"},
-{name:"MORPHLING",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/morphling.png"},
-{name:"MUERTA",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/muerta.png"},
-{name:"NAGA SIREN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/naga_siren.png"},
-{name:"NATURE'S PROPHET",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/furion.png"},
-{name:"NECROPHOS",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/necrolyte.png"},
-{name:"NIGHT STALKER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/night_stalker.png"},
-{name:"NYX ASSASSIN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/nyx_assassin.png"},
-{name:"OGRE MAGI",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/ogre_magi.png"},
-{name:"OMNIKNIGHT",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/omniknight.png"},
-{name:"ORACLE",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/oracle.png"},
-{name:"OUTWORLD DESTROYER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/obsidian_destroyer.png"},
-{name:"PANGOLIER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/pangolier.png"},
-{name:"PHANTOM ASSASSIN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png"},
-{name:"PHANTOM LANCER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_lancer.png"},
-{name:"PHOENIX",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/phoenix.png"},
-{name:"PRIMAL BEAST",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/primal_beast.png"},
-{name:"PUDGE",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png"},
-{name:"PUCK",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/puck.png"},
-{name:"PUGNA",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/pugna.png"},
-{name:"QUEEN OF PAIN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/queenofpain.png"},
-{name:"RAZOR",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/razor.png"},
-{name:"RIKI",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/riki.png"},
-{name:"RINGMASTER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/ringmaster.png"},
-{name:"RUBICK",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/rubick.png"},
-{name:"SAND KING",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/sand_king.png"},
-{name:"SHADOW DEMON",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/shadow_demon.png"},
-{name:"SHADOW FIEND",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/nevermore.png"},
-{name:"SHADOW SHAMAN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/shadow_shaman.png"},
-{name:"SILENCER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/silencer.png"},
-{name:"SKYWRATH MAGE",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/skywrath_mage.png"},
-{name:"SLARDAR",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/slardar.png"},
-{name:"SLARK",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/slark.png"},
-{name:"SNAPFIRE",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/snapfire.png"},
-{name:"SNIPER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/sniper.png"},
-{name:"SPECTRE",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/spectre.png"},
-{name:"SPIRIT BREAKER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png"},
-{name:"STORM SPIRIT",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/storm_spirit.png"},
-{name:"SVEN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png"},
-{name:"TEMPLAR ASSASSIN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/templar_assassin.png"},
-{name:"TERRORBLADE",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/terrorblade.png"},
-{name:"TECHIES",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/techies.png"},
-{name:"TIDEHUNTER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/tidehunter.png"},
-{name:"TIMBERSAW",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/shredder.png"},
-{name:"TINKER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/tinker.png"},
-{name:"TINY",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/tiny.png"},
-{name:"TREANT PROTECTOR",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png"},
-{name:"TROLL WARLORD",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/troll_warlord.png"},
-{name:"TUSK",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/tusk.png"},
-{name:"UNDERLORD",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/abyssal_underlord.png"},
-{name:"UNDYING",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/undying.png"},
-{name:"URSA",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/ursa.png"},
-{name:"VENGEFUL SPIRIT",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/vengefulspirit.png"},
-{name:"VENOMANCER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/venomancer.png"},
-{name:"VIPER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/viper.png"},
-{name:"VISAGE",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/visage.png"},
-{name:"VOID SPIRIT",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/void_spirit.png"},
-{name:"WARLOCK",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/warlock.png"},
-{name:"WEAVER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/weaver.png"},
-{name:"WINDRANGER",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/windrunner.png"},
-{name:"WINTER WYVERN",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/winter_wyvern.png"},
-{name:"WITCH DOCTOR",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/witch_doctor.png"},
-{name:"WRAITH KING",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/skeleton_king.png"},
-{name:"ZEUS",img:"https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/zuus.png"}
+{name:"ABADDON",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/abaddon.png"},
+{name:"ALCHEMIST",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png"},
+{name:"ANCIENT APPARITION",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ancient_apparition.png"},
+{name:"ANTI-MAGE",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png"},
+{name:"ARC WARDEN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/arc_warden.png"},
+{name:"AXE",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/axe.png"},
+{name:"BANE",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bane.png"},
+{name:"BATRIDER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/batrider.png"},
+{name:"BEASTMASTER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/beastmaster.png"},
+{name:"BLOODSEEKER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bloodseeker.png"},
+{name:"BOUNTY HUNTER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bounty_hunter.png"},
+{name:"BREWMASTER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/brewmaster.png"},
+{name:"BRISTLEBACK",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bristleback.png"},
+{name:"BROODMOTHER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/broodmother.png"},
+{name:"CENTAUR WARRUNNER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/centaur.png"},
+{name:"CHAOS KNIGHT",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/chaos_knight.png"},
+{name:"CHEN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/chen.png"},
+{name:"CLINKZ",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/clinkz.png"},
+{name:"CLOCKWERK",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/rattletrap.png"},
+{name:"CRYSTAL MAIDEN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crystal_maiden.png"},
+{name:"DARK SEER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_seer.png"},
+{name:"DARK WILLOW",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_willow.png"},
+{name:"DAWNBREAKER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dawnbreaker.png"},
+{name:"DAZZLE",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dazzle.png"},
+{name:"DEATH PROPHET",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/death_prophet.png"},
+{name:"DISRUPTOR",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/disruptor.png"},
+{name:"DOOM",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/doom_bringer.png"},
+{name:"DRAGON KNIGHT",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dragon_knight.png"},
+{name:"DROW RANGER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/drow_ranger.png"},
+{name:"EARTH SPIRIT",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/earth_spirit.png"},
+{name:"EARTHSHAKER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/earthshaker.png"},
+{name:"ELDER TITAN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/elder_titan.png"},
+{name:"EMBER SPIRIT",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ember_spirit.png"},
+{name:"ENCHANTRESS",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/enchantress.png"},
+{name:"ENIGMA",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/enigma.png"},
+{name:"FACELESS VOID",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png"},
+{name:"GRIMSTROKE",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/grimstroke.png"},
+{name:"GYROCOPTER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/gyrocopter.png"},
+{name:"HOODWINK",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png"},
+{name:"HUSKAR",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/huskar.png"},
+{name:"INVOKER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png"},
+{name:"IO",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/wisp.png"},
+{name:"JAKIRO",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/jakiro.png"},
+{name:"JUGGERNAUT",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png"},
+{name:"KEEPER OF THE LIGHT",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/keeper_of_the_light.png"},
+{name:"KEZ",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/kez.png"},
+{name:"KUNKKA",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/kunkka.png"},
+{name:"LEGION COMMANDER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/legion_commander.png"},
+{name:"LESHRAC",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/leshrac.png"},
+{name:"LICH",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lich.png"},
+{name:"LIFESTEALER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/life_stealer.png"},
+{name:"LINA",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lina.png"},
+{name:"LION",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lion.png"},
+{name:"LONE DRUID",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lone_druid.png"},
+{name:"LUNA",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/luna.png"},
+{name:"LYCAN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lycan.png"},
+{name:"MAGNUS",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/magnataur.png"},
+{name:"MARCI",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/marci.png"},
+{name:"MEDUSA",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/medusa.png"},
+{name:"MEEPO",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/meepo.png"},
+{name:"MIRANA",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png"},
+{name:"MONKEY KING",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/monkey_king.png"},
+{name:"MORPHLING",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/morphling.png"},
+{name:"MUERTA",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/muerta.png"},
+{name:"NAGA SIREN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/naga_siren.png"},
+{name:"NATURE'S PROPHET",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/furion.png"},
+{name:"NECROPHOS",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/necrolyte.png"},
+{name:"NIGHT STALKER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/night_stalker.png"},
+{name:"NYX ASSASSIN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nyx_assassin.png"},
+{name:"OGRE MAGI",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ogre_magi.png"},
+{name:"OMNIKNIGHT",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/omniknight.png"},
+{name:"ORACLE",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/oracle.png"},
+{name:"OUTWORLD DESTROYER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/obsidian_destroyer.png"},
+{name:"PANGOLIER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pangolier.png"},
+{name:"PHANTOM ASSASSIN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png"},
+{name:"PHANTOM LANCER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_lancer.png"},
+{name:"PHOENIX",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phoenix.png"},
+{name:"PRIMAL BEAST",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/primal_beast.png"},
+{name:"PUDGE",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png"},
+{name:"PUCK",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/puck.png"},
+{name:"PUGNA",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pugna.png"},
+{name:"QUEEN OF PAIN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/queenofpain.png"},
+{name:"RAZOR",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/razor.png"},
+{name:"RIKI",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/riki.png"},
+{name:"RINGMASTER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ringmaster.png"},
+{name:"RUBICK",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/rubick.png"},
+{name:"SAND KING",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sand_king.png"},
+{name:"SHADOW DEMON",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shadow_demon.png"},
+{name:"SHADOW FIEND",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nevermore.png"},
+{name:"SHADOW SHAMAN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shadow_shaman.png"},
+{name:"SILENCER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/silencer.png"},
+{name:"SKYWRATH MAGE",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/skywrath_mage.png"},
+{name:"SLARDAR",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slardar.png"},
+{name:"SLARK",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slark.png"},
+{name:"SNAPFIRE",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/snapfire.png"},
+{name:"SNIPER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sniper.png"},
+{name:"SPECTRE",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spectre.png"},
+{name:"SPIRIT BREAKER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png"},
+{name:"STORM SPIRIT",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/storm_spirit.png"},
+{name:"SVEN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png"},
+{name:"TEMPLAR ASSASSIN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/templar_assassin.png"},
+{name:"TERRORBLADE",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/terrorblade.png"},
+{name:"TECHIES",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/techies.png"},
+{name:"TIDEHUNTER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tidehunter.png"},
+{name:"TIMBERSAW",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shredder.png"},
+{name:"TINKER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tinker.png"},
+{name:"TINY",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tiny.png"},
+{name:"TREANT PROTECTOR",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png"},
+{name:"TROLL WARLORD",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/troll_warlord.png"},
+{name:"TUSK",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tusk.png"},
+{name:"UNDERLORD",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/abyssal_underlord.png"},
+{name:"UNDYING",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/undying.png"},
+{name:"URSA",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ursa.png"},
+{name:"VENGEFUL SPIRIT",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/vengefulspirit.png"},
+{name:"VENOMANCER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/venomancer.png"},
+{name:"VIPER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/viper.png"},
+{name:"VISAGE",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/visage.png"},
+{name:"VOID SPIRIT",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/void_spirit.png"},
+{name:"WARLOCK",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/warlock.png"},
+{name:"WEAVER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/weaver.png"},
+{name:"WINDRANGER",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/windrunner.png"},
+{name:"WINTER WYVERN",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/winter_wyvern.png"},
+{name:"WITCH DOCTOR",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/witch_doctor.png"},
+{name:"WRAITH KING",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/skeleton_king.png"},
+{name:"ZEUS",img:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/zuus.png"}
 
 ];
 
 
-/* ================================================= */
-/* GUIDES */
-/* ================================================= */
-
-const sortedHeroes =
-    [...heroes].sort((a,b)=>
-        a.name.localeCompare(b.name)
-    );
-
-
-const heroGrid =
-    document.getElementById("heroGrid");
-
-
-sortedHeroes.forEach(hero=>{
-
-    const card =
-        document.createElement("div");
-
-    card.className =
-        "hero-card";
-
-
-    card.innerHTML = `
-
-        <img
-            src="${hero.img}"
-            alt="${hero.name}"
-            loading="lazy"
-        >
-
-        <div class="hero-card-name">
-            ${hero.name}
-        </div>
-
-    `;
-
-
-    card.onclick = ()=>{
-        openHero(hero);
-    };
-
-
-    heroGrid.appendChild(card);
-
-});
-
-
-/* ================================================= */
-/* RANDOM HERO */
-/* ================================================= */
-
-let lastHero = null;
-
-
-function randomHero(){
-
-    let hero;
-
-
-    do{
-
-        hero =
-            heroes[
-                Math.floor(
-                    Math.random() *
-                    heroes.length
-                )
-            ];
-
-    }while(
-        heroes.length > 1 &&
-        hero === lastHero
-    );
-
-
-    lastHero = hero;
-
-
-    const image =
-        document.getElementById("randomImage");
-
-
-    const name =
-        document.getElementById("randomName");
-
-
-    image.style.opacity = "0";
-
-
-    setTimeout(()=>{
-
-        image.src = hero.img;
-
-        image.alt = hero.name;
-
-        name.textContent =
-            hero.name;
-
-
-        image.onload = ()=>{
-
-            image.style.opacity = "1";
-
-        };
-
-
-        if(image.complete){
-
-            image.style.opacity = "1";
-
-        }
-
-    },120);
-
-
-    if(
-        tg &&
-        tg.HapticFeedback
-    ){
-
-        tg.HapticFeedback
-            .impactOccurred('medium');
-
-    }
-
-}
-
-
-/* ================================================= */
-/* COUNTERPICKS */
-/* ================================================= */
-
-const counters = {
-
-    "ABADDON":[
-        "ANCIENT APPARITION",
-        "AXE",
-        "NECROPHOS"
-    ],
-
-    "ALCHEMIST":[
-        "ANTI-MAGE",
-        "AXE",
-        "NECROPHOS"
-    ],
-
-    "ANTI-MAGE":[
-        "AXE",
-        "LEGION COMMANDER",
-        "BLOODSEEKER"
-    ],
-
-    "AXE":[
-        "URSA",
-        "VENOMANCER",
-        "VIPER"
-    ],
-
-    "BLOODSEEKER":[
-        "PHANTOM LANCER",
-        "AXE",
-        "OMNIKNIGHT"
-    ],
-
-    "BRISTLEBACK":[
-        "VIPER",
-        "NECROPHOS",
-        "AXE"
-    ],
-
-    "BROODMOTHER":[
-        "AXE",
-        "LEGION COMMANDER",
-        "EMBER SPIRIT"
-    ],
-
-    "CENTAUR WARRUNNER":[
-        "URSA",
-        "NECROPHOS",
-        "VIPER"
-    ],
-
-    "DROW RANGER":[
-        "PHANTOM ASSASSIN",
-        "SPIRIT BREAKER",
-        "TINY"
-    ],
-
-    "INVOKER":[
-        "ANTI-MAGE",
-        "SILENCER",
-        "NYX ASSASSIN"
-    ],
-
-    "JUGGERNAUT":[
-        "AXE",
-        "PHANTOM LANCER",
-        "NECROPHOS"
-    ],
-
-    "LINA":[
-        "ANTI-MAGE",
-        "NYX ASSASSIN",
-        "PUCK"
-    ],
-
-    "LION":[
-        "ANTI-MAGE",
-        "NYX ASSASSIN",
-        "SILENCER"
-    ],
-
-    "MARCI":[
-        "AXE",
-        "DISRUPTOR",
-        "PHANTOM LANCER"
-    ],
-
-    "MEEPO":[
-        "EARTHSHAKER",
-        "WINTER WYVERN",
-        "LION"
-    ],
-
-    "MORPHLING":[
-        "ANCIENT APPARITION",
-        "AXE",
-        "LION"
-    ],
-
-    "NAGA SIREN":[
-        "EMBER SPIRIT",
-        "AXE",
-        "SHADOW FIEND"
-    ],
-
-    "NECROPHOS":[
-        "ANTI-MAGE",
-        "LEGION COMMANDER",
-        "ANCIENT APPARITION"
-    ],
-
-    "PHANTOM ASSASSIN":[
-        "AXE",
-        "OMNIKNIGHT",
-        "SPECTRE"
-    ],
-
-    "PHANTOM LANCER":[
-        "AXE",
-        "SVEN",
-        "EMBER SPIRIT"
-    ],
-
-    "PUDGE":[
-        "NECROPHOS",
-        "DROW RANGER",
-        "RAZOR"
-    ],
-
-    "PUCK":[
-        "DOOM",
-        "NYX ASSASSIN",
-        "SILENCER"
-    ],
-
-    "QUEEN OF PAIN":[
-        "ANTI-MAGE",
-        "PUCK",
-        "SILENCER"
-    ],
-
-    "RAZOR":[
-        "ANTI-MAGE",
-        "PHANTOM LANCER",
-        "DROW RANGER"
-    ],
-
-    "RUBICK":[
-        "NYX ASSASSIN",
-        "ANTI-MAGE",
-        "SILENCER"
-    ],
-
-    "SLARK":[
-        "AXE",
-        "BLOODSEEKER",
-        "LEGION COMMANDER"
-    ],
-
-    "SPECTRE":[
-        "ANTI-MAGE",
-        "VIPER",
-        "NECROPHOS"
-    ],
-
-    "STORM SPIRIT":[
-        "ANTI-MAGE",
-        "SILENCER",
-        "NYX ASSASSIN"
-    ],
-
-    "SVEN":[
-        "PHANTOM LANCER",
-        "URSA",
-        "TIMBERSAW"
-    ],
-
-    "TERRORBLADE":[
-        "PHANTOM LANCER",
-        "LION",
-        "AXE"
-    ],
-
-    "TIMBERSAW":[
-        "VIPER",
-        "URSA",
-        "NECROPHOS"
-    ],
-
-    "TROLL WARLORD":[
-        "PHANTOM LANCER",
-        "AXE",
-        "VENOMANCER"
-    ],
-
-    "UNDERLORD":[
-        "URSA",
-        "LIFESTEALER",
-        "VIPER"
-    ],
-
-    "WITCH DOCTOR":[
-        "SILENCER",
-        "NYX ASSASSIN",
-        "RUBICK"
-    ],
-
-    "ZEUS":[
-        "ANTI-MAGE",
-        "NYX ASSASSIN",
-        "STORM SPIRIT"
-    ]
+/* =========================
+   META DATA
+========================= */
+
+const metaData={
+
+all:[
+  ["BOUNTY HUNTER",56.1,10944,93],
+  ["KEEPER OF THE LIGHT",54.0,4992,66],
+  ["SPIRIT BREAKER",53.1,8055,69],
+  ["MARCI",52.4,2100,65],
+  ["ENIGMA",56.6,4600,65],
+  ["NYX ASSASSIN",53.4,2800,64],
+  ["ORACLE",54.6,2800,74],
+  ["INVOKER",51.9,10081,76],
+  ["CLOCKWERK",52.4,4000,63],
+  ["WINTER WYVERN",51.4,9238,61]
+],
+
+carry:[
+  ["NECROPHOS",55.0,2100,73],
+  ["WINDRANGER",53.2,2600,63],
+  ["SPECTRE",53.1,4400,69],
+  ["SLARK",52.3,3200,62],
+  ["SVEN",51.1,4900,61]
+],
+
+mid:[
+  ["KEEPER OF THE LIGHT",56.7,2900,75],
+  ["INVOKER",52.4,8700,76],
+  ["EARTH SPIRIT",53.1,4600,65],
+  ["DRAGON KNIGHT",52.9,2300,64],
+  ["OUTWORLD DESTROYER",51.9,5000,61]
+],
+
+offlane:[
+  ["ENIGMA",56.9,4200,78],
+  ["PUDGE",53.4,3000,45],
+  ["DRAGON KNIGHT",52.9,1500,64],
+  ["WINDRANGER",52.0,1800,63],
+  ["MAGNUS",51.3,2600,61]
+],
+
+support:[
+  ["BOUNTY HUNTER",56.6,9500,93],
+  ["SPIRIT BREAKER",53.8,6500,69],
+  ["NYX ASSASSIN",54.4,2100,64],
+  ["DARK WILLOW",50.5,3900,55],
+  ["KEEPER OF THE LIGHT",51.1,1700,66]
+],
+
+hardSupport:[
+  ["ORACLE",54.8,2400,74],
+  ["CLOCKWERK",52.4,2200,63],
+  ["WINTER WYVERN",52.0,7200,61],
+  ["TREANT PROTECTOR",52.6,8000,65],
+  ["BANE",52.4,2800,63]
+]
 
 };
 
 
-/* ================================================= */
-/* COUNTERPICK SELECT */
-/* ================================================= */
-
-const counterSelect =
-    document.getElementById(
-        "counterSelect"
-    );
-
-
-heroes.forEach(hero=>{
-
-    const option =
-        document.createElement("option");
+const metaRoleNames={
+  all:["Лучшие герои","Общий рейтинг"],
+  carry:["Керри","Позиция 1"],
+  mid:["Мид","Позиция 2"],
+  offlane:["Оффлейн","Позиция 3"],
+  support:["Саппорт","Позиция 4"],
+  hardSupport:["Хард-саппорт","Позиция 5"]
+};
 
 
-    option.value =
-        hero.name;
+function findHero(name){
+  return heroes.find(h=>h.name===name);
+}
 
 
-    option.textContent =
-        hero.name;
+function renderMeta(role="all"){
+
+  const list=document.getElementById("metaList");
+
+  list.innerHTML="";
+
+  const data=metaData[role] || metaData.all;
+
+  document.getElementById("metaRoleTitle").textContent=
+    metaRoleNames[role][0];
+
+  document.getElementById("metaRoleSub").textContent=
+    metaRoleNames[role][1]+" • последние 8 дней";
+
+  data.forEach((item,index)=>{
+
+    const name=item[0];
+    const wr=item[1];
+    const matches=item[2];
+    const rating=item[3];
+
+    const hero=findHero(name);
+
+    if(!hero)return;
+
+    const card=document.createElement("div");
+
+    card.className="meta-item";
+
+    card.innerHTML=`
+
+      <div class="meta-rank">
+        ${index+1}
+      </div>
+
+      <img
+        class="meta-avatar"
+        src="${hero.img}"
+        alt="${name}"
+      >
+
+      <div class="meta-main">
+
+        <div class="meta-name">
+          ${name}
+        </div>
+
+        <div class="meta-stats">
+
+          <span>
+            WR ${wr}%
+          </span>
+
+          <span>
+            ${matches.toLocaleString("ru-RU")} матчей
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="meta-rating">
+
+        <div class="meta-rating-number">
+          ${rating}
+        </div>
+
+        <div class="meta-rating-label">
+          D2PT
+        </div>
+
+      </div>
+
+    `;
+
+    card.onclick=()=>openModal(hero);
+
+    list.appendChild(card);
+
+  });
+
+}
 
 
-    counterSelect.appendChild(
-        option
-    );
+function setMetaRole(role,button){
+
+  document.querySelectorAll(".role-tab")
+    .forEach(b=>b.classList.remove("active"));
+
+  button.classList.add("active");
+
+  renderMeta(role);
+
+  if(tg && tg.HapticFeedback){
+    tg.HapticFeedback.selectionChanged();
+  }
+
+}
+
+
+/* =========================
+   RANDOM HERO
+========================= */
+
+let lastHero=null;
+
+function randomHero(){
+
+  let hero;
+
+  do{
+
+    hero=heroes[
+      Math.floor(Math.random()*heroes.length)
+    ];
+
+  }while(
+    heroes.length>1 &&
+    hero===lastHero
+  );
+
+  lastHero=hero;
+
+  const image=
+    document.getElementById("randomImage");
+
+  const name=
+    document.getElementById("randomName");
+
+  image.style.opacity="0";
+
+  setTimeout(()=>{
+
+    image.src=hero.img;
+    image.alt=hero.name;
+
+    name.textContent=hero.name;
+
+    image.onload=()=>{
+      image.style.opacity="1";
+    };
+
+    if(image.complete){
+      image.style.opacity="1";
+    }
+
+  },120);
+
+  if(tg && tg.HapticFeedback){
+    tg.HapticFeedback.impactOccurred("medium");
+  }
+
+}
+
+
+/* =========================
+   GUIDES
+========================= */
+
+const sortedHeroes=
+  [...heroes].sort((a,b)=>
+    a.name.localeCompare(b.name)
+  );
+
+
+const heroGrid=
+  document.getElementById("heroGrid");
+
+
+sortedHeroes.forEach(hero=>{
+
+  const card=
+    document.createElement("div");
+
+  card.className="hero-card";
+
+  card.innerHTML=`
+
+    <img
+      src="${hero.img}"
+      alt="${hero.name}"
+      loading="lazy"
+    >
+
+    <div class="hero-card-name">
+      ${hero.name}
+    </div>
+
+  `;
+
+  card.onclick=()=>{
+    openModal(hero);
+  };
+
+  heroGrid.appendChild(card);
 
 });
 
 
-/* ================================================= */
-/* SHOW COUNTERS */
-/* ================================================= */
+/* =========================
+   COUNTERS
+========================= */
+
+const counters={
+
+"ABADDON":[
+  "ANCIENT APPARITION",
+  "AXE",
+  "NECROPHOS"
+],
+
+"ALCHEMIST":[
+  "ANTI-MAGE",
+  "AXE",
+  "NECROPHOS"
+],
+
+"ANTI-MAGE":[
+  "AXE",
+  "LEGION COMMANDER",
+  "BLOODSEEKER"
+],
+
+"AXE":[
+  "URSA",
+  "VENOMANCER",
+  "VIPER"
+],
+
+"BLOODSEEKER":[
+  "PHANTOM LANCER",
+  "AXE",
+  "OMNIKNIGHT"
+],
+
+"BRISTLEBACK":[
+  "VIPER",
+  "NECROPHOS",
+  "AXE"
+],
+
+"BROODMOTHER":[
+  "AXE",
+  "LEGION COMMANDER",
+  "EMBER SPIRIT"
+],
+
+"CENTAUR WARRUNNER":[
+  "URSA",
+  "NECROPHOS",
+  "VIPER"
+],
+
+"DROW RANGER":[
+  "PHANTOM ASSASSIN",
+  "SPIRIT BREAKER",
+  "TINY"
+],
+
+"INVOKER":[
+  "ANTI-MAGE",
+  "SILENCER",
+  "NYX ASSASSIN"
+],
+
+"JUGGERNAUT":[
+  "AXE",
+  "PHANTOM LANCER",
+  "NECROPHOS"
+],
+
+"LINA":[
+  "ANTI-MAGE",
+  "NYX ASSASSIN",
+  "PUCK"
+],
+
+"LION":[
+  "ANTI-MAGE",
+  "NYX ASSASSIN",
+  "SILENCER"
+],
+
+"MARCI":[
+  "AXE",
+  "DISRUPTOR",
+  "PHANTOM LANCER"
+],
+
+"MEEPO":[
+  "EARTHSHAKER",
+  "WINTER WYVERN",
+  "LION"
+],
+
+"MORPHLING":[
+  "ANCIENT APPARITION",
+  "AXE",
+  "LION"
+],
+
+"NAGA SIREN":[
+  "EMBER SPIRIT",
+  "AXE",
+  "SHADOW FIEND"
+],
+
+"NECROPHOS":[
+  "ANTI-MAGE",
+  "LEGION COMMANDER",
+  "ANCIENT APPARITION"
+],
+
+"PHANTOM ASSASSIN":[
+  "AXE",
+  "OMNIKNIGHT",
+  "SPECTRE"
+],
+
+"PHANTOM LANCER":[
+  "AXE",
+  "SVEN",
+  "EMBER SPIRIT"
+],
+
+"PUDGE":[
+  "NECROPHOS",
+  "DROW RANGER",
+  "RAZOR"
+],
+
+"PUCK":[
+  "DOOM",
+  "NYX ASSASSIN",
+  "SILENCER"
+],
+
+"QUEEN OF PAIN":[
+  "ANTI-MAGE",
+  "PUCK",
+  "SILENCER"
+],
+
+"RAZOR":[
+  "ANTI-MAGE",
+  "PHANTOM LANCER",
+  "DROW RANGER"
+],
+
+"RUBICK":[
+  "NYX ASSASSIN",
+  "ANTI-MAGE",
+  "SILENCER"
+],
+
+"SLARK":[
+  "AXE",
+  "BLOODSEEKER",
+  "LEGION COMMANDER"
+],
+
+"SPECTRE":[
+  "ANTI-MAGE",
+  "VIPER",
+  "NECROPHOS"
+],
+
+"STORM SPIRIT":[
+  "ANTI-MAGE",
+  "SILENCER",
+  "NYX ASSASSIN"
+],
+
+"SVEN":[
+  "PHANTOM LANCER",
+  "URSA",
+  "TIMBERSAW"
+],
+
+"TERRORBLADE":[
+  "PHANTOM LANCER",
+  "LION",
+  "AXE"
+],
+
+"TIMBERSAW":[
+  "VIPER",
+  "URSA",
+  "NECROPHOS"
+],
+
+"TROLL WARLORD":[
+  "PHANTOM LANCER",
+  "AXE",
+  "VENOMANCER"
+],
+
+"UNDERLORD":[
+  "URSA",
+  "LIFESTEALER",
+  "VIPER"
+],
+
+"WITCH DOCTOR":[
+  "SILENCER",
+  "NYX ASSASSIN",
+  "RUBICK"
+],
+
+"ZEUS":[
+  "ANTI-MAGE",
+  "NYX ASSASSIN",
+  "STORM SPIRIT"
+]
+
+};
+
+
+const counterSelect=
+  document.getElementById("counterSelect");
+
+
+heroes.forEach(hero=>{
+
+  const option=
+    document.createElement("option");
+
+  option.value=hero.name;
+  option.textContent=hero.name;
+
+  counterSelect.appendChild(option);
+
+});
+
 
 function showCounters(){
 
-    const selected =
-        counterSelect.value;
+  const selected=
+    counterSelect.value;
 
+  let result=
+    counters[selected] || [];
 
-    const result =
-        document.getElementById(
-            "counterResult"
-        );
+  if(!result.length){
 
+    result=
+      heroes
+      .filter(h=>h.name!==selected)
+      .sort(()=>Math.random()-.5)
+      .slice(0,3)
+      .map(h=>h.name);
 
-    const container =
-        document.getElementById(
-            "counterHeroes"
-        );
+  }
 
+  const resultBox=
+    document.getElementById("counterResult");
 
-    if(!selected){
+  resultBox.innerHTML="";
 
-        result.classList.remove(
-            "active"
-        );
+  result.forEach(name=>{
 
-        container.innerHTML = "";
+    const hero=
+      findHero(name);
 
-        return;
+    if(!hero)return;
 
-    }
+    const card=
+      document.createElement("div");
 
+    card.className="counter-card";
 
-    let counterNames =
-        counters[selected];
+    card.innerHTML=`
 
+      <img
+        src="${hero.img}"
+        alt="${hero.name}"
+      >
 
-    /*
-       Если для героя ещё нет
-       отдельной базы контрпиков,
-       показываем 3 случайных героя.
-    */
+      <div class="counter-card-name">
+        ${hero.name}
+      </div>
 
-    if(!counterNames){
+    `;
 
-        const randomCounters =
-            [...heroes]
+    card.onclick=()=>{
+      openModal(hero);
+    };
 
-                .filter(hero =>
-                    hero.name !== selected
-                )
+    resultBox.appendChild(card);
 
-                .sort(() =>
-                    Math.random() - 0.5
-                )
-
-                .slice(0,3);
-
-
-        counterNames =
-            randomCounters.map(
-                hero => hero.name
-            );
-
-    }
-
-
-    container.innerHTML = "";
-
-
-    counterNames.forEach(
-        counterName => {
-
-            const hero =
-                heroes.find(
-                    h =>
-                    h.name.toUpperCase() ===
-                    counterName.toUpperCase()
-                );
-
-
-            if(!hero){
-                return;
-            }
-
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "hero-card";
-
-
-            card.innerHTML = `
-
-                <img
-                    src="${hero.img}"
-                    alt="${hero.name}"
-                    loading="lazy"
-                >
-
-                <div class="hero-card-name">
-                    ${hero.name}
-                </div>
-
-            `;
-
-
-            card.onclick = ()=>{
-                openHero(hero);
-            };
-
-
-            container.appendChild(card);
-
-        }
-    );
-
-
-    result.classList.add(
-        "active"
-    );
-
-
-    if(
-        tg &&
-        tg.HapticFeedback
-    ){
-
-        tg.HapticFeedback
-            .impactOccurred('light');
-
-    }
+  });
 
 }
 
 
-/* ================================================= */
-/* MODAL */
-/* ================================================= */
+/* =========================
+   MODAL
+========================= */
 
-function openHero(hero){
+function openModal(hero){
 
-    document.getElementById(
-        "modalImage"
-    ).src = hero.img;
+  const modal=
+    document.getElementById("heroModal");
 
+  const image=
+    document.getElementById("modalImage");
 
-    document.getElementById(
-        "modalImage"
-    ).alt = hero.name;
+  const name=
+    document.getElementById("modalName");
 
+  image.src=hero.img;
+  image.alt=hero.name;
 
-    document.getElementById(
-        "modalName"
-    ).textContent =
-        hero.name;
+  name.textContent=hero.name;
 
+  modal.classList.add("active");
 
-    document.getElementById(
-        "heroModal"
-    ).classList.add(
-        "active"
-    );
-
-
-    if(
-        tg &&
-        tg.HapticFeedback
-    ){
-
-        tg.HapticFeedback
-            .impactOccurred('light');
-
-    }
+  if(tg && tg.HapticFeedback){
+    tg.HapticFeedback.impactOccurred("light");
+  }
 
 }
 
 
-function closeHeroModal(){
+function closeModal(){
 
-    document.getElementById(
-        "heroModal"
-    ).classList.remove(
-        "active"
-    );
+  document
+    .getElementById("heroModal")
+    .classList.remove("active");
 
 }
 
 
-function closeModal(event){
+document
+  .getElementById("heroModal")
+  .addEventListener("click",function(e){
 
-    if(
-        event.target.id ===
-        "heroModal"
-    ){
-
-        closeHeroModal();
-
+    if(e.target===this){
+      closeModal();
     }
 
-}
+  });
 
 
-/* ================================================= */
-/* TELEGRAM PROFILE */
-/* ================================================= */
+/* =========================
+   TELEGRAM PROFILE
+========================= */
 
-if(
-    tg &&
-    tg.initDataUnsafe &&
-    tg.initDataUnsafe.user
-){
+if(tg && tg.initDataUnsafe){
 
-    const user =
-        tg.initDataUnsafe.user;
+  const user=
+    tg.initDataUnsafe.user;
 
+  if(user){
 
-    const fullName =
-        [
-            user.first_name,
-            user.last_name
-        ]
-        .filter(Boolean)
-        .join(" ");
+    const profileName=
+      document.getElementById("profileName");
 
+    const profileUsername=
+      document.getElementById("profileUsername");
 
-    if(fullName){
-
-        document.getElementById(
-            "profileName"
-        ).textContent =
-            fullName;
-
-    }
-
+    profileName.textContent=
+      [user.first_name,user.last_name]
+      .filter(Boolean)
+      .join(" ");
 
     if(user.username){
 
-        document.getElementById(
-            "profileUsername"
-        ).textContent =
-            "@" + user.username;
+      profileUsername.textContent=
+        "@"+user.username;
 
     }else{
 
-        document.getElementById(
-            "profileUsername"
-        ).textContent =
-            "Telegram пользователь";
+      profileUsername.textContent=
+        "Telegram";
 
     }
+
+  }
 
 }
 
 
-/* ================================================= */
-/* INITIAL */
-/* ================================================= */
+/* =========================
+   START
+========================= */
 
-randomHero();
+renderMeta("all");
+
+showCounters();
 
 </script>
 
