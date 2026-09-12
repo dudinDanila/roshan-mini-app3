@@ -14,9 +14,6 @@
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <style>
-    /* =========================
-       ОСНОВА
-    ========================= */
     * {
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
@@ -45,9 +42,6 @@
       padding: 18px;
     }
 
-    /* =========================
-       ЛОГОТИП
-    ========================= */
     .header {
       display: flex;
       justify-content: space-between;
@@ -104,9 +98,6 @@
       font-size: 19px;
     }
 
-    /* =========================
-       СТРАНИЦЫ
-    ========================= */
     .page {
       display: none;
       animation: pageIn .18s ease;
@@ -128,9 +119,6 @@
       }
     }
 
-    /* =========================
-       ГЛАВНЫЙ БАННЕР
-    ========================= */
     .hero {
       position: relative;
       overflow: hidden;
@@ -182,9 +170,6 @@
       line-height: 1.5;
     }
 
-    /* =========================
-       КНОПКИ
-    ========================= */
     .button {
       border: 0;
       background:
@@ -208,9 +193,6 @@
       transform: scale(.96);
     }
 
-    /* =========================
-       ЗАГОЛОВКИ
-    ========================= */
     .section-title {
       margin: 25px 0 13px;
       font-size: 18px;
@@ -224,9 +206,6 @@
       margin-bottom: 14px;
     }
 
-    /* =========================
-       КАРТОЧКИ
-    ========================= */
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -272,9 +251,6 @@
       line-height: 1.4;
     }
 
-    /* =========================
-       ЧЕЛЛЕНДЖ
-    ========================= */
     .challenge {
       background:
         linear-gradient(
@@ -307,9 +283,6 @@
       margin: 0;
     }
 
-    /* =========================
-       META
-    ========================= */
     .top-title {
       font-size: 24px;
       font-weight: 900;
@@ -386,6 +359,7 @@
     /* =========================
        RANDOM
     ========================= */
+
     .random-box {
       text-align: center;
       background:
@@ -425,12 +399,14 @@
       overflow: hidden;
       box-shadow:
         0 0 35px rgba(180, 40, 40, .1);
+      font-size: 48px;
     }
 
     .random-icon img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .random-name {
@@ -447,6 +423,7 @@
     /* =========================
        ГАЙДЫ
     ========================= */
+
     .guides-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -489,6 +466,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .guide h3 {
@@ -503,9 +481,6 @@
       display: none;
     }
 
-    /* =========================
-       ПРОФИЛЬ
-    ========================= */
     .profile {
       text-align: center;
     }
@@ -569,9 +544,6 @@
       font-weight: 800;
     }
 
-    /* =========================
-       НИЖНЯЯ НАВИГАЦИЯ
-    ========================= */
     .bottom-nav {
       position: fixed;
       left: 0;
@@ -614,10 +586,8 @@
       transform: translateY(-1px);
     }
 
-    /* =========================
-       АДАПТАЦИЯ
-    ========================= */
     @media (max-width: 380px) {
+
       .app {
         padding: 14px;
       }
@@ -645,6 +615,7 @@
       .guide h3 {
         font-size: 9px;
       }
+
     }
   </style>
 </head>
@@ -656,10 +627,13 @@
   <!-- =====================
        ГЛАВНАЯ
   ====================== -->
+
   <div id="home" class="page active">
 
     <div class="header">
+
       <div class="logo">
+
         <div class="logo-icon">
           🪨
         </div>
@@ -667,6 +641,7 @@
         <div class="logo-text">
           ROSH<span>AN</span>
         </div>
+
       </div>
 
       <div
@@ -675,6 +650,7 @@
       >
         👤
       </div>
+
     </div>
 
     <div class="hero">
@@ -713,6 +689,7 @@
         class="card"
         onclick="showPage('meta')"
       >
+
         <div class="card-icon">
           🔥
         </div>
@@ -724,12 +701,14 @@
         <p>
           Лучшие герои текущего патча
         </p>
+
       </div>
 
       <div
         class="card"
         onclick="showPage('random')"
       >
+
         <div class="card-icon">
           🎲
         </div>
@@ -741,12 +720,14 @@
         <p>
           Не знаешь кого пикнуть?
         </p>
+
       </div>
 
       <div
         class="card"
         onclick="showPage('guides')"
       >
+
         <div class="card-icon">
           📚
         </div>
@@ -758,12 +739,14 @@
         <p>
           Учись играть лучше
         </p>
+
       </div>
 
       <div
         class="card"
         onclick="alert('Раздел контрпиков скоро появится')"
       >
+
         <div class="card-icon">
           ⚔️
         </div>
@@ -775,6 +758,7 @@
         <p>
           Найди лучшую контру
         </p>
+
       </div>
 
     </div>
@@ -806,6 +790,7 @@
   <!-- =====================
        META
   ====================== -->
+
   <div id="meta" class="page">
 
     <div class="top-title">
@@ -823,6 +808,7 @@
       </div>
 
       <div class="hero-info">
+
         <h3>
           Sven
         </h3>
@@ -830,6 +816,7 @@
         <div class="role">
           Carry
         </div>
+
       </div>
 
       <div class="winrate">
@@ -845,6 +832,7 @@
       </div>
 
       <div class="hero-info">
+
         <h3>
           Juggernaut
         </h3>
@@ -852,6 +840,7 @@
         <div class="role">
           Carry
         </div>
+
       </div>
 
       <div class="winrate">
@@ -867,6 +856,7 @@
       </div>
 
       <div class="hero-info">
+
         <h3>
           Legion Commander
         </h3>
@@ -874,6 +864,7 @@
         <div class="role">
           Offlane
         </div>
+
       </div>
 
       <div class="winrate">
@@ -889,6 +880,7 @@
       </div>
 
       <div class="hero-info">
+
         <h3>
           Invoker
         </h3>
@@ -896,6 +888,7 @@
         <div class="role">
           Mid
         </div>
+
       </div>
 
       <div class="winrate">
@@ -910,6 +903,7 @@
   <!-- =====================
        RANDOM
   ====================== -->
+
   <div id="random" class="page">
 
     <div class="top-title">
@@ -962,6 +956,7 @@
   <!-- =====================
        ГАЙДЫ
   ====================== -->
+
   <div id="guides" class="page">
 
     <div class="top-title">
@@ -983,6 +978,7 @@
   <!-- =====================
        PROFILE
   ====================== -->
+
   <div id="profile" class="page">
 
     <div class="top-title">
@@ -1009,6 +1005,7 @@
       <div class="stats">
 
         <div class="stat">
+
           <strong>
             12
           </strong>
@@ -1016,9 +1013,11 @@
           <span>
             LEVEL
           </span>
+
         </div>
 
         <div class="stat">
+
           <strong>
             37
           </strong>
@@ -1026,9 +1025,11 @@
           <span>
             ГАЙДОВ
           </span>
+
         </div>
 
         <div class="stat">
+
           <strong>
             24
           </strong>
@@ -1036,6 +1037,7 @@
           <span>
             ГЕРОЯ
           </span>
+
         </div>
 
       </div>
@@ -1057,55 +1059,65 @@
     class="nav-item active"
     onclick="showPage('home', this)"
   >
+
     <div class="nav-icon">
       🏠
     </div>
 
     Главная
+
   </div>
 
   <div
     class="nav-item"
     onclick="showPage('meta', this)"
   >
+
     <div class="nav-icon">
       🔥
     </div>
 
     Мета
+
   </div>
 
   <div
     class="nav-item"
     onclick="showPage('random', this)"
   >
+
     <div class="nav-icon">
       🎲
     </div>
 
     Рандом
+
   </div>
 
   <div
     class="nav-item"
     onclick="showPage('guides', this)"
   >
+
     <div class="nav-icon">
       📚
     </div>
 
     Гайды
+
   </div>
 
   <div
     class="nav-item"
     onclick="showPage('profile', this)"
   >
+
     <div class="nav-icon">
       👤
     </div>
 
     Профиль
+
   </div>
 
 </div>
@@ -1177,7 +1189,7 @@
 
 
   /* =========================
-     ГЕРОИ
+     ВСЕ ГЕРОИ
   ========================= */
 
   const heroes = [
@@ -1282,9 +1294,9 @@
     ["SPIRIT BREAKER", "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png"],
     ["STORM SPIRIT", "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/storm_spirit.png"],
     ["SVEN", "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png"],
+    ["TECHIES", "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/techies.png"],
     ["TEMPLAR ASSASSIN", "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/templar_assassin.png"],
     ["TERRORBLADE", "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/terrorblade.png"],
-    ["TECHIES", "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/techies.png"],
     ["TIDEHUNTER", "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/tidehunter.png"],
     ["TIMBERSAW", "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/shredder.png"],
     ["TINKER", "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/tinker.png"],
@@ -1342,6 +1354,7 @@
       tg.HapticFeedback
         .impactOccurred("medium");
     }
+
   }
 
 
@@ -1356,53 +1369,61 @@
 
     container.innerHTML = "";
 
-    heroes.forEach(hero => {
+    heroes
+      .slice()
+      .sort((a, b) =>
+        a[0].localeCompare(
+          b[0],
+          "en"
+        )
+      )
+      .forEach(hero => {
 
-      const guide =
-        document.createElement("div");
+        const guide =
+          document.createElement("div");
 
-      guide.className = "guide";
+        guide.className = "guide";
 
-      guide.innerHTML = `
+        guide.innerHTML = `
 
-        <div class="guide-top">
+          <div class="guide-top">
 
-          <div class="guide-icon">
+            <div class="guide-icon">
 
-            <img
-              src="${hero[1]}"
-              alt="${hero[0]}"
-              loading="lazy"
-            >
+              <img
+                src="${hero[1]}"
+                alt="${hero[0]}"
+                loading="lazy"
+              >
+
+            </div>
+
+            <h3>
+              ${hero[0]}
+            </h3>
 
           </div>
 
-          <h3>
-            ${hero[0]}
-          </h3>
+        `;
 
-        </div>
+        guide.onclick = function() {
 
-      `;
+          if (tg.HapticFeedback) {
+            tg.HapticFeedback
+              .impactOccurred("light");
+          }
 
-      guide.onclick = function() {
+          alert(
+            "Гайд для " +
+            hero[0] +
+            " скоро появится"
+          );
 
-        if (tg.HapticFeedback) {
-          tg.HapticFeedback
-            .impactOccurred("light");
-        }
+        };
 
-        alert(
-          "Гайд для " +
-          hero[0] +
-          " скоро появится"
-        );
+        container.appendChild(guide);
 
-      };
-
-      container.appendChild(guide);
-
-    });
+      });
 
   }
 
