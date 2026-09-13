@@ -5989,85 +5989,62 @@ function selectCounterHero(enemy){
 
     container.innerHTML = "";
 
-container.innerHTML = `
-    <div style="
-        padding:15px;
-        background:#151515;
-        border:1px solid #333;
-        border-radius:12px;
-        color:white;
-        font-size:13px;
-        line-height:1.6;
-    ">
-        DIAG:<br>
-        enemy = ${enemy.name}<br>
-        counters = ${names ? names.join(", ") : "НЕ НАЙДЕНЫ"}<br>
-        heroes = ${Array.isArray(heroes) ? heroes.length : "НЕ МАССИВ"}<br>
-        first = ${heroes && heroes[0] ? JSON.stringify(heroes[0]) : "НЕТ"}
-    </div>
-`;
     
-    names.forEach((name,index) => {
+    names.forEach((name, index) => {
 
-        const hero =
-            getCounterHero(name);
+    const hero = heroes.find(h =>
+        h &&
+        h.name &&
+        h.name.trim().toUpperCase() ===
+        String(name).trim().toUpperCase()
+    );
 
-        if(!hero) return;
+    if(!hero){
+        return;
+    }
 
+    const card = document.createElement("div");
 
-        const card =
-            document.createElement("div");
+    card.className = "counter-card";
 
-        card.className =
-            "counter-card";
+    const strength = Math.max(
+        80,
+        95 - index * 3
+    );
 
+    card.innerHTML = `
+        <img
+            src="${hero.img}"
+            alt="${hero.name}"
+            loading="lazy"
+        >
 
-        const strength =
-            Math.max(
-                80,
-                95 - index * 3
-            );
+        <div class="counter-card-info">
 
-
-        card.innerHTML = `
-
-            <img
-                src="${hero.img}"
-                alt="${hero.name}"
-                loading="lazy"
-            >
-
-            <div class="counter-card-info">
-
-                <div class="counter-card-name">
-                    ${hero.name}
-                </div>
-
-                <div class="counter-card-reason">
-                    ${getCounterReason(hero.name)}
-                </div>
-
+            <div class="counter-card-name">
+                ${hero.name}
             </div>
 
-            <div class="counter-strength">
-                ${strength}%
+            <div class="counter-card-reason">
+                ${getCounterReason(hero.name)}
             </div>
 
-        `;
+        </div>
 
+        <div class="counter-strength">
+            ${strength}%
+        </div>
+    `;
 
-        card.onclick = () => {
+    card.onclick = () => {
+        if(typeof openHero === "function"){
+            openHero(hero);
+        }
+    };
 
-            if(typeof openHero === "function"){
-                openHero(hero);
-            }
+    container.appendChild(card);
 
-        };
-
-
-        container.appendChild(card);
-
-    });
+});
 
 
     result.style.display = "block";
