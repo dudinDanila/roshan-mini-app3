@@ -1179,6 +1179,212 @@ button{
     margin-bottom:15px;
 }
 
+    /* ================================================= */
+/* COUNTER PICK 2.0 */
+/* ================================================= */
+
+.counter-description{
+    margin:10px 0 18px;
+    color:#9aa4b2;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.counter-search-box{
+    position:relative;
+    width:100%;
+}
+
+.counter-search{
+    width:100%;
+    padding:14px 16px;
+    background:#0d1117;
+    border:1px solid #2a2f38;
+    border-radius:14px;
+    color:#fff;
+    font-size:15px;
+    outline:none;
+    transition:.2s;
+}
+
+.counter-search:focus{
+    border-color:#8b5cf6;
+    box-shadow:0 0 0 3px rgba(139,92,246,.12);
+}
+
+.counter-search::placeholder{
+    color:#6b7280;
+}
+
+.counter-hero-list{
+    margin-top:12px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:9px;
+    max-height:340px;
+    overflow-y:auto;
+    padding-right:3px;
+}
+
+.counter-hero-item{
+    background:#11161d;
+    border:1px solid #252b34;
+    border-radius:11px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.18s;
+}
+
+.counter-hero-item:active{
+    transform:scale(.96);
+}
+
+.counter-hero-item img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    display:block;
+}
+
+.counter-hero-name{
+    padding:7px 4px;
+    font-size:10px;
+    color:#dce2ea;
+    text-align:center;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+
+/* выбранный враг */
+
+.selected-enemy-hero{
+    margin:16px 0;
+    padding:13px;
+    border-radius:15px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(180,30,30,.24),
+            rgba(35,15,15,.8)
+        );
+    border:1px solid rgba(255,80,80,.25);
+}
+
+.enemy-card{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.enemy-card img{
+    width:72px;
+    height:42px;
+    border-radius:9px;
+    object-fit:cover;
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.enemy-info{
+    flex:1;
+}
+
+.enemy-label{
+    font-size:10px;
+    color:#ff7a7a;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:3px;
+}
+
+.enemy-name{
+    font-size:17px;
+    font-weight:700;
+    color:#fff;
+}
+
+
+/* результаты */
+
+.counter-result{
+    margin-top:18px;
+}
+
+.counter-cards{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:12px;
+}
+
+.counter-card{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:11px;
+    border-radius:14px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(25,85,55,.32),
+            rgba(12,20,16,.92)
+        );
+    border:1px solid rgba(60,200,120,.22);
+}
+
+.counter-card img{
+    width:76px;
+    height:44px;
+    border-radius:9px;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+.counter-card-info{
+    min-width:0;
+    flex:1;
+}
+
+.counter-card-name{
+    font-size:15px;
+    font-weight:700;
+    color:#fff;
+    margin-bottom:4px;
+}
+
+.counter-card-reason{
+    font-size:11px;
+    line-height:1.35;
+    color:#9fa8b5;
+}
+
+.counter-strength{
+    font-size:11px;
+    font-weight:700;
+    color:#64e39a;
+    background:rgba(50,180,105,.12);
+    border:1px solid rgba(50,180,105,.18);
+    border-radius:8px;
+    padding:5px 7px;
+    flex-shrink:0;
+}
+
+
+/* scrollbar */
+
+.counter-hero-list::-webkit-scrollbar{
+    width:4px;
+}
+
+.counter-hero-list::-webkit-scrollbar-thumb{
+    background:#343b45;
+    border-radius:10px;
+}
+
+.counter-hero-list::-webkit-scrollbar-track{
+    background:transparent;
+}
 /* ================================================= */
 /* GUIDE MODAL */
 /* ================================================= */
@@ -2393,66 +2599,71 @@ button{
 <!-- COUNTERPICK -->
 <!-- ================================================= -->
 
+<!-- ================================================= -->
+<!-- COUNTERPICK -->
+<!-- ================================================= -->
+
 <section id="counter" class="page">
 
     <div class="header">
-
         <div class="logo">
-
-            <div class="logo-icon">
-                ⚔️
-            </div>
-
-            <div class="logo-text">
-                КОНТРПИК
-            </div>
-
+            <div class="logo-icon">⚔️</div>
+            <div class="logo-text">КОНТРПИК</div>
         </div>
-
     </div>
-
 
     <div class="meta-card">
 
         <div class="meta-title">
-            ⚔️ Выбери героя противника
+            ⚔️ Найди контрпик
         </div>
 
-
         <p class="counter-description">
-            Выбери героя, против которого хочешь
-            подобрать сильные контрпики.
+            Выбери героя противника и узнай,
+            кем лучше играть против него.
         </p>
 
+        <div class="counter-search-box">
 
-        <select
-            id="counterSelect"
-            class="counter-select"
-            onchange="showCounters()"
-        >
+            <input
+                type="text"
+                id="counterSearch"
+                class="counter-search"
+                placeholder="🔎 Найти героя..."
+                autocomplete="off"
+                oninput="filterCounterHeroes()"
+            >
 
-            <option value="">
-                Выбери героя
-            </option>
+            <div
+                id="counterHeroList"
+                class="counter-hero-list"
+            ></div>
 
-        </select>
+        </div>
 
     </div>
 
 
     <div
+        id="selectedEnemyHero"
+        class="selected-enemy-hero"
+        style="display:none;"
+    ></div>
+
+
+    <div
         id="counterResult"
         class="counter-result"
+        style="display:none;"
     >
 
         <div class="section-title">
             Лучшие контрпики
         </div>
 
-
         <div
             id="counterHeroes"
-            class="hero-grid"
+            class="counter-cards"
         ></div>
 
     </div>
@@ -5455,67 +5666,313 @@ heroes.forEach(hero=>{
 });
 
 
-function showCounters(){
+/* ================================================= */
+/* COUNTER PICK 2.0 */
+/* ================================================= */
+
+const counterReasons = {
+    "Anti-Mage": "Быстро выжигает ману и наказывает героев, зависящих от заклинаний.",
+    "Axe": "Может зафиксировать героя через Berserker's Call и быстро добить.",
+    "Bane": "Надёжный контроль через Black King Bar благодаря Fiend's Grip.",
+    "Bloodseeker": "Сильно ограничивает мобильных героев благодаря Rupture.",
+    "Doom": "Doom выключает способности и предметы ключевого героя.",
+    "Drow Ranger": "Сильный физический урон с дистанции и замедление.",
+    "Earthshaker": "Много контроля и возможность наказать за плохую позицию.",
+    "Legion Commander": "Duel позволяет надолго зафиксировать важную цель.",
+    "Lion": "Много мгновенного контроля и сильный магический прокаст.",
+    "Necrophos": "Хорош против героев с большим запасом здоровья.",
+    "Nyx Assassin": "Опасен против героев с большим интеллектом и магическим уроном.",
+    "Outworld Destroyer": "Astral Imprisonment позволяет спасать союзников и ломать инициацию.",
+    "Phantom Lancer": "Создаёт множество иллюзий и заставляет врага тратить ресурсы.",
+    "Pugna": "Наказывает героев, которые постоянно используют способности.",
+    "Razor": "Static Link способен лишить керри значительной части урона.",
+    "Shadow Demon": "Disruption помогает спасать союзников и сбивать темп противника.",
+    "Silencer": "Global Silence мешает противнику нормально реализовать прокаст.",
+    "Slark": "Может переживать затяжные драки и постепенно усиливаться.",
+    "Spirit Breaker": "Постоянно давит мобильных и уязвимых героев.",
+    "Ursa": "Очень быстро разбирает героев, которым приходится драться вблизи.",
+    "Viper": "Сильное давление на линии и Break против пассивных способностей.",
+    "Winter Wyvern": "Winter's Curse может обратить физический урон команды против неё самой."
+};
+
+
+/* специальные контрпики */
+
+const counterData = {
+
+    "Pudge":[
+        "Ursa",
+        "Slark",
+        "Lifestealer",
+        "Necrophos",
+        "Drow Ranger"
+    ],
+
+    "Anti-Mage":[
+        "Legion Commander",
+        "Axe",
+        "Slardar",
+        "Bloodseeker",
+        "Meepo"
+    ],
+
+    "Phantom Assassin":[
+        "Axe",
+        "Legion Commander",
+        "Razor",
+        "Windranger",
+        "Omniknight"
+    ],
+
+    "Invoker":[
+        "Anti-Mage",
+        "Nyx Assassin",
+        "Silencer",
+        "Doom",
+        "Templar Assassin"
+    ],
+
+    "Drow Ranger":[
+        "Phantom Assassin",
+        "Spirit Breaker",
+        "Slark",
+        "Clockwerk",
+        "Mars"
+    ],
+
+    "Juggernaut":[
+        "Axe",
+        "Ursa",
+        "Slardar",
+        "Outworld Destroyer",
+        "Shadow Demon"
+    ],
+
+    "Sven":[
+        "Razor",
+        "Winter Wyvern",
+        "Outworld Destroyer",
+        "Shadow Demon",
+        "Bane"
+    ],
+
+    "Spectre":[
+        "Anti-Mage",
+        "Viper",
+        "Necrophos",
+        "Slark",
+        "Doom"
+    ],
+
+    "Morphling":[
+        "Ancient Apparition",
+        "Anti-Mage",
+        "Doom",
+        "Lion",
+        "Nyx Assassin"
+    ],
+
+    "Huskar":[
+        "Ancient Apparition",
+        "Necrophos",
+        "Viper",
+        "Axe",
+        "Windranger"
+    ]
+};
+
+
+/* причина по умолчанию */
+
+function getCounterReason(heroName){
+
+    return counterReasons[heroName] ||
+        "Набор способностей этого героя хорошо работает против выбранного противника.";
+}
+
+
+/* получаем героя */
+
+function getCounterHero(name){
+
+    if(typeof getHeroByName === "function"){
+        return getHeroByName(name);
+    }
+
+    return heroes.find(hero => hero.name === name);
+}
+
+
+/* рисуем список всех героев */
+
+function renderCounterHeroList(list = heroes){
+
+    const container =
+        document.getElementById("counterHeroList");
+
+    if(!container) return;
+
+    container.innerHTML = "";
+
+    list.forEach(hero => {
+
+        const item =
+            document.createElement("div");
+
+        item.className = "counter-hero-item";
+
+        item.innerHTML = `
+            <img
+                src="${hero.img}"
+                alt="${hero.name}"
+                loading="lazy"
+            >
+
+            <div class="counter-hero-name">
+                ${hero.name}
+            </div>
+        `;
+
+        item.onclick = () => {
+
+            selectCounterHero(hero);
+
+        };
+
+        container.appendChild(item);
+
+    });
+
+}
+
+
+/* поиск */
+
+function filterCounterHeroes(){
+
+    const input =
+        document.getElementById("counterSearch");
+
+    if(!input) return;
+
+    const query =
+        input.value
+            .trim()
+            .toLowerCase();
+
+    const filtered =
+        heroes.filter(hero =>
+            hero.name
+                .toLowerCase()
+                .includes(query)
+        );
+
+    renderCounterHeroList(filtered);
+
+}
+
+
+/* выбор врага */
+
+function selectCounterHero(enemy){
 
     const selected =
-        counterSelect.value;
-
+        document.getElementById(
+            "selectedEnemyHero"
+        );
 
     const result =
         document.getElementById(
             "counterResult"
         );
 
-
     const container =
         document.getElementById(
             "counterHeroes"
         );
 
-
-    if(!selected){
-
-        result.classList.remove(
-            "active"
+    const search =
+        document.getElementById(
+            "counterSearch"
         );
 
-        container.innerHTML = "";
+    const heroList =
+        document.getElementById(
+            "counterHeroList"
+        );
 
+
+    if(!selected || !result || !container){
         return;
-
     }
 
 
-    let counterNames =
-        counters[selected];
+    /* выбранный герой */
+
+    selected.style.display = "block";
+
+    selected.innerHTML = `
+
+        <div class="enemy-card">
+
+            <img
+                src="${enemy.img}"
+                alt="${enemy.name}"
+            >
+
+            <div class="enemy-info">
+
+                <div class="enemy-label">
+                    ПРОТИВНИК
+                </div>
+
+                <div class="enemy-name">
+                    ${enemy.name}
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
 
 
-    if(!counterNames){
+    /* очищаем поиск */
 
-        counterNames =
-            [...heroes]
+    if(search){
+        search.value = enemy.name;
+    }
 
-                .filter(
-                    hero =>
-                        hero.name !==
-                        selected
+    if(heroList){
+        heroList.innerHTML = "";
+    }
+
+
+    /* получаем контрпики */
+
+    let names =
+        counterData[enemy.name];
+
+
+    /*
+       Если для героя пока нет отдельного
+       набора — выбираем 5 других героев.
+       Позже можем заполнить точные
+       контрпики для каждого героя.
+    */
+
+    if(!names){
+
+        names =
+            heroes
+                .filter(hero =>
+                    hero.name !== enemy.name
                 )
-
                 .sort(
-                    () =>
-                        Math.random() -
-                        0.5
+                    () => Math.random() - 0.5
                 )
-
-                .slice(
-                    0,
-                    3
-                )
-
-                .map(
-                    hero =>
-                        hero.name
-                );
+                .slice(0,5)
+                .map(hero => hero.name);
 
     }
 
@@ -5523,78 +5980,108 @@ function showCounters(){
     container.innerHTML = "";
 
 
-    counterNames.forEach(
-        counterName=>{
+    names.forEach((name,index) => {
 
-            const hero =
-                getHeroByName(
-                    counterName
-                );
+        const hero =
+            getCounterHero(name);
 
-
-            if(!hero){
-                return;
-            }
+        if(!hero) return;
 
 
-            const card =
-                document.createElement(
-                    "div"
-                );
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "counter-card";
 
 
-            card.className =
-                "hero-card";
+        const strength =
+            Math.max(
+                80,
+                95 - index * 3
+            );
 
 
-            card.innerHTML = `
+        card.innerHTML = `
 
-                <img
-                    src="${hero.img}"
-                    alt="${hero.name}"
-                    loading="lazy"
-                >
+            <img
+                src="${hero.img}"
+                alt="${hero.name}"
+                loading="lazy"
+            >
 
-                <div class="hero-card-name">
+            <div class="counter-card-info">
+
+                <div class="counter-card-name">
                     ${hero.name}
                 </div>
 
-            `;
+                <div class="counter-card-reason">
+                    ${getCounterReason(hero.name)}
+                </div>
+
+            </div>
+
+            <div class="counter-strength">
+                ${strength}%
+            </div>
+
+        `;
 
 
-            card.onclick = () => {
+        card.onclick = () => {
 
+            if(typeof openHero === "function"){
                 openHero(hero);
+            }
 
-            };
-
-
-            container.appendChild(
-                card
-            );
-
-        }
-    );
+        };
 
 
-    result.classList.add(
-        "active"
-    );
+        container.appendChild(card);
 
+    });
+
+
+    result.style.display = "block";
+
+
+    /* вибрация Telegram */
 
     if(
+        typeof tg !== "undefined" &&
         tg &&
         tg.HapticFeedback
     ){
 
         tg.HapticFeedback
-            .impactOccurred(
-                "light"
-            );
+            .impactOccurred("light");
 
     }
 
 }
+
+
+/* показать героев при фокусе поиска */
+
+const counterSearch =
+    document.getElementById(
+        "counterSearch"
+    );
+
+if(counterSearch){
+
+    counterSearch.addEventListener(
+        "focus",
+        () => filterCounterHeroes()
+    );
+
+}
+
+
+/* первоначальная загрузка */
+
+renderCounterHeroList();
 
 
 /* ================================================= */
