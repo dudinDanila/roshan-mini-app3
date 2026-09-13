@@ -11,7 +11,48 @@ const d2ptGuides = {
     "ABADDON": {},
     "ALCHEMIST": {},
     "ANCIENT APPARITION": {},
-    "ANTI-MAGE": {},
+    "ANTI-MAGE": {
+    patch: "7.41e",
+
+    builds: {
+        carry: {
+            role: "Carry",
+
+            items: [
+                "Magic Wand",
+                "Power Treads",
+                "Battle Fury",
+                "Yasha",
+                "Manta Style",
+                "Butterfly",
+                "Skull Basher",
+                "Eye of Skadi",
+                "Abyssal Blade",
+                "Black King Bar"
+            ],
+
+            skills: [
+                "Mana Break",
+                "Blink",
+                "Mana Break",
+                "Counterspell",
+                "Mana Break",
+                "Mana Void",
+                "Blink",
+                "Blink",
+                "Blink",
+                "Mana Break"
+            ],
+
+            talents: [
+                [10, "+200 Mana Void Radius"],
+                [15, "+0.2 Mana Void Damage Multiplier"],
+                [20, "+125 Blink Cast Range"],
+                [25, "-50s Mana Void Cooldown"]
+            ]
+        }
+    }
+},
     "ARC WARDEN": {},
     "AXE": {},
 
