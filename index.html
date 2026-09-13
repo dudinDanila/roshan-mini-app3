@@ -6006,8 +6006,24 @@ const hero = heroes.find(h =>
 );
 
     if(!hero){
-        return;
-    }
+    const debug = document.createElement("div");
+    debug.style.cssText = `
+        padding:12px;
+        margin:8px 0;
+        background:#301010;
+        border:1px solid #8b2929;
+        border-radius:10px;
+        color:#ff8b8b;
+        font-size:13px;
+    `;
+
+    debug.textContent =
+        `НЕ НАЙДЕН: "${name}" | ищем: "${normalizeHeroName(name)}"`;
+
+    container.appendChild(debug);
+
+    return;
+}
 
     const card = document.createElement("div");
 
