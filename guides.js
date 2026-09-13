@@ -19,29 +19,89 @@ const d2ptGuides = {
             role: "Carry",
 
             items: [
-                "Magic Wand",
-                "Power Treads",
-                "Battle Fury",
-                "Yasha",
-                "Manta Style",
-                "Butterfly",
-                "Skull Basher",
-                "Eye of Skadi",
-                "Abyssal Blade",
-                "Black King Bar"
+                {
+                    name: "Magic Wand",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"
+                },
+                {
+                    name: "Power Treads",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png"
+                },
+                {
+                    name: "Battle Fury",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bfury.png"
+                },
+                {
+                    name: "Yasha",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/yasha.png"
+                },
+                {
+                    name: "Manta Style",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/manta.png"
+                },
+                {
+                    name: "Butterfly",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/butterfly.png"
+                },
+                {
+                    name: "Skull Basher",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png"
+                },
+                {
+                    name: "Eye of Skadi",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/skadi.png"
+                },
+                {
+                    name: "Abyssal Blade",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png"
+                },
+                {
+                    name: "Black King Bar",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"
+                }
             ],
 
             skills: [
-                "Mana Break",
-                "Blink",
-                "Mana Break",
-                "Counterspell",
-                "Mana Break",
-                "Mana Void",
-                "Blink",
-                "Blink",
-                "Blink",
-                "Mana Break"
+                {
+                    name: "Mana Break",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png"
+                },
+                {
+                    name: "Blink",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png"
+                },
+                {
+                    name: "Mana Break",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png"
+                },
+                {
+                    name: "Counterspell",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_counterspell.png"
+                },
+                {
+                    name: "Mana Break",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png"
+                },
+                {
+                    name: "Mana Void",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png"
+                },
+                {
+                    name: "Blink",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png"
+                },
+                {
+                    name: "Blink",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png"
+                },
+                {
+                    name: "Blink",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png"
+                },
+                {
+                    name: "Mana Break",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png"
+                }
             ],
 
             talents: [
