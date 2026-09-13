@@ -152,15 +152,25 @@ button{
     margin-bottom:20px;
 }
 
-.hero:after{
-    content:"🪨";
+.hero-roshan-img{
     position:absolute;
-    right:-15px;
-    bottom:-32px;
-    font-size:145px;
-    opacity:.13;
-    transform:rotate(-8deg);
+    right:-10px;
+    bottom:-10px;
+
+    width:240px;
+    height:240px;
+
+    object-fit:contain;
+
+    opacity:.42;
+
     pointer-events:none;
+    user-select:none;
+
+    z-index:1;
+
+    filter:
+        drop-shadow(0 0 15px rgba(255,40,40,.18));
 }
 
 .hero-content{
@@ -2071,7 +2081,13 @@ button{
                 🔥 Смотреть мету
             </button>
 
-        </div>
+        </div> 
+
+        <img
+    class="hero-roshan-img"
+    src="1105D6E4-2E0F-43AF-858A-815E8871C292.png"
+    alt="Roshan"
+>
 
     </div>
 
