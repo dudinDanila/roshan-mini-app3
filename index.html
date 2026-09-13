@@ -5989,7 +5989,24 @@ function selectCounterHero(enemy){
 
     container.innerHTML = "";
 
-
+container.innerHTML = `
+    <div style="
+        padding:15px;
+        background:#151515;
+        border:1px solid #333;
+        border-radius:12px;
+        color:white;
+        font-size:13px;
+        line-height:1.6;
+    ">
+        DIAG:<br>
+        enemy = ${enemy.name}<br>
+        counters = ${names ? names.join(", ") : "НЕ НАЙДЕНЫ"}<br>
+        heroes = ${Array.isArray(heroes) ? heroes.length : "НЕ МАССИВ"}<br>
+        first = ${heroes && heroes[0] ? JSON.stringify(heroes[0]) : "НЕТ"}
+    </div>
+`;
+    
     names.forEach((name,index) => {
 
         const hero =
