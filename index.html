@@ -7899,68 +7899,75 @@ function createFavoriteHeroSelects(){
 
 function openProfileEditor(){
 
-    document
-        .getElementById(
-            "profileMmrInput"
-        )
-        .value =
-            dotaProfile.mmr;
+    const modal =
+        document.getElementById("profileEditModal");
+
+    if(!modal){
+        return;
+    }
+
+    /* Сначала открываем окно */
+    modal.classList.add("active");
 
 
-    document
-        .getElementById(
-            "profileHoursInput"
-        )
-        .value =
-            dotaProfile.hours;
+    /* MMR */
+    const mmrInput =
+        document.getElementById("profileMmrInput");
+
+    if(mmrInput){
+        mmrInput.value =
+            dotaProfile?.mmr ?? "";
+    }
 
 
-    document
-        .getElementById(
-            "favoriteHero1"
-        )
-        .value =
-            dotaProfile
-                .favorites[0] || "";
+    /* Часы */
+    const hoursInput =
+        document.getElementById("profileHoursInput");
+
+    if(hoursInput){
+        hoursInput.value =
+            dotaProfile?.hours ?? "";
+    }
 
 
-    document
-        .getElementById(
-            "favoriteHero2"
-        )
-        .value =
-            dotaProfile
-                .favorites[1] || "";
+    /* Любимый герой 1 */
+    const hero1 =
+        document.getElementById("favoriteHero1");
+
+    if(hero1){
+        hero1.value =
+            dotaProfile?.favorites?.[0] || "";
+    }
 
 
-    document
-        .getElementById(
-            "favoriteHero3"
-        )
-        .value =
-            dotaProfile
-                .favorites[2] || "";
+    /* Любимый герой 2 */
+    const hero2 =
+        document.getElementById("favoriteHero2");
+
+    if(hero2){
+        hero2.value =
+            dotaProfile?.favorites?.[1] || "";
+    }
 
 
-    document
-        .getElementById(
-            "profileEditModal"
-        )
-        .classList.add(
-            "active"
-        );
+    /* Любимый герой 3 */
+    const hero3 =
+        document.getElementById("favoriteHero3");
+
+    if(hero3){
+        hero3.value =
+            dotaProfile?.favorites?.[2] || "";
+    }
 
 
+    /* Telegram-вибрация */
     if(
+        typeof tg !== "undefined" &&
         tg &&
         tg.HapticFeedback
     ){
-
         tg.HapticFeedback
-            .impactOccurred(
-                "light"
-            );
-
+            .impactOccurred("light");
     }
 
 }
