@@ -24,7 +24,8 @@ body{
 }
 
 button,
-select{
+select,
+input{
     font-family:inherit;
 }
 
@@ -490,13 +491,6 @@ button{
     color:#ddd;
 }
 
-.meta-loading{
-    text-align:center;
-    color:#666;
-    padding:30px 10px;
-    font-size:12px;
-}
-
 /* ================= RANDOM ================= */
 
 .random-box{
@@ -592,10 +586,6 @@ button{
     outline:none;
 }
 
-.counter-select:focus{
-    border-color:#8d2929;
-}
-
 .counter-result{
     display:none;
 }
@@ -634,13 +624,7 @@ button{
     max-height:88vh;
     overflow-y:auto;
     margin:auto;
-    background:
-        radial-gradient(
-            circle at 90% 0%,
-            rgba(150,25,25,.16),
-            transparent 35%
-        ),
-        #101010;
+    background:#101010;
     border:1px solid #363636;
     border-bottom:0;
     border-radius:25px 25px 0 0;
@@ -649,13 +633,8 @@ button{
 }
 
 @keyframes slideUp{
-    from{
-        transform:translateY(100%);
-    }
-
-    to{
-        transform:translateY(0);
-    }
+    from{transform:translateY(100%);}
+    to{transform:translateY(0);}
 }
 
 .modal-image{
@@ -663,15 +642,12 @@ button{
     aspect-ratio:16/7;
     object-fit:cover;
     border-radius:17px;
-    display:block;
-    background:#181818;
 }
 
 .modal-name{
     font-size:25px;
     font-weight:900;
     margin:16px 0 4px;
-    letter-spacing:.5px;
 }
 
 .guide-source{
@@ -682,7 +658,6 @@ button{
 
 .guide-role{
     display:inline-flex;
-    align-items:center;
     padding:8px 11px;
     border-radius:9px;
     background:#321010;
@@ -712,11 +687,9 @@ button{
 .guide-item{
     background:#181818;
     border:1px solid #2c2c2c;
-    color:#ddd;
     border-radius:10px;
     padding:9px 10px;
     font-size:10px;
-    font-weight:700;
 }
 
 .guide-skills{
@@ -740,9 +713,7 @@ button{
 }
 
 .guide-skill-name{
-    color:#ddd;
     font-size:8px;
-    line-height:1.2;
     font-weight:800;
 }
 
@@ -754,7 +725,6 @@ button{
 
 .guide-talent{
     display:flex;
-    align-items:center;
     gap:10px;
     background:#171717;
     border:1px solid #292929;
@@ -770,7 +740,6 @@ button{
 }
 
 .guide-talent-name{
-    color:#ddd;
     font-size:10px;
     font-weight:700;
 }
@@ -783,46 +752,306 @@ button{
     border-radius:13px;
     padding:14px;
     font-weight:800;
-    font-size:13px;
-    margin-top:2px;
-}
-
-.close-btn:active{
-    transform:scale(.98);
 }
 
 /* ================= PROFILE ================= */
 
 .profile-card{
-    background:#111;
-    border:1px solid #292929;
-    border-radius:20px;
-    padding:25px 18px;
-    text-align:center;
+    background:
+        radial-gradient(circle at 90% 0%,rgba(150,25,25,.18),transparent 35%),
+        linear-gradient(145deg,#151515,#0d0d0d);
+    border:1px solid #342020;
+    border-radius:22px;
+    padding:20px;
+    margin-bottom:14px;
+}
+
+.profile-user-top{
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
 
 .profile-avatar{
-    width:75px;
-    height:75px;
-    margin:auto auto 14px;
+    width:68px;
+    height:68px;
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#1c1c1c;
-    border:2px solid #492020;
-    font-size:38px;
+    background:#1b1010;
+    border:2px solid #542323;
+    font-size:31px;
+    overflow:hidden;
+    flex-shrink:0;
+}
+
+.profile-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.profile-user-info{
+    min-width:0;
 }
 
 .profile-name{
-    font-size:20px;
+    font-size:19px;
     font-weight:900;
-    margin-bottom:6px;
+    margin-bottom:5px;
 }
 
 .profile-username{
     color:#777;
+    font-size:12px;
+}
+
+.profile-rank-card{
+    background:
+        radial-gradient(circle at 50% 0%,rgba(180,40,40,.15),transparent 55%),
+        #111;
+    border:1px solid #2e2e2e;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:14px;
+    text-align:center;
+}
+
+.profile-rank-small{
+    color:#777;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.2px;
+    margin-bottom:12px;
+}
+
+.profile-rank-icon{
+    width:105px;
+    height:105px;
+    margin:0 auto 8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.profile-rank-icon img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.profile-rank-fallback{
+    font-size:65px;
+}
+
+.profile-rank-name{
+    font-size:20px;
+    font-weight:900;
+    margin-bottom:5px;
+}
+
+.profile-rank-mmr{
+    color:#e44b4b;
+    font-size:14px;
+    font-weight:900;
+}
+
+.profile-rank-stars{
+    color:#d7b35c;
+    font-size:15px;
+    margin-top:6px;
+    letter-spacing:2px;
+}
+
+.profile-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:14px;
+}
+
+.profile-stat{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:16px;
+    padding:15px;
+}
+
+.profile-stat-label{
+    color:#666;
+    font-size:9px;
+    font-weight:800;
+    margin-bottom:7px;
+}
+
+.profile-stat-value{
+    font-size:17px;
+    font-weight:900;
+}
+
+.profile-section{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:20px;
+    padding:17px;
+    margin-bottom:14px;
+}
+
+.profile-section-title{
+    font-size:15px;
+    font-weight:900;
+    margin-bottom:13px;
+}
+
+.favorite-heroes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+}
+
+.favorite-hero{
+    background:#161616;
+    border:1px solid #272727;
+    border-radius:13px;
+    overflow:hidden;
+}
+
+.favorite-hero img{
+    width:100%;
+    aspect-ratio:1.45;
+    object-fit:cover;
+    display:block;
+}
+
+.favorite-hero-name{
+    padding:8px 3px;
+    text-align:center;
+    font-size:8px;
+    font-weight:900;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.favorite-empty{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#555;
+    font-size:22px;
+}
+
+.profile-edit-btn{
+    width:100%;
+    border:0;
+    border-radius:14px;
+    padding:15px;
+    background:linear-gradient(135deg,#dc3434,#8f1515);
+    color:white;
+    font-weight:900;
+}
+
+/* ================= PROFILE MODAL ================= */
+
+.profile-edit-modal{
+    position:fixed;
+    inset:0;
+    z-index:150;
+    display:none;
+    align-items:flex-end;
+    background:rgba(0,0,0,.88);
+    backdrop-filter:blur(5px);
+}
+
+.profile-edit-modal.active{
+    display:flex;
+}
+
+.profile-edit-content{
+    width:100%;
+    max-width:600px;
+    max-height:90vh;
+    overflow-y:auto;
+    margin:0 auto;
+    background:#101010;
+    border:1px solid #343434;
+    border-bottom:0;
+    border-radius:25px 25px 0 0;
+    padding:20px 17px 28px;
+    animation:slideUp .22s ease;
+}
+
+.profile-edit-title{
+    font-size:21px;
+    font-weight:900;
+    margin-bottom:5px;
+}
+
+.profile-edit-description{
+    color:#777;
+    font-size:11px;
+    line-height:1.5;
+    margin-bottom:21px;
+}
+
+.profile-input-group{
+    margin-bottom:17px;
+}
+
+.profile-input-label{
+    display:block;
+    font-size:11px;
+    font-weight:900;
+    color:#bbb;
+    margin-bottom:8px;
+}
+
+.profile-input,
+.profile-hero-select{
+    width:100%;
+    border:1px solid #303030;
+    background:#171717;
+    color:#fff;
+    border-radius:13px;
+    padding:14px;
+    outline:none;
     font-size:13px;
+}
+
+.profile-hero-selects{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+.profile-helper{
+    color:#5f5f5f;
+    font-size:9px;
+    margin-top:6px;
+}
+
+.profile-save-btn{
+    width:100%;
+    border:0;
+    border-radius:14px;
+    padding:15px;
+    background:linear-gradient(135deg,#e13b3b,#921616);
+    color:white;
+    font-weight:900;
+    margin-top:8px;
+}
+
+.profile-cancel-btn{
+    width:100%;
+    border:1px solid #303030;
+    border-radius:14px;
+    padding:14px;
+    background:#181818;
+    color:#aaa;
+    font-weight:800;
+    margin-top:9px;
 }
 
 /* ================= BOTTOM NAV ================= */
@@ -841,7 +1070,6 @@ button{
     display:grid;
     grid-template-columns:repeat(5,1fr);
     z-index:50;
-    box-shadow:0 8px 30px rgba(0,0,0,.45);
 }
 
 .nav-btn{
@@ -864,25 +1092,10 @@ button{
     background:#281111;
 }
 
-/* ================= DESKTOP ================= */
-
 @media(min-width:700px){
-
     .hero-grid{
         grid-template-columns:repeat(4,1fr);
     }
-
-}
-
-/* ================= SCROLLBAR ================= */
-
-::-webkit-scrollbar{
-    width:4px;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#333;
-    border-radius:5px;
 }
 </style>
 </head>
@@ -891,763 +1104,539 @@ button{
 
 <div class="app">
 
-<!-- ================================================= -->
 <!-- HOME -->
-<!-- ================================================= -->
 
 <section id="home" class="page active">
 
-    <div class="header">
-
-        <div class="logo">
-
-            <div class="logo-icon">
-                🪨
-            </div>
-
-            <div class="logo-text">
-                ROSH<span>AN</span>
-            </div>
-
-        </div>
-
-        <button
-            class="profile-btn"
-            onclick="showPage('profile')"
-        >
-            👤
-        </button>
-
+<div class="header">
+    <div class="logo">
+        <div class="logo-icon">🪨</div>
+        <div class="logo-text">ROSH<span>AN</span></div>
     </div>
 
+    <button class="profile-btn" onclick="showPage('profile')">👤</button>
+</div>
 
-    <div class="hero">
+<div class="hero">
+    <div class="hero-content">
 
-        <div class="hero-content">
+        <div class="version">DOTA 2 • 7.41e</div>
 
-            <div class="version">
-                DOTA 2 • 7.41e
-            </div>
-
-            <h1>
-                Добро пожаловать<br>
-                в Roshan
-            </h1>
-
-            <p>
-                Всё самое интересное о Dota 2 —
-                мета, герои, гайды и случайные пики.
-            </p>
-
-            <button
-                class="meta-btn"
-                onclick="showPage('meta')"
-            >
-                🔥 Смотреть мету
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div class="section-title">
-        Быстрый доступ
-    </div>
-
-
-    <div class="quick-grid">
-
-        <button
-            class="quick-card"
-            onclick="showPage('meta')"
-        >
-
-            <div class="quick-icon">
-                🔥
-            </div>
-
-            <h3>
-                Мета
-            </h3>
-
-            <p>
-                Актуальные герои
-            </p>
-
-        </button>
-
-
-        <button
-            class="quick-card"
-            onclick="showPage('random')"
-        >
-
-            <div class="quick-icon">
-                🎲
-            </div>
-
-            <h3>
-                Рандом
-            </h3>
-
-            <p>
-                Случайный герой
-            </p>
-
-        </button>
-
-
-        <button
-            class="quick-card"
-            onclick="showPage('guides')"
-        >
-
-            <div class="quick-icon">
-                📖
-            </div>
-
-            <h3>
-                Гайды
-            </h3>
-
-            <p>
-                Все герои Dota 2
-            </p>
-
-        </button>
-
-
-        <button
-            class="quick-card"
-            onclick="showPage('counter')"
-        >
-
-            <div class="quick-icon">
-                ⚔️
-            </div>
-
-            <h3>
-                Контрпик
-            </h3>
-
-            <p>
-                Выбери героя
-            </p>
-
-        </button>
-
-    </div>
-
-
-    <div class="daily">
-
-        <div class="daily-top">
-
-            <div class="daily-icon">
-                🎯
-            </div>
-
-            <h3>
-                Задание дня
-            </h3>
-
-        </div>
+        <h1>
+            Добро пожаловать<br>
+            в Roshan
+        </h1>
 
         <p>
-            Сегодня сыграй игру на Techies и попробуй
-            сделать минимум 10 убийств.
+            Всё самое интересное о Dota 2 —
+            мета, герои, гайды и случайные пики.
         </p>
 
+        <button class="meta-btn" onclick="showPage('meta')">
+            🔥 Смотреть мету
+        </button>
+
     </div>
+</div>
+
+<div class="section-title">Быстрый доступ</div>
+
+<div class="quick-grid">
+
+<button class="quick-card" onclick="showPage('meta')">
+    <div class="quick-icon">🔥</div>
+    <h3>Мета</h3>
+    <p>Актуальные герои</p>
+</button>
+
+<button class="quick-card" onclick="showPage('random')">
+    <div class="quick-icon">🎲</div>
+    <h3>Рандом</h3>
+    <p>Случайный герой</p>
+</button>
+
+<button class="quick-card" onclick="showPage('guides')">
+    <div class="quick-icon">📖</div>
+    <h3>Гайды</h3>
+    <p>Все герои Dota 2</p>
+</button>
+
+<button class="quick-card" onclick="showPage('counter')">
+    <div class="quick-icon">⚔️</div>
+    <h3>Контрпик</h3>
+    <p>Выбери героя</p>
+</button>
+
+</div>
+
+<div class="daily">
+
+<div class="daily-top">
+    <div class="daily-icon">🎯</div>
+    <h3>Задание дня</h3>
+</div>
+
+<p>
+Сегодня сыграй игру на Techies и попробуй сделать минимум 10 убийств.
+</p>
+
+</div>
 
 </section>
 
-
-<!-- ================================================= -->
 <!-- META -->
-<!-- ================================================= -->
 
 <section id="meta" class="page">
 
-    <div class="header">
-
-        <div class="logo">
-
-            <div class="logo-icon">
-                🔥
-            </div>
-
-            <div class="logo-text">
-                МЕТА
-            </div>
-
-        </div>
-
+<div class="header">
+    <div class="logo">
+        <div class="logo-icon">🔥</div>
+        <div class="logo-text">МЕТА</div>
     </div>
+</div>
 
+<div class="meta-hero-version">
+D2PT • 7000+ MMR • Патч 7.41e
+</div>
 
-    <div class="meta-hero-version">
-        D2PT • 7000+ MMR • Патч 7.41e
-    </div>
+<div class="meta-role-tabs">
 
+<button class="meta-role-btn active" onclick="renderMetaRole('carry',this)">⚔️ Керри</button>
+<button class="meta-role-btn" onclick="renderMetaRole('mid',this)">🔥 Мид</button>
+<button class="meta-role-btn" onclick="renderMetaRole('offlane',this)">🛡️ Оффлейн</button>
+<button class="meta-role-btn" onclick="renderMetaRole('support',this)">✨ Саппорт</button>
+<button class="meta-role-btn" onclick="renderMetaRole('hardSupport',this)">💎 Хард</button>
 
-    <div
-        id="metaRoleTabs"
-        class="meta-role-tabs"
-    >
+</div>
 
-        <button
-            class="meta-role-btn active"
-            onclick="renderMetaRole('carry',this)"
-        >
-            ⚔️ Керри
-        </button>
+<div id="metaFeatured" class="meta-featured"></div>
 
-        <button
-            class="meta-role-btn"
-            onclick="renderMetaRole('mid',this)"
-        >
-            🔥 Мид
-        </button>
+<div class="meta-card">
+    <div id="metaListTitle" class="meta-title">🔥 Топ героев</div>
+    <div id="metaList" class="meta-list"></div>
+</div>
 
-        <button
-            class="meta-role-btn"
-            onclick="renderMetaRole('offlane',this)"
-        >
-            🛡️ Оффлейн
-        </button>
+<div class="meta-card">
+<div class="meta-info-box">
 
-        <button
-            class="meta-role-btn"
-            onclick="renderMetaRole('support',this)"
-        >
-            ✨ Саппорт
-        </button>
+<div class="meta-info-icon">📊</div>
 
-        <button
-            class="meta-role-btn"
-            onclick="renderMetaRole('hardSupport',this)"
-        >
-            💎 Хард
-        </button>
+<div class="meta-info-text">
+<strong>Как читать мету</strong><br>
+WR — процент побед героя.
+Матчи — объём выборки.
+D2PT Rating — рейтинг силы героя.
+</div>
 
-    </div>
-
-
-    <div
-        id="metaFeatured"
-        class="meta-featured"
-    ></div>
-
-
-    <div class="meta-card">
-
-        <div
-            id="metaListTitle"
-            class="meta-title"
-        >
-            🔥 Топ героев
-        </div>
-
-        <div
-            id="metaList"
-            class="meta-list"
-        ></div>
-
-    </div>
-
-
-    <div class="meta-card">
-
-        <div class="meta-info-box">
-
-            <div class="meta-info-icon">
-                📊
-            </div>
-
-            <div class="meta-info-text">
-
-                <strong>
-                    Как читать мету
-                </strong>
-                <br>
-
-                WR — процент побед героя.
-                Матчи — объём выборки.
-                D2PT Rating — рейтинг силы и
-                драфтовой приоритетности героя
-                в выбранной роли.
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
+</div>
 
 </section>
 
-
-<!-- ================================================= -->
 <!-- RANDOM -->
-<!-- ================================================= -->
 
 <section id="random" class="page">
 
-    <div class="header">
+<div class="header">
+<div class="logo">
+<div class="logo-icon">🎲</div>
+<div class="logo-text">РАНДОМ</div>
+</div>
+</div>
 
-        <div class="logo">
+<div class="random-box">
 
-            <div class="logo-icon">
-                🎲
-            </div>
+<img
+id="randomImage"
+class="random-image"
+src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png"
+>
 
-            <div class="logo-text">
-                РАНДОМ
-            </div>
+<div id="randomName" class="random-name">
+PUDGE
+</div>
 
-        </div>
+<button class="random-btn" onclick="randomHero()">
+🎲 СЛУЧАЙНЫЙ ГЕРОЙ
+</button>
 
-    </div>
-
-
-    <div class="random-box">
-
-        <img
-            id="randomImage"
-            class="random-image"
-            src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png"
-            alt="Random hero"
-        >
-
-
-        <div
-            id="randomName"
-            class="random-name"
-        >
-            PUDGE
-        </div>
-
-
-        <button
-            class="random-btn"
-            onclick="randomHero()"
-        >
-            🎲 СЛУЧАЙНЫЙ ГЕРОЙ
-        </button>
-
-    </div>
+</div>
 
 </section>
 
-
-<!-- ================================================= -->
 <!-- GUIDES -->
-<!-- ================================================= -->
 
 <section id="guides" class="page">
 
-    <div class="header">
+<div class="header">
+<div class="logo">
+<div class="logo-icon">📖</div>
+<div class="logo-text">ГАЙДЫ</div>
+</div>
+</div>
 
-        <div class="logo">
+<div class="section-title">Все герои</div>
 
-            <div class="logo-icon">
-                📖
-            </div>
-
-            <div class="logo-text">
-                ГАЙДЫ
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="section-title guides-title">
-        Все герои
-    </div>
-
-
-    <div
-        id="heroGrid"
-        class="hero-grid"
-    ></div>
+<div id="heroGrid" class="hero-grid"></div>
 
 </section>
 
-
-<!-- ================================================= -->
-<!-- COUNTERPICK -->
-<!-- ================================================= -->
+<!-- COUNTER -->
 
 <section id="counter" class="page">
 
-    <div class="header">
+<div class="header">
+<div class="logo">
+<div class="logo-icon">⚔️</div>
+<div class="logo-text">КОНТРПИК</div>
+</div>
+</div>
 
-        <div class="logo">
+<div class="meta-card">
 
-            <div class="logo-icon">
-                ⚔️
-            </div>
+<div class="meta-title">
+⚔️ Выбери героя противника
+</div>
 
-            <div class="logo-text">
-                КОНТРПИК
-            </div>
+<p class="counter-description">
+Выбери героя, против которого хочешь подобрать контрпик.
+</p>
 
-        </div>
+<select id="counterSelect" class="counter-select" onchange="showCounters()">
+<option value="">Выбери героя</option>
+</select>
 
-    </div>
+</div>
 
+<div id="counterResult" class="counter-result">
 
-    <div class="meta-card">
+<div class="section-title">
+Лучшие контрпики
+</div>
 
-        <div class="meta-title">
-            ⚔️ Выбери героя противника
-        </div>
+<div id="counterHeroes" class="hero-grid"></div>
 
-        <p class="counter-description">
-            Выбери героя, против которого хочешь подобрать контрпик.
-        </p>
-
-
-        <select
-            id="counterSelect"
-            class="counter-select"
-            onchange="showCounters()"
-        >
-
-            <option value="">
-                Выбери героя
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <div
-        id="counterResult"
-        class="counter-result"
-    >
-
-        <div class="section-title">
-            Лучшие контрпики
-        </div>
-
-        <div
-            id="counterHeroes"
-            class="hero-grid"
-        ></div>
-
-    </div>
+</div>
 
 </section>
 
-
-<!-- ================================================= -->
 <!-- PROFILE -->
-<!-- ================================================= -->
 
 <section id="profile" class="page">
 
-    <div class="header">
+<div class="header">
 
-        <div class="logo">
+<div class="logo">
+<div class="logo-icon">●</div>
+<div class="logo-text">ПРОФИЛЬ</div>
+</div>
 
-            <div class="logo-icon">
-                ●
-            </div>
+</div>
 
-            <div class="logo-text">
-                ПРОФИЛЬ
-            </div>
+<div class="profile-card">
 
-        </div>
+<div class="profile-user-top">
 
-    </div>
+<div id="profileAvatar" class="profile-avatar">
+🪨
+</div>
 
+<div class="profile-user-info">
 
-    <div class="profile-card">
+<div id="profileName" class="profile-name">
+Игрок
+</div>
 
-        <div class="profile-avatar">
-            🪨
-        </div>
+<div id="profileUsername" class="profile-username">
+@telegram
+</div>
 
-        <div
-            id="profileName"
-            class="profile-name"
-        >
-            Игрок
-        </div>
+</div>
 
-        <div
-            id="profileUsername"
-            class="profile-username"
-        >
-            @telegram
-        </div>
+</div>
 
-    </div>
+</div>
+
+<div class="profile-rank-card">
+
+<div class="profile-rank-small">
+ТВОЙ РАНГ
+</div>
+
+<div id="profileRankIcon" class="profile-rank-icon">
+<div class="profile-rank-fallback">🏆</div>
+</div>
+
+<div id="profileRankName" class="profile-rank-name">
+Ранг не указан
+</div>
+
+<div id="profileRankMmr" class="profile-rank-mmr">
+Укажи свой MMR
+</div>
+
+<div id="profileRankStars" class="profile-rank-stars"></div>
+
+</div>
+
+<div class="profile-stats">
+
+<div class="profile-stat">
+
+<div class="profile-stat-label">
+MMR
+</div>
+
+<div id="profileMmrValue" class="profile-stat-value">
+—
+</div>
+
+</div>
+
+<div class="profile-stat">
+
+<div class="profile-stat-label">
+В игре
+</div>
+
+<div id="profileHoursValue" class="profile-stat-value">
+—
+</div>
+
+</div>
+
+</div>
+
+<div class="profile-section">
+
+<div class="profile-section-title">
+❤️ Любимые герои
+</div>
+
+<div id="favoriteHeroes" class="favorite-heroes"></div>
+
+</div>
+
+<button class="profile-edit-btn" onclick="openProfileEditor()">
+✏️ Редактировать профиль
+</button>
 
 </section>
 
 </div>
 
-
-<!-- ================================================= -->
-<!-- GUIDE MODAL -->
-<!-- ================================================= -->
+<!-- PROFILE EDIT MODAL -->
 
 <div
-    id="heroModal"
-    class="modal"
-    onclick="closeModal(event)"
+id="profileEditModal"
+class="profile-edit-modal"
+onclick="closeProfileEditorOutside(event)"
 >
 
-    <div
-        class="modal-content"
-        onclick="event.stopPropagation()"
-    >
+<div class="profile-edit-content" onclick="event.stopPropagation()">
 
-        <img
-            id="modalImage"
-            class="modal-image"
-            src=""
-            alt="Hero"
-        >
+<div class="profile-edit-title">
+Профиль Dota 2
+</div>
 
-        <div
-            id="modalName"
-            class="modal-name"
-        ></div>
+<div class="profile-edit-description">
+Укажи рейтинг, количество часов и выбери трёх любимых героев.
+</div>
 
-        <div
-            id="modalSource"
-            class="guide-source"
-        >
-            D2PT • Патч 7.41e
-        </div>
+<div class="profile-input-group">
 
-        <div
-            id="modalRole"
-            class="guide-role"
-        ></div>
+<label class="profile-input-label">
+🏆 Твой MMR
+</label>
 
+<input
+id="profileMmrInput"
+class="profile-input"
+type="number"
+inputmode="numeric"
+placeholder="Например: 4500"
+>
 
-        <div class="guide-section">
-
-            <div class="guide-section-title">
-                🛒 Основные предметы
-            </div>
-
-            <div
-                id="modalItems"
-                class="guide-items"
-            ></div>
-
-        </div>
-
-
-        <div class="guide-section">
-
-            <div class="guide-section-title">
-                ✨ Прокачка скиллов
-            </div>
-
-            <div
-                id="modalSkills"
-                class="guide-skills"
-            ></div>
-
-        </div>
-
-
-        <div class="guide-section">
-
-            <div class="guide-section-title">
-                ⭐ Таланты
-            </div>
-
-            <div
-                id="modalTalents"
-                class="guide-talents"
-            ></div>
-
-        </div>
-
-
-        <button
-            class="close-btn"
-            onclick="closeHeroModal()"
-        >
-            Закрыть
-        </button>
-
-    </div>
+<div class="profile-helper">
+Медаль определяется автоматически.
+</div>
 
 </div>
 
+<div class="profile-input-group">
 
-<!-- ================================================= -->
+<label class="profile-input-label">
+⏱ Часов в Dota 2
+</label>
+
+<input
+id="profileHoursInput"
+class="profile-input"
+type="number"
+inputmode="numeric"
+placeholder="Например: 2500"
+>
+
+</div>
+
+<div class="profile-input-group">
+
+<div class="profile-input-label">
+❤️ Любимые герои
+</div>
+
+<div class="profile-hero-selects">
+
+<select id="favoriteHero1" class="profile-hero-select"></select>
+<select id="favoriteHero2" class="profile-hero-select"></select>
+<select id="favoriteHero3" class="profile-hero-select"></select>
+
+</div>
+
+</div>
+
+<button class="profile-save-btn" onclick="saveProfile()">
+СОХРАНИТЬ ПРОФИЛЬ
+</button>
+
+<button class="profile-cancel-btn" onclick="closeProfileEditor()">
+Отмена
+</button>
+
+</div>
+
+</div>
+
+<!-- HERO MODAL -->
+
+<div id="heroModal" class="modal" onclick="closeModal(event)">
+
+<div class="modal-content" onclick="event.stopPropagation()">
+
+<img id="modalImage" class="modal-image">
+
+<div id="modalName" class="modal-name"></div>
+
+<div id="modalSource" class="guide-source">
+D2PT • Патч 7.41e
+</div>
+
+<div id="modalRole" class="guide-role"></div>
+
+<div class="guide-section">
+
+<div class="guide-section-title">
+🛒 Основные предметы
+</div>
+
+<div id="modalItems" class="guide-items"></div>
+
+</div>
+
+<div class="guide-section">
+
+<div class="guide-section-title">
+✨ Прокачка скиллов
+</div>
+
+<div id="modalSkills" class="guide-skills"></div>
+
+</div>
+
+<div class="guide-section">
+
+<div class="guide-section-title">
+⭐ Таланты
+</div>
+
+<div id="modalTalents" class="guide-talents"></div>
+
+</div>
+
+<button class="close-btn" onclick="closeHeroModal()">
+Закрыть
+</button>
+
+</div>
+
+</div>
+
 <!-- BOTTOM NAV -->
-<!-- ================================================= -->
 
 <nav class="bottom-nav">
 
-    <button
-        class="nav-btn active"
-        onclick="showPage('home',this)"
-    >
-        ⌂
-        <span>Главная</span>
-    </button>
+<button class="nav-btn active" onclick="showPage('home',this)">
+⌂
+<span>Главная</span>
+</button>
 
+<button class="nav-btn" onclick="showPage('meta',this)">
+⚔
+<span>Мета</span>
+</button>
 
-    <button
-        class="nav-btn"
-        onclick="showPage('meta',this)"
-    >
-        ⚔
-        <span>Мета</span>
-    </button>
+<button class="nav-btn" onclick="showPage('random',this)">
+🎲
+<span>Рандом</span>
+</button>
 
+<button class="nav-btn" onclick="showPage('guides',this)">
+📖
+<span>Гайды</span>
+</button>
 
-    <button
-        class="nav-btn"
-        onclick="showPage('random',this)"
-    >
-        🎲
-        <span>Рандом</span>
-    </button>
-
-
-    <button
-        class="nav-btn"
-        onclick="showPage('guides',this)"
-    >
-        📖
-        <span>Гайды</span>
-    </button>
-
-
-    <button
-        class="nav-btn"
-        onclick="showPage('profile',this)"
-    >
-        ●
-        <span>Профиль</span>
-    </button>
+<button class="nav-btn" onclick="showPage('profile',this)">
+●
+<span>Профиль</span>
+</button>
 
 </nav>
 
-
 <script>
 
-/* ================================================= */
 /* TELEGRAM */
-/* ================================================= */
 
 const tg =
-    window.Telegram &&
-    window.Telegram.WebApp
-        ? window.Telegram.WebApp
-        : null;
-
+window.Telegram &&
+window.Telegram.WebApp
+? window.Telegram.WebApp
+: null;
 
 if(tg){
-
     tg.ready();
-
     tg.expand();
-
 }
 
-
-/* ================================================= */
 /* NAVIGATION */
-/* ================================================= */
 
 function showPage(pageId,button){
 
-    document
-        .querySelectorAll('.page')
-        .forEach(page=>{
-            page.classList.remove('active');
-        });
+document.querySelectorAll('.page').forEach(page=>{
+    page.classList.remove('active');
+});
 
+const page=document.getElementById(pageId);
 
-    const page =
-        document.getElementById(pageId);
+if(page){
+    page.classList.add('active');
+}
 
+document.querySelectorAll('.nav-btn').forEach(btn=>{
+    btn.classList.remove('active');
+});
 
-    if(page){
-        page.classList.add('active');
-    }
+if(button){
+    button.classList.add('active');
+}
 
-
-    document
-        .querySelectorAll('.nav-btn')
-        .forEach(btn=>{
-            btn.classList.remove('active');
-        });
-
-
-    if(button){
-
-        button.classList.add('active');
-
-    }else{
-
-        const pages = [
-            'home',
-            'meta',
-            'random',
-            'guides',
-            'profile'
-        ];
-
-        const index =
-            pages.indexOf(pageId);
-
-
-        if(index !== -1){
-
-            const navButtons =
-                document.querySelectorAll('.nav-btn');
-
-
-            if(navButtons[index]){
-                navButtons[index].classList.add('active');
-            }
-
-        }
-
-    }
-
-
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
-    });
-
-
-    if(
-        tg &&
-        tg.HapticFeedback
-    ){
-
-        tg.HapticFeedback
-            .impactOccurred('light');
-
-    }
+window.scrollTo({
+    top:0,
+    behavior:'smooth'
+});
 
 }
 
-
-/* ================================================= */
 /* HEROES */
-/* ================================================= */
 
 const heroes = [
 
@@ -1779,1254 +1768,638 @@ const heroes = [
 
 ];
 
-
-/* ================================================= */
-/* META DATA */
-/* ================================================= */
-
-const metaData = {
-
-    carry:{
-        title:"⚔️ Топ керри",
-        featured:{
-            name:"NECROPHOS",
-            wr:"55.1%",
-            matches:"2.1K",
-            rating:"73",
-            role:"Carry"
-        },
-        heroes:[
-            ["PHANTOM LANCER","52.2%","6.6K","81"],
-            ["NECROPHOS","55.1%","2.1K","73"],
-            ["SPECTRE","53.1%","4.4K","69"],
-            ["LIFESTEALER","51.7%","10.1K","66"],
-            ["WINDRANGER","53.3%","2.6K","63"],
-            ["SLARK","52.3%","3.2K","62"],
-            ["SVEN","51.2%","4.9K","60"]
-        ]
-    },
-
-    mid:{
-        title:"🔥 Топ мидеров",
-        featured:{
-            name:"INVOKER",
-            wr:"52.3%",
-            matches:"8.7K",
-            rating:"81",
-            role:"Mid"
-        },
-        heroes:[
-            ["INVOKER","52.3%","8.7K","81"],
-            ["KEEPER OF THE LIGHT","56.8%","2.9K","74"],
-            ["LINA","50.3%","10.2K","72"],
-            ["EARTH SPIRIT","53.0%","4.6K","61"],
-            ["EMBER SPIRIT","50.5%","8.1K","61"],
-            ["OUTWORLD DESTROYER","51.9%","5.0K","57"],
-            ["ARC WARDEN","52.7%","1.7K","49"]
-        ]
-    },
-
-    offlane:{
-        title:"🛡️ Топ оффлейнеров",
-        featured:{
-            name:"ENIGMA",
-            wr:"56.9%",
-            matches:"4.2K",
-            rating:"83",
-            role:"Offlane"
-        },
-        heroes:[
-            ["ENIGMA","56.9%","4.2K","83"],
-            ["PUDGE","53.2%","3.0K","75"],
-            ["DARK SEER","52.9%","7.5K","65"],
-            ["NIGHT STALKER","50.1%","5.0K","58"],
-            ["PRIMAL BEAST","53.6%","1.3K","56"],
-            ["MAGNUS","51.1%","2.6K","55"],
-            ["DRAGON KNIGHT","52.5%","1.5K","55"]
-        ]
-    },
-
-    support:{
-        title:"✨ Топ саппортов",
-        featured:{
-            name:"BOUNTY HUNTER",
-            wr:"56.2%",
-            matches:"10.9K",
-            rating:"93",
-            role:"Support"
-        },
-        heroes:[
-            ["BOUNTY HUNTER","56.2%","10.9K","93"],
-            ["SPIRIT BREAKER","53.1%","8.0K","68"],
-            ["NYX ASSASSIN","54.4%","2.1K","64"],
-            ["DARK WILLOW","50.5%","3.9K","55"],
-            ["KEEPER OF THE LIGHT","51.1%","1.7K","66"]
-        ]
-    },
-
-    hardSupport:{
-        title:"💎 Топ хард-саппортов",
-        featured:{
-            name:"TREANT PROTECTOR",
-            wr:"52.6%",
-            matches:"7.9K",
-            rating:"95",
-            role:"Hard Support"
-        },
-        heroes:[
-            ["TREANT PROTECTOR","52.6%","7.9K","95"],
-            ["WINTER WYVERN","52.1%","7.1K","89"],
-            ["ORACLE","54.7%","2.4K","74"],
-            ["BANE","52.3%","2.7K","67"],
-            ["CLOCKWERK","52.3%","2.2K","67"],
-            ["DISRUPTOR","50.1%","4.0K","51"],
-            ["RINGMASTER","51.1%","2.7K","47"]
-        ]
-    }
-
-};
-
-
-/* ================================================= */
-/* FIND HERO */
-/* ================================================= */
+const sortedHeroes=[...heroes].sort((a,b)=>a.name.localeCompare(b.name));
 
 function getHeroByName(name){
-
-    return heroes.find(
-        hero =>
-            hero.name.toUpperCase() ===
-            name.toUpperCase()
-    );
-
+return heroes.find(hero=>hero.name===name);
 }
 
+/* GUIDES GRID */
 
-/* ================================================= */
-/* META RENDER */
-/* ================================================= */
-
-function renderMetaRole(role,button){
-
-    const data =
-        metaData[role];
-
-    if(!data){
-        return;
-    }
-
-
-    document
-        .querySelectorAll(".meta-role-btn")
-        .forEach(btn=>{
-            btn.classList.remove("active");
-        });
-
-
-    if(button){
-        button.classList.add("active");
-    }
-
-
-    const featuredHero =
-        getHeroByName(
-            data.featured.name
-        );
-
-
-    const featured =
-        document.getElementById(
-            "metaFeatured"
-        );
-
-
-    if(featuredHero){
-
-        featured.innerHTML = `
-
-            <img
-                src="${featuredHero.img}"
-                alt="${featuredHero.name}"
-            >
-
-            <div class="meta-featured-content">
-
-                <div class="meta-rank">
-                    🔥 TOP PICK
-                </div>
-
-                <h2>
-                    ${data.featured.name}
-                </h2>
-
-                <div class="meta-featured-role">
-                    ${data.featured.role} • 7.41e
-                </div>
-
-                <div class="meta-stats">
-
-                    <div class="meta-stat">
-                        <strong>${data.featured.wr}</strong>
-                        <span>WINRATE</span>
-                    </div>
-
-                    <div class="meta-stat">
-                        <strong>${data.featured.matches}</strong>
-                        <span>МАТЧЕЙ</span>
-                    </div>
-
-                    <div class="meta-stat">
-                        <strong>${data.featured.rating}</strong>
-                        <span>D2PT</span>
-                    </div>
-
-                </div>
-
-            </div>
-        `;
-
-        featured.onclick = ()=>{
-            openHero(featuredHero);
-        };
-
-    }
-
-
-    document.getElementById(
-        "metaListTitle"
-    ).textContent =
-        data.title;
-
-
-    const list =
-        document.getElementById(
-            "metaList"
-        );
-
-
-    list.innerHTML = "";
-
-
-    data.heroes.forEach(
-        (item,index)=>{
-
-            const hero =
-                getHeroByName(item[0]);
-
-
-            if(!hero){
-                return;
-            }
-
-
-            const card =
-                document.createElement("div");
-
-
-            card.className =
-                "meta-list-item";
-
-
-            card.innerHTML = `
-
-                <div class="meta-list-rank">
-                    ${index + 1}
-                </div>
-
-                <img
-                    class="meta-list-img"
-                    src="${hero.img}"
-                    alt="${hero.name}"
-                    loading="lazy"
-                >
-
-                <div class="meta-list-info">
-
-                    <div class="meta-list-name">
-                        ${hero.name}
-                    </div>
-
-                    <div class="meta-list-rating">
-                        D2PT Rating ${item[3]}/100
-                    </div>
-
-                </div>
-
-                <div class="meta-list-right">
-
-                    <div class="meta-wr">
-                        ${item[1]}
-                    </div>
-
-                    <div class="meta-matches">
-                        ${item[2]} матчей
-                    </div>
-
-                </div>
-
-            `;
-
-
-            card.onclick = ()=>{
-                openHero(hero);
-            };
-
-
-            list.appendChild(card);
-
-        }
-    );
-
-}
-
-
-/* ================================================= */
-/* D2PT GUIDE DATA */
-/* ================================================= */
-
-const d2ptGuides = {
-
-    "PUDGE":{
-        role:"Offlane / Support",
-
-        items:[
-            "Tranquil Boots",
-            "Magic Wand",
-            "Blink Dagger",
-            "Aether Lens",
-            "Glimmer Cape",
-            "Black King Bar"
-        ],
-
-        skills:[
-            "Meat Hook",
-            "Rot",
-            "Rot",
-            "Meat Shield",
-            "Rot",
-            "Dismember",
-            "Rot",
-            "Meat Shield",
-            "Meat Shield",
-            "Meat Shield"
-        ],
-
-        talents:[
-            [10,"+5 Armor"],
-            [15,"+150 Meat Hook Damage"],
-            [20,"+0.75s Dismember Duration"],
-            [25,"1.5x Dismember Damage/Heal"]
-        ]
-    },
-
-
-    "INVOKER":{
-        role:"Mid",
-
-        items:[
-            "Null Talisman",
-            "Magic Wand",
-            "Kaya",
-            "Meteor Hammer",
-            "Boots of Travel",
-            "Aghanim's Shard",
-            "Octarine Core",
-            "Black King Bar"
-        ],
-
-        skills:[
-            "Exort",
-            "Quas",
-            "Exort",
-            "Quas",
-            "Exort",
-            "Quas",
-            "Wex",
-            "Exort",
-            "Quas",
-            "Exort"
-        ],
-
-        talents:[
-            [10,"+50 Ice Wall DPS"],
-            [15,"-5s Tornado Cooldown"],
-            [20,"+2 Chaos Meteors"],
-            [25,"Radial Deafening Blast"]
-        ]
-    },
-
-
-    "PHANTOM LANCER":{
-        role:"Carry",
-
-        items:[
-            "Magic Wand",
-            "Power Treads",
-            "Yasha",
-            "Manta Style",
-            "Aghanim's Scepter",
-            "Eye of Skadi",
-            "Orchid Malevolence",
-            "Bloodthorn"
-        ],
-
-        skills:[
-            "Spirit Lance",
-            "Doppelganger",
-            "Spirit Lance",
-            "Phantom Rush",
-            "Spirit Lance",
-            "Juxtapose",
-            "Spirit Lance",
-            "Phantom Rush",
-            "Phantom Rush",
-            "Phantom Rush"
-        ],
-
-        talents:[
-            [10,"+1s Spirit Lance Slow Duration"],
-            [15,"50% Illusion Spirit Lance Damage"],
-            [20,"+100 Spirit Lance Damage"],
-            [25,"-4s Doppelganger Cooldown"]
-        ]
-    },
-
-
-    "TREANT PROTECTOR":{
-        role:"Hard Support",
-
-        items:[
-            "Magic Wand",
-            "Arcane Boots",
-            "Blink Dagger",
-            "Pavise",
-            "Solar Crest",
-            "Lotus Orb",
-            "Aghanim's Shard"
-        ],
-
-        skills:[
-            "Leech Seed",
-            "Living Armor",
-            "Living Armor",
-            "Nature's Grasp",
-            "Living Armor",
-            "Overgrowth",
-            "Living Armor",
-            "Nature's Grasp",
-            "Nature's Grasp",
-            "Nature's Grasp"
-        ],
-
-        talents:[
-            [10,"+3 Living Armor Heal Per Second"],
-            [15,"+25 Nature's Grasp Damage"],
-            [20,"+20 Living Armor Damage Block"],
-            [25,"450 AoE Living Armor"]
-        ]
-    }
-
-};
-
-
-/* ================================================= */
-/* GUIDES */
-/* ================================================= */
-
-const sortedHeroes =
-    [...heroes].sort((a,b)=>
-        a.name.localeCompare(b.name)
-    );
-
-
-const heroGrid =
-    document.getElementById("heroGrid");
-
+const heroGrid=document.getElementById("heroGrid");
 
 sortedHeroes.forEach(hero=>{
 
-    const card =
-        document.createElement("div");
+const card=document.createElement("div");
+card.className="hero-card";
 
-    card.className =
-        "hero-card";
+card.innerHTML=`
+<img src="${hero.img}">
+<div class="hero-card-name">${hero.name}</div>
+`;
 
+card.onclick=()=>openHero(hero);
 
-    card.innerHTML = `
-
-        <img
-            src="${hero.img}"
-            alt="${hero.name}"
-            loading="lazy"
-        >
-
-        <div class="hero-card-name">
-            ${hero.name}
-        </div>
-
-    `;
-
-
-    card.onclick = ()=>{
-        openHero(hero);
-    };
-
-
-    heroGrid.appendChild(card);
+heroGrid.appendChild(card);
 
 });
 
+/* RANDOM */
 
-/* ================================================= */
-/* RANDOM HERO */
-/* ================================================= */
-
-let lastHero = null;
-
+let lastHero=null;
 
 function randomHero(){
 
-    let hero;
+let hero;
 
+do{
+hero=heroes[Math.floor(Math.random()*heroes.length)];
+}while(hero===lastHero);
 
-    do{
+lastHero=hero;
 
-        hero =
-            heroes[
-                Math.floor(
-                    Math.random() *
-                    heroes.length
-                )
-            ];
-
-    }while(
-        heroes.length > 1 &&
-        hero === lastHero
-    );
-
-
-    lastHero = hero;
-
-
-    const image =
-        document.getElementById("randomImage");
-
-
-    const name =
-        document.getElementById("randomName");
-
-
-    image.style.opacity = "0";
-
-
-    setTimeout(()=>{
-
-        image.src = hero.img;
-
-        image.alt = hero.name;
-
-        name.textContent =
-            hero.name;
-
-
-        image.onload = ()=>{
-
-            image.style.opacity = "1";
-
-        };
-
-
-        if(image.complete){
-
-            image.style.opacity = "1";
-
-        }
-
-    },120);
-
-
-    if(
-        tg &&
-        tg.HapticFeedback
-    ){
-
-        tg.HapticFeedback
-            .impactOccurred('medium');
-
-    }
+document.getElementById("randomImage").src=hero.img;
+document.getElementById("randomName").textContent=hero.name;
 
 }
 
+/* META */
 
-/* ================================================= */
-/* COUNTERPICKS */
-/* ================================================= */
+const metaData={
 
-const counters = {
+carry:{
+title:"⚔️ Топ керри",
+featured:{name:"NECROPHOS",wr:"55.1%",matches:"2.1K",rating:"73",role:"Carry"},
+heroes:[
+["PHANTOM LANCER","52.2%","6.6K","81"],
+["NECROPHOS","55.1%","2.1K","73"],
+["SPECTRE","53.1%","4.4K","69"],
+["LIFESTEALER","51.7%","10.1K","66"]
+]
+},
 
-    "ABADDON":[
-        "ANCIENT APPARITION",
-        "AXE",
-        "NECROPHOS"
-    ],
+mid:{
+title:"🔥 Топ мидеров",
+featured:{name:"INVOKER",wr:"52.3%",matches:"8.7K",rating:"81",role:"Mid"},
+heroes:[
+["INVOKER","52.3%","8.7K","81"],
+["KEEPER OF THE LIGHT","56.8%","2.9K","74"],
+["LINA","50.3%","10.2K","72"]
+]
+},
 
-    "ALCHEMIST":[
-        "ANTI-MAGE",
-        "AXE",
-        "NECROPHOS"
-    ],
+offlane:{
+title:"🛡️ Топ оффлейнеров",
+featured:{name:"ENIGMA",wr:"56.9%",matches:"4.2K",rating:"83",role:"Offlane"},
+heroes:[
+["ENIGMA","56.9%","4.2K","83"],
+["PUDGE","53.2%","3K","75"],
+["DARK SEER","52.9%","7.5K","65"]
+]
+},
 
-    "ANTI-MAGE":[
-        "AXE",
-        "LEGION COMMANDER",
-        "BLOODSEEKER"
-    ],
+support:{
+title:"✨ Топ саппортов",
+featured:{name:"BOUNTY HUNTER",wr:"56.2%",matches:"10.9K",rating:"93",role:"Support"},
+heroes:[
+["BOUNTY HUNTER","56.2%","10.9K","93"],
+["SPIRIT BREAKER","53.1%","8K","68"],
+["NYX ASSASSIN","54.4%","2.1K","64"]
+]
+},
 
-    "AXE":[
-        "URSA",
-        "VENOMANCER",
-        "VIPER"
-    ],
-
-    "BLOODSEEKER":[
-        "PHANTOM LANCER",
-        "AXE",
-        "OMNIKNIGHT"
-    ],
-
-    "BRISTLEBACK":[
-        "VIPER",
-        "NECROPHOS",
-        "AXE"
-    ],
-
-    "BROODMOTHER":[
-        "AXE",
-        "LEGION COMMANDER",
-        "EMBER SPIRIT"
-    ],
-
-    "CENTAUR WARRUNNER":[
-        "URSA",
-        "NECROPHOS",
-        "VIPER"
-    ],
-
-    "DROW RANGER":[
-        "PHANTOM ASSASSIN",
-        "SPIRIT BREAKER",
-        "TINY"
-    ],
-
-    "INVOKER":[
-        "ANTI-MAGE",
-        "SILENCER",
-        "NYX ASSASSIN"
-    ],
-
-    "JUGGERNAUT":[
-        "AXE",
-        "PHANTOM LANCER",
-        "NECROPHOS"
-    ],
-
-    "LINA":[
-        "ANTI-MAGE",
-        "NYX ASSASSIN",
-        "PUCK"
-    ],
-
-    "LION":[
-        "ANTI-MAGE",
-        "NYX ASSASSIN",
-        "SILENCER"
-    ],
-
-    "MARCI":[
-        "AXE",
-        "DISRUPTOR",
-        "PHANTOM LANCER"
-    ],
-
-    "MEEPO":[
-        "EARTHSHAKER",
-        "WINTER WYVERN",
-        "LION"
-    ],
-
-    "MORPHLING":[
-        "ANCIENT APPARITION",
-        "AXE",
-        "LION"
-    ],
-
-    "NAGA SIREN":[
-        "EMBER SPIRIT",
-        "AXE",
-        "SHADOW FIEND"
-    ],
-
-    "NECROPHOS":[
-        "ANTI-MAGE",
-        "LEGION COMMANDER",
-        "ANCIENT APPARITION"
-    ],
-
-    "PHANTOM ASSASSIN":[
-        "AXE",
-        "OMNIKNIGHT",
-        "SPECTRE"
-    ],
-
-    "PHANTOM LANCER":[
-        "AXE",
-        "SVEN",
-        "EMBER SPIRIT"
-    ],
-
-    "PUDGE":[
-        "NECROPHOS",
-        "DROW RANGER",
-        "RAZOR"
-    ],
-
-    "PUCK":[
-        "DOOM",
-        "NYX ASSASSIN",
-        "SILENCER"
-    ],
-
-    "QUEEN OF PAIN":[
-        "ANTI-MAGE",
-        "PUCK",
-        "SILENCER"
-    ],
-
-    "RAZOR":[
-        "ANTI-MAGE",
-        "PHANTOM LANCER",
-        "DROW RANGER"
-    ],
-
-    "RUBICK":[
-        "NYX ASSASSIN",
-        "ANTI-MAGE",
-        "SILENCER"
-    ],
-
-    "SLARK":[
-        "AXE",
-        "BLOODSEEKER",
-        "LEGION COMMANDER"
-    ],
-
-    "SPECTRE":[
-        "ANTI-MAGE",
-        "VIPER",
-        "NECROPHOS"
-    ],
-
-    "STORM SPIRIT":[
-        "ANTI-MAGE",
-        "SILENCER",
-        "NYX ASSASSIN"
-    ],
-
-    "SVEN":[
-        "PHANTOM LANCER",
-        "URSA",
-        "TIMBERSAW"
-    ],
-
-    "TERRORBLADE":[
-        "PHANTOM LANCER",
-        "LION",
-        "AXE"
-    ],
-
-    "TIMBERSAW":[
-        "VIPER",
-        "URSA",
-        "NECROPHOS"
-    ],
-
-    "TROLL WARLORD":[
-        "PHANTOM LANCER",
-        "AXE",
-        "VENOMANCER"
-    ],
-
-    "UNDERLORD":[
-        "URSA",
-        "LIFESTEALER",
-        "VIPER"
-    ],
-
-    "WITCH DOCTOR":[
-        "SILENCER",
-        "NYX ASSASSIN",
-        "RUBICK"
-    ],
-
-    "ZEUS":[
-        "ANTI-MAGE",
-        "NYX ASSASSIN",
-        "STORM SPIRIT"
-    ]
+hardSupport:{
+title:"💎 Топ хард-саппортов",
+featured:{name:"TREANT PROTECTOR",wr:"52.6%",matches:"7.9K",rating:"95",role:"Hard Support"},
+heroes:[
+["TREANT PROTECTOR","52.6%","7.9K","95"],
+["WINTER WYVERN","52.1%","7.1K","89"],
+["ORACLE","54.7%","2.4K","74"]
+]
+}
 
 };
 
+function renderMetaRole(role,button){
 
-/* ================================================= */
-/* COUNTERPICK SELECT */
-/* ================================================= */
+const data=metaData[role];
+if(!data)return;
 
-const counterSelect =
-    document.getElementById(
-        "counterSelect"
-    );
+document.querySelectorAll(".meta-role-btn").forEach(btn=>{
+btn.classList.remove("active");
+});
 
+if(button){
+button.classList.add("active");
+}
 
-heroes.forEach(hero=>{
+const hero=getHeroByName(data.featured.name);
 
-    const option =
-        document.createElement("option");
+document.getElementById("metaFeatured").innerHTML=`
 
+<img src="${hero.img}">
 
-    option.value =
-        hero.name;
+<div class="meta-featured-content">
 
+<div class="meta-rank">
+🔥 TOP PICK
+</div>
 
-    option.textContent =
-        hero.name;
+<h2>${hero.name}</h2>
 
+<div class="meta-featured-role">
+${data.featured.role}
+</div>
 
-    counterSelect.appendChild(
-        option
-    );
+<div class="meta-stats">
+
+<div class="meta-stat">
+<strong>${data.featured.wr}</strong>
+<span>WINRATE</span>
+</div>
+
+<div class="meta-stat">
+<strong>${data.featured.matches}</strong>
+<span>МАТЧЕЙ</span>
+</div>
+
+<div class="meta-stat">
+<strong>${data.featured.rating}</strong>
+<span>D2PT</span>
+</div>
+
+</div>
+
+</div>
+`;
+
+document.getElementById("metaListTitle").textContent=data.title;
+
+const list=document.getElementById("metaList");
+
+list.innerHTML="";
+
+data.heroes.forEach((item,index)=>{
+
+const h=getHeroByName(item[0]);
+
+if(!h)return;
+
+const card=document.createElement("div");
+
+card.className="meta-list-item";
+
+card.innerHTML=`
+
+<div class="meta-list-rank">
+${index+1}
+</div>
+
+<img class="meta-list-img" src="${h.img}">
+
+<div class="meta-list-info">
+
+<div class="meta-list-name">
+${h.name}
+</div>
+
+<div class="meta-list-rating">
+D2PT Rating ${item[3]}/100
+</div>
+
+</div>
+
+<div class="meta-list-right">
+
+<div class="meta-wr">
+${item[1]}
+</div>
+
+<div class="meta-matches">
+${item[2]} матчей
+</div>
+
+</div>
+`;
+
+list.appendChild(card);
 
 });
 
+}
 
-/* ================================================= */
-/* SHOW COUNTERS */
-/* ================================================= */
+/* COUNTERS */
+
+const counterSelect=document.getElementById("counterSelect");
+
+sortedHeroes.forEach(hero=>{
+
+const option=document.createElement("option");
+
+option.value=hero.name;
+option.textContent=hero.name;
+
+counterSelect.appendChild(option);
+
+});
 
 function showCounters(){
 
-    const selected =
-        counterSelect.value;
+const selected=counterSelect.value;
 
+const result=document.getElementById("counterResult");
+const container=document.getElementById("counterHeroes");
 
-    const result =
-        document.getElementById(
-            "counterResult"
-        );
+if(!selected){
 
-
-    const container =
-        document.getElementById(
-            "counterHeroes"
-        );
-
-
-    if(!selected){
-
-        result.classList.remove(
-            "active"
-        );
-
-        container.innerHTML = "";
-
-        return;
-
-    }
-
-
-    let counterNames =
-        counters[selected];
-
-
-    if(!counterNames){
-
-        const randomCounters =
-            [...heroes]
-
-                .filter(hero =>
-                    hero.name !== selected
-                )
-
-                .sort(() =>
-                    Math.random() - 0.5
-                )
-
-                .slice(0,3);
-
-
-        counterNames =
-            randomCounters.map(
-                hero => hero.name
-            );
-
-    }
-
-
-    container.innerHTML = "";
-
-
-    counterNames.forEach(
-        counterName => {
-
-            const hero =
-                heroes.find(
-                    h =>
-                    h.name.toUpperCase() ===
-                    counterName.toUpperCase()
-                );
-
-
-            if(!hero){
-                return;
-            }
-
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "hero-card";
-
-
-            card.innerHTML = `
-
-                <img
-                    src="${hero.img}"
-                    alt="${hero.name}"
-                    loading="lazy"
-                >
-
-                <div class="hero-card-name">
-                    ${hero.name}
-                </div>
-
-            `;
-
-
-            card.onclick = ()=>{
-                openHero(hero);
-            };
-
-
-            container.appendChild(card);
-
-        }
-    );
-
-
-    result.classList.add(
-        "active"
-    );
-
-
-    if(
-        tg &&
-        tg.HapticFeedback
-    ){
-
-        tg.HapticFeedback
-            .impactOccurred('light');
-
-    }
+result.classList.remove("active");
+return;
 
 }
 
+const picks=[...heroes]
+.filter(hero=>hero.name!==selected)
+.sort(()=>Math.random()-.5)
+.slice(0,3);
 
-/* ================================================= */
-/* GUIDE MODAL */
-/* ================================================= */
+container.innerHTML="";
+
+picks.forEach(hero=>{
+
+const card=document.createElement("div");
+
+card.className="hero-card";
+
+card.innerHTML=`
+<img src="${hero.img}">
+<div class="hero-card-name">${hero.name}</div>
+`;
+
+card.onclick=()=>openHero(hero);
+
+container.appendChild(card);
+
+});
+
+result.classList.add("active");
+
+}
+
+/* HERO MODAL */
 
 function openHero(hero){
 
-    const modal =
-        document.getElementById("heroModal");
-
-    const image =
-        document.getElementById("modalImage");
-
-    const name =
-        document.getElementById("modalName");
-
-    const source =
-        document.getElementById("modalSource");
-
-    const role =
-        document.getElementById("modalRole");
-
-    const items =
-        document.getElementById("modalItems");
-
-    const skills =
-        document.getElementById("modalSkills");
-
-    const talents =
-        document.getElementById("modalTalents");
-
-
-    image.src =
-        hero.img;
-
-    image.alt =
-        hero.name;
-
-    name.textContent =
-        hero.name;
-
-
-    const guide =
-        d2ptGuides[hero.name];
-
-
-    if(!guide){
-
-        source.textContent =
-            "D2PT • Патч 7.41e";
-
-
-        role.textContent =
-            "📖 Данные гайда добавляются";
-
-
-        items.innerHTML = `
-            <div class="guide-item">
-                Данные билда пока не добавлены
-            </div>
-        `;
-
-
-        skills.innerHTML = `
-            <div class="guide-item">
-                Скоро
-            </div>
-        `;
-
-
-        talents.innerHTML = `
-            <div class="guide-talent">
-
-                <div class="guide-talent-name">
-                    Гайд будет обновлён по данным D2PT
-                </div>
-
-            </div>
-        `;
-
-    }else{
-
-        source.textContent =
-            "D2PT • 7000+ MMR • Патч 7.41e";
-
-
-        role.textContent =
-            "📍 " + guide.role;
-
-
-        /* ITEMS */
-
-        items.innerHTML = "";
-
-        guide.items.forEach(item=>{
-
-            const itemElement =
-                document.createElement("div");
-
-            itemElement.className =
-                "guide-item";
-
-            itemElement.textContent =
-                item;
-
-            items.appendChild(
-                itemElement
-            );
-
-        });
-
-
-        /* SKILLS */
-
-        skills.innerHTML = "";
-
-        guide.skills.forEach(
-            (skill,index)=>{
-
-                const skillElement =
-                    document.createElement("div");
-
-                skillElement.className =
-                    "guide-skill";
-
-
-                skillElement.innerHTML = `
-
-                    <div class="guide-skill-level">
-                        ${index + 1}
-                    </div>
-
-                    <div class="guide-skill-name">
-                        ${skill}
-                    </div>
-
-                `;
-
-
-                skills.appendChild(
-                    skillElement
-                );
-
-            }
-        );
-
-
-        /* TALENTS */
-
-        talents.innerHTML = "";
-
-        guide.talents.forEach(
-            talent=>{
-
-                const talentElement =
-                    document.createElement("div");
-
-                talentElement.className =
-                    "guide-talent";
-
-
-                talentElement.innerHTML = `
-
-                    <div class="guide-talent-level">
-                        ${talent[0]}
-                    </div>
-
-                    <div class="guide-talent-name">
-                        ${talent[1]}
-                    </div>
-
-                `;
-
-
-                talents.appendChild(
-                    talentElement
-                );
-
-            }
-        );
-
-    }
-
-
-    modal.classList.add(
-        "active"
-    );
-
-
-    if(
-        tg &&
-        tg.HapticFeedback
-    ){
-
-        tg.HapticFeedback
-            .impactOccurred("light");
-
-    }
+document.getElementById("modalImage").src=hero.img;
+document.getElementById("modalName").textContent=hero.name;
+document.getElementById("modalRole").textContent="📍 Данные героя";
+
+document.getElementById("modalItems").innerHTML=`
+<div class="guide-item">
+Билд скоро будет добавлен
+</div>
+`;
+
+document.getElementById("modalSkills").innerHTML=`
+<div class="guide-item">
+Скоро
+</div>
+`;
+
+document.getElementById("modalTalents").innerHTML=`
+<div class="guide-talent">
+<div class="guide-talent-name">
+Данные гайда обновляются
+</div>
+</div>
+`;
+
+document.getElementById("heroModal").classList.add("active");
 
 }
-
 
 function closeHeroModal(){
-
-    document
-        .getElementById("heroModal")
-        .classList.remove("active");
-
+document.getElementById("heroModal").classList.remove("active");
 }
-
 
 function closeModal(event){
 
-    if(
-        event.target.id ===
-        "heroModal"
-    ){
-
-        closeHeroModal();
-
-    }
+if(event.target.id==="heroModal"){
+closeHeroModal();
+}
 
 }
 
+/* PROFILE */
 
-/* ================================================= */
+const PROFILE_STORAGE_KEY="roshan_dota_profile";
+
+let dotaProfile={
+mmr:"",
+hours:"",
+favorites:["","",""]
+};
+
+const dotaRanks=[
+
+{min:0,max:769,name:"Рекрут",icon:1},
+{min:770,max:1539,name:"Страж",icon:2},
+{min:1540,max:2309,name:"Рыцарь",icon:3},
+{min:2310,max:3079,name:"Герой",icon:4},
+{min:3080,max:3849,name:"Легенда",icon:5},
+{min:3850,max:4619,name:"Властелин",icon:6},
+{min:4620,max:5619,name:"Божество",icon:7},
+{min:5620,max:99999,name:"Титан",icon:8}
+
+];
+
+function getDotaRank(mmr){
+
+const rating=Number(mmr);
+
+const rank=dotaRanks.find(rank=>
+rating>=rank.min &&
+rating<=rank.max
+);
+
+if(!rank)return null;
+
+let star=0;
+
+if(rank.icon<8){
+
+const range=rank.max-rank.min+1;
+
+star=Math.floor(
+(rating-rank.min)/(range/5)
+)+1;
+
+star=Math.max(1,Math.min(star,5));
+
+}
+
+return{
+...rank,
+star
+};
+
+}
+
+function createFavoriteHeroSelects(){
+
+["favoriteHero1","favoriteHero2","favoriteHero3"]
+.forEach((id,index)=>{
+
+const select=document.getElementById(id);
+
+select.innerHTML=`
+<option value="">
+Любимый герой ${index+1}
+</option>
+`;
+
+sortedHeroes.forEach(hero=>{
+
+const option=document.createElement("option");
+
+option.value=hero.name;
+option.textContent=hero.name;
+
+select.appendChild(option);
+
+});
+
+});
+
+}
+
+function loadProfile(){
+
+try{
+
+const saved=localStorage.getItem(PROFILE_STORAGE_KEY);
+
+if(saved){
+
+const parsed=JSON.parse(saved);
+
+dotaProfile={
+...dotaProfile,
+...parsed
+};
+
+}
+
+}catch(e){}
+
+renderProfile();
+
+}
+
+function openProfileEditor(){
+
+document.getElementById("profileMmrInput").value=dotaProfile.mmr;
+document.getElementById("profileHoursInput").value=dotaProfile.hours;
+
+document.getElementById("favoriteHero1").value=dotaProfile.favorites[0]||"";
+document.getElementById("favoriteHero2").value=dotaProfile.favorites[1]||"";
+document.getElementById("favoriteHero3").value=dotaProfile.favorites[2]||"";
+
+document.getElementById("profileEditModal").classList.add("active");
+
+}
+
+function closeProfileEditor(){
+
+document.getElementById("profileEditModal").classList.remove("active");
+
+}
+
+function closeProfileEditorOutside(event){
+
+if(event.target.id==="profileEditModal"){
+closeProfileEditor();
+}
+
+}
+
+function saveProfile(){
+
+const mmr=document.getElementById("profileMmrInput").value;
+const hours=document.getElementById("profileHoursInput").value;
+
+const favorites=[
+document.getElementById("favoriteHero1").value,
+document.getElementById("favoriteHero2").value,
+document.getElementById("favoriteHero3").value
+];
+
+const selected=favorites.filter(Boolean);
+
+if(new Set(selected).size!==selected.length){
+
+if(tg && tg.showAlert){
+tg.showAlert("Выбери разных героев.");
+}else{
+alert("Выбери разных героев.");
+}
+
+return;
+
+}
+
+dotaProfile={
+mmr:mmr,
+hours:hours,
+favorites:favorites
+};
+
+localStorage.setItem(
+PROFILE_STORAGE_KEY,
+JSON.stringify(dotaProfile)
+);
+
+renderProfile();
+
+closeProfileEditor();
+
+}
+
+function renderProfile(){
+
+const mmr=dotaProfile.mmr;
+
+if(mmr!==""){
+
+const rank=getDotaRank(mmr);
+
+if(rank){
+
+document.getElementById("profileRankName").textContent=
+rank.name+(rank.star?" "+rank.star:"");
+
+document.getElementById("profileRankMmr").textContent=
+Number(mmr).toLocaleString("ru-RU")+" MMR";
+
+document.getElementById("profileMmrValue").textContent=
+Number(mmr).toLocaleString("ru-RU");
+
+document.getElementById("profileRankStars").textContent=
+rank.star
+? "★".repeat(rank.star)+"☆".repeat(5-rank.star)
+: "IMMORTAL";
+
+document.getElementById("profileRankIcon").innerHTML=`
+<div class="profile-rank-fallback">
+${rank.icon===8?"👑":"🏅"}
+</div>
+`;
+
+}
+
+}else{
+
+document.getElementById("profileRankName").textContent="Ранг не указан";
+document.getElementById("profileRankMmr").textContent="Укажи свой MMR";
+document.getElementById("profileMmrValue").textContent="—";
+document.getElementById("profileRankStars").textContent="";
+
+}
+
+document.getElementById("profileHoursValue").textContent=
+dotaProfile.hours
+? Number(dotaProfile.hours).toLocaleString("ru-RU")+" ч."
+: "—";
+
+const container=document.getElementById("favoriteHeroes");
+
+container.innerHTML="";
+
+for(let i=0;i<3;i++){
+
+const hero=getHeroByName(dotaProfile.favorites[i]);
+
+const card=document.createElement("div");
+
+card.className="favorite-hero";
+
+if(hero){
+
+card.innerHTML=`
+
+<img src="${hero.img}">
+
+<div class="favorite-hero-name">
+${hero.name}
+</div>
+`;
+
+card.onclick=()=>openHero(hero);
+
+}else{
+
+card.innerHTML=`
+
+<div class="favorite-empty">
++
+</div>
+
+<div class="favorite-hero-name">
+НЕ ВЫБРАН
+</div>
+`;
+
+card.onclick=openProfileEditor;
+
+}
+
+container.appendChild(card);
+
+}
+
+}
+
 /* TELEGRAM PROFILE */
-/* ================================================= */
 
 if(
-    tg &&
-    tg.initDataUnsafe &&
-    tg.initDataUnsafe.user
+tg &&
+tg.initDataUnsafe &&
+tg.initDataUnsafe.user
 ){
 
-    const user =
-        tg.initDataUnsafe.user;
+const user=tg.initDataUnsafe.user;
 
+const fullName=[
+user.first_name,
+user.last_name
+]
+.filter(Boolean)
+.join(" ");
 
-    const fullName =
-        [
-            user.first_name,
-            user.last_name
-        ]
-        .filter(Boolean)
-        .join(" ");
+if(fullName){
+document.getElementById("profileName").textContent=fullName;
+}
 
+if(user.username){
 
-    if(fullName){
+document.getElementById("profileUsername").textContent=
+"@"+user.username;
 
-        document.getElementById(
-            "profileName"
-        ).textContent =
-            fullName;
+}else{
 
-    }
-
-
-    if(user.username){
-
-        document.getElementById(
-            "profileUsername"
-        ).textContent =
-            "@" + user.username;
-
-    }else{
-
-        document.getElementById(
-            "profileUsername"
-        ).textContent =
-            "Telegram пользователь";
-
-    }
+document.getElementById("profileUsername").textContent=
+"Telegram пользователь";
 
 }
 
+if(user.photo_url){
 
-/* ================================================= */
+document.getElementById("profileAvatar").innerHTML=`
+<img src="${user.photo_url}">
+`;
+
+}
+
+}
+
 /* INITIAL */
-/* ================================================= */
 
 renderMetaRole("carry");
 
 randomHero();
+
+createFavoriteHeroSelects();
+
+loadProfile();
 
 </script>
 
