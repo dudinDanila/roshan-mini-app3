@@ -6015,54 +6015,26 @@ function selectCounterHero(enemy){
     
     names.forEach((name, index) => {
 
-    const normalizeHeroName = value =>
-    String(value || "")
+    const cleanName = String(name)
         .trim()
-        .toUpperCase()
-        .replace(/[–—−]/g, "-")
-        .replace(/\s+/g, " ");
+        .toUpperCase();
 
-const hero = heroes.find(h =>
-    h &&
-    h.name &&
-    normalizeHeroName(h.name) === normalizeHeroName(name)
-);
+    const hero = heroes.find(item =>
+        item &&
+        item.name &&
+        item.name.trim().toUpperCase() === cleanName
+    );
 
     if(!hero){
-    const debug = document.createElement("div");
-    debug.style.cssText = `
-        padding:12px;
-        margin:8px 0;
-        background:#301010;
-        border:1px solid #8b2929;
-        border-radius:10px;
-        color:#ff8b8b;
-        font-size:13px;
-    `;
-
-    debug.textContent =
-        `НЕ НАЙДЕН: "${name}" | ищем: "${normalizeHeroName(name)}"`;
-
-    container.appendChild(debug);
-
-    return;
-}
+        return;
+    }
 
     const card = document.createElement("div");
 
     card.className = "counter-card";
 
-    const strength = Math.max(
-        80,
-        95 - index * 3
-    );
-
     card.innerHTML = `
-        <img
-            src="${hero.img}"
-            alt="${hero.name}"
-            loading="lazy"
-        >
+        <img src="${hero.img}" alt="${hero.name}">
 
         <div class="counter-card-info">
 
@@ -6071,21 +6043,15 @@ const hero = heroes.find(h =>
             </div>
 
             <div class="counter-card-reason">
-                ${getCounterReason(hero.name)}
+                Сильный выбор против ${enemy.name}
             </div>
 
         </div>
 
         <div class="counter-strength">
-            ${strength}%
+            ${95 - index * 3}%
         </div>
     `;
-
-    card.onclick = () => {
-        if(typeof openHero === "function"){
-            openHero(hero);
-        }
-    };
 
     container.appendChild(card);
 
