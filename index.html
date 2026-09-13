@@ -1737,15 +1737,16 @@ button{
 
 
         <div
-            id="profileRankIcon"
-            class="profile-rank-icon"
-        >
+    id="profileRankIcon"
+    class="profile-rank-icon"
+>
 
-            <div class="profile-rank-fallback">
-                🏆
-            </div>
+    <img
+        src="https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_1.png"
+        alt="Медаль Dota 2"
+    >
 
-        </div>
+</div>
 
 
         <div
@@ -4793,7 +4794,7 @@ function renderProfile(){
             img.onerror = () => {
 
                 rankIcon.innerHTML =
-                    '<div class="profile-rank-fallback">🏆</div>';
+    '<img src="https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_1.png" alt="Медаль Dota 2">';
 
             };
 
@@ -4846,7 +4847,7 @@ function renderProfile(){
 
 
         rankIcon.innerHTML =
-            '<div class="profile-rank-fallback">🏆</div>';
+    '<img src="https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_1.png" alt="Медаль Dota 2">';
 
     }
 
