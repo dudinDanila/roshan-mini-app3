@@ -507,44 +507,594 @@ button{
 }
 
 /* ================================================= */
-/* RANDOM */
+/* RANDOM / ROULETTE */
 /* ================================================= */
 
-.random-box{
+.random-page-intro{
+    margin-bottom:16px;
+}
+
+.random-page-title{
+    font-size:23px;
+    font-weight:900;
+    margin-bottom:5px;
+}
+
+.random-page-subtitle{
+    color:#777;
+    font-size:12px;
+    line-height:1.45;
+}
+
+
+/* ================================================= */
+/* ROLE FILTER */
+/* ================================================= */
+
+.random-role-tabs{
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    padding-bottom:5px;
+    margin-bottom:18px;
+    scrollbar-width:none;
+}
+
+.random-role-tabs::-webkit-scrollbar{
+    display:none;
+}
+
+.random-role-btn{
+    flex:0 0 auto;
+    min-width:78px;
+
+    border:1px solid #2d2d2d;
     background:#111;
-    border:1px solid #2b2b2b;
-    border-radius:20px;
-    padding:15px;
-    text-align:center;
-}
+    color:#777;
 
-.random-image{
-    width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-    border-radius:15px;
-    display:block;
-    margin-bottom:14px;
-    transition:opacity .18s ease;
-    background:#181818;
-}
-
-.random-name{
-    font-size:22px;
-    font-weight:900;
-    letter-spacing:1px;
-    margin-bottom:15px;
-}
-
-.random-btn{
-    width:100%;
-    border:0;
     border-radius:13px;
-    padding:15px;
-    background:linear-gradient(135deg,#e33434,#941515);
-    color:white;
+    padding:10px 12px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+
+    font-size:10px;
     font-weight:900;
+
+    transition:
+        transform .15s ease,
+        border-color .15s ease,
+        background .15s ease,
+        color .15s ease;
+}
+
+.random-role-btn:active{
+    transform:scale(.96);
+}
+
+.random-role-btn.active{
+    color:#fff;
+    background:#301010;
+    border-color:#792727;
+}
+
+.random-role-icon{
+    width:25px;
+    height:25px;
+    object-fit:contain;
+    opacity:.7;
+}
+
+.random-role-btn.active .random-role-icon{
+    opacity:1;
+}
+
+
+/* ================================================= */
+/* ROULETTE */
+/* ================================================= */
+
+.roulette-box{
+    position:relative;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(155,25,25,.20),
+            transparent 42%
+        ),
+        #101010;
+
+    border:1px solid #342020;
+    border-radius:22px;
+
+    padding:18px 14px;
+    overflow:hidden;
+
+    margin-bottom:14px;
+}
+
+.roulette-label{
+    text-align:center;
+    color:#666;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1.4px;
+    margin-bottom:12px;
+}
+
+
+/* ================================================= */
+/* ROULETTE STRIP */
+/* ================================================= */
+
+.roulette-window{
+    position:relative;
+    width:100%;
+    height:142px;
+
+    overflow:hidden;
+    border-radius:17px;
+
+    background:#090909;
+    border:1px solid #292929;
+}
+
+.roulette-track{
+    height:100%;
+
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+
+    transition:
+        transform .13s ease-out;
+}
+
+.roulette-card{
+    flex:0 0 100px;
+
+    height:122px;
+
+    background:#141414;
+    border:1px solid #292929;
+
+    border-radius:14px;
+    overflow:hidden;
+
+    opacity:.45;
+
+    transform:scale(.87);
+
+    transition:
+        transform .15s ease,
+        opacity .15s ease,
+        border-color .15s ease;
+}
+
+.roulette-card img{
+    width:100%;
+    height:88px;
+    object-fit:cover;
+    display:block;
+}
+
+.roulette-card-name{
+    height:34px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:4px;
+
+    text-align:center;
+
+    color:#aaa;
+    font-size:8px;
+    line-height:1.1;
+    font-weight:900;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.roulette-card.active{
+    opacity:1;
+
+    transform:scale(1);
+
+    border-color:#b23a3a;
+
+    box-shadow:
+        0 0 0 1px rgba(220,55,55,.22),
+        0 0 25px rgba(190,30,30,.20);
+}
+
+
+/* CENTER POINTER */
+
+.roulette-pointer{
+    position:absolute;
+    left:50%;
+    top:0;
+
+    transform:translateX(-50%);
+
+    width:2px;
+    height:100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #e74444 22%,
+            #e74444 78%,
+            transparent
+        );
+
+    z-index:5;
+
+    pointer-events:none;
+
+    box-shadow:
+        0 0 12px rgba(231,68,68,.55);
+}
+
+
+/* ================================================= */
+/* RESULT */
+/* ================================================= */
+
+.random-result{
+    text-align:center;
+    padding:17px 8px 5px;
+}
+
+.random-result-label{
+    color:#777;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1.2px;
+    margin-bottom:6px;
+}
+
+.random-result-name{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:.6px;
+    margin-bottom:8px;
+}
+
+.random-result-role{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:6px;
+
+    background:#181818;
+    border:1px solid #303030;
+
+    color:#aaa;
+
+    padding:7px 10px;
+    border-radius:10px;
+
+    font-size:10px;
+    font-weight:800;
+}
+
+.random-result-role img{
+    width:16px;
+    height:16px;
+    object-fit:contain;
+}
+
+
+/* ================================================= */
+/* SPIN BUTTON */
+/* ================================================= */
+
+.roulette-spin-btn{
+    width:100%;
+
+    border:0;
+    border-radius:14px;
+
+    padding:16px;
+
+    margin-top:15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e03a3a,
+            #8c1515
+        );
+
+    color:#fff;
+
     font-size:14px;
+    font-weight:900;
+
+    letter-spacing:.5px;
+
+    box-shadow:
+        0 8px 25px rgba(140,21,21,.17);
+}
+
+.roulette-spin-btn:active{
+    transform:scale(.985);
+}
+
+.roulette-spin-btn:disabled{
+    opacity:.45;
+    transform:none;
+}
+
+
+/* ================================================= */
+/* RESULT ACTIONS */
+/* ================================================= */
+
+.random-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:9px;
+
+    margin-top:10px;
+}
+
+.random-action-btn{
+    border:1px solid #303030;
+
+    background:#141414;
+    color:#ddd;
+
+    border-radius:13px;
+
+    padding:13px 7px;
+
+    font-size:10px;
+    font-weight:900;
+}
+
+.random-action-btn:active{
+    transform:scale(.97);
+}
+
+.random-action-btn.primary{
+    border-color:#542020;
+    background:#241010;
+    color:#ff6969;
+}
+
+
+/* ================================================= */
+/* ROSHAN CHALLENGE */
+/* ================================================= */
+
+.roshan-challenge{
+    display:none;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(180,32,32,.22),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            #1c1010,
+            #101010
+        );
+
+    border:1px solid #542222;
+    border-radius:18px;
+
+    padding:17px;
+
+    margin-top:14px;
+}
+
+.roshan-challenge.active{
+    display:block;
+}
+
+.roshan-challenge-label{
+    color:#e85454;
+
+    font-size:10px;
+    font-weight:900;
+
+    letter-spacing:1.2px;
+
+    margin-bottom:7px;
+}
+
+.roshan-challenge-title{
+    font-size:16px;
+    font-weight:900;
+
+    margin-bottom:7px;
+}
+
+.roshan-challenge-text{
+    color:#bbb;
+
+    font-size:12px;
+    line-height:1.5;
+}
+
+.roshan-challenge-footer{
+    color:#5f5f5f;
+
+    font-size:9px;
+    line-height:1.4;
+
+    margin-top:11px;
+}
+
+
+/* ================================================= */
+/* HISTORY */
+/* ================================================= */
+
+.random-history{
+    background:#111;
+
+    border:1px solid #292929;
+    border-radius:18px;
+
+    padding:15px;
+
+    margin-top:14px;
+}
+
+.random-history-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:12px;
+}
+
+.random-history-title{
+    font-size:13px;
+    font-weight:900;
+}
+
+.random-history-clear{
+    border:0;
+    background:transparent;
+
+    color:#666;
+
+    font-size:9px;
+    font-weight:800;
+
+    padding:4px;
+}
+
+.random-history-list{
+    display:flex;
+
+    gap:8px;
+
+    overflow-x:auto;
+
+    scrollbar-width:none;
+}
+
+.random-history-list::-webkit-scrollbar{
+    display:none;
+}
+
+.random-history-item{
+    flex:0 0 70px;
+
+    cursor:pointer;
+}
+
+.random-history-img{
+    width:70px;
+    height:43px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    border:1px solid #292929;
+
+    display:block;
+}
+
+.random-history-name{
+    color:#888;
+
+    font-size:7px;
+    font-weight:800;
+
+    text-align:center;
+
+    margin-top:5px;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.random-history-empty{
+    color:#555;
+    font-size:10px;
+
+    padding:7px 0;
+}
+
+
+/* ================================================= */
+/* ROULETTE ANIMATION */
+/* ================================================= */
+
+.roulette-box.spinning{
+
+    box-shadow:
+        0 0 0 1px rgba(180,40,40,.12),
+        0 0 35px rgba(180,30,30,.10);
+
+}
+
+.roulette-box.spinning
+.roulette-pointer{
+
+    animation:
+        roulettePointerPulse
+        .25s infinite alternate;
+
+}
+
+@keyframes roulettePointerPulse{
+
+    from{
+        opacity:.55;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+/* ================================================= */
+/* SMALL SCREENS */
+/* ================================================= */
+
+@media(max-width:380px){
+
+    .random-role-btn{
+        min-width:72px;
+        padding:9px;
+    }
+
+    .roulette-card{
+        flex-basis:90px;
+    }
+
+    .random-result-name{
+        font-size:22px;
+    }
+
 }
 
 /* ================================================= */
@@ -1509,50 +2059,292 @@ button{
 
 </section> 
 <!-- ================================================= -->
-<!-- RANDOM -->
+<!-- RANDOM / ROULETTE -->
 <!-- ================================================= -->
 
 <section id="random" class="page">
 
     <div class="header">
-
         <div class="logo">
+            <div class="logo-icon">🎲</div>
+            <div class="logo-text">РАНДОМ</div>
+        </div>
+    </div>
 
-            <div class="logo-icon">
-                🎲
+    <div class="random-page-intro">
+        <div class="random-page-title">
+            Кого пикнуть?
+        </div>
+
+        <div class="random-page-subtitle">
+            Выбери позицию или доверь выбор полностью Рошану.
+        </div>
+    </div>
+
+
+    <!-- ROLE FILTER -->
+
+    <div class="random-role-tabs">
+
+        <button
+            class="random-role-btn active"
+            data-random-role="all"
+            onclick="selectRandomRole('all',this)"
+        >
+            <svg class="random-role-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M5 5h14v14H5z" stroke="currentColor" stroke-width="2"/>
+                <circle cx="9" cy="9" r="1.3" fill="currentColor"/>
+                <circle cx="15" cy="15" r="1.3" fill="currentColor"/>
+                <circle cx="15" cy="9" r="1.3" fill="currentColor"/>
+                <circle cx="9" cy="15" r="1.3" fill="currentColor"/>
+            </svg>
+
+            Любой
+        </button>
+
+
+        <!-- POSITION 1 / CARRY -->
+
+        <button
+            class="random-role-btn"
+            data-random-role="carry"
+            onclick="selectRandomRole('carry',this)"
+        >
+            <svg class="random-role-icon" viewBox="0 0 64 64">
+                <path
+                    fill="currentColor"
+                    d="M9 52L24 37 18 31 33 16 39 22 52 9 55 12 42 25 48 31 33 46 27 40 12 55z"
+                />
+                <path
+                    fill="currentColor"
+                    d="M36 11L53 8 50 25z"
+                />
+            </svg>
+
+            Керри
+        </button>
+
+
+        <!-- POSITION 2 / MID -->
+
+        <button
+            class="random-role-btn"
+            data-random-role="mid"
+            onclick="selectRandomRole('mid',this)"
+        >
+            <svg class="random-role-icon" viewBox="0 0 64 64">
+                <path
+                    d="M12 52L52 12"
+                    stroke="currentColor"
+                    stroke-width="8"
+                    stroke-linecap="square"
+                />
+                <path
+                    d="M10 39V54H25"
+                    stroke="currentColor"
+                    stroke-width="5"
+                    fill="none"
+                />
+                <path
+                    d="M39 10H54V25"
+                    stroke="currentColor"
+                    stroke-width="5"
+                    fill="none"
+                />
+            </svg>
+
+            Мид
+        </button>
+
+
+        <!-- POSITION 3 / OFFLANE -->
+
+        <button
+            class="random-role-btn"
+            data-random-role="offlane"
+            onclick="selectRandomRole('offlane',this)"
+        >
+            <svg class="random-role-icon" viewBox="0 0 64 64">
+                <path
+                    fill="currentColor"
+                    d="M32 6L53 14V29C53 43 44 53 32 59 20 53 11 43 11 29V14zm0 8L19 19v10c0 9 5 16 13 21 8-5 13-12 13-21V19z"
+                />
+            </svg>
+
+            Оффлейн
+        </button>
+
+
+        <!-- POSITION 4 / SUPPORT -->
+
+        <button
+            class="random-role-btn"
+            data-random-role="support"
+            onclick="selectRandomRole('support',this)"
+        >
+            <svg class="random-role-icon" viewBox="0 0 64 64">
+                <path
+                    fill="currentColor"
+                    d="M32 7l6 14 15-6-7 15 11 8-17 2-8 17-8-17-17-2 11-8-7-15 15 6z"
+                />
+                <circle
+                    cx="32"
+                    cy="31"
+                    r="6"
+                    fill="#111"
+                />
+            </svg>
+
+            Саппорт
+        </button>
+
+    </div>
+
+
+    <!-- ROULETTE -->
+
+    <div
+        id="rouletteBox"
+        class="roulette-box"
+    >
+
+        <div class="roulette-label">
+            ROSHAN HERO ROULETTE
+        </div>
+
+
+        <div class="roulette-window">
+
+            <div class="roulette-pointer"></div>
+
+            <div
+                id="rouletteTrack"
+                class="roulette-track"
+            ></div>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div class="random-result">
+
+            <div class="random-result-label">
+                ТЕБЕ ВЫПАЛ
             </div>
 
-            <div class="logo-text">
-                РАНДОМ
+            <div
+                id="randomResultName"
+                class="random-result-name"
+            >
+                КРУТИ РУЛЕТКУ
             </div>
+
+
+            <div
+                id="randomResultRole"
+                class="random-result-role"
+            >
+                Рошан решит за тебя
+            </div>
+
+        </div>
+
+
+        <button
+            id="rouletteSpinButton"
+            class="roulette-spin-btn"
+            onclick="spinHeroRoulette()"
+        >
+            КРУТИТЬ РУЛЕТКУ
+        </button>
+
+
+        <!-- ACTIONS -->
+
+        <div
+            id="randomActions"
+            class="random-actions"
+            style="display:none;"
+        >
+
+            <button
+                class="random-action-btn"
+                onclick="openRandomHeroGuide()"
+            >
+                ОТКРЫТЬ ГАЙД
+            </button>
+
+
+            <button
+                class="random-action-btn primary"
+                onclick="generateRoshanChallenge()"
+            >
+                ROSHAN CHALLENGE
+            </button>
 
         </div>
 
     </div>
 
 
-    <div class="random-box">
+    <!-- ROSHAN CHALLENGE -->
 
-        <img
-            id="randomImage"
-            class="random-image"
-            src="https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png"
-            alt="Random Hero"
-        >
+    <div
+        id="roshanChallenge"
+        class="roshan-challenge"
+    >
 
-        <div
-            id="randomName"
-            class="random-name"
-        >
-            PUDGE
+        <div class="roshan-challenge-label">
+            ROSHAN CHALLENGE
         </div>
 
-        <button
-            class="random-btn"
-            onclick="randomHero()"
+        <div class="roshan-challenge-title">
+            Твоя задача на эту игру
+        </div>
+
+        <div
+            id="roshanChallengeText"
+            class="roshan-challenge-text"
+        ></div>
+
+        <div class="roshan-challenge-footer">
+            Челлендж создан для разнообразия обычной игры.
+        </div>
+
+    </div>
+
+
+    <!-- HISTORY -->
+
+    <div class="random-history">
+
+        <div class="random-history-top">
+
+            <div class="random-history-title">
+                Последние герои
+            </div>
+
+            <button
+                class="random-history-clear"
+                onclick="clearRandomHistory()"
+            >
+                Очистить
+            </button>
+
+        </div>
+
+
+        <div
+            id="randomHistoryList"
+            class="random-history-list"
         >
-            🎲 СЛУЧАЙНЫЙ ГЕРОЙ
-        </button>
+
+            <div class="random-history-empty">
+                Здесь появятся последние результаты рулетки.
+            </div>
+
+        </div>
 
     </div>
 
@@ -2971,63 +3763,852 @@ renderHeroGrid();
 
 
 /* ================================================= */
+/* RANDOM / ROSHAN ROULETTE */
+/* ================================================= */
+
+let selectedRandomRole = "all";
+let currentRandomHero = null;
+let rouletteSpinning = false;
+
+const RANDOM_HISTORY_KEY = "roshan_random_history_v1";
+
+
+/* ================================================= */
+/* ROLE POOLS */
+/* ================================================= */
+
+const randomRolePools = {
+
+    carry:[
+        "Anti-Mage",
+        "Bloodseeker",
+        "Drow Ranger",
+        "Juggernaut",
+        "Morphling",
+        "Phantom Lancer",
+        "Riki",
+        "Sniper",
+        "Sven",
+        "Ursa",
+        "Gyrocopter",
+        "Luna",
+        "Monkey King",
+        "Naga Siren",
+        "Phantom Assassin",
+        "Slark",
+        "Spectre",
+        "Terrorblade",
+        "Troll Warlord",
+        "Weaver",
+        "Lifestealer",
+        "Chaos Knight",
+        "Medusa",
+        "Faceless Void"
+    ],
+
+    mid:[
+        "Invoker",
+        "Storm Spirit",
+        "Ember Spirit",
+        "Void Spirit",
+        "Queen of Pain",
+        "Puck",
+        "Lina",
+        "Shadow Fiend",
+        "Zeus",
+        "Sniper",
+        "Templar Assassin",
+        "Outworld Destroyer",
+        "Leshrac",
+        "Necrophos",
+        "Dragon Knight",
+        "Arc Warden",
+        "Keeper of the Light",
+        "Pangolier",
+        "Primal Beast"
+    ],
+
+    offlane:[
+        "Axe",
+        "Centaur Warrunner",
+        "Tidehunter",
+        "Mars",
+        "Underlord",
+        "Doom",
+        "Timbersaw",
+        "Dark Seer",
+        "Magnus",
+        "Night Stalker",
+        "Beastmaster",
+        "Bristleback",
+        "Slardar",
+        "Legion Commander",
+        "Primal Beast",
+        "Pudge",
+        "Enigma",
+        "Dragon Knight",
+        "Sand King"
+    ],
+
+    support:[
+        "Crystal Maiden",
+        "Lion",
+        "Rubick",
+        "Shadow Shaman",
+        "Witch Doctor",
+        "Oracle",
+        "Disruptor",
+        "Treant Protector",
+        "Winter Wyvern",
+        "Bane",
+        "Clockwerk",
+        "Jakiro",
+        "Lich",
+        "Ogre Magi",
+        "Dazzle",
+        "Ancient Apparition",
+        "Grimstroke",
+        "Dark Willow",
+        "Keeper of the Light",
+        "Spirit Breaker",
+        "Nyx Assassin",
+        "Bounty Hunter",
+        "Vengeful Spirit",
+        "Warlock",
+        "Ringmaster"
+    ]
+
+};
+
+
+/* ================================================= */
+/* ROLE SELECT */
+/* ================================================= */
+
+function selectRandomRole(role,button){
+
+    if(rouletteSpinning){
+        return;
+    }
+
+    selectedRandomRole = role;
+
+    document
+        .querySelectorAll(".random-role-btn")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+    if(button){
+        button.classList.add("active");
+    }
+
+    currentRandomHero = null;
+
+    document.getElementById("randomResultName").textContent =
+        "КРУТИ РУЛЕТКУ";
+
+    document.getElementById("randomResultRole").innerHTML =
+        "Рошан решит за тебя";
+
+    document.getElementById("randomActions").style.display =
+        "none";
+
+    document.getElementById("roshanChallenge")
+        .classList.remove("active");
+
+    buildRoulettePreview();
+
+}
+
+
+/* ================================================= */
+/* GET HERO POOL */
+/* ================================================= */
+
+function getRandomHeroPool(){
+
+    if(selectedRandomRole === "all"){
+        return sortedHeroes;
+    }
+
+    const allowed =
+        randomRolePools[selectedRandomRole] || [];
+
+    const filtered =
+        sortedHeroes.filter(hero =>
+            allowed.some(name =>
+                name.toLowerCase() ===
+                hero.name.toLowerCase()
+            )
+        );
+
+    /*
+    Если в массиве heroes какого-то имени нет,
+    возвращаем всех героев, чтобы рулетка не сломалась.
+    */
+
+    return filtered.length
+        ? filtered
+        : sortedHeroes;
+
+}
+
+
+/* ================================================= */
 /* RANDOM HERO */
 /* ================================================= */
 
-function randomHero(){
+function getRandomHeroFromPool(pool){
 
-    const hero =
-        heroes[
-            Math.floor(
-                Math.random() *
-                heroes.length
-            )
-        ];
+    return pool[
+        Math.floor(
+            Math.random() * pool.length
+        )
+    ];
+
+}
 
 
-    const image =
-        document.getElementById(
-            "randomImage"
+/* ================================================= */
+/* PREVIEW */
+/* ================================================= */
+
+function buildRoulettePreview(){
+
+    const track =
+        document.getElementById("rouletteTrack");
+
+    if(!track){
+        return;
+    }
+
+    const pool =
+        getRandomHeroPool();
+
+    track.innerHTML = "";
+
+    const previewHeroes = [];
+
+    for(let i = 0; i < 7; i++){
+
+        previewHeroes.push(
+            getRandomHeroFromPool(pool)
         );
-
-
-    const name =
-        document.getElementById(
-            "randomName"
-        );
-
-
-    image.style.opacity = "0";
-
-
-    setTimeout(()=>{
-
-        image.src =
-            hero.img;
-
-        image.alt =
-            hero.name;
-
-        name.textContent =
-            hero.name;
-
-        image.style.opacity =
-            "1";
-
-    },120);
-
-
-    if(
-        tg &&
-        tg.HapticFeedback
-    ){
-
-        tg.HapticFeedback
-            .impactOccurred(
-                "medium"
-            );
 
     }
+
+    previewHeroes.forEach((hero,index)=>{
+
+        const card =
+            createRouletteCard(
+                hero,
+                index === 3
+            );
+
+        track.appendChild(card);
+
+    });
+
+}
+
+
+/* ================================================= */
+/* CREATE CARD */
+/* ================================================= */
+
+function createRouletteCard(hero,active = false){
+
+    const card =
+        document.createElement("div");
+
+    card.className =
+        "roulette-card" +
+        (active ? " active" : "");
+
+    card.innerHTML = `
+        <img
+            src="${hero.img}"
+            alt="${hero.name}"
+            loading="eager"
+        >
+
+        <div class="roulette-card-name">
+            ${hero.name}
+        </div>
+    `;
+
+    return card;
+
+}
+
+
+/* ================================================= */
+/* SPIN */
+/* ================================================= */
+
+function spinHeroRoulette(){
+
+    if(rouletteSpinning){
+        return;
+    }
+
+    const pool =
+        getRandomHeroPool();
+
+    if(!pool.length){
+        return;
+    }
+
+    rouletteSpinning = true;
+
+    const track =
+        document.getElementById("rouletteTrack");
+
+    const rouletteBox =
+        document.getElementById("rouletteBox");
+
+    const button =
+        document.getElementById("rouletteSpinButton");
+
+    const resultName =
+        document.getElementById("randomResultName");
+
+    const resultRole =
+        document.getElementById("randomResultRole");
+
+    document.getElementById("randomActions").style.display =
+        "none";
+
+    document
+        .getElementById("roshanChallenge")
+        .classList.remove("active");
+
+    rouletteBox.classList.add("spinning");
+
+    button.disabled = true;
+    button.textContent = "РОШАН ВЫБИРАЕТ...";
+
+    resultName.textContent = "???";
+    resultRole.textContent = "Рулетка крутится";
+
+
+    /*
+    Заранее выбираем победителя.
+    */
+
+    const winner =
+        getRandomHeroFromPool(pool);
+
+    currentRandomHero =
+        winner;
+
+
+    /*
+    Сколько смен героев будет во время анимации.
+    */
+
+    const spinSteps = 24;
+
+    let currentStep = 0;
+
+
+    function animateStep(){
+
+        currentStep++;
+
+        const centerHero =
+            currentStep === spinSteps
+                ? winner
+                : getRandomHeroFromPool(pool);
+
+
+        /*
+        Создаём ряд из 7 героев.
+        Победитель всегда по центру.
+        */
+
+        const displayHeroes = [];
+
+        for(let i = 0; i < 7; i++){
+
+            if(i === 3){
+
+                displayHeroes.push(
+                    centerHero
+                );
+
+            }else{
+
+                displayHeroes.push(
+                    getRandomHeroFromPool(pool)
+                );
+
+            }
+
+        }
+
+
+        track.innerHTML = "";
+
+
+        displayHeroes.forEach(
+            (hero,index)=>{
+
+                const card =
+                    createRouletteCard(
+                        hero,
+                        index === 3
+                    );
+
+                track.appendChild(card);
+
+            }
+        );
+
+
+        /*
+        Небольшая вибрация Telegram.
+        */
+
+        try{
+
+            if(
+                window.Telegram &&
+                Telegram.WebApp &&
+                Telegram.WebApp.HapticFeedback &&
+                currentStep % 3 === 0
+            ){
+
+                Telegram.WebApp.HapticFeedback
+                    .selectionChanged();
+
+            }
+
+        }catch(e){}
+
+
+        if(currentStep < spinSteps){
+
+            /*
+            Постепенно замедляем рулетку.
+            */
+
+            const progress =
+                currentStep / spinSteps;
+
+            const delay =
+                55 +
+                Math.pow(progress,2.4) * 260;
+
+            setTimeout(
+                animateStep,
+                delay
+            );
+
+        }else{
+
+            finishHeroRoulette(
+                winner
+            );
+
+        }
+
+    }
+
+
+    animateStep();
+
+}
+
+
+/* ================================================= */
+/* FINISH */
+/* ================================================= */
+
+function finishHeroRoulette(hero){
+
+    rouletteSpinning = false;
+
+    const rouletteBox =
+        document.getElementById("rouletteBox");
+
+    const button =
+        document.getElementById("rouletteSpinButton");
+
+    rouletteBox.classList.remove("spinning");
+
+    button.disabled = false;
+    button.textContent = "КРУТИТЬ ЕЩЁ РАЗ";
+
+
+    document.getElementById(
+        "randomResultName"
+    ).textContent =
+        hero.name.toUpperCase();
+
+
+    document.getElementById(
+        "randomResultRole"
+    ).innerHTML =
+        getRandomRoleLabel();
+
+
+    document.getElementById(
+        "randomActions"
+    ).style.display =
+        "grid";
+
+
+    addRandomHistory(hero);
+
+
+    /*
+    Более заметная вибрация при выпадении.
+    */
+
+    try{
+
+        if(
+            window.Telegram &&
+            Telegram.WebApp &&
+            Telegram.WebApp.HapticFeedback
+        ){
+
+            Telegram.WebApp.HapticFeedback
+                .impactOccurred("medium");
+
+        }
+
+    }catch(e){}
+
+}
+
+
+/* ================================================= */
+/* ROLE LABEL */
+/* ================================================= */
+
+function getRandomRoleLabel(){
+
+    switch(selectedRandomRole){
+
+        case "carry":
+            return "POSITION 1 · КЕРРИ";
+
+        case "mid":
+            return "POSITION 2 · МИД";
+
+        case "offlane":
+            return "POSITION 3 · ОФФЛЕЙН";
+
+        case "support":
+            return "POSITION 4 / 5 · САППОРТ";
+
+        default:
+            return "ЛЮБАЯ ПОЗИЦИЯ";
+
+    }
+
+}
+
+
+/* ================================================= */
+/* OPEN GUIDE */
+/* ================================================= */
+
+function openRandomHeroGuide(){
+
+    if(!currentRandomHero){
+        return;
+    }
+
+    /*
+    Используем уже существующую
+    функцию открытия гайда.
+    */
+
+    openHero(
+        currentRandomHero.name
+    );
+
+}
+
+
+/* ================================================= */
+/* ROSHAN CHALLENGES */
+/* ================================================= */
+
+const roshanChallenges = [
+
+    "Не перебрасывай героя. Рошан уже решил, кем ты играешь.",
+
+    "Попробуй сыграть эту игру максимально командно: чаще помогай союзникам и участвуй в общих драках.",
+
+    "Попробуй собрать хотя бы один предмет, который ты обычно почти никогда не покупаешь на этом герое.",
+
+    "Поставь себе цель умереть как можно меньше и не лезть в драки без причины.",
+
+    "Попробуй активно использовать способности героя, которые обычно недооцениваешь.",
+
+    "Сыграй матч без автопилота: перед каждой крупной покупкой подумай, какой предмет сейчас действительно нужен.",
+
+    "Сделай главным приоритетом объекты: вышки, Рошан и контроль карты.",
+
+    "Попробуй сыграть через необычный, но адекватный билд.",
+
+    "Проведи игру максимально спокойно: никаких бессмысленных погонь за противником через половину карты.",
+
+    "После каждой смерти быстро подумай, что именно можно было сделать иначе.",
+
+    "Попробуй как можно чаще играть рядом с командой вместо одиночной беготни по карте.",
+
+    "Выбери одну главную задачу на матч и следуй ей до конца.",
+
+    "Попробуй сделать хотя бы один неожиданный для соперника игровой ход: смену линии, ранний дым или нестандартный предмет.",
+
+    "Не обвиняй команду весь матч. Сосредоточься только на собственных решениях.",
+
+    "Рошан запрещает тебе нажимать кнопку переброса. Этот герой — твоя судьба на следующую игру."
+
+];
+
+
+/* ================================================= */
+/* GENERATE CHALLENGE */
+/* ================================================= */
+
+function generateRoshanChallenge(){
+
+    if(!currentRandomHero){
+        return;
+    }
+
+    const box =
+        document.getElementById(
+            "roshanChallenge"
+        );
+
+    const text =
+        document.getElementById(
+            "roshanChallengeText"
+        );
+
+    const randomIndex =
+        Math.floor(
+            Math.random() *
+            roshanChallenges.length
+        );
+
+    text.textContent =
+        roshanChallenges[randomIndex];
+
+    box.classList.add("active");
+
+
+    try{
+
+        box.scrollIntoView({
+            behavior:"smooth",
+            block:"nearest"
+        });
+
+    }catch(e){}
+
+}
+
+
+/* ================================================= */
+/* HISTORY */
+/* ================================================= */
+
+function loadRandomHistory(){
+
+    try{
+
+        const saved =
+            localStorage.getItem(
+                RANDOM_HISTORY_KEY
+            );
+
+        if(!saved){
+            return [];
+        }
+
+        const parsed =
+            JSON.parse(saved);
+
+        return Array.isArray(parsed)
+            ? parsed
+            : [];
+
+    }catch(e){
+
+        return [];
+
+    }
+
+}
+
+
+/* ================================================= */
+/* ADD HISTORY */
+/* ================================================= */
+
+function addRandomHistory(hero){
+
+    let history =
+        loadRandomHistory();
+
+
+    /*
+    Если тот же герой выпал дважды подряд,
+    не плодим одинаковые карточки.
+    */
+
+    if(
+        history.length &&
+        history[0].name === hero.name
+    ){
+
+        renderRandomHistory();
+        return;
+
+    }
+
+
+    history.unshift({
+        name:hero.name,
+        img:hero.img
+    });
+
+
+    history =
+        history.slice(0,5);
+
+
+    localStorage.setItem(
+        RANDOM_HISTORY_KEY,
+        JSON.stringify(history)
+    );
+
+
+    renderRandomHistory();
+
+}
+
+
+/* ================================================= */
+/* RENDER HISTORY */
+/* ================================================= */
+
+function renderRandomHistory(){
+
+    const container =
+        document.getElementById(
+            "randomHistoryList"
+        );
+
+    if(!container){
+        return;
+    }
+
+
+    const history =
+        loadRandomHistory();
+
+
+    if(!history.length){
+
+        container.innerHTML = `
+            <div class="random-history-empty">
+                Здесь появятся последние результаты рулетки.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    history.forEach(item=>{
+
+        const hero =
+            getHeroByName(item.name);
+
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "random-history-item";
+
+
+        card.innerHTML = `
+
+            <img
+                class="random-history-img"
+                src="${item.img}"
+                alt="${item.name}"
+            >
+
+            <div class="random-history-name">
+                ${item.name}
+            </div>
+
+        `;
+
+
+        card.onclick = ()=>{
+
+            if(hero){
+
+                openHero(
+                    hero.name
+                );
+
+            }
+
+        };
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* ================================================= */
+/* CLEAR HISTORY */
+/* ================================================= */
+
+function clearRandomHistory(){
+
+    localStorage.removeItem(
+        RANDOM_HISTORY_KEY
+    );
+
+    renderRandomHistory();
+
+}
+
+
+/* ================================================= */
+/* OLD FUNCTION COMPATIBILITY */
+/* ================================================= */
+
+/*
+Если где-то в старом приложении ещё остался
+onclick="randomHero()", он всё равно будет работать.
+*/
+
+function randomHero(){
+
+    spinHeroRoulette();
 
 }
 
@@ -5454,8 +7035,10 @@ document.addEventListener(
 
     }
 );
-
+    
+buildRoulettePreview();
+renderRandomHistory();
+    
 </script>
-
 </body>
 </html>    
