@@ -5791,10 +5791,7 @@ function getCounterHero(name){
         return null;
     }
 
-    const target =
-        name
-            .trim()
-            .toLowerCase();
+    const target = name.trim().toUpperCase();
 
     return heroes.find(hero => {
 
@@ -5804,7 +5801,7 @@ function getCounterHero(name){
 
         return hero.name
             .trim()
-            .toLowerCase() === target;
+            .toUpperCase() === target;
 
     }) || null;
 }
@@ -5963,7 +5960,8 @@ function selectCounterHero(enemy){
     /* получаем контрпики */
 
     let names =
-        counterData[enemy.name];
+    counters[enemy.name.toUpperCase()] ||
+    counterData[enemy.name];
 
 
     /*
