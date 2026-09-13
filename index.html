@@ -5477,173 +5477,1005 @@ function renderMetaRole(
 
 const counters = {
 
-    "ANTI-MAGE":[
-        "LEGION COMMANDER",
-        "SLARDAR",
-        "PHANTOM ASSASSIN"
-    ],
+    "ABADDON":[
+    "ANCIENT APPARITION",
+    "DOOM",
+    "SHADOW DEMON",
+    "SILENCER",
+    "OUTWORLD DESTROYER"
+],
 
-    "AXE":[
-        "LIFESTEALER",
-        "URSA",
-        "VIPER"
-    ],
+"ALCHEMIST":[
+    "ANCIENT APPARITION",
+    "URSA",
+    "SLARDAR",
+    "LIFESTEALER",
+    "NECROPHOS"
+],
 
-    "BLOODSEEKER":[
-        "TROLL WARLORD",
-        "PHANTOM LANCER",
-        "OMNIKNIGHT"
-    ],
+"ANCIENT APPARITION":[
+    "ANTI-MAGE",
+    "PHANTOM LANCER",
+    "NAGA SIREN",
+    "JUGGERNAUT",
+    "LIFESTEALER"
+],
 
-    "DROW RANGER":[
-        "PHANTOM LANCER",
-        "SPECTRE",
-        "CLOCKWERK"
-    ],
+"ANTI-MAGE":[
+    "LEGION COMMANDER",
+    "AXE",
+    "BLOODSEEKER",
+    "SLARDAR",
+    "MEEPO"
+],
 
-    "EMBER SPIRIT":[
-        "HUSKAR",
-        "SILENCER",
-        "NYX ASSASSIN"
-    ],
+"ARC WARDEN":[
+    "PHANTOM LANCER",
+    "NAGA SIREN",
+    "BROODMOTHER",
+    "CHAOS KNIGHT",
+    "MEEPO"
+],
 
-    "ENIGMA":[
-        "RUBICK",
-        "SILENCER",
-        "WARLOCK"
-    ],
+"AXE":[
+    "LIFESTEALER",
+    "URSA",
+    "VIPER",
+    "TIMBERSAW",
+    "VENOMANCER"
+],
 
-    "INVOKER":[
-        "NYX ASSASSIN",
-        "ANTI-MAGE",
-        "SILENCER"
-    ],
+"BANE":[
+    "ABADDON",
+    "LEGION COMMANDER",
+    "ORACLE",
+    "SILENCER",
+    "OMNIKNIGHT"
+],
 
-    "JUGGERNAUT":[
-        "AXE",
-        "PHANTOM LANCER",
-        "SLARK"
-    ],
+"BATRIDER":[
+    "ABADDON",
+    "LEGION COMMANDER",
+    "ORACLE",
+    "SLARK",
+    "JUGGERNAUT"
+],
 
-    "LEGION COMMANDER":[
-        "DAZZLE",
-        "ORACLE",
-        "OMNIKNIGHT"
-    ],
+"BEASTMASTER":[
+    "ENCHANTRESS",
+    "WINTER WYVERN",
+    "TIMBERSAW",
+    "SAND KING",
+    "AXE"
+],
 
-    "LIFESTEALER":[
-        "PHANTOM LANCER",
-        "RAZOR",
-        "WINDRANGER"
-    ],
+"BLOODSEEKER":[
+    "TROLL WARLORD",
+    "PHANTOM LANCER",
+    "OMNIKNIGHT",
+    "LIFESTEALER",
+    "FACELESS VOID"
+],
 
-    "NECROPHOS":[
-        "ANTI-MAGE",
-        "LEGION COMMANDER",
-        "ANCIENT APPARITION"
-    ],
+"BOUNTY HUNTER":[
+    "SLARDAR",
+    "ZEUS",
+    "BLOODSEEKER",
+    "SLARK",
+    "BRISTLEBACK"
+],
 
-    "PHANTOM ASSASSIN":[
-        "AXE",
-        "OMNIKNIGHT",
-        "SPECTRE"
-    ],
+"BREWMASTER":[
+    "DOOM",
+    "SILENCER",
+    "LION",
+    "SHADOW SHAMAN",
+    "DISRUPTOR"
+],
 
-    "PHANTOM LANCER":[
-        "AXE",
-        "SVEN",
-        "EMBER SPIRIT"
-    ],
+"BRISTLEBACK":[
+    "VIPER",
+    "NECROPHOS",
+    "LEGION COMMANDER",
+    "SLARK",
+    "LIFESTEALER"
+],
 
-    "PUDGE":[
-        "NECROPHOS",
-        "DROW RANGER",
-        "RAZOR"
-    ],
+"BROODMOTHER":[
+    "EARTHSHAKER",
+    "SAND KING",
+    "AXE",
+    "LEGION COMMANDER",
+    "EMBER SPIRIT"
+],
 
-    "PUCK":[
-        "DOOM",
-        "NYX ASSASSIN",
-        "SILENCER"
-    ],
+"CENTAUR WARRUNNER":[
+    "LIFESTEALER",
+    "NECROPHOS",
+    "URSA",
+    "VIPER",
+    "RAZOR"
+],
 
-    "QUEEN OF PAIN":[
-        "ANTI-MAGE",
-        "PUCK",
-        "SILENCER"
-    ],
+"CHAOS KNIGHT":[
+    "EARTHSHAKER",
+    "SAND KING",
+    "MEDUSA",
+    "SVEN",
+    "AXE"
+],
 
-    "RAZOR":[
-        "ANTI-MAGE",
-        "PHANTOM LANCER",
-        "DROW RANGER"
-    ],
+"CHEN":[
+    "ENCHANTRESS",
+    "DOOM",
+    "EARTHSHAKER",
+    "LEGION COMMANDER",
+    "CLINKZ"
+],
 
-    "RUBICK":[
-        "NYX ASSASSIN",
-        "ANTI-MAGE",
-        "SILENCER"
-    ],
+"CLINKZ":[
+    "SLARDAR",
+    "BOUNTY HUNTER",
+    "BLOODSEEKER",
+    "SPECTRE",
+    "PHANTOM LANCER"
+],
 
-    "SLARK":[
-        "AXE",
-        "BLOODSEEKER",
-        "LEGION COMMANDER"
-    ],
+"CLOCKWERK":[
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "SLARK",
+    "MORPHLING",
+    "TIMBERSAW"
+],
 
-    "SPECTRE":[
-        "ANTI-MAGE",
-        "VIPER",
-        "NECROPHOS"
-    ],
+"CRYSTAL MAIDEN":[
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "CLOCKWERK",
+    "SPIRIT BREAKER",
+    "STORM SPIRIT"
+],
 
-    "STORM SPIRIT":[
-        "ANTI-MAGE",
-        "SILENCER",
-        "NYX ASSASSIN"
-    ],
+"DARK SEER":[
+    "ORACLE",
+    "SHADOW DEMON",
+    "RUBICK",
+    "SILENCER",
+    "DOOM"
+],
 
-    "SVEN":[
-        "PHANTOM LANCER",
-        "URSA",
-        "TIMBERSAW"
-    ],
+"DARK WILLOW":[
+    "ZEUS",
+    "AXE",
+    "EARTHSHAKER",
+    "EMBER SPIRIT",
+    "PUCK"
+],
 
-    "TERRORBLADE":[
-        "PHANTOM LANCER",
-        "LION",
-        "AXE"
-    ],
+"DAWNBREAKER":[
+    "ANCIENT APPARITION",
+    "DOOM",
+    "NECROPHOS",
+    "VIPER",
+    "RAZOR"
+],
 
-    "TIMBERSAW":[
-        "VIPER",
-        "URSA",
-        "NECROPHOS"
-    ],
+"DAZZLE":[
+    "ANCIENT APPARITION",
+    "AXE",
+    "DOOM",
+    "SILENCER",
+    "ORACLE"
+],
 
-    "TROLL WARLORD":[
-        "PHANTOM LANCER",
-        "AXE",
-        "VENOMANCER"
-    ],
+"DEATH PROPHET":[
+    "ANCIENT APPARITION",
+    "DOOM",
+    "ANTI-MAGE",
+    "NECROPHOS",
+    "SLARK"
+],
 
-    "UNDERLORD":[
-        "URSA",
-        "LIFESTEALER",
-        "VIPER"
-    ],
+"DISRUPTOR":[
+    "JUGGERNAUT",
+    "LIFESTEALER",
+    "SLARK",
+    "PUCK",
+    "EMBER SPIRIT"
+],
 
-    "WITCH DOCTOR":[
-        "SILENCER",
-        "NYX ASSASSIN",
-        "RUBICK"
-    ],
+"DOOM":[
+    "LIFESTEALER",
+    "WRAITH KING",
+    "LONE DRUID",
+    "PHANTOM LANCER",
+    "NAGA SIREN"
+],
 
-    "ZEUS":[
-        "ANTI-MAGE",
-        "NYX ASSASSIN",
-        "STORM SPIRIT"
-    ]
+"DRAGON KNIGHT":[
+    "SLARK",
+    "URSA",
+    "LIFESTEALER",
+    "VIPER",
+    "RAZOR"
+],
+
+"DROW RANGER":[
+    "PHANTOM ASSASSIN",
+    "SPIRIT BREAKER",
+    "CLOCKWERK",
+    "SLARK",
+    "MARS"
+],
+
+"EARTH SPIRIT":[
+    "SILENCER",
+    "BLOODSEEKER",
+    "PUCK",
+    "LIFESTEALER",
+    "JUGGERNAUT"
+],
+
+"EARTHSHAKER":[
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "SILENCER",
+    "DOOM",
+    "VIPER"
+],
+
+"ELDER TITAN":[
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "WEAVER",
+    "SLARK",
+    "PUCK"
+],
+
+"EMBER SPIRIT":[
+    "HUSKAR",
+    "SILENCER",
+    "BLOODSEEKER",
+    "NYX ASSASSIN",
+    "DOOM"
+],
+
+"ENCHANTRESS":[
+    "NYX ASSASSIN",
+    "LION",
+    "CLINKZ",
+    "PHANTOM ASSASSIN",
+    "ZEUS"
+],
+
+"ENIGMA":[
+    "SILENCER",
+    "RUBICK",
+    "VENGEFUL SPIRIT",
+    "WARLOCK",
+    "BEASTMASTER"
+],
+
+"FACELESS VOID":[
+    "SHADOW DEMON",
+    "DAZZLE",
+    "ORACLE",
+    "WINTER WYVERN",
+    "VENOMANCER"
+],
+
+"GRIMSTROKE":[
+    "JUGGERNAUT",
+    "LIFESTEALER",
+    "SLARK",
+    "PUCK",
+    "ANTI-MAGE"
+],
+
+"GYROCOPTER":[
+    "ANTI-MAGE",
+    "PHANTOM LANCER",
+    "MORPHLING",
+    "DROW RANGER",
+    "SNIPER"
+],
+
+"HOODWINK":[
+    "ZEUS",
+    "SPIRIT BREAKER",
+    "CLOCKWERK",
+    "STORM SPIRIT",
+    "SLARDAR"
+],
+
+"HUSKAR":[
+    "ANCIENT APPARITION",
+    "NECROPHOS",
+    "VIPER",
+    "AXE",
+    "WINDRANGER"
+],
+
+"INVOKER":[
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "SILENCER",
+    "DOOM",
+    "TEMPLAR ASSASSIN"
+],
+
+"IO":[
+    "ANCIENT APPARITION",
+    "BLOODSEEKER",
+    "SPECTRE",
+    "CLOCKWERK",
+    "SPIRIT BREAKER"
+],
+
+"JAKIRO":[
+    "ANTI-MAGE",
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "PUCK",
+    "STORM SPIRIT"
+],
+
+"JUGGERNAUT":[
+    "AXE",
+    "URSA",
+    "SLARDAR",
+    "OUTWORLD DESTROYER",
+    "SHADOW DEMON"
+],
+
+"KEEPER OF THE LIGHT":[
+    "NYX ASSASSIN",
+    "ANTI-MAGE",
+    "NIGHT STALKER",
+    "CLOCKWERK",
+    "SPIRIT BREAKER"
+],
+
+"KUNKKA":[
+    "LIFESTEALER",
+    "SLARK",
+    "URSA",
+    "TIMBERSAW",
+    "VIPER"
+],
+
+"LEGION COMMANDER":[
+    "DAZZLE",
+    "ORACLE",
+    "WINTER WYVERN",
+    "SHADOW DEMON",
+    "OUTWORLD DESTROYER"
+],
+
+"LESHRAC":[
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "PUGNA",
+    "SILENCER",
+    "LIFESTEALER"
+],
+
+"LICH":[
+    "ANTI-MAGE",
+    "JUGGERNAUT",
+    "LIFESTEALER",
+    "PUCK",
+    "STORM SPIRIT"
+],
+
+"LIFESTEALER":[
+    "RAZOR",
+    "SLARDAR",
+    "URSA",
+    "WINDRANGER",
+    "TROLL WARLORD"
+],
+
+"LINA":[
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "PUGNA",
+    "TEMPLAR ASSASSIN",
+    "STORM SPIRIT"
+],
+
+"LION":[
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "PUCK",
+    "SLARK",
+    "ANTI-MAGE"
+],
+
+"LONE DRUID":[
+    "WINTER WYVERN",
+    "TINKER",
+    "PHANTOM LANCER",
+    "NAGA SIREN",
+    "TIMBERSAW"
+],
+
+"LUNA":[
+    "ANTI-MAGE",
+    "PHANTOM LANCER",
+    "NAGA SIREN",
+    "MEDUSA",
+    "TERRORBLADE"
+],  
+
+"LYCAN":[
+    "WINTER WYVERN",
+    "EARTHSHAKER",
+    "SAND KING",
+    "AXE",
+    "UNDERLORD"
+],
+
+"MAGNUS":[
+    "RUBICK",
+    "VENGEFUL SPIRIT",
+    "SILENCER",
+    "DISRUPTOR",
+    "ORACLE"
+],
+
+"MARCI":[
+    "RAZOR",
+    "VIPER",
+    "VENOMANCER",
+    "NECROPHOS",
+    "BLOODSEEKER"
+],
+
+"MARS":[
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "SLARK",
+    "TIMBERSAW",
+    "VIPER"
+],
+
+"MEDUSA":[
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "PHANTOM LANCER",
+    "SLARK",
+    "LION"
+],
+
+"MEEPO":[
+    "EARTHSHAKER",
+    "WINTER WYVERN",
+    "SAND KING",
+    "SVEN",
+    "AXE"
+],
+
+"MIRANA":[
+    "SLARDAR",
+    "BOUNTY HUNTER",
+    "CLOCKWERK",
+    "SPIRIT BREAKER",
+    "ZEUS"
+],
+
+"MONKEY KING":[
+    "VIPER",
+    "VENOMANCER",
+    "RAZOR",
+    "QUEEN OF PAIN",
+    "WINDRANGER"
+],
+
+"MORPHLING":[
+    "ANCIENT APPARITION",
+    "LION",
+    "NYX ASSASSIN",
+    "ANTI-MAGE",
+    "OUTWORLD DESTROYER"
+],
+
+"MUERTA":[
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "PUGNA"
+],
+
+"NAGA SIREN":[
+    "EARTHSHAKER",
+    "SAND KING",
+    "LESHRAC",
+    "AXE",
+    "SVEN"
+],
+
+"NATURE'S PROPHET":[
+    "SPIRIT BREAKER",
+    "SPECTRE",
+    "CLOCKWERK",
+    "STORM SPIRIT",
+    "EMBER SPIRIT"
+],
+
+"NECROPHOS":[
+    "ANCIENT APPARITION",
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "PUGNA",
+    "LINA"
+],
+
+"NIGHT STALKER":[
+    "NAGA SIREN",
+    "PHANTOM LANCER",
+    "TERRORBLADE",
+    "MEDUSA",
+    "LUNA"
+],
+
+"NYX ASSASSIN":[
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "SLARDAR",
+    "BOUNTY HUNTER",
+    "BLOODSEEKER"
+],
+
+"OGRE MAGI":[
+    "LIFESTEALER",
+    "SLARK",
+    "URSA",
+    "TIMBERSAW",
+    "NECROPHOS"
+],
+
+"OMNIKNIGHT":[
+    "SHADOW DEMON",
+    "ORACLE",
+    "DOOM",
+    "ENCHANTRESS",
+    "OUTWORLD DESTROYER"
+],
+
+"ORACLE":[
+    "SILENCER",
+    "DOOM",
+    "NYX ASSASSIN",
+    "STORM SPIRIT",
+    "CLOCKWERK"
+],
+
+"OUTWORLD DESTROYER":[
+    "NYX ASSASSIN",
+    "ANTI-MAGE",
+    "SILENCER",
+    "PUGNA",
+    "LONE DRUID"
+],
+
+"PANGOLIER":[
+    "BLOODSEEKER",
+    "GRIMSTROKE",
+    "PUCK",
+    "DISRUPTOR",
+    "BANE"
+],
+
+"PHANTOM ASSASSIN":[
+    "AXE",
+    "LEGION COMMANDER",
+    "TIMBERSAW",
+    "RAZOR",
+    "OMNIKNIGHT"
+],
+
+"PHANTOM LANCER":[
+    "EARTHSHAKER",
+    "SAND KING",
+    "LESHRAC",
+    "AXE",
+    "EMBER SPIRIT"
+],
+
+"PHOENIX":[
+    "SNAPFIRE",
+    "URSA",
+    "JUGGERNAUT",
+    "LINA",
+    "TROLL WARLORD"
+],
+
+"PRIMAL BEAST":[
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "SLARK",
+    "RAZOR",
+    "VIPER"
+],
+
+"PUCK":[
+    "SILENCER",
+    "NYX ASSASSIN",
+    "DOOM",
+    "BLOODSEEKER",
+    "NIGHT STALKER"
+],
+
+"PUDGE":[
+    "NECROPHOS",
+    "DROW RANGER",
+    "RAZOR",
+    "LIFESTEALER",
+    "SLARDAR"
+],
+
+"PUGNA":[
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "PHANTOM LANCER"
+],
+
+"QUEEN OF PAIN":[
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "SILENCER",
+    "PUCK",
+    "DOOM"
+],
+
+"RAZOR":[
+    "LIFESTEALER",
+    "MORPHLING",
+    "PHANTOM LANCER",
+    "NAGA SIREN",
+    "SNIPER"
+],
+
+"RIKI":[
+    "SLARDAR",
+    "BOUNTY HUNTER",
+    "BLOODSEEKER",
+    "ZEUS",
+    "BRISTLEBACK"
+],
+
+"RINGMASTER":[
+    "JUGGERNAUT",
+    "LIFESTEALER",
+    "PUCK",
+    "SLARK",
+    "ANTI-MAGE"
+],
+
+"RUBICK":[
+    "NYX ASSASSIN",
+    "ANTI-MAGE",
+    "SILENCER",
+    "LIFESTEALER",
+    "JUGGERNAUT"
+],
+
+"SAND KING":[
+    "ZEUS",
+    "SLARDAR",
+    "BLOODSEEKER",
+    "LIFESTEALER",
+    "JUGGERNAUT"
+],
+
+"SHADOW DEMON":[
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "SLARK",
+    "PUCK",
+    "ANTI-MAGE"
+],
+
+"SHADOW FIEND":[
+    "TEMPLAR ASSASSIN",
+    "NYX ASSASSIN",
+    "CLOCKWERK",
+    "SPIRIT BREAKER",
+    "ZEUS"
+],
+
+"SHADOW SHAMAN":[
+    "ANTI-MAGE",
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "PUCK",
+    "SLARK"
+],
+
+"SILENCER":[
+    "LEGION COMMANDER",
+    "ABADDON",
+    "ORACLE",
+    "LIFESTEALER",
+    "JUGGERNAUT"
+],
+
+"SKYWRATH MAGE":[
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "PUGNA",
+    "LIFESTEALER",
+    "JUGGERNAUT"
+],
+
+"SLARDAR":[
+    "NAGA SIREN",
+    "PHANTOM LANCER",
+    "TERRORBLADE",
+    "MORPHLING",
+    "RAZOR"
+],
+
+"SLARK":[
+    "BLOODSEEKER",
+    "GRIMSTROKE",
+    "DISRUPTOR",
+    "AXE",
+    "LEGION COMMANDER"
+],
+
+"SNAPFIRE":[
+    "ANTI-MAGE",
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "STORM SPIRIT",
+    "CLOCKWERK"
+],
+
+"SNIPER":[
+    "SPECTRE",
+    "SPIRIT BREAKER",
+    "CLOCKWERK",
+    "STORM SPIRIT",
+    "PHANTOM ASSASSIN"
+],
+
+"SPECTRE":[
+    "ANTI-MAGE",
+    "VIPER",
+    "NECROPHOS",
+    "SLARK",
+    "DOOM"
+],
+
+"SPIRIT BREAKER":[
+    "LIFESTEALER",
+    "SLARK",
+    "OMNIKNIGHT",
+    "LEGION COMMANDER",
+    "UNDERLORD"
+],
+
+"STORM SPIRIT":[
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "SILENCER",
+    "DOOM",
+    "BLOODSEEKER"
+],
+
+"SVEN":[
+    "RAZOR",
+    "WINTER WYVERN",
+    "OUTWORLD DESTROYER",
+    "SHADOW DEMON",
+    "BANE"
+],
+
+"TECHIES":[
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "ANTI-MAGE",
+    "ZEUS",
+    "NYX ASSASSIN"
+],
+
+"TEMPLAR ASSASSIN":[
+    "VIPER",
+    "HUSKAR",
+    "BATRIDER",
+    "VENOMANCER",
+    "EMBER SPIRIT"
+],
+
+"TERRORBLADE":[
+    "ZEUS",
+    "LESHRAC",
+    "LINA",
+    "TIMBERSAW",
+    "EARTHSHAKER"
+],
+
+"TIDEHUNTER":[
+    "LIFESTEALER",
+    "SLARK",
+    "URSA",
+    "RAZOR",
+    "NECROPHOS"
+],
+
+"TIMBERSAW":[
+    "HUSKAR",
+    "SILENCER",
+    "LION",
+    "SKYWRATH MAGE",
+    "BLOODSEEKER"
+],
+
+"TINKER":[
+    "ZEUS",
+    "CLOCKWERK",
+    "SPIRIT BREAKER",
+    "STORM SPIRIT",
+    "SPECTRE"
+],
+
+"TINY":[
+    "LIFESTEALER",
+    "TIMBERSAW",
+    "NECROPHOS",
+    "VIPER",
+    "RAZOR"
+],
+
+"TREANT PROTECTOR":[
+    "TIMBERSAW",
+    "SLARK",
+    "PHANTOM LANCER",
+    "NAGA SIREN",
+    "LIFESTEALER"
+],
+
+"TROLL WARLORD":[
+    "AXE",
+    "RAZOR",
+    "WINTER WYVERN",
+    "OUTWORLD DESTROYER",
+    "SHADOW DEMON"
+],
+
+"TUSK":[
+    "LIFESTEALER",
+    "SLARK",
+    "URSA",
+    "VIPER",
+    "RAZOR"
+],
+
+"UNDERLORD":[
+    "URSA",
+    "SLARK",
+    "LIFESTEALER",
+    "MONKEY KING",
+    "NECROPHOS"
+],
+
+"UNDYING":[
+    "LIFESTEALER",
+    "SLARK",
+    "URSA",
+    "GYROCOPTER",
+    "SNAPFIRE"
+],
+
+"URSA":[
+    "RAZOR",
+    "VIPER",
+    "VENOMANCER",
+    "WINDRANGER",
+    "PHANTOM LANCER"
+],
+
+"VENGEFUL SPIRIT":[
+    "NYX ASSASSIN",
+    "ANTI-MAGE",
+    "LIFESTEALER",
+    "JUGGERNAUT",
+    "SLARK"
+],
+
+"VENOMANCER":[
+    "JUGGERNAUT",
+    "LIFESTEALER",
+    "ABADDON",
+    "LEGION COMMANDER",
+    "ORACLE"
+],
+
+"VIPER":[
+    "PHANTOM LANCER",
+    "NAGA SIREN",
+    "TERRORBLADE",
+    "LIFESTEALER",
+    "SNIPER"
+],
+
+"VISAGE":[
+    "MEDUSA",
+    "GYROCOPTER",
+    "LUNA",
+    "TIDEHUNTER",
+    "BRISTLEBACK"
+],
+
+"VOID SPIRIT":[
+    "BLOODSEEKER",
+    "SILENCER",
+    "NYX ASSASSIN",
+    "DOOM",
+    "PUCK"
+],
+
+"WARLOCK":[
+    "ANTI-MAGE",
+    "JUGGERNAUT",
+    "LIFESTEALER",
+    "SILENCER",
+    "RUBICK"
+],
+
+"WEAVER":[
+    "BLOODSEEKER",
+    "SLARDAR",
+    "BOUNTY HUNTER",
+    "ZEUS",
+    "LEGION COMMANDER"
+],
+
+"WINDRANGER":[
+    "BLOODSEEKER",
+    "SLARDAR",
+    "ZEUS",
+    "LEGION COMMANDER",
+    "BANE"
+],
+
+"WINTER WYVERN":[
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "PUGNA",
+    "LIFESTEALER",
+    "JUGGERNAUT"
+],
+
+"WITCH DOCTOR":[
+    "SILENCER",
+    "NYX ASSASSIN",
+    "CLOCKWERK",
+    "SPIRIT BREAKER",
+    "ANTI-MAGE"
+],
+
+"WRAITH KING":[
+    "ANTI-MAGE",
+    "SLARK",
+    "LIFESTEALER",
+    "PHANTOM LANCER",
+    "NAGA SIREN"
+],
+
+"ZEUS":[
+    "ANTI-MAGE",
+    "NYX ASSASSIN",
+    "PUGNA",
+    "LIFESTEALER",
+    "HUSKAR"
+]
 
 };
 
