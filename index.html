@@ -4191,6 +4191,30 @@ function spinHeroRoulette(){
             }
         );
 
+        /* ЦЕНТРИРУЕМ ВЫПАВШЕГО ГЕРОЯ */
+        
+const cards = track.querySelectorAll(".roulette-card");
+const centerCard = cards[3];
+
+if(centerCard){
+
+    const windowWidth =
+        rouletteBox.clientWidth;
+
+    const cardCenter =
+        centerCard.offsetLeft +
+        centerCard.offsetWidth / 2;
+
+    const offset =
+        windowWidth / 2 -
+        cardCenter;
+
+    track.style.transition = "none";
+
+    track.style.transform =
+        `translateX(${offset}px)`;
+
+}
 
         /*
         Небольшая вибрация Telegram.
