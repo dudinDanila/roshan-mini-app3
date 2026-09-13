@@ -5992,12 +5992,18 @@ function selectCounterHero(enemy){
     
     names.forEach((name, index) => {
 
-    const hero = heroes.find(h =>
-        h &&
-        h.name &&
-        h.name.trim().toUpperCase() ===
-        String(name).trim().toUpperCase()
-    );
+    const normalizeHeroName = value =>
+    String(value || "")
+        .trim()
+        .toUpperCase()
+        .replace(/[–—−]/g, "-")
+        .replace(/\s+/g, " ");
+
+const hero = heroes.find(h =>
+    h &&
+    h.name &&
+    normalizeHeroName(h.name) === normalizeHeroName(name)
+);
 
     if(!hero){
         return;
