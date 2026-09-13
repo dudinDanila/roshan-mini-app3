@@ -5663,57 +5663,126 @@ function openHero(hero){
         hero.name;
 
 
-    const guide =
-        d2ptGuides[
-            hero.name
-        ];
+    const guideKey =
+    hero.name
+        .trim()
+        .toUpperCase();
+
+const heroGuide =
+    d2ptGuides[guideKey];
 
 
-    if(!guide){
+/* =========================================
+   ЕСЛИ ГАЙДА ПОКА НЕТ
+========================================= */
 
-        source.textContent =
-            "D2PT • Патч 7.41e";
+if(
+    !heroGuide ||
+    Object.keys(heroGuide).length === 0
+){
 
+    source.textContent =
+        `D2PT • Патч ${window.D2PT_PATCH || "7.41e"}`;
 
-        role.textContent =
-            "📖 Данные гайда добавляются";
+    role.textContent =
+        "📖 Данные гайда добавляются";
 
+    items.innerHTML =
+        '<div class="guide-item">Предметы появятся после добавления данных D2PT</div>';
 
-        items.innerHTML =
-            '<div class="guide-item">Данные билда пока не добавлены</div>';
+    skills.innerHTML =
+        '<div class="guide-item">Прокачка способностей пока недоступна</div>';
 
-
-        skills.innerHTML =
-            '<div class="guide-item">Скоро</div>';
-
-
-        talents.innerHTML =
-            `
-            <div class="guide-talent">
-
-                <div class="guide-talent-name">
-                    Гайд будет обновлён по данным D2PT
-                </div>
-
+    talents.innerHTML =
+        `
+        <div class="guide-talent">
+            <div class="guide-talent-name">
+                Гайд будет добавлен в базу Roshan
             </div>
-            `;
+        </div>
+        `;
+
+}
+
+
+/* =========================================
+   ЕСЛИ ГАЙД ЕСТЬ
+========================================= */
+
+else{
+
+    const patch =
+        heroGuide.patch ||
+        window.D2PT_PATCH ||
+        "7.41e";
+
+
+    /*
+       Новая структура guides.js:
+       builds: {
+           carry:{...},
+           mid:{...},
+           support:{...}
+       }
+    */
+
+    const builds =
+        heroGuide.builds || {};
+
+    const buildKeys =
+        Object.keys(builds);
+
+    let guide;
+
+
+    if(buildKeys.length){
+
+        /*
+           Пока автоматически открываем
+           первый доступный билд героя.
+           Позже добавим переключатель ролей.
+        */
+
+        guide =
+            builds[
+                buildKeys[0]
+            ];
+
+    }else{
+
+        /*
+           Поддержка старого формата,
+           если где-то останется старый гайд.
+        */
+
+        guide =
+            heroGuide;
 
     }
 
-    else{
 
-        source.textContent =
-            "D2PT • 7000+ MMR • Патч 7.41e";
-
-
-        role.textContent =
-            "📍 " +
-            guide.role;
+    source.textContent =
+        `D2PT • 7000+ MMR • Патч ${patch}`;
 
 
-        items.innerHTML =
-            "";
+    role.textContent =
+        "📍 " +
+        (
+            guide.role ||
+            "Роль не указана"
+        );
 
+
+    /* =====================================
+       ITEMS
+    ===================================== */
+
+    items.innerHTML = "";
+
+    if(
+        guide.items &&
+        guide.items.length
+    ){
 
         guide.items.forEach(
             item=>{
@@ -5723,14 +5792,11 @@ function openHero(hero){
                         "div"
                     );
 
-
                 element.className =
                     "guide-item";
 
-
                 element.textContent =
                     item;
-
 
                 items.appendChild(
                     element
@@ -5739,10 +5805,24 @@ function openHero(hero){
             }
         );
 
+    }else{
 
-        skills.innerHTML =
-            "";
+        items.innerHTML =
+            '<div class="guide-item">Нет данных о предметах</div>';
 
+    }
+
+
+    /* =====================================
+       SKILLS
+    ===================================== */
+
+    skills.innerHTML = "";
+
+    if(
+        guide.skills &&
+        guide.skills.length
+    ){
 
         guide.skills.forEach(
             (skill,index)=>{
@@ -5752,13 +5832,10 @@ function openHero(hero){
                         "div"
                     );
 
-
                 element.className =
                     "guide-skill";
 
-
                 element.innerHTML = `
-
                     <div class="guide-skill-level">
                         ${index + 1}
                     </div>
@@ -5766,9 +5843,7 @@ function openHero(hero){
                     <div class="guide-skill-name">
                         ${skill}
                     </div>
-
                 `;
-
 
                 skills.appendChild(
                     element
@@ -5777,10 +5852,24 @@ function openHero(hero){
             }
         );
 
+    }else{
 
-        talents.innerHTML =
-            "";
+        skills.innerHTML =
+            '<div class="guide-item">Нет данных о прокачке</div>';
 
+    }
+
+
+    /* =====================================
+       TALENTS
+    ===================================== */
+
+    talents.innerHTML = "";
+
+    if(
+        guide.talents &&
+        guide.talents.length
+    ){
 
         guide.talents.forEach(
             talent=>{
@@ -5790,13 +5879,10 @@ function openHero(hero){
                         "div"
                     );
 
-
                 element.className =
                     "guide-talent";
 
-
                 element.innerHTML = `
-
                     <div class="guide-talent-level">
                         ${talent[0]}
                     </div>
@@ -5804,9 +5890,7 @@ function openHero(hero){
                     <div class="guide-talent-name">
                         ${talent[1]}
                     </div>
-
                 `;
-
 
                 talents.appendChild(
                     element
@@ -5815,8 +5899,20 @@ function openHero(hero){
             }
         );
 
+    }else{
+
+        talents.innerHTML =
+            `
+            <div class="guide-talent">
+                <div class="guide-talent-name">
+                    Данные талантов пока не добавлены
+                </div>
+            </div>
+            `;
+
     }
 
+}
 
     modal.classList.add(
         "active"
