@@ -5787,11 +5787,26 @@ function getCounterReason(heroName){
 
 function getCounterHero(name){
 
-    if(typeof getHeroByName === "function"){
-        return getHeroByName(name);
+    if(!name || !Array.isArray(heroes)){
+        return null;
     }
 
-    return heroes.find(hero => hero.name === name);
+    const target =
+        name
+            .trim()
+            .toLowerCase();
+
+    return heroes.find(hero => {
+
+        if(!hero || !hero.name){
+            return false;
+        }
+
+        return hero.name
+            .trim()
+            .toLowerCase() === target;
+
+    }) || null;
 }
 
 
