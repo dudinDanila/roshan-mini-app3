@@ -8176,7 +8176,423 @@ function saveProfile(){
 
 }
 
+/* ================================================= */
+/* PROFILE FIX */
+/* ================================================= */
 
+function fillProfileHeroSelects(){
+
+    if(!Array.isArray(heroes)){
+        return;
+    }
+
+    const ids = [
+        "favoriteHero1",
+        "favoriteHero2",
+        "favoriteHero3"
+    ];
+
+    ids.forEach(id => {
+
+        const select =
+            document.getElementById(id);
+
+        if(!select){
+            return;
+        }
+
+        const currentValue = select.value;
+
+        select.innerHTML =
+            `<option value="">Выбери героя</option>`;
+
+        heroes.forEach(hero => {
+
+            if(!hero || !hero.name){
+                return;
+            }
+
+            const option =
+                document.createElement("option");
+
+            option.value = hero.name;
+            option.textContent = hero.name;
+
+            select.appendChild(option);
+
+        });
+
+        if(currentValue){
+            select.value = currentValue;
+        }
+
+    });
+
+}
+
+
+/* Telegram имя + username + аватар */
+
+function loadTelegramProfile(){
+
+    if(
+        typeof Telegram === "undefined" ||
+        !Telegram.WebApp
+    ){
+        return;
+    }
+
+    const webApp = Telegram.WebApp;
+
+    const user =
+        webApp.initDataUnsafe &&
+        webApp.initDataUnsafe.user;
+
+    if(!user){
+        return;
+    }
+
+
+    const nameEl =
+        document.getElementById("profileName");
+
+    const usernameEl =
+        document.getElementById("profileUsername");
+
+    const avatarEl =
+        document.getElementById("profileAvatar");
+
+
+    if(nameEl){
+
+        const fullName = [
+            user.first_name,
+            user.last_name
+        ]
+        .filter(Boolean)
+        .join(" ");
+
+        nameEl.textContent =
+            fullName || "Игрок";
+
+    }
+
+
+    if(usernameEl){
+
+        usernameEl.textContent =
+            user.username
+                ? "@" + user.username
+                : "Telegram";
+
+    }
+
+
+    if(avatarEl){
+
+        if(user.photo_url){
+
+            avatarEl.innerHTML = `
+                <img
+                    src="${user.photo_url}"
+                    alt="Telegram avatar"
+                    style="
+                        width:100%;
+                        height:100%;
+                        object-fit:cover;
+                        border-radius:50%;
+                    "
+                >
+            `;
+
+        }
+
+    }
+
+}
+
+
+/* Новый безопасный openProfileEditor */
+
+window.openProfileEditor = function(){
+
+    const modal =
+        document.getElementById(
+            "profileEditModal"
+        );
+
+    if(!modal){
+        return;
+    }
+
+
+    fillProfileHeroSelects();
+
+
+    const mmrInput =
+        document.getElementById(
+            "profileMmrInput"
+        );
+
+    const hoursInput =
+        document.getElementById(
+            "profileHoursInput"
+        );
+
+    const hero1 =
+        document.getElementById(
+            "favoriteHero1"
+        );
+
+    const hero2 =
+        document.getElementById(
+            "favoriteHero2"
+        );
+
+    const hero3 =
+        document.getElementById(
+            "favoriteHero3"
+        );
+
+
+    if(
+        typeof dotaProfile !== "undefined"
+    ){
+
+        if(mmrInput){
+            mmrInput.value =
+                dotaProfile.mmr ?? "";
+        }
+
+        if(hoursInput){
+            hoursInput.value =
+                dotaProfile.hours ?? "";
+        }
+
+        if(hero1){
+            hero1.value =
+                dotaProfile.favorites?.[0] || "";
+        }
+
+        if(hero2){
+            hero2.value =
+                dotaProfile.favorites?.[1] || "";
+        }
+
+        if(hero3){
+            hero3.value =
+                dotaProfile.favorites?.[2] || "";
+        }
+
+    }
+
+
+    modal.classList.add("active");
+
+};
+
+
+/* Новый безопасный saveProfile */
+
+window.saveProfile = function(){
+
+    const mmrInput =
+        document.getElementById(
+            "profileMmrInput"
+        );
+
+    const hoursInput =
+        document.getElementById(
+            "profileHoursInput"
+        );
+
+    const hero1 =
+        document.getElementById(
+            "favoriteHero1"
+        );
+
+    const hero2 =
+        document.getElementById(
+            "favoriteHero2"
+        );
+
+    const hero3 =
+        document.getElementById(
+            "favoriteHero3"
+        );
+
+
+    if(!mmrInput || !hoursInput){
+        return;
+    }
+
+
+    const mmr =
+        mmrInput.value.trim();
+
+    const hours =
+        hoursInput.value.trim();
+
+
+    if(
+        mmr !== "" &&
+        (
+            Number(mmr) < 0 ||
+            Number(mmr) > 20000
+        )
+    ){
+        alert("Укажи MMR от 0 до 20000.");
+        return;
+    }
+
+
+    if(
+        hours !== "" &&
+        (
+            Number(hours) < 0 ||
+            Number(hours) > 100000
+        )
+    ){
+        alert(
+            "Укажи количество часов от 0 до 100000."
+        );
+        return;
+    }
+
+
+    const favorites = [
+        hero1 ? hero1.value : "",
+        hero2 ? hero2.value : "",
+        hero3 ? hero3.value : ""
+    ].filter(Boolean);
+
+
+    if(
+        new Set(favorites).size !==
+        favorites.length
+    ){
+        alert(
+            "Один и тот же герой не может быть выбран несколько раз."
+        );
+        return;
+    }
+
+
+    const newProfile = {
+
+        mmr:
+            mmr === ""
+                ? ""
+                : Number(mmr),
+
+        hours:
+            hours === ""
+                ? ""
+                : Number(hours),
+
+        favorites
+
+    };
+
+
+    /* обновляем существующий объект */
+
+    if(
+        typeof dotaProfile !== "undefined"
+    ){
+
+        dotaProfile.mmr =
+            newProfile.mmr;
+
+        dotaProfile.hours =
+            newProfile.hours;
+
+        dotaProfile.favorites =
+            newProfile.favorites;
+
+    }
+
+
+    /* сохраняем */
+
+    try{
+
+        const key =
+            typeof PROFILE_STORAGE_KEY !==
+            "undefined"
+                ? PROFILE_STORAGE_KEY
+                : "dotaProfile";
+
+        localStorage.setItem(
+            key,
+            JSON.stringify(newProfile)
+        );
+
+    }catch(error){
+
+        console.warn(
+            "Profile save error:",
+            error
+        );
+
+    }
+
+
+    /* обновляем карточку профиля */
+
+    if(
+        typeof renderProfile === "function"
+    ){
+        renderProfile();
+    }
+
+    if(
+        typeof updateProfile === "function"
+    ){
+        updateProfile();
+    }
+
+
+    loadTelegramProfile();
+
+
+    const modal =
+        document.getElementById(
+            "profileEditModal"
+        );
+
+    if(modal){
+        modal.classList.remove("active");
+    }
+
+};
+
+
+/* запуск */
+
+function initProfileFix(){
+
+    fillProfileHeroSelects();
+    loadTelegramProfile();
+
+}
+
+
+if(
+    document.readyState === "loading"
+){
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initProfileFix
+    );
+
+}else{
+
+    initProfileFix();
+
+}
+    
 /* ================================================= */
 /* TELEGRAM PROFILE */
 /* ================================================= */
