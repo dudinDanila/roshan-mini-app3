@@ -4000,15 +4000,40 @@ function buildRoulettePreview(){
 
     previewHeroes.forEach((hero,index)=>{
 
-        const card =
-            createRouletteCard(
-                hero,
-                index === 3
-            );
+    const card =
+        createRouletteCard(
+            hero,
+            index === 3
+        );
 
-        track.appendChild(card);
+    track.appendChild(card);
 
-    });
+});
+
+/* ЦЕНТРИРУЕМ 4-Ю КАРТОЧКУ ПОД КРАСНОЙ ЛИНИЕЙ */
+
+const cards = track.querySelectorAll(".roulette-card");
+const centerCard = cards[3];
+
+if(centerCard){
+
+    const windowWidth =
+        track.parentElement.clientWidth;
+
+    const cardCenter =
+        centerCard.offsetLeft +
+        centerCard.offsetWidth / 2;
+
+    const offset =
+        windowWidth / 2 -
+        cardCenter;
+
+    track.style.transition = "none";
+
+    track.style.transform =
+        `translateX(${offset}px)`;
+
+}
 
 }
 
