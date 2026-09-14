@@ -4225,7 +4225,41 @@ const heroes = [
 
 ];
 
+function getDailyHero(){
+    if(!Array.isArray(heroes) || heroes.length === 0){
+        return null;
+    }
 
+    const today = new Date();
+
+    const dayKey =
+        today.getFullYear() * 10000 +
+        (today.getMonth() + 1) * 100 +
+        today.getDate();
+
+    const index = dayKey % heroes.length;
+
+    return heroes[index];
+}
+
+function renderDailyHero(){
+    const hero = getDailyHero();
+
+    if(!hero) return;
+
+    const image = document.getElementById("dailyHeroImage");
+    const name = document.getElementById("dailyHeroName");
+
+    if(image){
+        image.src = hero.img;
+        image.alt = hero.name;
+    }
+
+    if(name){
+        name.textContent = hero.name;
+    }
+}
+    
 const sortedHeroes =
     [...heroes].sort(
         (a,b)=>
@@ -8589,7 +8623,7 @@ document.addEventListener(
     
 buildRoulettePreview();
 renderRandomHistory();
-    
+    renderDailyHero();   
 </script>
 </body>
 </html>    
