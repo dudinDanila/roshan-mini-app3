@@ -2448,6 +2448,74 @@ button{
         0 -4px 25px rgba(255,20,20,.035),
         0 0 20px rgba(0,0,0,.60);
 }
+
+/* ============================= */
+/* NEON EDGE HIGHLIGHTS */
+/* ============================= */
+
+.quick-card,
+.home-hero,
+.hero-banner,
+.daily-hero{
+    position:relative;
+}
+
+/* Светящийся верхний блик */
+.quick-card::after,
+.daily-hero::after{
+    content:"";
+    position:absolute;
+
+    top:-1px;
+    left:18%;
+    width:64%;
+    height:1px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,65,65,.25),
+        rgba(255,95,95,.95),
+        rgba(255,65,65,.25),
+        transparent
+    );
+
+    box-shadow:
+        0 0 5px rgba(255,50,50,.8),
+        0 0 12px rgba(255,30,30,.45);
+
+    opacity:.65;
+    pointer-events:none;
+}
+
+/* Более яркая рамка большого баннера */
+.home-hero,
+.hero-banner{
+    border-color:rgba(255,65,65,.55) !important;
+}
+
+/* Красное свечение вокруг заголовка ROSHAN */
+.logo-title{
+    text-shadow:
+        0 0 10px rgba(255,40,40,.18);
+}
+
+/* Красная часть ROSHAN */
+.logo-title span{
+    text-shadow:
+        0 0 8px rgba(255,45,45,.55),
+        0 0 18px rgba(255,30,30,.25);
+}
+
+/* Активная нижняя кнопка */
+.nav-btn.active{
+    border-color:rgba(255,60,60,.35) !important;
+
+    box-shadow:
+        0 0 8px rgba(255,40,40,.38),
+        0 0 20px rgba(255,25,25,.20),
+        inset 0 0 18px rgba(255,35,35,.10) !important;
+}
     
 </style>
 </head>
