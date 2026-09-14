@@ -2627,6 +2627,68 @@ button{
         0 0 6px rgba(255,45,45,.75),
         0 0 14px rgba(255,30,30,.35);
 }
+
+/* ============================= */
+/* WELCOME BANNER — NEON */
+/* ============================= */
+
+.home-hero{
+    position:relative;
+
+    border:1px solid rgba(255,55,55,.65) !important;
+
+    box-shadow:
+        0 0 8px rgba(255,35,35,.30),
+        0 0 20px rgba(255,25,25,.18),
+        0 0 42px rgba(255,15,15,.09),
+        inset 0 0 28px rgba(255,25,25,.055) !important;
+}
+
+/* Яркая неоновая линия сверху */
+.home-hero::after{
+    content:"";
+    position:absolute;
+
+    top:-1px;
+    left:12%;
+    width:76%;
+    height:1px;
+
+    background:linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,45,45,.20) 15%,
+        rgba(255,85,85,.90) 50%,
+        rgba(255,45,45,.20) 85%,
+        transparent 100%
+    );
+
+    box-shadow:
+        0 0 5px rgba(255,55,55,.90),
+        0 0 12px rgba(255,35,35,.55),
+        0 0 22px rgba(255,25,25,.25);
+
+    pointer-events:none;
+    z-index:5;
+}
+
+/* Дополнительное красное сияние внутри баннера */
+.home-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,35,35,.12),
+            transparent 42%
+        );
+
+    pointer-events:none;
+    z-index:1;
+}
     
 </style>
 </head>
