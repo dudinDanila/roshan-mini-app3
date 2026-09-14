@@ -3403,14 +3403,12 @@ body{
 
     object-fit:contain;
 
-    transform:translate(-50%, -50%) scale(.96);
+    transform:translate(-50%, -50%);
     opacity:0;
 
     border-radius:18px;
 
-    transition:
-        opacity .35s ease,
-        transform .35s ease;
+    transition:opacity .35s ease;
 
     z-index:1;
 }
@@ -3418,22 +3416,8 @@ body{
 
 /* герой после ответа */
 .guess-hero-image.revealed{
-    width:100%;
-    max-width:400px;
-    max-height:240px;
-
-    object-fit:contain;
-    image-rendering:auto;
-
-    filter:none;
-
     opacity:1;
-
-    transform:translate(-50%, -50%) scale(1);
-
-    border-radius:18px;
-
-    box-shadow:0 0 25px rgba(255,45,45,.12);
+    filter:none;
 }
 
 /* правильный ответ */
