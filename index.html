@@ -3568,35 +3568,7 @@ body{
     z-index:2;
 }
 
-.guess-hero-image{
-    width:100%;
-    max-width:400px;
-    max-height:240px;
 
-    object-fit:contain;
-
-    border-radius:18px;
-
-    display:none;
-}
-
-.guess-hero-image.revealed{
-    display:block;
-
-    width:100%;
-    max-width:400px;
-    max-height:240px;
-
-    object-fit:contain;
-
-    image-rendering:auto;
-
-    filter:none;
-    opacity:1;
-    transform:none;
-
-    border-radius:18px;
-}
 
 .guess-hero-canvas.fade-out{
     opacity:0;
@@ -3619,23 +3591,7 @@ body{
     pointer-events:none;
 }
 
-.guess-hero-image{
-    opacity:0;
-    transform:scale(.96);
 
-    transition:
-        opacity .32s ease,
-        transform .32s ease;
-}
-
-.guess-hero-image.revealed{
-    display:block;
-}
-
-.guess-hero-image.revealed.show{
-    opacity:1;
-    transform:scale(1);
-}
 
 /* FIX: полностью скрываем пиксельный canvas после ответа */
 
