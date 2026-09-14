@@ -3597,6 +3597,225 @@ body{
     visibility:hidden !important;
     opacity:0 !important;
 }
+
+/* ============================= */
+/* GUESS ABILITY GAME */
+/* ============================= */
+
+.ability-game-screen{
+    display:none;
+    padding:0 28px 120px;
+}
+
+.ability-game-screen.active{
+    display:block;
+}
+
+.ability-game-header{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-top:18px;
+    margin-bottom:28px;
+}
+
+.ability-back-btn{
+    width:56px;
+    height:56px;
+
+    border-radius:18px;
+    border:1px solid rgba(255,55,55,.35);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(80,15,18,.85),
+            rgba(28,10,12,.95)
+        );
+
+    color:#fff;
+    font-size:38px;
+    line-height:1;
+
+    box-shadow:
+        0 0 22px rgba(255,40,40,.10);
+
+    cursor:pointer;
+}
+
+.ability-game-title{
+    font-size:28px;
+    font-weight:800;
+    color:#fff;
+}
+
+.ability-game-subtitle{
+    margin-top:4px;
+    font-size:16px;
+    color:rgba(255,255,255,.52);
+}
+
+.ability-score-row{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:8px;
+
+    margin-bottom:18px;
+
+    font-size:20px;
+    font-weight:700;
+}
+
+#ability-score{
+    color:#ff4d57;
+}
+
+.ability-image-card{
+    position:relative;
+
+    min-height:300px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:60px 24px 30px;
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,50,50,.28);
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(120,20,25,.16),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(25,12,14,.96),
+            rgba(8,8,10,.98)
+        );
+
+    box-shadow:
+        inset 0 0 30px rgba(255,35,35,.03),
+        0 0 25px rgba(255,35,35,.04);
+}
+
+.ability-question-label{
+    position:absolute;
+    top:22px;
+    left:0;
+    right:0;
+
+    text-align:center;
+
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:4px;
+
+    color:rgba(255,255,255,.35);
+}
+
+.ability-image{
+    width:140px;
+    height:140px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 0 30px rgba(255,45,45,.12);
+}
+
+.ability-answers{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+
+    margin-top:22px;
+}
+
+.ability-answer{
+    min-height:92px;
+
+    padding:14px 12px;
+
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,.12);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22,22,24,.98),
+            rgba(11,11,13,.98)
+        );
+
+    color:#fff;
+
+    font-size:16px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        transform .2s ease;
+}
+
+.ability-answer:active{
+    transform:scale(.98);
+}
+
+.ability-answer.correct{
+    border-color:rgba(50,220,100,.8);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,95,45,.85),
+            rgba(8,45,20,.95)
+        );
+}
+
+.ability-answer.wrong{
+    border-color:rgba(255,60,60,.85);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(100,20,25,.85),
+            rgba(50,10,12,.95)
+        );
+}
+
+@media(max-width:420px){
+    .ability-game-screen{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .ability-game-title{
+        font-size:24px;
+    }
+
+    .ability-image-card{
+        min-height:270px;
+    }
+
+    .ability-image{
+        width:125px;
+        height:125px;
+    }
+
+    .ability-answer{
+        min-height:86px;
+        font-size:15px;
+    }
+}
     
 </style>
 </head>
@@ -4383,7 +4602,7 @@ body{
     </div>
 
 
-    <div class="game-card">
+    <div class="game-card" onclick="openAbilityGame()">
         <div class="game-card-icon">🧩</div>
 
         <div class="game-card-content">
@@ -4433,6 +4652,70 @@ body{
 
 </div>
 
+<!-- ============================= -->
+<!-- GUESS ABILITY GAME -->
+<!-- ============================= -->
+
+<div id="ability-game" class="ability-game-screen">
+
+    <div class="ability-game-header">
+
+        <button
+            class="ability-back-btn"
+            onclick="closeAbilityGame()"
+        >
+            ‹
+        </button>
+
+        <div>
+            <div class="ability-game-title">
+                Угадай способность
+            </div>
+
+            <div class="ability-game-subtitle">
+                Определи способность по иконке
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="ability-score-row">
+        <span>Счёт</span>
+        <span id="ability-score">0</span>
+    </div>
+
+
+    <div class="ability-image-card">
+
+        <div class="ability-question-label">
+            ЧТО ЭТО?
+        </div>
+
+        <img
+            id="ability-image"
+            class="ability-image"
+            src=""
+            alt="Способность"
+        >
+
+    </div>
+
+
+    <div id="ability-answers" class="ability-answers">
+
+        <button class="ability-answer"></button>
+
+        <button class="ability-answer"></button>
+
+        <button class="ability-answer"></button>
+
+        <button class="ability-answer"></button>
+
+    </div>
+
+</div>
+    
 <!-- ============================= -->
 <!-- GUESS HERO GAME -->
 <!-- ============================= -->
@@ -10907,6 +11190,49 @@ function finishGuessHeroGame(){
     game.appendChild(
         result
     );
+}
+
+/* ============================= */
+/* GUESS ABILITY GAME */
+/* ============================= */
+
+function openAbilityGame(){
+
+    const gamesHub = document.querySelector(".games-hub");
+    const abilityGame = document.getElementById("ability-game");
+
+    if(gamesHub){
+        gamesHub.style.display = "none";
+    }
+
+    if(abilityGame){
+        abilityGame.classList.add("active");
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+function closeAbilityGame(){
+
+    const gamesHub = document.querySelector(".games-hub");
+    const abilityGame = document.getElementById("ability-game");
+
+    if(abilityGame){
+        abilityGame.classList.remove("active");
+    }
+
+    if(gamesHub){
+        gamesHub.style.display = "";
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
     
 buildRoulettePreview();
