@@ -6857,37 +6857,2247 @@ const d2ptGuides = {
         }
     }
 },
-    "NIGHT STALKER": {},
-    "NYX ASSASSIN": {},
+    "NIGHT STALKER": {
+    patch: "7.41e",
 
-    "OGRE MAGI": {},
-    "OMNIKNIGHT": {},
-    "ORACLE": {},
-    "OUTWORLD DESTROYER": {},
+    builds: {
+        offlane: {
+            role: "Offlane",
 
-    "PANGOLIER": {},
-    "PHANTOM ASSASSIN": {},
-    "PHANTOM LANCER": {},
-    "PHOENIX": {},
-    "PRIMAL BEAST": {},
-    "PUCK": {},
-    "PUDGE": {},
-    "PUGNA": {},
+            startingItems: [
+                {name:"Quelling Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/quelling_blade.png"},
+                {name:"Gauntlets of Strength",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gauntlets.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Circlet",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png"},
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"}
+            ],
 
-    "QUEEN OF PAIN": {},
+            earlyItems: [
+                {name:"Bracer",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bracer.png"},
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Phase Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/phase_boots.png"},
+                {name:"Echo Sabre",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/echo_sabre.png"}
+            ],
 
-    "RAZOR": {},
-    "RIKI": {},
-    "RINGMASTER": {},
-    "RUBICK": {},
+            coreItems: [
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Black King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"}
+            ],
 
-    "SAND KING": {},
-    "SHADOW DEMON": {},
-    "SHADOW FIEND": {},
-    "SHADOW SHAMAN": {},
-    "SILENCER": {},
-    "SKYWRATH MAGE": {},
-    "SLARDAR": {},
+            situationalItems: [
+                {name:"Harpoon",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/harpoon.png"},
+                {name:"Nullifier",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/nullifier.png"},
+                {name:"Skull Basher",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png"},
+                {name:"Assault Cuirass",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/assault.png"},
+                {name:"Soul Ring",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/soul_ring.png"}
+            ],
+
+            lateItems: [
+                {name:"Abyssal Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png"},
+                {name:"Nullifier",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/nullifier.png"},
+                {name:"Assault Cuirass",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/assault.png"},
+                {name:"Overwhelming Blink",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/overwhelming_blink.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Void",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_void.png"},
+                {level:2,name:"Midnight Feast",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_hunter_in_the_night.png"},
+                {level:3,name:"Void",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_void.png"},
+                {level:4,name:"Crippling Fear",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_crippling_fear.png"},
+                {level:5,name:"Void",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_void.png"},
+                {level:6,name:"Dark Ascension",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_darkness.png"},
+                {level:7,name:"Void",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_void.png"},
+                {level:8,name:"Midnight Feast",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_hunter_in_the_night.png"},
+                {level:9,name:"Midnight Feast",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_hunter_in_the_night.png"},
+                {level:10,name:"Midnight Feast",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_hunter_in_the_night.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+10 Crippling Fear DPS",
+                    right:"-1s Void Cooldown",
+                    recommended:"right"
+                },
+                {
+                    level:15,
+                    left:"20% Hunter in the Night Status Resistance",
+                    right:"+25 Dark Ascension Damage",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"+15 Strength",
+                    right:"+75 Crippling Fear Radius",
+                    recommended:"left"
+                },
+                {
+                    level:25,
+                    left:"-35s Dark Ascension Cooldown",
+                    right:"+100 Midnight Feast Lifesteal",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"NYX ASSASSIN": {
+    patch: "7.41e",
+
+    builds: {
+        support: {
+            role: "Support",
+
+            startingItems: [
+                {name:"Boots of Speed",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/boots.png"},
+                {name:"Observer Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_observer.png"},
+                {name:"Sentry Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_sentry.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Arcane Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"}
+            ],
+
+            coreItems: [
+                {name:"Dagon",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/dagon.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"}
+            ],
+
+            situationalItems: [
+                {name:"Eul's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/euls.png"},
+                {name:"Force Staff",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"},
+                {name:"Aether Lens",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aether_lens.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"}
+            ],
+
+            lateItems: [
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Ethereal Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ethereal_blade.png"},
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Impale",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nyx_assassin_impale.png"},
+                {level:2,name:"Spiked Carapace",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nyx_assassin_spiked_carapace.png"},
+                {level:3,name:"Impale",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nyx_assassin_impale.png"},
+                {level:4,name:"Mind Flare",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nyx_assassin_mana_burn.png"},
+                {level:5,name:"Impale",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nyx_assassin_impale.png"},
+                {level:6,name:"Vendetta",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nyx_assassin_vendetta.png"},
+                {level:7,name:"Impale",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nyx_assassin_impale.png"},
+                {level:8,name:"Mind Flare",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nyx_assassin_mana_burn.png"},
+                {level:9,name:"Mind Flare",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nyx_assassin_mana_burn.png"},
+                {level:10,name:"Mind Flare",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nyx_assassin_mana_burn.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+0.2s Impale Stun Duration",
+                    right:"+25% Spiked Carapace Damage Reflect",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"-3s Mind Flare Cooldown",
+                    right:"+50 Vendetta Damage",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"+140 Impale Damage",
+                    right:"+0.6s Spiked Carapace Stun Duration",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"+80 Agility",
+                    right:"600 Mind Flare Radius",
+                    recommended:"right"
+                }
+            ]
+        }
+    }
+},
+
+
+"OGRE MAGI": {
+    patch: "7.41e",
+
+    builds: {
+        hardSupport: {
+            role: "Hard Support",
+
+            startingItems: [
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Magic Stick",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"},
+                {name:"Sentry Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_sentry.png"},
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Enchanted Mango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/enchanted_mango.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Arcane Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"},
+                {name:"Hand of Midas",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/hand_of_midas.png"}
+            ],
+
+            coreItems: [
+                {name:"Glimmer Cape",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"},
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Force Staff",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"}
+            ],
+
+            situationalItems: [
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Aether Lens",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aether_lens.png"},
+                {name:"Lotus Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png"},
+                {name:"Solar Crest",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/solar_crest.png"},
+                {name:"Guardian Greaves",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/guardian_greaves.png"}
+            ],
+
+            lateItems: [
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Overwhelming Blink",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/overwhelming_blink.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Ignite",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_ignite.png"},
+                {level:2,name:"Fireblast",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_fireblast.png"},
+                {level:3,name:"Ignite",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_ignite.png"},
+                {level:4,name:"Bloodlust",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_bloodlust.png"},
+                {level:5,name:"Ignite",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_ignite.png"},
+                {level:6,name:"Multicast",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_multicast.png"},
+                {level:7,name:"Ignite",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_ignite.png"},
+                {level:8,name:"Bloodlust",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_bloodlust.png"},
+                {level:9,name:"Bloodlust",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_bloodlust.png"},
+                {level:10,name:"Bloodlust",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_bloodlust.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+2/0.01 Dumb Luck Mana/Mana Regen Per Strength",
+                    right:"+10 Ignite Burn Damage",
+                    recommended:"right"
+                },
+                {
+                    level:15,
+                    left:"+20/35 Bloodlust / Self Attack Speed",
+                    right:"+80 Damage",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"+175 Fireblast Damage",
+                    right:"+30 Strength",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"+10% Multicast Chance",
+                    right:"17% Fireblast Chance on Attack",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"OMNIKNIGHT": {
+    patch: "7.41e",
+
+    builds: {
+        hardSupport: {
+            role: "Hard Support",
+
+            startingItems: [
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Magic Stick",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"},
+                {name:"Sentry Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_sentry.png"},
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Arcane Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"}
+            ],
+
+            coreItems: [
+                {name:"Mekansm",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mekansm.png"},
+                {name:"Guardian Greaves",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/guardian_greaves.png"},
+                {name:"Force Staff",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"}
+            ],
+
+            situationalItems: [
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Glimmer Cape",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"},
+                {name:"Solar Crest",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/solar_crest.png"},
+                {name:"Lotus Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png"}
+            ],
+
+            lateItems: [
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Lotus Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png"},
+                {name:"Octarine Core",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/octarine_core.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Hammer of Purity",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_hammer_of_purity.png"},
+                {level:2,name:"Purification",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_purification.png"},
+                {level:3,name:"Purification",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_purification.png"},
+                {level:4,name:"Repel",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_repel.png"},
+                {level:5,name:"Purification",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_purification.png"},
+                {level:6,name:"Guardian Angel",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_guardian_angel.png"},
+                {level:7,name:"Purification",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_purification.png"},
+                {level:8,name:"Repel",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_repel.png"},
+                {level:9,name:"Repel",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_repel.png"},
+                {level:10,name:"Repel",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_repel.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+30 Base Damage",
+                    right:"+200 Repel Cast Range",
+                    recommended:"right"
+                },
+                {
+                    level:15,
+                    left:"-20s Guardian Angel Cooldown",
+                    right:"-0.5s Hammer of Purity Cooldown",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"-3s Purification Cooldown",
+                    right:"+150 Degen Aura Radius",
+                    recommended:"left"
+                },
+                {
+                    level:25,
+                    left:"+75% Hammer of Purity Bonus Base Damage",
+                    right:"+160 Purification Damage/Heal",
+                    recommended:"right"
+                }
+            ]
+        }
+    }
+},
+
+
+"ORACLE": {
+    patch: "7.41e",
+
+    builds: {
+        hardSupport: {
+            role: "Hard Support",
+
+            startingItems: [
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Magic Stick",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"},
+                {name:"Sentry Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_sentry.png"},
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Faerie Fire",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/faerie_fire.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Arcane Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"}
+            ],
+
+            coreItems: [
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Aether Lens",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aether_lens.png"}
+            ],
+
+            situationalItems: [
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Glimmer Cape",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"},
+                {name:"Holy Locket",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/holy_locket.png"},
+                {name:"Aeon Disk",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aeon_disk.png"},
+                {name:"Force Staff",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"}
+            ],
+
+            lateItems: [
+                {name:"Guardian Greaves",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/guardian_greaves.png"},
+                {name:"Lotus Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Fortune's End",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_fortunes_end.png"},
+                {level:2,name:"Purifying Flames",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_purifying_flames.png"},
+                {level:3,name:"Purifying Flames",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_purifying_flames.png"},
+                {level:4,name:"Fate's Edict",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_fates_edict.png"},
+                {level:5,name:"Purifying Flames",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_purifying_flames.png"},
+                {level:6,name:"False Promise",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_false_promise.png"},
+                {level:7,name:"Purifying Flames",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_purifying_flames.png"},
+                {level:8,name:"Fortune's End",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_fortunes_end.png"},
+                {level:9,name:"Fortune's End",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_fortunes_end.png"},
+                {level:10,name:"Fortune's End",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_fortunes_end.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+8 Armor False Promise",
+                    right:"+0.5s Fortune's End Duration",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"+25% Purifying Flames Enemy Damage",
+                    right:"+100 Fortune's End Radius",
+                    recommended:"right"
+                },
+                {
+                    level:20,
+                    left:"-1s Purifying Flames Cooldown",
+                    right:"-20s False Promise Cooldown",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"+1.5s False Promise Duration",
+                    right:"Fortune's End constantly Dispels",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+    "OUTWORLD DESTROYER": {
+    patch: "7.41e",
+
+    builds: {
+        mid: {
+            role: "Mid",
+
+            startingItems: [
+                {name:"Mantle of Intelligence",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mantle.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Circlet",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png"},
+                {name:"Observer Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_observer.png"},
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Faerie Fire",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/faerie_fire.png"}
+            ],
+
+            earlyItems: [
+                {name:"Null Talisman",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/null_talisman.png"},
+                {name:"Null Talisman",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/null_talisman.png"},
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Power Treads",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png"}
+            ],
+
+            coreItems: [
+                {name:"Witch Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/witch_blade.png"},
+                {name:"Force Staff",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"},
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Hurricane Pike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/hurricane_pike.png"}
+            ],
+
+            situationalItems: [
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"},
+                {name:"Parasma",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/parasma.png"},
+                {name:"Black King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Dragon Lance",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/dragon_lance.png"}
+            ],
+
+            lateItems: [
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"},
+                {name:"Parasma",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/parasma.png"},
+                {name:"Black King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"}
+            ],
+
+            skills: [
+                {
+                    level:1,
+                    name:"Astral Imprisonment",
+                    icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/obsidian_destroyer_astral_imprisonment.png"
+                },
+                {
+                    level:2,
+                    name:"Arcane Orb",
+                    icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/obsidian_destroyer_arcane_orb.png"
+                },
+                {
+                    level:3,
+                    name:"Astral Imprisonment",
+                    icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/obsidian_destroyer_astral_imprisonment.png"
+                },
+                {
+                    level:4,
+                    name:"Objurgation",
+                    icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/obsidian_destroyer_equilibrium.png"
+                },
+                {
+                    level:5,
+                    name:"Astral Imprisonment",
+                    icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/obsidian_destroyer_astral_imprisonment.png"
+                },
+                {
+                    level:6,
+                    name:"Sanity's Eclipse",
+                    icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/obsidian_destroyer_sanity_eclipse.png"
+                },
+                {
+                    level:7,
+                    name:"Astral Imprisonment",
+                    icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/obsidian_destroyer_astral_imprisonment.png"
+                },
+                {
+                    level:8,
+                    name:"Arcane Orb",
+                    icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/obsidian_destroyer_arcane_orb.png"
+                },
+                {
+                    level:9,
+                    name:"Arcane Orb",
+                    icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/obsidian_destroyer_arcane_orb.png"
+                },
+                {
+                    level:10,
+                    name:"Arcane Orb",
+                    icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/obsidian_destroyer_arcane_orb.png"
+                }
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+200 Mana",
+                    right:"+100 Astral Imprisonment Cast Range",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"+0.8% of Current Mana as Movement Speed",
+                    right:"+5% Essence Flux Mana Restored",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"+12% Astral Imprisonment Mana Capacity Steal",
+                    right:"-10s Objurgation Cooldown",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"-60s Sanity's Eclipse Cooldown",
+                    right:"+1.5% Arcane Orb Damage",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+    "PANGOLIER": {
+    patch: "7.41e",
+
+    builds: {
+        mid: {
+            role: "Mid",
+
+            startingItems: [
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Circlet",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png"},
+                {name:"Faerie Fire",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/faerie_fire.png"},
+                {name:"Observer Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_observer.png"},
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"}
+            ],
+
+            earlyItems: [
+                {name:"Bottle",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bottle.png"},
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Power Treads",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png"},
+                {name:"Diffusal Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/diffusal_blade.png"}
+            ],
+
+            coreItems: [
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"}
+            ],
+
+            situationalItems: [
+                {name:"Skull Basher",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png"},
+                {name:"Disperser",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/disperser.png"},
+                {name:"Octarine Core",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/octarine_core.png"},
+                {name:"Shiva's Guard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"},
+                {name:"Linken's Sphere",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sphere.png"}
+            ],
+
+            lateItems: [
+                {name:"Abyssal Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png"},
+                {name:"Octarine Core",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/octarine_core.png"},
+                {name:"Disperser",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/disperser.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Swashbuckle",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_swashbuckle.png"},
+                {level:2,name:"Shield Crash",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_shield_crash.png"},
+                {level:3,name:"Swashbuckle",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_swashbuckle.png"},
+                {level:4,name:"Shield Crash",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_shield_crash.png"},
+                {level:5,name:"Swashbuckle",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_swashbuckle.png"},
+                {level:6,name:"Rolling Thunder",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_gyroshell.png"},
+                {level:7,name:"Swashbuckle",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_swashbuckle.png"},
+                {level:8,name:"Shield Crash",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_shield_crash.png"},
+                {level:9,name:"Shield Crash",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_shield_crash.png"},
+                {level:10,name:"Lucky Shot",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_lucky_shot.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+200 Swashbuckle Slash Range",
+                    right:"+2 Lucky Shot Armor Reduction",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"+125 Shield Crash Barrier",
+                    right:"-2s Swashbuckle Cooldown",
+                    recommended:"right"
+                },
+                {
+                    level:20,
+                    left:"-1.5s Shield Crash Cooldown",
+                    right:"+2s Rolling Thunder Duration",
+                    recommended:"left"
+                },
+                {
+                    level:25,
+                    left:"-15s Rolling Thunder Cooldown",
+                    right:"+20% Attack Damage as Swashbuckle Damage",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"PHANTOM ASSASSIN": {
+    patch: "7.41e",
+
+    builds: {
+        carry: {
+            role: "Carry",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Quelling Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/quelling_blade.png"},
+                {name:"Slippers of Agility",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/slippers.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Power Treads",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png"},
+                {name:"Battle Fury",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bfury.png"}
+            ],
+
+            coreItems: [
+                {name:"Desolator",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/desolator.png"},
+                {name:"Black King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"},
+                {name:"Skull Basher",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png"}
+            ],
+
+            situationalItems: [
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Satanic",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png"},
+                {name:"Nullifier",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/nullifier.png"},
+                {name:"Monkey King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/monkey_king_bar.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"}
+            ],
+
+            lateItems: [
+                {name:"Abyssal Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png"},
+                {name:"Satanic",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png"},
+                {name:"Nullifier",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/nullifier.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Stifling Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_stifling_dagger.png"},
+                {level:2,name:"Phantom Strike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_phantom_strike.png"},
+                {level:3,name:"Stifling Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_stifling_dagger.png"},
+                {level:4,name:"Phantom Strike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_phantom_strike.png"},
+                {level:5,name:"Stifling Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_stifling_dagger.png"},
+                {level:6,name:"Coup de Grace",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png"},
+                {level:7,name:"Stifling Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_stifling_dagger.png"},
+                {level:8,name:"Phantom Strike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_phantom_strike.png"},
+                {level:9,name:"Phantom Strike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_phantom_strike.png"},
+                {level:10,name:"Immaterial",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_blur.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"-2s Stifling Dagger Cooldown",
+                    right:"+0.8s Phantom Strike Duration",
+                    recommended:"right"
+                },
+                {
+                    level:15,
+                    left:"+15% Stifling Dagger Damage",
+                    right:"+20% Immaterial Evasion",
+                    recommended:"right"
+                },
+                {
+                    level:20,
+                    left:"+60 Phantom Strike Attack Speed",
+                    right:"+200 Phantom Strike Cast Range",
+                    recommended:"left"
+                },
+                {
+                    level:25,
+                    left:"Triple Strike Stifling Dagger",
+                    right:"+10% Coup de Grace Chance",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"PHANTOM LANCER": {
+    patch: "7.41e",
+
+    builds: {
+        carry: {
+            role: "Carry",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Quelling Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/quelling_blade.png"},
+                {name:"Slippers of Agility",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/slippers.png"},
+                {name:"Circlet",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Power Treads",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png"},
+                {name:"Yasha",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/yasha.png"}
+            ],
+
+            coreItems: [
+                {name:"Manta Style",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/manta.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Eye of Skadi",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/skadi.png"},
+                {name:"Orchid Malevolence",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/orchid.png"}
+            ],
+
+            situationalItems: [
+                {name:"Bloodthorn",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bloodthorn.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Heart of Tarrasque",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/heart.png"},
+                {name:"Butterfly",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/butterfly.png"},
+                {name:"Disperser",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/disperser.png"},
+                {name:"Nullifier",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/nullifier.png"}
+            ],
+
+            lateItems: [
+                {name:"Bloodthorn",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bloodthorn.png"},
+                {name:"Heart of Tarrasque",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/heart.png"},
+                {name:"Butterfly",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/butterfly.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Spirit Lance",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_lancer_spirit_lance.png"},
+                {level:2,name:"Doppelganger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_lancer_doppelwalk.png"},
+                {level:3,name:"Spirit Lance",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_lancer_spirit_lance.png"},
+                {level:4,name:"Phantom Rush",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_lancer_phantom_edge.png"},
+                {level:5,name:"Spirit Lance",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_lancer_spirit_lance.png"},
+                {level:6,name:"Juxtapose",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_lancer_juxtapose.png"},
+                {level:7,name:"Spirit Lance",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_lancer_spirit_lance.png"},
+                {level:8,name:"Phantom Rush",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_lancer_phantom_edge.png"},
+                {level:9,name:"Phantom Rush",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_lancer_phantom_edge.png"},
+                {level:10,name:"Phantom Rush",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_lancer_phantom_edge.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+3% Juxtapose Illusion Trigger Chance",
+                    right:"+1s Spirit Lance Slow Duration",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"+125 Doppelganger Cast Range",
+                    right:"50% Illusion Spirit Lance Damage",
+                    recommended:"right"
+                },
+                {
+                    level:20,
+                    left:"-70% Juxtapose Illusion Damage Taken",
+                    right:"+100 Spirit Lance Damage",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"+2s Illusory Armaments Duration",
+                    right:"-4s Doppelganger Cooldown",
+                    recommended:"right"
+                }
+            ]
+        }
+    }
+},
+
+
+"PHOENIX": {
+    patch: "7.41e",
+
+    builds: {
+        support: {
+            role: "Support",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Magic Stick",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Urn of Shadows",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/urn_of_shadows.png"},
+                {name:"Tranquil Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tranquil_boots.png"}
+            ],
+
+            coreItems: [
+                {name:"Spirit Vessel",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/spirit_vessel.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"}
+            ],
+
+            situationalItems: [
+                {name:"Shiva's Guard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"},
+                {name:"Eul's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/euls.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Lotus Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png"},
+                {name:"Aeon Disk",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aeon_disk.png"}
+            ],
+
+            lateItems: [
+                {name:"Shiva's Guard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"},
+                {name:"Refresher Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/refresher.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Fire Spirits",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phoenix_fire_spirits.png"},
+                {level:2,name:"Icarus Dive",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phoenix_icarus_dive.png"},
+                {level:3,name:"Fire Spirits",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phoenix_fire_spirits.png"},
+                {level:4,name:"Icarus Dive",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phoenix_icarus_dive.png"},
+                {level:5,name:"Fire Spirits",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phoenix_fire_spirits.png"},
+                {level:6,name:"Supernova",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phoenix_supernova.png"},
+                {level:7,name:"Fire Spirits",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phoenix_fire_spirits.png"},
+                {level:8,name:"Icarus Dive",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phoenix_icarus_dive.png"},
+                {level:9,name:"Icarus Dive",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phoenix_icarus_dive.png"},
+                {level:10,name:"Sun Ray",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phoenix_sun_ray.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+1% Dying Light Missing Health as Damage",
+                    right:"+25% Icarus Dive Slow",
+                    recommended:"right"
+                },
+                {
+                    level:15,
+                    left:"+25 Health Regen",
+                    right:"+20 Fire Spirits Damage Per Second",
+                    recommended:"right"
+                },
+                {
+                    level:20,
+                    left:"+0.6s Supernova Stun Duration",
+                    right:"+1.25% Max Health Sun Ray Damage",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"+1000 Icarus Dive Cast Range",
+                    right:"+2 Supernova Hit Count",
+                    recommended:"right"
+                }
+            ]
+        }
+    }
+},
+
+
+"PRIMAL BEAST": {
+    patch: "7.41e",
+
+    builds: {
+        offlane: {
+            role: "Offlane",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Quelling Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/quelling_blade.png"},
+                {name:"Gauntlets of Strength",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gauntlets.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"}
+            ],
+
+            earlyItems: [
+                {name:"Soul Ring",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/soul_ring.png"},
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Phase Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/phase_boots.png"}
+            ],
+
+            coreItems: [
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Black King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"}
+            ],
+
+            situationalItems: [
+                {name:"Shiva's Guard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"},
+                {name:"Bloodstone",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bloodstone.png"},
+                {name:"Heart of Tarrasque",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/heart.png"},
+                {name:"Linken's Sphere",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sphere.png"},
+                {name:"Lotus Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png"}
+            ],
+
+            lateItems: [
+                {name:"Shiva's Guard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"},
+                {name:"Heart of Tarrasque",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/heart.png"},
+                {name:"Overwhelming Blink",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/overwhelming_blink.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Trample",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/primal_beast_trample.png"},
+                {level:2,name:"Onslaught",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/primal_beast_onslaught.png"},
+                {level:3,name:"Trample",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/primal_beast_trample.png"},
+                {level:4,name:"Onslaught",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/primal_beast_onslaught.png"},
+                {level:5,name:"Trample",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/primal_beast_trample.png"},
+                {level:6,name:"Pulverize",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/primal_beast_pulverize.png"},
+                {level:7,name:"Trample",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/primal_beast_trample.png"},
+                {level:8,name:"Onslaught",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/primal_beast_onslaught.png"},
+                {level:9,name:"Onslaught",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/primal_beast_onslaught.png"},
+                {level:10,name:"Uproar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/primal_beast_uproar.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+25% Magic Resistance During Trample",
+                    right:"+25 Damage",
+                    recommended:"right"
+                },
+                {
+                    level:15,
+                    left:"+6 Uproar Armor Per Stack",
+                    right:"-5s Trample Cooldown",
+                    recommended:"right"
+                },
+                {
+                    level:20,
+                    left:"Basic Self-Dispel on Uproar Cast",
+                    right:"+20% Trample Attack Multiplier",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"+67% Pulverize Duration",
+                    right:"Colossal 2x Bonuses During Trample",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+    "PUCK": {
+    patch: "7.41e",
+
+    builds: {
+        mid: {
+            role: "Mid",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Circlet",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Faerie Fire",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/faerie_fire.png"}
+            ],
+
+            earlyItems: [
+                {name:"Bottle",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bottle.png"},
+                {name:"Null Talisman",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/null_talisman.png"},
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Power Treads",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png"}
+            ],
+
+            coreItems: [
+                {name:"Witch Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/witch_blade.png"},
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Parasma",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/parasma.png"}
+            ],
+
+            situationalItems: [
+                {name:"Eul's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/euls.png"},
+                {name:"Linken's Sphere",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sphere.png"},
+                {name:"Octarine Core",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/octarine_core.png"},
+                {name:"Aeon Disk",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aeon_disk.png"}
+            ],
+
+            lateItems: [
+                {name:"Octarine Core",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/octarine_core.png"},
+                {name:"Overwhelming Blink",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/overwhelming_blink.png"},
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Illusory Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/puck_illusory_orb.png"},
+                {level:2,name:"Phase Shift",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/puck_phase_shift.png"},
+                {level:3,name:"Illusory Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/puck_illusory_orb.png"},
+                {level:4,name:"Waning Rift",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/puck_waning_rift.png"},
+                {level:5,name:"Illusory Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/puck_illusory_orb.png"},
+                {level:6,name:"Dream Coil",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/puck_dream_coil.png"},
+                {level:7,name:"Illusory Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/puck_illusory_orb.png"},
+                {level:8,name:"Waning Rift",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/puck_waning_rift.png"},
+                {level:9,name:"Waning Rift",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/puck_waning_rift.png"},
+                {level:10,name:"Waning Rift",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/puck_waning_rift.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+1.25s Waning Rift Silence Duration",
+                    right:"+35 Illusory Orb Damage",
+                    recommended:"right"
+                },
+                {
+                    level:15,
+                    left:"+60 Waning Rift Damage",
+                    right:"+2% Puckish Health and Mana Restoration",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"+200 Initial/Break Dream Coil Damage",
+                    right:"-2.5s Waning Rift Cooldown",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"+350 Waning Rift Radius/Max Distance",
+                    right:"-30s Dream Coil Cooldown",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"PUDGE": {
+    patch: "7.41e",
+
+    builds: {
+        support: {
+            role: "Support",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"},
+                {name:"Magic Stick",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"},
+                {name:"Sentry Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_sentry.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Tranquil Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tranquil_boots.png"}
+            ],
+
+            coreItems: [
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Aether Lens",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aether_lens.png"}
+            ],
+
+            situationalItems: [
+                {name:"Glimmer Cape",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"},
+                {name:"Force Staff",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Lotus Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"}
+            ],
+
+            lateItems: [
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Shiva's Guard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"},
+                {name:"Overwhelming Blink",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/overwhelming_blink.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Meat Hook",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_meat_hook.png"},
+                {level:2,name:"Rot",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_rot.png"},
+                {level:3,name:"Rot",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_rot.png"},
+                {level:4,name:"Meat Shield",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_flesh_heap.png"},
+                {level:5,name:"Rot",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_rot.png"},
+                {level:6,name:"Dismember",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_dismember.png"},
+                {level:7,name:"Rot",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_rot.png"},
+                {level:8,name:"Meat Shield",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_flesh_heap.png"},
+                {level:9,name:"Meat Shield",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_flesh_heap.png"},
+                {level:10,name:"Meat Shield",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_flesh_heap.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+-10% Rot Slow",
+                    right:"+5 Armor",
+                    recommended:"right"
+                },
+                {
+                    level:15,
+                    left:"+150 Meat Hook Damage",
+                    right:"+8% Spell Lifesteal",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"-4s Meat Hook Cooldown",
+                    right:"+0.75s Dismember Duration",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"1.5x Flesh Heap and Meat Shield bonuses",
+                    right:"1.5x Dismember Damage/Heal",
+                    recommended:"right"
+                }
+            ]
+        }
+    }
+},
+
+
+"PUGNA": {
+    patch: "7.41e",
+
+    builds: {
+        hardSupport: {
+            role: "Hard Support",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Magic Stick",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"},
+                {name:"Sentry Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_sentry.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Arcane Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"}
+            ],
+
+            coreItems: [
+                {name:"Glimmer Cape",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"},
+                {name:"Aether Lens",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aether_lens.png"}
+            ],
+
+            situationalItems: [
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Force Staff",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"},
+                {name:"Eul's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/euls.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Aeon Disk",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aeon_disk.png"}
+            ],
+
+            lateItems: [
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"},
+                {name:"Octarine Core",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/octarine_core.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Nether Blast",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pugna_nether_blast.png"},
+                {level:2,name:"Nether Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pugna_nether_ward.png"},
+                {level:3,name:"Nether Blast",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pugna_nether_blast.png"},
+                {level:4,name:"Decrepify",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pugna_decrepify.png"},
+                {level:5,name:"Nether Blast",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pugna_nether_blast.png"},
+                {level:6,name:"Life Drain",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pugna_life_drain.png"},
+                {level:7,name:"Nether Blast",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pugna_nether_blast.png"},
+                {level:8,name:"Nether Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pugna_nether_ward.png"},
+                {level:9,name:"Nether Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pugna_nether_ward.png"},
+                {level:10,name:"Nether Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pugna_nether_ward.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+2 Nether Ward Health",
+                    right:"-1s Nether Blast Cooldown",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"+250 Health",
+                    right:"+30% Decrepify Movement Speed To Allies",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"+1.5s Decrepify Duration",
+                    right:"+15% Life Drain Heal",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"+1.9 Nether Ward Damage Per Mana",
+                    right:"+200 Nether Blast Damage",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"QUEEN OF PAIN": {
+    patch: "7.41e",
+
+    builds: {
+        mid: {
+            role: "Mid",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Circlet",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Faerie Fire",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/faerie_fire.png"}
+            ],
+
+            earlyItems: [
+                {name:"Bottle",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bottle.png"},
+                {name:"Null Talisman",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/null_talisman.png"},
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Power Treads",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png"}
+            ],
+
+            coreItems: [
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Kaya",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/kaya.png"},
+                {name:"Kaya and Sange",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/kaya_and_sange.png"}
+            ],
+
+            situationalItems: [
+                {name:"Black King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Shiva's Guard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"},
+                {name:"Linken's Sphere",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sphere.png"},
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"}
+            ],
+
+            lateItems: [
+                {name:"Shiva's Guard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"},
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"},
+                {name:"Octarine Core",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/octarine_core.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Scream Of Pain",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/queenofpain_scream_of_pain.png"},
+                {level:2,name:"Blink",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/queenofpain_blink.png"},
+                {level:3,name:"Scream Of Pain",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/queenofpain_scream_of_pain.png"},
+                {level:4,name:"Blink",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/queenofpain_blink.png"},
+                {level:5,name:"Scream Of Pain",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/queenofpain_scream_of_pain.png"},
+                {level:6,name:"Sonic Wave",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/queenofpain_sonic_wave.png"},
+                {level:7,name:"Scream Of Pain",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/queenofpain_scream_of_pain.png"},
+                {level:8,name:"Blink",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/queenofpain_blink.png"},
+                {level:9,name:"Blink",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/queenofpain_blink.png"},
+                {level:10,name:"Shadow Strike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/queenofpain_shadow_strike.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+7 Strength",
+                    right:"+35 Attack Speed against Shadow Striked units",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"+30 Damage",
+                    right:"-1s Shadow Strike Damage Interval",
+                    recommended:"right"
+                },
+                {
+                    level:20,
+                    left:"-45s Sonic Wave Cooldown",
+                    right:"+115 Scream of Pain Damage",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"+250 Sonic Wave Damage",
+                    right:"-2s Blink Cooldown",
+                    recommended:"right"
+                }
+            ]
+        }
+    }
+},
+
+
+"RAZOR": {
+    patch: "7.41e",
+
+    builds: {
+        offlane: {
+            role: "Offlane",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Circlet",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png"},
+                {name:"Slippers of Agility",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/slippers.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"}
+            ],
+
+            earlyItems: [
+                {name:"Wraith Band",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/wraith_band.png"},
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Power Treads",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png"},
+                {name:"Yasha",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/yasha.png"}
+            ],
+
+            coreItems: [
+                {name:"Black King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"},
+                {name:"Sange and Yasha",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sange_and_yasha.png"}
+            ],
+
+            situationalItems: [
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Butterfly",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/butterfly.png"},
+                {name:"Satanic",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Shiva's Guard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"}
+            ],
+
+            lateItems: [
+                {name:"Satanic",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png"},
+                {name:"Butterfly",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/butterfly.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Plasma Field",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_plasma_field.png"},
+                {level:2,name:"Static Link",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_static_link.png"},
+                {level:3,name:"Plasma Field",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_plasma_field.png"},
+                {level:4,name:"Static Link",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_static_link.png"},
+                {level:5,name:"Plasma Field",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_plasma_field.png"},
+                {level:6,name:"Eye of the Storm",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_eye_of_the_storm.png"},
+                {level:7,name:"Plasma Field",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_plasma_field.png"},
+                {level:8,name:"Storm Surge",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_unstable_current.png"},
+                {level:9,name:"Storm Surge",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_unstable_current.png"},
+                {level:10,name:"Storm Surge",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_unstable_current.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+4 Armor",
+                    right:"+0.75s Plasma Field Slow Duration",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"+12 Strength",
+                    right:"+6 Static Link Damage Steal",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"-0.1s Eye of the Storm Strike Interval",
+                    right:"+35% Storm Surge Slow and Damage",
+                    recommended:"left"
+                },
+                {
+                    level:25,
+                    left:"Static Link Steals Attack Speed",
+                    right:"Creates A Second Plasma Field Delayed By 0.8s",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+    "RIKI": {
+    patch: "7.41e",
+
+    builds: {
+        mid: {
+            role: "Mid",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Slippers of Agility",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/slippers.png"},
+                {name:"Circlet",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Faerie Fire",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/faerie_fire.png"}
+            ],
+
+            earlyItems: [
+                {name:"Bottle",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bottle.png"},
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Power Treads",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png"},
+                {name:"Diffusal Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/diffusal_blade.png"}
+            ],
+
+            coreItems: [
+                {name:"Yasha",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/yasha.png"},
+                {name:"Manta Style",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/manta.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"}
+            ],
+
+            situationalItems: [
+                {name:"Disperser",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/disperser.png"},
+                {name:"Nullifier",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/nullifier.png"},
+                {name:"Skull Basher",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png"},
+                {name:"Black King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"},
+                {name:"Linken's Sphere",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sphere.png"}
+            ],
+
+            lateItems: [
+                {name:"Disperser",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/disperser.png"},
+                {name:"Abyssal Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png"},
+                {name:"Nullifier",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/nullifier.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Blink Strike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/riki_blink_strike.png"},
+                {level:2,name:"Tricks of the Trade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/riki_tricks_of_the_trade.png"},
+                {level:3,name:"Blink Strike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/riki_blink_strike.png"},
+                {level:4,name:"Smoke Screen",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/riki_smoke_screen.png"},
+                {level:5,name:"Blink Strike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/riki_blink_strike.png"},
+                {level:6,name:"Cloak and Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/riki_permanent_invisibility.png"},
+                {level:7,name:"Blink Strike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/riki_blink_strike.png"},
+                {level:8,name:"Tricks of the Trade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/riki_tricks_of_the_trade.png"},
+                {level:9,name:"Tricks of the Trade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/riki_tricks_of_the_trade.png"},
+                {level:10,name:"Tricks of the Trade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/riki_tricks_of_the_trade.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+10% Cloak and Dagger Movement Speed",
+                    right:"+50 Smoke Screen Radius",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"-3s Smoke Screen Cooldown",
+                    right:"15% of Riki's Base Damage added to Tricks of the Trade",
+                    recommended:"right"
+                },
+                {
+                    level:20,
+                    left:"-1s Blink Strike Cooldown",
+                    right:"+0.3 Backstab Multiplier",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"+500 Blink Strike Cast Range",
+                    right:"-4s Tricks of the Trade Cooldown",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"RINGMASTER": {
+    patch: "7.41e",
+
+    builds: {
+        hardSupport: {
+            role: "Hard Support",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Magic Stick",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"},
+                {name:"Sentry Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_sentry.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Arcane Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"}
+            ],
+
+            coreItems: [
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"}
+            ],
+
+            situationalItems: [
+                {name:"Glimmer Cape",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"},
+                {name:"Eul's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/euls.png"},
+                {name:"Aether Lens",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aether_lens.png"},
+                {name:"Force Staff",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"},
+                {name:"Rod of Atos",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/rod_of_atos.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"}
+            ],
+
+            lateItems: [
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"},
+                {name:"Aeon Disk",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aeon_disk.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Impalement Arts",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ringmaster_impalement.png"},
+                {level:2,name:"Tame the Beasts",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ringmaster_tame_the_beasts.png"},
+                {level:3,name:"Tame the Beasts",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ringmaster_tame_the_beasts.png"},
+                {level:4,name:"Escape Act",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ringmaster_escape_act.png"},
+                {level:5,name:"Tame the Beasts",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ringmaster_tame_the_beasts.png"},
+                {level:6,name:"Wheel of Wonder",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ringmaster_wheel.png"},
+                {level:7,name:"Tame the Beasts",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ringmaster_tame_the_beasts.png"},
+                {level:8,name:"Impalement Arts",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ringmaster_impalement.png"},
+                {level:9,name:"Impalement Arts",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ringmaster_impalement.png"},
+                {level:10,name:"Impalement Arts",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ringmaster_impalement.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+75 Tame the Beasts Radius",
+                    right:"+1 Impalement Arts Charge",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"Debuff Immunity While Channeling Tame the Beasts",
+                    right:"Impalement Arts Penetrates One Target",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"+75/+300 Tame the Beasts Min/Max Damage",
+                    right:"+1s Impalement Arts Bleed and Slow Duration",
+                    recommended:"left"
+                },
+                {
+                    level:25,
+                    left:"Escape Act Grants Strong Dispel and Flying",
+                    right:"+150 Wheel of Wonder Radius and Range",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"RUBICK": {
+    patch: "7.41e",
+
+    builds: {
+        support: {
+            role: "Support",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Magic Stick",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"},
+                {name:"Sentry Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_sentry.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Arcane Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"},
+                {name:"Urn of Shadows",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/urn_of_shadows.png"}
+            ],
+
+            coreItems: [
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"}
+            ],
+
+            situationalItems: [
+                {name:"Aether Lens",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aether_lens.png"},
+                {name:"Eul's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/euls.png"},
+                {name:"Glimmer Cape",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"},
+                {name:"Force Staff",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"}
+            ],
+
+            lateItems: [
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Wind Waker",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/wind_waker.png"},
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Fade Bolt",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/rubick_fade_bolt.png"},
+                {level:2,name:"Telekinesis",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/rubick_telekinesis.png"},
+                {level:3,name:"Fade Bolt",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/rubick_fade_bolt.png"},
+                {level:4,name:"Arcane Supremacy",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/rubick_arcane_supremacy.png"},
+                {level:5,name:"Fade Bolt",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/rubick_fade_bolt.png"},
+                {level:6,name:"Spell Steal",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/rubick_spell_steal.png"},
+                {level:7,name:"Fade Bolt",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/rubick_fade_bolt.png"},
+                {level:8,name:"Arcane Supremacy",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/rubick_arcane_supremacy.png"},
+                {level:9,name:"Arcane Supremacy",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/rubick_arcane_supremacy.png"},
+                {level:10,name:"Arcane Supremacy",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/rubick_arcane_supremacy.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+200 Health",
+                    right:"-2s Telekinesis Cooldown",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"-4s Fade Bolt Cooldown",
+                    right:"-40% Stolen Spells Mana Cost",
+                    recommended:"right"
+                },
+                {
+                    level:20,
+                    left:"Telekinesis Landing Deals 300 Damage",
+                    right:"+12% Fade Bolt Damage Reduction",
+                    recommended:"left"
+                },
+                {
+                    level:25,
+                    left:"+40% Spell Amp For Stolen Spells",
+                    right:"1.5x Curiosity Bonuses",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"SAND KING": {
+    patch: "7.41e",
+
+    builds: {
+        offlane: {
+            role: "Offlane",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Quelling Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/quelling_blade.png"},
+                {name:"Gauntlets of Strength",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gauntlets.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"}
+            ],
+
+            earlyItems: [
+                {name:"Bracer",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bracer.png"},
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Phase Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/phase_boots.png"},
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"}
+            ],
+
+            coreItems: [
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"}
+            ],
+
+            situationalItems: [
+                {name:"Shiva's Guard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"},
+                {name:"Black King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"},
+                {name:"Eul's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/euls.png"},
+                {name:"Soul Ring",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/soul_ring.png"},
+                {name:"Bloodstone",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bloodstone.png"}
+            ],
+
+            lateItems: [
+                {name:"Shiva's Guard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"},
+                {name:"Overwhelming Blink",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/overwhelming_blink.png"},
+                {name:"Abyssal Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Sand Storm",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sandking_sand_storm.png"},
+                {level:2,name:"Burrowstrike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sandking_burrowstrike.png"},
+                {level:3,name:"Sand Storm",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sandking_sand_storm.png"},
+                {level:4,name:"Stinger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sandking_caustic_finale.png"},
+                {level:5,name:"Sand Storm",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sandking_sand_storm.png"},
+                {level:6,name:"Epicenter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sandking_epicenter.png"},
+                {level:7,name:"Sand Storm",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sandking_sand_storm.png"},
+                {level:8,name:"Burrowstrike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sandking_burrowstrike.png"},
+                {level:9,name:"Burrowstrike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sandking_burrowstrike.png"},
+                {level:10,name:"Burrowstrike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sandking_burrowstrike.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+100 Caustic Finale Radius",
+                    right:"+12% Stinger Slow",
+                    recommended:"right"
+                },
+                {
+                    level:15,
+                    left:"+200 Burrowstrike Cast Range",
+                    right:"+25 Sand Storm Damage Per Second",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"+6 Epicenter Pulses",
+                    right:"-3s Burrowstrike Cooldown",
+                    recommended:"left"
+                },
+                {
+                    level:25,
+                    left:"35% Sand Storm Slow and Blind",
+                    right:"+125 Stinger Damage",
+                    recommended:"right"
+                }
+            ]
+        }
+    }
+},
+
+
+"SHADOW DEMON": {
+    patch: "7.41e",
+
+    builds: {
+        hardSupport: {
+            role: "Hard Support",
+
+            startingItems: [
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Magic Stick",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"},
+                {name:"Sentry Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_sentry.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Arcane Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"}
+            ],
+
+            coreItems: [
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"}
+            ],
+
+            situationalItems: [
+                {name:"Aether Lens",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aether_lens.png"},
+                {name:"Glimmer Cape",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Force Staff",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"},
+                {name:"Aeon Disk",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aeon_disk.png"}
+            ],
+
+            lateItems: [
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"},
+                {name:"Octarine Core",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/octarine_core.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Disruption",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_demon_disruption.png"},
+                {level:2,name:"Shadow Poison",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_demon_shadow_poison.png"},
+                {level:3,name:"Shadow Poison",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_demon_shadow_poison.png"},
+                {level:4,name:"Disseminate",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_demon_soul_catcher.png"},
+                {level:5,name:"Shadow Poison",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_demon_shadow_poison.png"},
+                {level:6,name:"Demonic Purge",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_demon_demonic_purge.png"},
+                {level:7,name:"Shadow Poison",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_demon_shadow_poison.png"},
+                {level:8,name:"Disseminate",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_demon_soul_catcher.png"},
+                {level:9,name:"Disseminate",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_demon_soul_catcher.png"},
+                {level:10,name:"Disseminate",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_demon_soul_catcher.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+8 Strength",
+                    right:"+15% Shadow Poison Damage",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"-1s Shadow Poison Cooldown",
+                    right:"+20 Movement Speed",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"-20s Demonic Purge Cooldown",
+                    right:"+15% Disseminate Shared Damage",
+                    recommended:"left"
+                },
+                {
+                    level:25,
+                    left:"2 Charges of Disruption",
+                    right:"Demonic Purge Applies Shadow Poison",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+    "SHADOW FIEND": {
+    patch: "7.41e",
+
+    builds: {
+        carry: {
+            role: "Carry",
+
+            startingItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Faerie Fire",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/faerie_fire.png"},
+                {name:"Faerie Fire",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/faerie_fire.png"}
+            ],
+
+            earlyItems: [
+                {name:"Power Treads",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png"},
+                {name:"Falcon Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/falcon_blade.png"},
+                {name:"Morbid Mask",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lifesteal.png"},
+                {name:"Mask of Madness",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mask_of_madness.png"}
+            ],
+
+            coreItems: [
+                {name:"Yasha",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/yasha.png"},
+                {name:"Dragon Lance",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/dragon_lance.png"},
+                {name:"Manta Style",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/manta.png"},
+                {name:"Hurricane Pike",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/hurricane_pike.png"}
+            ],
+
+            situationalItems: [
+                {name:"Shadow Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/invis_sword.png"},
+                {name:"Crystalys",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lesser_crit.png"},
+                {name:"Silver Edge",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/silver_edge.png"},
+                {name:"Black King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"},
+                {name:"Daedalus",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/greater_crit.png"}
+            ],
+
+            lateItems: [
+                {name:"Daedalus",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/greater_crit.png"},
+                {name:"Satanic",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png"},
+                {name:"Swift Blink",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/swift_blink.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Shadowraze",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nevermore_shadowraze1.png"},
+                {level:2,name:"Presence of the Dark Lord",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nevermore_dark_lord.png"},
+                {level:3,name:"Shadowraze",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nevermore_shadowraze1.png"},
+                {level:4,name:"Presence of the Dark Lord",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nevermore_dark_lord.png"},
+                {level:5,name:"Shadowraze",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nevermore_shadowraze1.png"},
+                {level:6,name:"Requiem of Souls",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nevermore_requiem.png"},
+                {level:7,name:"Shadowraze",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nevermore_shadowraze1.png"},
+                {level:8,name:"Presence of the Dark Lord",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nevermore_dark_lord.png"},
+                {level:9,name:"Presence of the Dark Lord",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nevermore_dark_lord.png"},
+                {level:10,name:"Feast of Souls",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nevermore_feast_of_souls.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+30 Feast of Souls Attack Speed",
+                    right:"+30 Shadowraze Stack Damage",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"+2 Feast of Souls Souls Collected Per Hero",
+                    right:"+2 Presence Armor Reduction",
+                    recommended:"right"
+                },
+                {
+                    level:20,
+                    left:"+0.2s Requiem Fear per line",
+                    right:"+5 Necromastery Max Souls",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"Shadowraze Applies Attack Damage",
+                    right:"Feast of Souls Grants +30% Cast Speed",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"SHADOW SHAMAN": {
+    patch: "7.41e",
+
+    builds: {
+        hardSupport: {
+            role: "Hard Support",
+
+            startingItems: [
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Magic Stick",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"},
+                {name:"Sentry Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_sentry.png"},
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Faerie Fire",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/faerie_fire.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Arcane Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"}
+            ],
+
+            coreItems: [
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Aether Lens",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aether_lens.png"}
+            ],
+
+            situationalItems: [
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Glimmer Cape",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"},
+                {name:"Force Staff",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"},
+                {name:"Eul's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/euls.png"},
+                {name:"Black King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"}
+            ],
+
+            lateItems: [
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Refresher Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/refresher.png"},
+                {name:"Aeon Disk",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aeon_disk.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Shackles",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_shaman_shackles.png"},
+                {level:2,name:"Ether Shock",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_shaman_ether_shock.png"},
+                {level:3,name:"Shackles",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_shaman_shackles.png"},
+                {level:4,name:"Hex",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_shaman_voodoo.png"},
+                {level:5,name:"Shackles",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_shaman_shackles.png"},
+                {level:6,name:"Mass Serpent Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_shaman_mass_serpent_ward.png"},
+                {level:7,name:"Shackles",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_shaman_shackles.png"},
+                {level:8,name:"Hex",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_shaman_voodoo.png"},
+                {level:9,name:"Hex",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_shaman_voodoo.png"},
+                {level:10,name:"Hex",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_shaman_voodoo.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+1.75 Mana Regen",
+                    right:"+170 Shackles Total Damage",
+                    recommended:"right"
+                },
+                {
+                    level:15,
+                    left:"Hex Breaks",
+                    right:"+160 Serpent Wards Attack Range",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"+50% Serpent Wards Max HP",
+                    right:"+1.5s Shackles Duration",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"+1 Ward Attack Targets",
+                    right:"+250 Ether Shock Damage",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"SILENCER": {
+    patch: "7.41e",
+
+    builds: {
+        hardSupport: {
+            role: "Hard Support",
+
+            startingItems: [
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Magic Stick",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"},
+                {name:"Sentry Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_sentry.png"},
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"}
+            ],
+
+            earlyItems: [
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Arcane Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"}
+            ],
+
+            coreItems: [
+                {name:"Force Staff",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"},
+                {name:"Glimmer Cape",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"}
+            ],
+
+            situationalItems: [
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Hand of Midas",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/hand_of_midas.png"},
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"}
+            ],
+
+            lateItems: [
+                {name:"Refresher Orb",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/refresher.png"},
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"},
+                {name:"Octarine Core",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/octarine_core.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Glaives of Wisdom",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/silencer_glaives_of_wisdom.png"},
+                {level:2,name:"Arcane Curse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/silencer_curse_of_the_silent.png"},
+                {level:3,name:"Arcane Curse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/silencer_curse_of_the_silent.png"},
+                {level:4,name:"Last Word",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/silencer_last_word.png"},
+                {level:5,name:"Arcane Curse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/silencer_curse_of_the_silent.png"},
+                {level:6,name:"Global Silence",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/silencer_global_silence.png"},
+                {level:7,name:"Arcane Curse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/silencer_curse_of_the_silent.png"},
+                {level:8,name:"Last Word",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/silencer_last_word.png"},
+                {level:9,name:"Last Word",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/silencer_last_word.png"},
+                {level:10,name:"Last Word",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/silencer_last_word.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+7% Suffer In Silence Silenced Target Damage",
+                    right:"+25 Attack Speed",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"+2s/+1s Arcane Curse Base/Penalty Duration",
+                    right:"-15s Global Silence Cooldown",
+                    recommended:"right"
+                },
+                {
+                    level:20,
+                    left:"250 AoE Last Word",
+                    right:"+40s Glaives of Wisdom Int Steal Duration",
+                    recommended:"left"
+                },
+                {
+                    level:25,
+                    left:"+2s Global Silence Duration",
+                    right:"+30% Glaives of Wisdom Damage",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"SKYWRATH MAGE": {
+    patch: "7.41e",
+
+    builds: {
+        support: {
+            role: "Support",
+
+            startingItems: [
+                {name:"Mantle of Intelligence",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mantle.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Circlet",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png"},
+                {name:"Sentry Ward",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ward_sentry.png"},
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"},
+                {name:"Blood Grenade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"}
+            ],
+
+            earlyItems: [
+                {name:"Null Talisman",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/null_talisman.png"},
+                {name:"Null Talisman",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/null_talisman.png"},
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Arcane Boots",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"}
+            ],
+
+            coreItems: [
+                {name:"Rod of Atos",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/rod_of_atos.png"}
+            ],
+
+            situationalItems: [
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Ghost Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ghost.png"},
+                {name:"Glimmer Cape",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"}
+            ],
+
+            lateItems: [
+                {name:"Scythe of Vyse",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"},
+                {name:"Eul's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/euls.png"},
+                {name:"Aeon Disk",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aeon_disk.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Concussive Shot",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_concussive_shot.png"},
+                {level:2,name:"Arcane Bolt",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_arcane_bolt.png"},
+                {level:3,name:"Arcane Bolt",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_arcane_bolt.png"},
+                {level:4,name:"Ancient Seal",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_ancient_seal.png"},
+                {level:5,name:"Arcane Bolt",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_arcane_bolt.png"},
+                {level:6,name:"Mystic Flare",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_mystic_flare.png"},
+                {level:7,name:"Arcane Bolt",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_arcane_bolt.png"},
+                {level:8,name:"Ancient Seal",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_ancient_seal.png"},
+                {level:9,name:"Ancient Seal",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_ancient_seal.png"},
+                {level:10,name:"Ancient Seal",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_ancient_seal.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+125 Arcane Bolt Cast Range",
+                    right:"+1.5 Mana Regen",
+                    recommended:"left"
+                },
+                {
+                    level:15,
+                    left:"+20% Concussive Shot Slow",
+                    right:"-6s Ancient Seal Cooldown",
+                    recommended:"right"
+                },
+                {
+                    level:20,
+                    left:"+10% Ancient Seal Increased Magic Damage",
+                    right:"Global Concussive Shot",
+                    recommended:"left"
+                },
+                {
+                    level:25,
+                    left:"+400 Mystic Flare Damage",
+                    right:"+1.5x Arcane Bolt Int Multiplier",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
+
+
+"SLARDAR": {
+    patch: "7.41e",
+
+    builds: {
+        offlane: {
+            role: "Offlane",
+
+            startingItems: [
+                {name:"Quelling Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/quelling_blade.png"},
+                {name:"Gauntlets of Strength",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gauntlets.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Iron Branch",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"},
+                {name:"Circlet",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png"},
+                {name:"Tango",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"}
+            ],
+
+            earlyItems: [
+                {name:"Bracer",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bracer.png"},
+                {name:"Bracer",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bracer.png"},
+                {name:"Magic Wand",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"},
+                {name:"Power Treads",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png"},
+                {name:"Soul Ring",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/soul_ring.png"}
+            ],
+
+            coreItems: [
+                {name:"Blink Dagger",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"},
+                {name:"Aghanim's Shard",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"},
+                {name:"Black King Bar",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"}
+            ],
+
+            situationalItems: [
+                {name:"Aghanim's Scepter",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"},
+                {name:"Assault Cuirass",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/assault.png"},
+                {name:"Skull Basher",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png"},
+                {name:"Sange and Yasha",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sange_and_yasha.png"}
+            ],
+
+            lateItems: [
+                {name:"Assault Cuirass",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/assault.png"},
+                {name:"Abyssal Blade",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png"},
+                {name:"Overwhelming Blink",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/overwhelming_blink.png"}
+            ],
+
+            skills: [
+                {level:1,name:"Slithereen Crush",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_slithereen_crush.png"},
+                {level:2,name:"Bash of the Deep",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_bash.png"},
+                {level:3,name:"Slithereen Crush",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_slithereen_crush.png"},
+                {level:4,name:"Guardian Sprint",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_sprint.png"},
+                {level:5,name:"Slithereen Crush",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_slithereen_crush.png"},
+                {level:6,name:"Corrosive Haze",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_amplify_damage.png"},
+                {level:7,name:"Slithereen Crush",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_slithereen_crush.png"},
+                {level:8,name:"Guardian Sprint",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_sprint.png"},
+                {level:9,name:"Guardian Sprint",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_sprint.png"},
+                {level:10,name:"Guardian Sprint",icon:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_sprint.png"}
+            ],
+
+            talents: [
+                {
+                    level:10,
+                    left:"+30 Bash of the Deep Damage",
+                    right:"+2s Guardian Sprint Duration",
+                    recommended:"right"
+                },
+                {
+                    level:15,
+                    left:"-3 Corrosive Haze Armor",
+                    right:"+250 Health",
+                    recommended:"left"
+                },
+                {
+                    level:20,
+                    left:"+16% Seaborn Sentinel Bonus Attack Damage",
+                    right:"+125 Slithereen Crush Damage",
+                    recommended:"right"
+                },
+                {
+                    level:25,
+                    left:"Corrosive Haze Undispellable",
+                    right:"-3s Slithereen Crush Cooldown",
+                    recommended:"left"
+                }
+            ]
+        }
+    }
+},
     "SLARK": {},
     "SNAPFIRE": {},
     "SNIPER": {},
