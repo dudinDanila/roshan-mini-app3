@@ -11201,114 +11201,331 @@ let abilityGameScore = 0;
 let currentAbility = null;
 let abilityGameLocked = false;
 
-const HERO_ABILITIES_URL =
-    "https://cdn.jsdelivr.net/npm/dotaconstants@10.8.0/build/hero_abilities.json";
 
-const ABILITIES_URL =
-    "https://cdn.jsdelivr.net/npm/dotaconstants@10.8.0/build/abilities.json";
+/* запасной набор — игра работает даже без API */
+
+const abilityFallbackData = [
+
+    ["antimage_mana_break","Mana Break"],
+    ["antimage_blink","Blink"],
+    ["antimage_counterspell","Counterspell"],
+    ["antimage_mana_void","Mana Void"],
+
+    ["axe_berserkers_call","Berserker's Call"],
+    ["axe_battle_hunger","Battle Hunger"],
+    ["axe_counter_helix","Counter Helix"],
+    ["axe_culling_blade","Culling Blade"],
+
+    ["bane_enfeeble","Enfeeble"],
+    ["bane_brain_sap","Brain Sap"],
+    ["bane_nightmare","Nightmare"],
+    ["bane_fiends_grip","Fiend's Grip"],
+
+    ["bloodseeker_bloodrage","Bloodrage"],
+    ["bloodseeker_blood_bath","Blood Rite"],
+    ["bloodseeker_thirst","Thirst"],
+    ["bloodseeker_rupture","Rupture"],
+
+    ["crystal_maiden_crystal_nova","Crystal Nova"],
+    ["crystal_maiden_frostbite","Frostbite"],
+    ["crystal_maiden_brilliance_aura","Arcane Aura"],
+    ["crystal_maiden_freezing_field","Freezing Field"],
+
+    ["drow_ranger_frost_arrows","Frost Arrows"],
+    ["drow_ranger_wave_of_silence","Gust"],
+    ["drow_ranger_multishot","Multishot"],
+    ["drow_ranger_marksmanship","Marksmanship"],
+
+    ["earthshaker_fissure","Fissure"],
+    ["earthshaker_enchant_totem","Enchant Totem"],
+    ["earthshaker_aftershock","Aftershock"],
+    ["earthshaker_echo_slam","Echo Slam"],
+
+    ["juggernaut_blade_fury","Blade Fury"],
+    ["juggernaut_healing_ward","Healing Ward"],
+    ["juggernaut_blade_dance","Blade Dance"],
+    ["juggernaut_omni_slash","Omnislash"],
+
+    ["mirana_starfall","Starstorm"],
+    ["mirana_arrow","Sacred Arrow"],
+    ["mirana_leap","Leap"],
+    ["mirana_invis","Moonlight Shadow"],
+
+    ["morphling_waveform","Waveform"],
+    ["morphling_adaptive_strike_agi","Adaptive Strike"],
+    ["morphling_morph_agi","Attribute Shift"],
+    ["morphling_replicate","Morph"],
+
+    ["nevermore_shadowraze1","Shadowraze"],
+    ["nevermore_necromastery","Necromastery"],
+    ["nevermore_dark_lord","Presence of the Dark Lord"],
+    ["nevermore_requiem","Requiem of Souls"],
+
+    ["phantom_lancer_spirit_lance","Spirit Lance"],
+    ["phantom_lancer_doppelwalk","Doppelganger"],
+    ["phantom_lancer_phantom_edge","Phantom Rush"],
+    ["phantom_lancer_juxtapose","Juxtapose"],
+
+    ["puck_illusory_orb","Illusory Orb"],
+    ["puck_waning_rift","Waning Rift"],
+    ["puck_phase_shift","Phase Shift"],
+    ["puck_dream_coil","Dream Coil"],
+
+    ["pudge_meat_hook","Meat Hook"],
+    ["pudge_rot","Rot"],
+    ["pudge_flesh_heap","Flesh Heap"],
+    ["pudge_dismember","Dismember"],
+
+    ["razor_plasma_field","Plasma Field"],
+    ["razor_static_link","Static Link"],
+    ["razor_unstable_current","Storm Surge"],
+    ["razor_eye_of_the_storm","Eye of the Storm"],
+
+    ["sandking_burrowstrike","Burrowstrike"],
+    ["sandking_sand_storm","Sand Storm"],
+    ["sandking_caustic_finale","Caustic Finale"],
+    ["sandking_epicenter","Epicenter"],
+
+    ["storm_spirit_static_remnant","Static Remnant"],
+    ["storm_spirit_electric_vortex","Electric Vortex"],
+    ["storm_spirit_overload","Overload"],
+    ["storm_spirit_ball_lightning","Ball Lightning"],
+
+    ["sven_storm_bolt","Storm Hammer"],
+    ["sven_great_cleave","Great Cleave"],
+    ["sven_warcry","Warcry"],
+    ["sven_gods_strength","God's Strength"],
+
+    ["tiny_avalanche","Avalanche"],
+    ["tiny_toss","Toss"],
+    ["tiny_tree_grab","Tree Grab"],
+    ["tiny_grow","Grow"],
+
+    ["vengefulspirit_magic_missile","Magic Missile"],
+    ["vengefulspirit_wave_of_terror","Wave of Terror"],
+    ["vengefulspirit_command_aura","Vengeance Aura"],
+    ["vengefulspirit_nether_swap","Nether Swap"],
+
+    ["windrunner_shackleshot","Shackleshot"],
+    ["windrunner_powershot","Powershot"],
+    ["windrunner_windrun","Windrun"],
+    ["windrunner_focusfire","Focus Fire"],
+
+    ["zuus_arc_lightning","Arc Lightning"],
+    ["zuus_lightning_bolt","Lightning Bolt"],
+    ["zuus_heavenly_jump","Heavenly Jump"],
+    ["zuus_thundergods_wrath","Thundergod's Wrath"],
+
+    ["lina_dragon_slave","Dragon Slave"],
+    ["lina_light_strike_array","Light Strike Array"],
+    ["lina_fiery_soul","Fiery Soul"],
+    ["lina_laguna_blade","Laguna Blade"],
+
+    ["lion_impale","Earth Spike"],
+    ["lion_voodoo","Hex"],
+    ["lion_mana_drain","Mana Drain"],
+    ["lion_finger_of_death","Finger of Death"],
+
+    ["shadow_shaman_ether_shock","Ether Shock"],
+    ["shadow_shaman_voodoo","Hex"],
+    ["shadow_shaman_shackles","Shackles"],
+    ["shadow_shaman_mass_serpent_ward","Mass Serpent Ward"],
+
+    ["witch_doctor_paralyzing_cask","Paralyzing Cask"],
+    ["witch_doctor_voodoo_restoration","Voodoo Restoration"],
+    ["witch_doctor_maledict","Maledict"],
+    ["witch_doctor_death_ward","Death Ward"],
+
+    ["enigma_malefice","Malefice"],
+    ["enigma_demonic_conversion","Demonic Conversion"],
+    ["enigma_midnight_pulse","Midnight Pulse"],
+    ["enigma_black_hole","Black Hole"],
+
+    ["faceless_void_time_walk","Time Walk"],
+    ["faceless_void_time_dilation","Time Dilation"],
+    ["faceless_void_time_lock","Time Lock"],
+    ["faceless_void_chronosphere","Chronosphere"],
+
+    ["phantom_assassin_stifling_dagger","Stifling Dagger"],
+    ["phantom_assassin_phantom_strike","Phantom Strike"],
+    ["phantom_assassin_blur","Blur"],
+    ["phantom_assassin_coup_de_grace","Coup de Grace"],
+
+    ["queenofpain_shadow_strike","Shadow Strike"],
+    ["queenofpain_blink","Blink"],
+    ["queenofpain_scream_of_pain","Scream of Pain"],
+    ["queenofpain_sonic_wave","Sonic Wave"],
+
+    ["sniper_shrapnel","Shrapnel"],
+    ["sniper_headshot","Headshot"],
+    ["sniper_take_aim","Take Aim"],
+    ["sniper_assassinate","Assassinate"],
+
+    ["tidehunter_gush","Gush"],
+    ["tidehunter_kraken_shell","Kraken Shell"],
+    ["tidehunter_anchor_smash","Anchor Smash"],
+    ["tidehunter_ravage","Ravage"],
+
+    ["ursa_earthshock","Earthshock"],
+    ["ursa_overpower","Overpower"],
+    ["ursa_fury_swipes","Fury Swipes"],
+    ["ursa_enrage","Enrage"],
+
+    ["invoker_cold_snap","Cold Snap"],
+    ["invoker_ghost_walk","Ghost Walk"],
+    ["invoker_tornado","Tornado"],
+    ["invoker_emp","E.M.P."],
+    ["invoker_alacrity","Alacrity"],
+    ["invoker_chaos_meteor","Chaos Meteor"],
+    ["invoker_sun_strike","Sun Strike"],
+    ["invoker_forge_spirit","Forge Spirit"],
+    ["invoker_ice_wall","Ice Wall"],
+    ["invoker_deafening_blast","Deafening Blast"],
+
+    ["legion_commander_overwhelming_odds","Overwhelming Odds"],
+    ["legion_commander_press_the_attack","Press the Attack"],
+    ["legion_commander_moment_of_courage","Moment of Courage"],
+    ["legion_commander_duel","Duel"],
+
+    ["mars_spear","Spear of Mars"],
+    ["mars_gods_rebuke","God's Rebuke"],
+    ["mars_bulwark","Bulwark"],
+    ["mars_arena_of_blood","Arena of Blood"],
+
+    ["medusa_split_shot","Split Shot"],
+    ["medusa_mystic_snake","Mystic Snake"],
+    ["medusa_mana_shield","Mana Shield"],
+    ["medusa_stone_gaze","Stone Gaze"],
+
+    ["slardar_sprint","Guardian Sprint"],
+    ["slardar_slithereen_crush","Slithereen Crush"],
+    ["slardar_bash","Bash of the Deep"],
+    ["slardar_amplify_damage","Corrosive Haze"],
+
+    ["tusk_ice_shards","Ice Shards"],
+    ["tusk_snowball","Snowball"],
+    ["tusk_tag_team","Tag Team"],
+    ["tusk_walrus_punch","Walrus Punch"],
+
+    ["doom_bringer_devour","Devour"],
+    ["doom_bringer_scorched_earth","Scorched Earth"],
+    ["doom_bringer_infernal_blade","Infernal Blade"],
+    ["doom_bringer_doom","Doom"],
+
+    ["dragon_knight_breathe_fire","Breathe Fire"],
+    ["dragon_knight_dragon_tail","Dragon Tail"],
+    ["dragon_knight_dragon_blood","Dragon Blood"],
+    ["dragon_knight_elder_dragon_form","Elder Dragon Form"]
+]
+.map(([id,name]) => ({
+    id,
+    name,
+    image:
+        "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/" +
+        id +
+        ".png"
+}));
+
+
+/* пытаемся получить полный список способностей */
+
 async function loadAbilityGameData(){
+
+    /* сначала сразу ставим локальный набор */
+    abilityGameData = [...abilityFallbackData];
 
     try{
 
-        const [heroAbilitiesResponse, abilitiesResponse] =
-            await Promise.all([
-                fetch(HERO_ABILITIES_URL),
-                fetch(ABILITIES_URL)
-            ]);
+        const response = await fetch(
+            "https://api.opendota.com/api/constants/abilities",
+            {
+                cache:"no-store"
+            }
+        );
 
-        if(!heroAbilitiesResponse.ok || !abilitiesResponse.ok){
-            throw new Error("Не удалось загрузить способности");
+        if(!response.ok){
+            return;
         }
 
-        const heroAbilities =
-            await heroAbilitiesResponse.json();
+        const data = await response.json();
 
-        const abilitiesInfo =
-            await abilitiesResponse.json();
+        const loaded = [];
 
-        const result = [];
-        const added = new Set();
-
-
-        Object.entries(heroAbilities).forEach(([heroKey, heroData])=>{
-
-            if(!heroData || !Array.isArray(heroData.abilities)){
-                return;
-            }
-
-            heroData.abilities.forEach(abilityName=>{
-
-                if(!abilityName){
-                    return;
-                }
-
-                if(
-                    abilityName === "generic_hidden" ||
-                    abilityName.startsWith("special_bonus") ||
-                    abilityName.includes("empty")
-                ){
-                    return;
-                }
-
-                if(added.has(abilityName)){
-                    return;
-                }
-
-                const info = abilitiesInfo[abilityName];
+        Object.entries(data).forEach(
+            ([id,info])=>{
 
                 if(!info){
                     return;
                 }
 
-                const displayName =
-                    info.dname || "";
-
-                if(!displayName){
+                if(
+                    id === "generic_hidden" ||
+                    id.startsWith("special_bonus")
+                ){
                     return;
                 }
 
-                added.add(abilityName);
+                const name = info.dname;
 
-                result.push({
+                if(
+                    !name ||
+                    typeof name !== "string"
+                ){
+                    return;
+                }
 
-                    id: abilityName,
+                let image = "";
 
-                    name: displayName,
+                if(info.img){
 
-                    hero: heroKey.replace(
-                        "npc_dota_hero_",
-                        ""
-                    ),
+                    if(
+                        info.img.startsWith("http")
+                    ){
+                        image = info.img;
+                    }else{
+                        image =
+                            "https://cdn.cloudflare.steamstatic.com" +
+                            info.img;
+                    }
 
-                    image:
+                }else{
+
+                    image =
                         "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/" +
-                        abilityName +
-                        ".png"
+                        id +
+                        ".png";
+                }
 
+                loaded.push({
+                    id,
+                    name,
+                    image
                 });
 
-            });
-
-        });
-
-
-        abilityGameData = result;
-
-        console.log(
-            "Загружено способностей:",
-            abilityGameData.length
+            }
         );
 
-        return true;
+        if(loaded.length > 100){
+
+            abilityGameData = loaded;
+
+            console.log(
+                "Полный список способностей:",
+                loaded.length
+            );
+
+        }
 
     }catch(error){
 
-        console.error(
-            "Ошибка загрузки способностей:",
-            error
-        );
+        /*
+        Ничего страшного.
+        Локальная база уже загружена.
+        */
 
-        return false;
+        console.log(
+            "Используем встроенную базу способностей."
+        );
 
     }
 
@@ -11319,68 +11536,70 @@ function shuffleAbilityArray(array){
 
     const copy = [...array];
 
-    for(let i = copy.length - 1; i > 0; i--){
+    for(
+        let i = copy.length - 1;
+        i > 0;
+        i--
+    ){
 
         const j =
             Math.floor(
-                Math.random() * (i + 1)
+                Math.random() *
+                (i + 1)
             );
 
-        [copy[i], copy[j]] =
-            [copy[j], copy[i]];
-
+        [
+            copy[i],
+            copy[j]
+        ] = [
+            copy[j],
+            copy[i]
+        ];
     }
 
     return copy;
-
 }
 
 
 async function openAbilityGame(){
 
     const gamesHub =
-        document.querySelector(".games-hub");
+        document.querySelector(
+            ".games-hub"
+        );
 
     const abilityGame =
-        document.getElementById("ability-game");
+        document.getElementById(
+            "ability-game"
+        );
 
     if(gamesHub){
-        gamesHub.style.display = "none";
+        gamesHub.style.display =
+            "none";
     }
 
     if(abilityGame){
-        abilityGame.classList.add("active");
+        abilityGame.classList.add(
+            "active"
+        );
     }
 
 
     abilityGameScore = 0;
+
+    currentAbility = null;
 
     document.getElementById(
         "ability-score"
     ).textContent = "0";
 
 
-    if(abilityGameData.length === 0){
+    /*
+    Загружаем локальную базу сразу.
+    API лишь расширяет её до полного списка.
+    */
 
-        const loaded =
-            await loadAbilityGameData();
-
-        if(!loaded){
-
-            const answers =
-                document.querySelectorAll(
-                    ".ability-answer"
-                );
-
-            answers.forEach(button=>{
-                button.textContent =
-                    "Ошибка загрузки";
-            });
-
-            return;
-        }
-
-    }
+    await loadAbilityGameData();
 
 
     nextAbilityQuestion();
@@ -11390,20 +11609,25 @@ async function openAbilityGame(){
         top:0,
         behavior:"smooth"
     });
-
 }
 
 
 function closeAbilityGame(){
 
     const gamesHub =
-        document.querySelector(".games-hub");
+        document.querySelector(
+            ".games-hub"
+        );
 
     const abilityGame =
-        document.getElementById("ability-game");
+        document.getElementById(
+            "ability-game"
+        );
 
     if(abilityGame){
-        abilityGame.classList.remove("active");
+        abilityGame.classList.remove(
+            "active"
+        );
     }
 
     if(gamesHub){
@@ -11417,7 +11641,6 @@ function closeAbilityGame(){
         top:0,
         behavior:"smooth"
     });
-
 }
 
 
@@ -11427,6 +11650,7 @@ function nextAbilityQuestion(){
         return;
     }
 
+
     abilityGameLocked = false;
 
 
@@ -11435,27 +11659,27 @@ function nextAbilityQuestion(){
             "ability-image"
         );
 
-    const buttons =
-        [
-            ...document.querySelectorAll(
-                ".ability-answer"
-            )
-        ];
+    const buttons = [
+        ...document.querySelectorAll(
+            ".ability-answer"
+        )
+    ];
 
 
     buttons.forEach(button=>{
+
+        button.disabled = false;
 
         button.classList.remove(
             "correct",
             "wrong"
         );
 
-        button.disabled = false;
-
     });
 
 
     let nextAbility;
+
 
     do{
 
@@ -11469,18 +11693,39 @@ function nextAbilityQuestion(){
 
     }while(
         currentAbility &&
-        nextAbility.id === currentAbility.id
+        nextAbility.id ===
+        currentAbility.id
     );
 
 
-    currentAbility = nextAbility;
+    currentAbility =
+        nextAbility;
 
+
+    image.alt = "";
 
     image.src =
         currentAbility.image;
 
-    image.alt =
-        currentAbility.name;
+
+    /*
+    Если конкретная иконка не существует,
+    просто выбираем следующую способность.
+    */
+
+    image.onerror = ()=>{
+
+        image.onerror = null;
+
+        abilityGameData =
+            abilityGameData.filter(
+                ability =>
+                    ability.id !==
+                    currentAbility.id
+            );
+
+        nextAbilityQuestion();
+    };
 
 
     const wrongAnswers =
@@ -11488,10 +11733,15 @@ function nextAbilityQuestion(){
             abilityGameData.filter(
                 ability =>
                     ability.id !==
-                    currentAbility.id
+                    currentAbility.id &&
+                    ability.name !==
+                    currentAbility.name
             )
         )
-        .slice(0,3);
+        .slice(
+            0,
+            3
+        );
 
 
     const answers =
@@ -11501,26 +11751,34 @@ function nextAbilityQuestion(){
         ]);
 
 
-    buttons.forEach((button,index)=>{
+    buttons.forEach(
+        (button,index)=>{
 
-        const answer =
-            answers[index];
+            const answer =
+                answers[index];
 
-        button.textContent =
-            answer.name;
+            if(!answer){
+                return;
+            }
 
-        button.dataset.abilityId =
-            answer.id;
+            button.textContent =
+                answer.name;
 
-        button.onclick = ()=>{
-            selectAbilityAnswer(
-                button,
-                answer
-            );
-        };
+            button.dataset.abilityId =
+                answer.id;
 
-    });
 
+            button.onclick = ()=>{
+
+                selectAbilityAnswer(
+                    button,
+                    answer
+                );
+
+            };
+
+        }
+    );
 }
 
 
@@ -11529,19 +11787,22 @@ function selectAbilityAnswer(
     selectedAbility
 ){
 
-    if(abilityGameLocked){
+    if(
+        abilityGameLocked ||
+        !currentAbility
+    ){
         return;
     }
+
 
     abilityGameLocked = true;
 
 
-    const buttons =
-        [
-            ...document.querySelectorAll(
-                ".ability-answer"
-            )
-        ];
+    const buttons = [
+        ...document.querySelectorAll(
+            ".ability-answer"
+        )
+    ];
 
 
     const correct =
@@ -11557,10 +11818,24 @@ function selectAbilityAnswer(
 
         abilityGameScore++;
 
+
         document.getElementById(
             "ability-score"
         ).textContent =
             abilityGameScore;
+
+
+        if(
+            typeof tg !== "undefined" &&
+            tg &&
+            tg.HapticFeedback
+        ){
+
+            tg.HapticFeedback
+                .notificationOccurred(
+                    "success"
+                );
+        }
 
     }else{
 
@@ -11576,28 +11851,40 @@ function selectAbilityAnswer(
                     currentAbility.id
             );
 
+
         if(correctButton){
 
             correctButton.classList.add(
                 "correct"
             );
-
         }
 
+
+        if(
+            typeof tg !== "undefined" &&
+            tg &&
+            tg.HapticFeedback
+        ){
+
+            tg.HapticFeedback
+                .notificationOccurred(
+                    "error"
+                );
+        }
     }
 
 
-    buttons.forEach(button=>{
-        button.disabled = true;
-    });
+    buttons.forEach(
+        button=>{
+            button.disabled = true;
+        }
+    );
 
 
-    setTimeout(()=>{
-
-        nextAbilityQuestion();
-
-    },900);
-
+    setTimeout(
+        nextAbilityQuestion,
+        1100
+    );
 }
     
 buildRoulettePreview();
