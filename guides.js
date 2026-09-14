@@ -118,21 +118,138 @@ const d2ptGuides = {
     patch: "7.41e",
 
     builds: {
+
         offlane: {
+
             role: "Offlane",
 
-            items: [
+            /* =========================
+               STARTING ITEMS
+            ========================= */
+
+            startingItems: [
+                {
+                    name: "Gauntlets of Strength",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gauntlets.png"
+                },
+                {
+                    name: "Iron Branch",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"
+                },
+                {
+                    name: "Iron Branch",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"
+                },
+                {
+                    name: "Magic Stick",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"
+                },
+                {
+                    name: "Tango",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"
+                }
+            ],
+
+
+            /* =========================
+               EARLY GAME
+            ========================= */
+
+            earlyItems: [
                 {
                     name: "Bracer",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bracer.png"
+                },
+                {
+                    name: "Magic Wand",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"
                 },
                 {
                     name: "Phase Boots",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/phase_boots.png"
                 },
                 {
-                    name: "Magic Wand",
-                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"
+                    name: "Vanguard",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/vanguard.png"
+                }
+            ],
+
+
+            /* =========================
+               CORE
+            ========================= */
+
+            coreItems: [
+                {
+                    name: "Blade Mail",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blade_mail.png"
+                },
+                {
+                    name: "Blink Dagger",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"
+                },
+                {
+                    name: "Black King Bar",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"
+                },
+                {
+                    name: "Aghanim's Shard",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"
+                }
+            ],
+
+
+            /* =========================
+               SITUATIONAL
+            ========================= */
+
+            situationalItems: [
+                {
+                    name: "Kaya and Sange",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/kaya_and_sange.png"
+                },
+                {
+                    name: "Lotus Orb",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png"
+                },
+                {
+                    name: "Crimson Guard",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/crimson_guard.png"
+                },
+                {
+                    name: "Pipe of Insight",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/pipe.png"
+                },
+                {
+                    name: "Shiva's Guard",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"
+                }
+            ],
+
+
+            /* =========================
+               LATE GAME
+            ========================= */
+
+            lateItems: [
+                {
+                    name: "Heart of Tarrasque",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/heart.png"
+                },
+                {
+                    name: "Boots of Travel",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/travel_boots.png"
+                }
+            ],
+
+
+            /* Совместимость со старым интерфейсом.
+               Позже этот массив можно удалить. */
+
+            items: [
+                {
+                    name: "Phase Boots",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/phase_boots.png"
                 },
                 {
                     name: "Blade Mail",
@@ -149,65 +266,93 @@ const d2ptGuides = {
                 {
                     name: "Aghanim's Shard",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"
-                },
-                {
-                    name: "Lotus Orb",
-                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png"
-                },
-                {
-                    name: "Shiva's Guard",
-                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"
                 }
             ],
 
+
+            /* =========================
+               SKILL BUILD
+            ========================= */
+
             skills: [
                 {
+                    level: 1,
                     name: "Battle Hunger",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_battle_hunger.png"
                 },
                 {
+                    level: 2,
                     name: "Counter Helix",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_counter_helix.png"
                 },
                 {
+                    level: 3,
                     name: "Counter Helix",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_counter_helix.png"
                 },
                 {
+                    level: 4,
                     name: "Berserker's Call",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_berserkers_call.png"
                 },
                 {
+                    level: 5,
                     name: "Counter Helix",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_counter_helix.png"
                 },
                 {
+                    level: 6,
                     name: "Culling Blade",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_culling_blade.png"
                 },
                 {
+                    level: 7,
                     name: "Counter Helix",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_counter_helix.png"
                 },
                 {
+                    level: 8,
                     name: "Berserker's Call",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_berserkers_call.png"
                 },
                 {
+                    level: 9,
                     name: "Berserker's Call",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_berserkers_call.png"
                 },
                 {
+                    level: 10,
                     name: "Berserker's Call",
                     icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_berserkers_call.png"
                 }
             ],
 
+
+            /* =========================
+               TALENTS
+            ========================= */
+
             talents: [
-                [10, "+8% Movement Speed per active Battle Hunger"],
-                [15, "+8 Battle Hunger Damage Per Second"],
-                [20, "+40 Counter Helix Damage"],
-                [25, "+85 Berserker's Call AoE"]
+                {
+                    level: 10,
+                    recommended: "+8% Movement Speed per active Battle Hunger",
+                    alternative: "+3s Culling Blade Kill Buff Bonus Duration"
+                },
+                {
+                    level: 15,
+                    recommended: "+8 Battle Hunger Damage Per Second",
+                    alternative: "+10 Berserker's Call Armor"
+                },
+                {
+                    level: 20,
+                    recommended: "+40 Counter Helix Damage",
+                    alternative: "+15 Strength"
+                },
+                {
+                    level: 25,
+                    recommended: "+85 Berserker's Call AoE",
+                    alternative: "+150 Culling Blade Damage"
+                }
             ]
         }
     }
