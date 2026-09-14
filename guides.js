@@ -5002,8 +5002,6 @@ const d2ptGuides = {
 
         }
 
-    }
-
 }
 
 },
