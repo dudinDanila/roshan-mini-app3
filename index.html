@@ -3133,6 +3133,246 @@ body{
 .game-card-locked::after{
     display:none;
 }
+
+/* ============================= */
+/* GUESS HERO GAME */
+/* ============================= */
+
+.guess-hero-game{
+    display:none;
+    padding-bottom:25px;
+}
+
+.guess-hero-game.active{
+    display:block;
+}
+
+
+/* Верх игры */
+
+.guess-game-top{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    margin:20px 0 22px;
+}
+
+.guess-back-btn{
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    border:1px solid rgba(255,65,65,.30);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(75,18,20,.8),
+            rgba(25,10,12,.95)
+        );
+
+    color:#fff;
+
+    font-size:34px;
+    line-height:1;
+
+    box-shadow:
+        0 0 12px rgba(255,30,30,.12);
+}
+
+.guess-back-btn:active{
+    transform:scale(.95);
+}
+
+
+.guess-game-title{
+    font-size:21px;
+    font-weight:900;
+}
+
+.guess-game-subtitle{
+    margin-top:3px;
+
+    color:#888;
+    font-size:13px;
+}
+
+
+/* Счёт */
+
+.guess-score-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:10px;
+
+    font-size:14px;
+    font-weight:700;
+}
+
+.guess-score{
+    color:#ff5757;
+}
+
+
+/* Прогресс */
+
+.guess-progress{
+    height:6px;
+
+    margin-bottom:20px;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    background:#18181b;
+}
+
+.guess-progress-bar{
+    width:10%;
+    height:100%;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #9d171c,
+            #ff343b
+        );
+
+    box-shadow:
+        0 0 10px rgba(255,40,40,.45);
+}
+
+
+/* Карточка героя */
+
+.guess-character-card{
+    position:relative;
+
+    min-height:310px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,60,60,.30);
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(125,20,25,.18),
+            transparent 48%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(23,14,16,.98),
+            rgba(8,8,10,.98)
+        );
+
+    box-shadow:
+        0 0 16px rgba(255,30,30,.10),
+        inset 0 0 30px rgba(255,20,20,.03);
+
+    overflow:hidden;
+}
+
+
+.guess-question{
+    position:absolute;
+
+    top:18px;
+
+    color:#777;
+
+    font-size:12px;
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+
+/* Пока вместо героя */
+
+.guess-silhouette-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.guess-placeholder{
+    font-size:145px;
+    line-height:1;
+
+    font-weight:900;
+
+    color:#050505;
+
+    text-shadow:
+        0 0 20px rgba(255,35,35,.35);
+}
+
+
+/* Ответы */
+
+.guess-answers{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap:12px;
+
+    margin-top:16px;
+}
+
+
+.guess-answer{
+    min-height:60px;
+
+    padding:10px;
+
+    border-radius:17px;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    background:
+        linear-gradient(
+            145deg,
+            #171719,
+            #0d0d0f
+        );
+
+    color:#fff;
+
+    font-size:14px;
+    font-weight:700;
+
+    transition:
+        transform .15s ease,
+        border-color .2s ease;
+}
+
+.guess-answer:active{
+    transform:scale(.97);
+
+    border-color:
+        rgba(255,60,60,.45);
+}
     
 </style>
 </head>
@@ -3902,7 +4142,7 @@ body{
 
     <div class="games-hub">
 
-    <div class="game-card">
+    <div class="game-card" onclick="openGuessHeroGame()">
         <div class="game-card-icon">❓</div>
 
         <div class="game-card-content">
@@ -3969,6 +4209,90 @@ body{
 
 </div>
 
+<!-- ============================= -->
+<!-- GUESS HERO GAME -->
+<!-- ============================= -->
+
+<div id="guessHeroGame" class="guess-hero-game">
+
+    <div class="guess-game-top">
+
+        <button
+            class="guess-back-btn"
+            onclick="closeGuessHeroGame()"
+        >
+            ‹
+        </button>
+
+        <div>
+            <div class="guess-game-title">
+                Угадай героя
+            </div>
+
+            <div class="guess-game-subtitle">
+                Узнай героя по силуэту
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="guess-score-row">
+
+        <div class="guess-round">
+            Раунд <span id="guessRound">1</span>/10
+        </div>
+
+        <div class="guess-score">
+            Счёт: <span id="guessScore">0</span>
+        </div>
+
+    </div>
+
+
+    <div class="guess-progress">
+        <div
+            id="guessProgressBar"
+            class="guess-progress-bar"
+        ></div>
+    </div>
+
+
+    <div class="guess-character-card">
+
+        <div class="guess-question">
+            КТО ЭТО?
+        </div>
+
+        <div class="guess-silhouette-wrap">
+            <div class="guess-placeholder">?</div>
+        </div>
+
+    </div>
+
+
+    <div class="guess-answers">
+
+        <button class="guess-answer">
+            Вариант 1
+        </button>
+
+        <button class="guess-answer">
+            Вариант 2
+        </button>
+
+        <button class="guess-answer">
+            Вариант 3
+        </button>
+
+        <button class="guess-answer">
+            Вариант 4
+        </button>
+
+    </div>
+
+</div>
+    
 </section>
     
 <!-- ================================================= -->
@@ -9743,6 +10067,55 @@ document.addEventListener(
 
     }
 );
+
+/* ============================= */
+/* GUESS HERO GAME */
+/* ============================= */
+
+function openGuessHeroGame(){
+
+    const hub =
+        document.querySelector(".games-hub");
+
+    const game =
+        document.getElementById("guessHeroGame");
+
+    if(hub){
+        hub.style.display = "none";
+    }
+
+    if(game){
+        game.classList.add("active");
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+function closeGuessHeroGame(){
+
+    const hub =
+        document.querySelector(".games-hub");
+
+    const game =
+        document.getElementById("guessHeroGame");
+
+    if(game){
+        game.classList.remove("active");
+    }
+
+    if(hub){
+        hub.style.display = "";
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
     
 buildRoulettePreview();
 renderRandomHistory();
