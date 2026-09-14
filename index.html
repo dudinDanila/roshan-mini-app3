@@ -9931,57 +9931,201 @@ if(
 }
 
 
-    /* =====================================
-       TALENTS
-    ===================================== */
+    /* =========================================================
+   TALENTS
+========================================================= */
 
-    talents.innerHTML = "";
+talents.innerHTML = "";
 
-    if(
-        guide.talents &&
-        guide.talents.length
-    ){
+if(
+    guide.talents &&
+    guide.talents.length
+){
 
-        guide.talents.forEach(
-            talent=>{
+    guide.talents.forEach(talent=>{
 
-                const element =
-                    document.createElement(
-                        "div"
-                    );
+        /* =============================================
+           НОВЫЙ ФОРМАТ
+        ============================================= */
 
-                element.className =
-                    "guide-talent";
+        if(
+            typeof talent === "object" &&
+            talent !== null &&
+            !Array.isArray(talent)
+        ){
 
-                element.innerHTML = `
-                    <div class="guide-talent-level">
-                        ${talent[0]}
-                    </div>
+            const element =
+                document.createElement("div");
 
-                    <div class="guide-talent-name">
-                        ${talent[1]}
-                    </div>
-                `;
+            element.className =
+                "guide-talent";
 
-                talents.appendChild(
-                    element
-                );
+            element.style.display = "block";
+            element.style.padding = "12px";
+            element.style.marginBottom = "8px";
 
-            }
-        );
 
-    }else{
+            element.innerHTML = `
 
-        talents.innerHTML =
-            `
-            <div class="guide-talent">
-                <div class="guide-talent-name">
-                    Данные талантов пока не добавлены
+                <div
+                    style="
+                        text-align:center;
+                        font-size:10px;
+                        font-weight:900;
+                        color:#777;
+                        margin-bottom:9px;
+                    "
+                >
+                    УРОВЕНЬ ${talent.level}
                 </div>
-            </div>
+
+
+                <div
+                    style="
+                        display:grid;
+                        grid-template-columns:1fr 34px 1fr;
+                        align-items:stretch;
+                        gap:6px;
+                    "
+                >
+
+                    <!-- РЕКОМЕНДУЕМЫЙ -->
+
+                    <div
+                        style="
+                            background:rgba(66,180,95,.10);
+                            border:1px solid rgba(66,180,95,.35);
+                            border-radius:9px;
+                            padding:9px 6px;
+                            text-align:center;
+                            display:flex;
+                            flex-direction:column;
+                            justify-content:center;
+                            min-height:64px;
+                        "
+                    >
+
+                        <div
+                            style="
+                                font-size:8px;
+                                color:#65c77d;
+                                font-weight:900;
+                                margin-bottom:5px;
+                            "
+                        >
+                            ✓ ВЫБОР
+                        </div>
+
+                        <div
+                            style="
+                                font-size:9px;
+                                line-height:1.25;
+                                font-weight:800;
+                                color:#eee;
+                            "
+                        >
+                            ${talent.recommended}
+                        </div>
+
+                    </div>
+
+
+                    <!-- УРОВЕНЬ -->
+
+                    <div
+                        style="
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            font-size:12px;
+                            font-weight:900;
+                            color:#ffcc4d;
+                        "
+                    >
+                        ${talent.level}
+                    </div>
+
+
+                    <!-- АЛЬТЕРНАТИВА -->
+
+                    <div
+                        style="
+                            background:#151515;
+                            border:1px solid #292929;
+                            border-radius:9px;
+                            padding:9px 6px;
+                            text-align:center;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            min-height:64px;
+                        "
+                    >
+
+                        <div
+                            style="
+                                font-size:9px;
+                                line-height:1.25;
+                                font-weight:700;
+                                color:#aaa;
+                            "
+                        >
+                            ${talent.alternative}
+                        </div>
+
+                    </div>
+
+                </div>
             `;
 
-    }
+
+            talents.appendChild(
+                element
+            );
+
+        }
+
+
+        /* =============================================
+           СТАРЫЙ ФОРМАТ
+           [10, "Название таланта"]
+        ============================================= */
+
+        else if(
+            Array.isArray(talent)
+        ){
+
+            const element =
+                document.createElement("div");
+
+            element.className =
+                "guide-talent";
+
+            element.innerHTML = `
+
+                <div class="guide-talent-level">
+                    ${talent[0]}
+                </div>
+
+                <div class="guide-talent-name">
+                    ${talent[1]}
+                </div>
+            `;
+
+
+            talents.appendChild(
+                element
+            );
+        }
+
+    });
+
+}else{
+
+    talents.innerHTML =
+        '<div class="guide-item">Нет данных о талантах</div>';
+
+}
 
 }
 
