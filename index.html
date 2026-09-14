@@ -2814,6 +2814,108 @@ body{
             transparent 35%
         );
 }
+
+/* ============================= */
+/* ROSHAN PREMIUM HEADER */
+/* ============================= */
+
+.header{
+    position:relative;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(12,12,14,.92) 0%,
+            rgba(7,7,9,.82) 100%
+        ) !important;
+
+    -webkit-backdrop-filter:blur(14px);
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(255,55,55,.13);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.30),
+        0 3px 20px rgba(255,25,25,.035);
+}
+
+/* Красный светящийся блик снизу */
+.header::after{
+    content:"";
+    position:absolute;
+
+    bottom:-1px;
+    left:12%;
+    width:76%;
+    height:1px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,45,45,.15),
+        rgba(255,75,75,.70),
+        rgba(255,45,45,.15),
+        transparent
+    );
+
+    box-shadow:
+        0 0 6px rgba(255,45,45,.35),
+        0 0 14px rgba(255,30,30,.15);
+
+    pointer-events:none;
+}
+
+/* Логотип */
+.logo-icon{
+    border-color:rgba(255,65,65,.50) !important;
+
+    box-shadow:
+        0 0 7px rgba(255,45,45,.45),
+        0 0 18px rgba(255,30,30,.20),
+        inset 0 0 10px rgba(255,35,35,.06) !important;
+}
+
+/* Название ROSHAN */
+.logo-title{
+    text-shadow:
+        0 0 12px rgba(255,45,45,.15);
+}
+
+/* Маленькая подпись DOTA 2 HUB */
+.logo-subtitle{
+    opacity:.72;
+    letter-spacing:1.5px;
+}
+
+/* Кнопка профиля справа */
+.profile-button{
+    border:1px solid rgba(255,255,255,.10);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35,35,38,.90),
+            rgba(16,16,18,.95)
+        ) !important;
+
+    box-shadow:
+        0 5px 16px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+    transition:
+        transform .15s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.profile-button:active{
+    transform:scale(.96);
+
+    border-color:rgba(255,60,60,.35);
+
+    box-shadow:
+        0 0 12px rgba(255,35,35,.18);
+}
     
 </style>
 </head>
