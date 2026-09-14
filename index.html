@@ -9931,7 +9931,7 @@ if(
 }
 
 
-    /* =========================================================
+/* =========================================================
    TALENTS
 ========================================================= */
 
@@ -9946,9 +9946,190 @@ if(
 
         /* =============================================
            НОВЫЙ ФОРМАТ
+           {
+               level: 10,
+               left: "...",
+               right: "...",
+               recommended: "left" | "right"
+           }
         ============================================= */
 
         if(
+            typeof talent === "object" &&
+            talent !== null &&
+            !Array.isArray(talent) &&
+            talent.left !== undefined &&
+            talent.right !== undefined
+        ){
+
+            const element =
+                document.createElement("div");
+
+            element.className =
+                "guide-talent";
+
+            element.style.display = "block";
+            element.style.padding = "12px";
+            element.style.marginBottom = "8px";
+
+
+            const leftSelected =
+                talent.recommended === "left";
+
+            const rightSelected =
+                talent.recommended === "right";
+
+
+            const selectedBg =
+                "rgba(66,180,95,.10)";
+
+            const selectedBorder =
+                "1px solid rgba(66,180,95,.35)";
+
+            const normalBg =
+                "#151515";
+
+            const normalBorder =
+                "1px solid #292929";
+
+
+            element.innerHTML = `
+
+                <div
+                    style="
+                        display:grid;
+                        grid-template-columns:1fr 34px 1fr;
+                        align-items:stretch;
+                        gap:6px;
+                    "
+                >
+
+                    <!-- ЛЕВЫЙ ТАЛАНТ -->
+
+                    <div
+                        style="
+                            background:${leftSelected ? selectedBg : normalBg};
+                            border:${leftSelected ? selectedBorder : normalBorder};
+                            border-radius:9px;
+                            padding:9px 6px;
+                            text-align:center;
+                            display:flex;
+                            flex-direction:column;
+                            justify-content:center;
+                            min-height:64px;
+                        "
+                    >
+
+                        ${
+                            leftSelected
+                            ? `
+                                <div
+                                    style="
+                                        font-size:8px;
+                                        color:#65c77d;
+                                        font-weight:900;
+                                        margin-bottom:5px;
+                                    "
+                                >
+                                    ✓ ВЫБОР
+                                </div>
+                            `
+                            : ""
+                        }
+
+                        <div
+                            style="
+                                font-size:9px;
+                                line-height:1.25;
+                                font-weight:${leftSelected ? "800" : "700"};
+                                color:${leftSelected ? "#eee" : "#aaa"};
+                            "
+                        >
+                            ${talent.left}
+                        </div>
+
+                    </div>
+
+
+                    <!-- УРОВЕНЬ -->
+
+                    <div
+                        style="
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            font-size:12px;
+                            font-weight:900;
+                            color:#ffcc4d;
+                        "
+                    >
+                        ${talent.level}
+                    </div>
+
+
+                    <!-- ПРАВЫЙ ТАЛАНТ -->
+
+                    <div
+                        style="
+                            background:${rightSelected ? selectedBg : normalBg};
+                            border:${rightSelected ? selectedBorder : normalBorder};
+                            border-radius:9px;
+                            padding:9px 6px;
+                            text-align:center;
+                            display:flex;
+                            flex-direction:column;
+                            justify-content:center;
+                            min-height:64px;
+                        "
+                    >
+
+                        ${
+                            rightSelected
+                            ? `
+                                <div
+                                    style="
+                                        font-size:8px;
+                                        color:#65c77d;
+                                        font-weight:900;
+                                        margin-bottom:5px;
+                                    "
+                                >
+                                    ✓ ВЫБОР
+                                </div>
+                            `
+                            : ""
+                        }
+
+                        <div
+                            style="
+                                font-size:9px;
+                                line-height:1.25;
+                                font-weight:${rightSelected ? "800" : "700"};
+                                color:${rightSelected ? "#eee" : "#aaa"};
+                            "
+                        >
+                            ${talent.right}
+                        </div>
+
+                    </div>
+
+                </div>
+            `;
+
+
+            talents.appendChild(
+                element
+            );
+        }
+
+
+        /* =============================================
+           СТАРЫЙ НОВЫЙ ФОРМАТ
+           recommended / alternative
+           Оставляем временно для совместимости
+        ============================================= */
+
+        else if(
             typeof talent === "object" &&
             talent !== null &&
             !Array.isArray(talent)
@@ -9964,21 +10145,7 @@ if(
             element.style.padding = "12px";
             element.style.marginBottom = "8px";
 
-
             element.innerHTML = `
-
-                <div
-                    style="
-                        text-align:center;
-                        font-size:10px;
-                        font-weight:900;
-                        color:#777;
-                        margin-bottom:9px;
-                    "
-                >
-                    УРОВЕНЬ ${talent.level}
-                </div>
-
 
                 <div
                     style="
@@ -9989,8 +10156,6 @@ if(
                     "
                 >
 
-                    <!-- РЕКОМЕНДУЕМЫЙ -->
-
                     <div
                         style="
                             background:rgba(66,180,95,.10);
@@ -9998,10 +10163,10 @@ if(
                             border-radius:9px;
                             padding:9px 6px;
                             text-align:center;
+                            min-height:64px;
                             display:flex;
                             flex-direction:column;
                             justify-content:center;
-                            min-height:64px;
                         "
                     >
 
@@ -10030,8 +10195,6 @@ if(
                     </div>
 
 
-                    <!-- УРОВЕНЬ -->
-
                     <div
                         style="
                             display:flex;
@@ -10046,8 +10209,6 @@ if(
                     </div>
 
 
-                    <!-- АЛЬТЕРНАТИВА -->
-
                     <div
                         style="
                             background:#151515;
@@ -10055,10 +10216,10 @@ if(
                             border-radius:9px;
                             padding:9px 6px;
                             text-align:center;
+                            min-height:64px;
                             display:flex;
                             align-items:center;
                             justify-content:center;
-                            min-height:64px;
                         "
                     >
 
@@ -10078,17 +10239,15 @@ if(
                 </div>
             `;
 
-
             talents.appendChild(
                 element
             );
-
         }
 
 
         /* =============================================
-           СТАРЫЙ ФОРМАТ
-           [10, "Название таланта"]
+           САМЫЙ СТАРЫЙ ФОРМАТ
+           [10, "Talent"]
         ============================================= */
 
         else if(
@@ -10112,7 +10271,6 @@ if(
                 </div>
             `;
 
-
             talents.appendChild(
                 element
             );
@@ -10124,7 +10282,6 @@ if(
 
     talents.innerHTML =
         '<div class="guide-item">Нет данных о талантах</div>';
-
 }
 
 }
