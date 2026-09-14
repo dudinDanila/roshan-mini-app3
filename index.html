@@ -11196,10 +11196,155 @@ function finishGuessHeroGame(){
 /* GUESS ABILITY GAME */
 /* ============================= */
 
-function openAbilityGame(){
+let abilityGameData = [];
+let abilityGameScore = 0;
+let currentAbility = null;
+let abilityGameLocked = false;
 
-    const gamesHub = document.querySelector(".games-hub");
-    const abilityGame = document.getElementById("ability-game");
+const HERO_ABILITIES_URL =
+    "https://raw.githubusercontent.com/odota/dotaconstants/master/build/hero_abilities.json";
+
+const ABILITIES_URL =
+    "https://raw.githubusercontent.com/odota/dotaconstants/master/build/abilities.json";
+
+
+async function loadAbilityGameData(){
+
+    try{
+
+        const [heroAbilitiesResponse, abilitiesResponse] =
+            await Promise.all([
+                fetch(HERO_ABILITIES_URL),
+                fetch(ABILITIES_URL)
+            ]);
+
+        if(!heroAbilitiesResponse.ok || !abilitiesResponse.ok){
+            throw new Error("Не удалось загрузить способности");
+        }
+
+        const heroAbilities =
+            await heroAbilitiesResponse.json();
+
+        const abilitiesInfo =
+            await abilitiesResponse.json();
+
+        const result = [];
+        const added = new Set();
+
+
+        Object.entries(heroAbilities).forEach(([heroKey, heroData])=>{
+
+            if(!heroData || !Array.isArray(heroData.abilities)){
+                return;
+            }
+
+            heroData.abilities.forEach(abilityName=>{
+
+                if(!abilityName){
+                    return;
+                }
+
+                if(
+                    abilityName === "generic_hidden" ||
+                    abilityName.startsWith("special_bonus") ||
+                    abilityName.includes("empty")
+                ){
+                    return;
+                }
+
+                if(added.has(abilityName)){
+                    return;
+                }
+
+                const info = abilitiesInfo[abilityName];
+
+                if(!info){
+                    return;
+                }
+
+                const displayName =
+                    info.dname || "";
+
+                if(!displayName){
+                    return;
+                }
+
+                added.add(abilityName);
+
+                result.push({
+
+                    id: abilityName,
+
+                    name: displayName,
+
+                    hero: heroKey.replace(
+                        "npc_dota_hero_",
+                        ""
+                    ),
+
+                    image:
+                        "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/" +
+                        abilityName +
+                        ".png"
+
+                });
+
+            });
+
+        });
+
+
+        abilityGameData = result;
+
+        console.log(
+            "Загружено способностей:",
+            abilityGameData.length
+        );
+
+        return true;
+
+    }catch(error){
+
+        console.error(
+            "Ошибка загрузки способностей:",
+            error
+        );
+
+        return false;
+
+    }
+
+}
+
+
+function shuffleAbilityArray(array){
+
+    const copy = [...array];
+
+    for(let i = copy.length - 1; i > 0; i--){
+
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+        [copy[i], copy[j]] =
+            [copy[j], copy[i]];
+
+    }
+
+    return copy;
+
+}
+
+
+async function openAbilityGame(){
+
+    const gamesHub =
+        document.querySelector(".games-hub");
+
+    const abilityGame =
+        document.getElementById("ability-game");
 
     if(gamesHub){
         gamesHub.style.display = "none";
@@ -11209,17 +11354,55 @@ function openAbilityGame(){
         abilityGame.classList.add("active");
     }
 
+
+    abilityGameScore = 0;
+
+    document.getElementById(
+        "ability-score"
+    ).textContent = "0";
+
+
+    if(abilityGameData.length === 0){
+
+        const loaded =
+            await loadAbilityGameData();
+
+        if(!loaded){
+
+            const answers =
+                document.querySelectorAll(
+                    ".ability-answer"
+                );
+
+            answers.forEach(button=>{
+                button.textContent =
+                    "Ошибка загрузки";
+            });
+
+            return;
+        }
+
+    }
+
+
+    nextAbilityQuestion();
+
+
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
+
 }
 
 
 function closeAbilityGame(){
 
-    const gamesHub = document.querySelector(".games-hub");
-    const abilityGame = document.getElementById("ability-game");
+    const gamesHub =
+        document.querySelector(".games-hub");
+
+    const abilityGame =
+        document.getElementById("ability-game");
 
     if(abilityGame){
         abilityGame.classList.remove("active");
@@ -11229,10 +11412,194 @@ function closeAbilityGame(){
         gamesHub.style.display = "";
     }
 
+    abilityGameLocked = false;
+
+
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
+
+}
+
+
+function nextAbilityQuestion(){
+
+    if(abilityGameData.length < 4){
+        return;
+    }
+
+    abilityGameLocked = false;
+
+
+    const image =
+        document.getElementById(
+            "ability-image"
+        );
+
+    const buttons =
+        [
+            ...document.querySelectorAll(
+                ".ability-answer"
+            )
+        ];
+
+
+    buttons.forEach(button=>{
+
+        button.classList.remove(
+            "correct",
+            "wrong"
+        );
+
+        button.disabled = false;
+
+    });
+
+
+    let nextAbility;
+
+    do{
+
+        nextAbility =
+            abilityGameData[
+                Math.floor(
+                    Math.random() *
+                    abilityGameData.length
+                )
+            ];
+
+    }while(
+        currentAbility &&
+        nextAbility.id === currentAbility.id
+    );
+
+
+    currentAbility = nextAbility;
+
+
+    image.src =
+        currentAbility.image;
+
+    image.alt =
+        currentAbility.name;
+
+
+    const wrongAnswers =
+        shuffleAbilityArray(
+            abilityGameData.filter(
+                ability =>
+                    ability.id !==
+                    currentAbility.id
+            )
+        )
+        .slice(0,3);
+
+
+    const answers =
+        shuffleAbilityArray([
+            currentAbility,
+            ...wrongAnswers
+        ]);
+
+
+    buttons.forEach((button,index)=>{
+
+        const answer =
+            answers[index];
+
+        button.textContent =
+            answer.name;
+
+        button.dataset.abilityId =
+            answer.id;
+
+        button.onclick = ()=>{
+            selectAbilityAnswer(
+                button,
+                answer
+            );
+        };
+
+    });
+
+}
+
+
+function selectAbilityAnswer(
+    selectedButton,
+    selectedAbility
+){
+
+    if(abilityGameLocked){
+        return;
+    }
+
+    abilityGameLocked = true;
+
+
+    const buttons =
+        [
+            ...document.querySelectorAll(
+                ".ability-answer"
+            )
+        ];
+
+
+    const correct =
+        selectedAbility.id ===
+        currentAbility.id;
+
+
+    if(correct){
+
+        selectedButton.classList.add(
+            "correct"
+        );
+
+        abilityGameScore++;
+
+        document.getElementById(
+            "ability-score"
+        ).textContent =
+            abilityGameScore;
+
+    }else{
+
+        selectedButton.classList.add(
+            "wrong"
+        );
+
+
+        const correctButton =
+            buttons.find(
+                button =>
+                    button.dataset.abilityId ===
+                    currentAbility.id
+            );
+
+        if(correctButton){
+
+            correctButton.classList.add(
+                "correct"
+            );
+
+        }
+
+    }
+
+
+    buttons.forEach(button=>{
+        button.disabled = true;
+    });
+
+
+    setTimeout(()=>{
+
+        nextAbilityQuestion();
+
+    },900);
+
 }
     
 buildRoulettePreview();
