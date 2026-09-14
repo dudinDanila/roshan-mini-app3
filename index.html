@@ -2516,6 +2516,117 @@ button{
         0 0 20px rgba(255,25,25,.20),
         inset 0 0 18px rgba(255,35,35,.10) !important;
 }
+
+/* ============================= */
+/* QUICK CARDS — COLORED NEON */
+/* ============================= */
+
+/* 🔥 МЕТА — красный */
+.quick-card:nth-child(1){
+    border-color:rgba(255,55,55,.48) !important;
+
+    box-shadow:
+        0 0 10px rgba(255,35,35,.22),
+        0 0 24px rgba(255,25,25,.10),
+        inset 0 0 22px rgba(255,30,30,.045) !important;
+}
+
+/* 🎲 РАНДОМ — фиолетовый */
+.quick-card:nth-child(2){
+    border-color:rgba(155,85,255,.42) !important;
+
+    box-shadow:
+        0 0 10px rgba(145,70,255,.18),
+        0 0 24px rgba(120,55,255,.09),
+        inset 0 0 22px rgba(135,65,255,.04) !important;
+}
+
+/* 📖 ГАЙДЫ — синий */
+.quick-card:nth-child(3){
+    border-color:rgba(65,155,255,.42) !important;
+
+    box-shadow:
+        0 0 10px rgba(45,140,255,.18),
+        0 0 24px rgba(30,115,255,.09),
+        inset 0 0 22px rgba(40,130,255,.04) !important;
+}
+
+/* ⚔️ КОНТРПИКИ — красный */
+.quick-card:nth-child(4){
+    border-color:rgba(255,65,65,.48) !important;
+
+    box-shadow:
+        0 0 10px rgba(255,35,35,.22),
+        0 0 24px rgba(255,25,25,.10),
+        inset 0 0 22px rgba(255,30,30,.045) !important;
+}
+
+
+/* ===== ЦВЕТНЫЕ ВЕРХНИЕ БЛИКИ ===== */
+
+/* Мета */
+.quick-card:nth-child(1)::after{
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,55,55,.25),
+        rgba(255,95,95,.95),
+        rgba(255,55,55,.25),
+        transparent
+    );
+
+    box-shadow:
+        0 0 6px rgba(255,45,45,.75),
+        0 0 14px rgba(255,30,30,.35);
+}
+
+/* Рандом */
+.quick-card:nth-child(2)::after{
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(145,75,255,.20),
+        rgba(180,120,255,.90),
+        rgba(145,75,255,.20),
+        transparent
+    );
+
+    box-shadow:
+        0 0 6px rgba(155,85,255,.70),
+        0 0 14px rgba(125,55,255,.30);
+}
+
+/* Гайды */
+.quick-card:nth-child(3)::after{
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(55,145,255,.20),
+        rgba(100,185,255,.90),
+        rgba(55,145,255,.20),
+        transparent
+    );
+
+    box-shadow:
+        0 0 6px rgba(60,155,255,.70),
+        0 0 14px rgba(35,120,255,.30);
+}
+
+/* Контрпики */
+.quick-card:nth-child(4)::after{
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,55,55,.25),
+        rgba(255,95,95,.95),
+        rgba(255,55,55,.25),
+        transparent
+    );
+
+    box-shadow:
+        0 0 6px rgba(255,45,45,.75),
+        0 0 14px rgba(255,30,30,.35);
+}
     
 </style>
 </head>
