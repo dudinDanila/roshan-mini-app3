@@ -9845,51 +9845,90 @@ else{
 }
 
 
-    /* =====================================
-       SKILLS
-    ===================================== */
+    /* =========================================================
+   SKILLS
+========================================================= */
 
-    skills.innerHTML = "";
+skills.innerHTML = "";
 
-    if(
-        guide.skills &&
-        guide.skills.length
-    ){
+if(
+    guide.skills &&
+    guide.skills.length
+){
 
-        guide.skills.forEach(
-            (skill,index)=>{
+    guide.skills.forEach((skill,index)=>{
 
-                const element =
-                    document.createElement(
-                        "div"
-                    );
+        const element =
+            document.createElement("div");
 
-                element.className =
-                    "guide-skill";
+        element.className =
+            "guide-skill";
 
-                element.innerHTML = `
-                    <div class="guide-skill-level">
-                        ${index + 1}
-                    </div>
 
-                    <div class="guide-skill-name">
-                        ${skill}
-                    </div>
-                `;
+        /* Новый формат */
 
-                skills.appendChild(
-                    element
-                );
+        if(
+            typeof skill === "object" &&
+            skill !== null
+        ){
 
-            }
+            const skillLevel =
+                skill.level || (index + 1);
+
+            element.innerHTML = `
+
+                <div class="guide-skill-level">
+                    УР. ${skillLevel}
+                </div>
+
+                <img
+                    src="${skill.icon}"
+                    alt="${skill.name}"
+                    style="
+                        width:42px;
+                        height:42px;
+                        object-fit:cover;
+                        border-radius:7px;
+                        display:block;
+                        margin:0 auto 6px;
+                    "
+                >
+
+                <div class="guide-skill-name">
+                    ${skill.name}
+                </div>
+            `;
+
+        }
+
+        /* Старый формат */
+
+        else{
+
+            element.innerHTML = `
+
+                <div class="guide-skill-level">
+                    УР. ${index + 1}
+                </div>
+
+                <div class="guide-skill-name">
+                    ${skill}
+                </div>
+            `;
+        }
+
+
+        skills.appendChild(
+            element
         );
+    });
 
-    }else{
+}else{
 
-        skills.innerHTML =
-            '<div class="guide-item">Нет данных о прокачке</div>';
+    skills.innerHTML =
+        '<div class="guide-item">Нет данных о прокачке</div>';
 
-    }
+}
 
 
     /* =====================================
