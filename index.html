@@ -9556,7 +9556,7 @@ function openHero(hero){
         .toUpperCase();
 
 const heroGuide =
-    d2ptGuides[guideKey];
+    window.d2ptGuides?.[guideKey] || null;
 
 
 /* =========================================
