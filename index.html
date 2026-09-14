@@ -2758,6 +2758,62 @@ button{
     position:relative;
     z-index:2;
 }
+
+/* ============================= */
+/* ROSHAN APP BACKGROUND */
+/* ============================= */
+
+html{
+    background:#050505;
+}
+
+body{
+    background:
+        radial-gradient(
+            circle at 15% 12%,
+            rgba(150,20,25,.13) 0%,
+            rgba(80,10,15,.05) 25%,
+            transparent 48%
+        ),
+
+        radial-gradient(
+            circle at 92% 42%,
+            rgba(85,35,140,.08) 0%,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 5% 72%,
+            rgba(25,80,135,.055) 0%,
+            transparent 35%
+        ),
+
+        linear-gradient(
+            180deg,
+            #080808 0%,
+            #050505 45%,
+            #080606 100%
+        ) !important;
+
+    background-attachment:fixed;
+}
+
+/* Основной контейнер делаем прозрачным,
+   чтобы был виден новый фон */
+
+.app{
+    background:transparent !important;
+}
+
+/* Очень лёгкое красное сияние сверху */
+#home{
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(180,25,30,.055),
+            transparent 35%
+        );
+}
     
 </style>
 </head>
