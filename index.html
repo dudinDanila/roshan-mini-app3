@@ -2956,6 +2956,183 @@ body{
         0 0 10px rgba(255,40,40,.40),
         0 0 22px rgba(255,25,25,.20) !important;
 }
+
+/* ============================= */
+/* MINI GAMES HUB */
+/* ============================= */
+
+.games-hub{
+    margin-top:24px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+
+/* Карточка игры */
+
+.game-card{
+    position:relative;
+
+    min-height:94px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    padding:16px;
+
+    border-radius:22px;
+
+    border:1px solid rgba(255,65,65,.28);
+
+    background:
+        radial-gradient(
+            circle at 8% 50%,
+            rgba(255,35,35,.12),
+            transparent 42%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(26,17,19,.96),
+            rgba(11,11,13,.98)
+        );
+
+    box-shadow:
+        0 0 12px rgba(255,35,35,.09),
+        0 0 28px rgba(255,20,20,.04),
+        inset 0 0 22px rgba(255,30,30,.025);
+
+    overflow:hidden;
+
+    transition:
+        transform .15s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+/* верхний неоновый блик */
+
+.game-card::after{
+    content:"";
+
+    position:absolute;
+
+    top:-1px;
+    left:18%;
+
+    width:64%;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,55,55,.18),
+            rgba(255,95,95,.85),
+            rgba(255,55,55,.18),
+            transparent
+        );
+
+    box-shadow:
+        0 0 6px rgba(255,45,45,.55),
+        0 0 14px rgba(255,30,30,.22);
+
+    pointer-events:none;
+}
+
+
+/* эффект нажатия */
+
+.game-card:active{
+    transform:scale(.98);
+
+    border-color:rgba(255,70,70,.55);
+
+    box-shadow:
+        0 0 14px rgba(255,35,35,.20),
+        0 0 28px rgba(255,25,25,.08);
+}
+
+
+/* иконка */
+
+.game-card-icon{
+    width:60px;
+    height:60px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    font-size:29px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(105,20,22,.70),
+            rgba(42,11,13,.92)
+        );
+
+    border:1px solid rgba(255,65,65,.28);
+
+    box-shadow:
+        0 0 12px rgba(255,30,30,.15);
+}
+
+
+/* текст */
+
+.game-card-content{
+    flex:1;
+}
+
+.game-card-title{
+    font-size:17px;
+    font-weight:800;
+    color:#fff;
+}
+
+.game-card-desc{
+    margin-top:6px;
+
+    font-size:13px;
+    line-height:1.35;
+
+    color:#8d8d93;
+}
+
+
+/* стрелка */
+
+.game-card-arrow{
+    padding-left:4px;
+
+    font-size:30px;
+    line-height:1;
+
+    color:#666;
+}
+
+
+/* заблокированная карточка */
+
+.game-card-locked{
+    opacity:.45;
+
+    border-color:rgba(255,255,255,.08);
+
+    box-shadow:none;
+}
+
+.game-card-locked::after{
+    display:none;
+}
     
 </style>
 </head>
@@ -3723,19 +3900,74 @@ body{
 
     </div>
 
-    <div class="games-empty">
+    <div class="games-hub">
 
-        <div class="games-empty-icon">
-            🎮
+    <div class="game-card">
+        <div class="game-card-icon">❓</div>
+
+        <div class="game-card-content">
+            <div class="game-card-title">
+                Угадай героя
+            </div>
+
+            <div class="game-card-desc">
+                Узнай героя по силуэту
+            </div>
         </div>
 
-        <h3>Мини-игры</h3>
-
-        <p>
-            Здесь будут игры по Dota 2
-        </p>
-
+        <div class="game-card-arrow">›</div>
     </div>
+
+
+    <div class="game-card">
+        <div class="game-card-icon">🧩</div>
+
+        <div class="game-card-content">
+            <div class="game-card-title">
+                Угадай способность
+            </div>
+
+            <div class="game-card-desc">
+                Определи способность по иконке
+            </div>
+        </div>
+
+        <div class="game-card-arrow">›</div>
+    </div>
+
+
+    <div class="game-card">
+        <div class="game-card-icon">🛡️</div>
+
+        <div class="game-card-content">
+            <div class="game-card-title">
+                Угадай предмет
+            </div>
+
+            <div class="game-card-desc">
+                Узнай предмет по описанию
+            </div>
+        </div>
+
+        <div class="game-card-arrow">›</div>
+    </div>
+
+
+    <div class="game-card game-card-locked">
+        <div class="game-card-icon">🔒</div>
+
+        <div class="game-card-content">
+            <div class="game-card-title">
+                Скоро
+            </div>
+
+            <div class="game-card-desc">
+                Новая мини-игра
+            </div>
+        </div>
+    </div>
+
+</div>
 
 </section>
     
