@@ -2257,6 +2257,122 @@ button{
 
 }
 
+/* ============================= */
+/* ROSHAN NEON GLOW */
+/* ============================= */
+
+:root{
+    --neon-red:#ff2b2b;
+    --neon-red-soft:rgba(255,43,43,.35);
+    --neon-red-strong:rgba(255,43,43,.65);
+}
+
+/* Главный баннер */
+.hero-banner,
+.home-hero{
+    border:1px solid rgba(255,70,70,.35);
+    box-shadow:
+        0 0 12px rgba(255,40,40,.12),
+        0 0 28px rgba(255,30,30,.08),
+        inset 0 0 25px rgba(255,20,20,.03);
+}
+
+/* Карточки быстрого доступа */
+.quick-card{
+    position:relative;
+    overflow:hidden;
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.quick-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(255,40,40,.12),
+            transparent 45%
+        );
+}
+
+.quick-card:hover,
+.quick-card:active{
+    border-color:rgba(255,70,70,.55);
+
+    box-shadow:
+        0 0 10px rgba(255,40,40,.18),
+        0 0 22px rgba(255,30,30,.10),
+        inset 0 0 18px rgba(255,20,20,.05);
+}
+
+/* Задание дня */
+.daily-task{
+    border-color:rgba(255,70,70,.35);
+
+    box-shadow:
+        0 0 12px rgba(255,40,40,.10),
+        inset 0 0 20px rgba(255,20,20,.03);
+}
+
+/* Герой дня */
+.daily-hero{
+    border:1px solid rgba(255,65,65,.42);
+
+    box-shadow:
+        0 0 14px rgba(255,35,35,.14),
+        0 0 30px rgba(255,20,20,.07),
+        inset 0 0 25px rgba(255,20,20,.04);
+}
+
+/* Кнопка Подробнее */
+.daily-hero-btn{
+    border:1px solid rgba(255,85,85,.65);
+
+    box-shadow:
+        0 0 8px rgba(255,40,40,.25),
+        inset 0 0 10px rgba(255,30,30,.05);
+
+    transition:
+        transform .15s ease,
+        box-shadow .2s ease;
+}
+
+.daily-hero-btn:active{
+    transform:scale(.97);
+
+    box-shadow:
+        0 0 14px rgba(255,40,40,.45),
+        0 0 25px rgba(255,30,30,.18);
+}
+
+/* Кнопка "Смотреть мету" */
+.hero-button,
+.home-hero button{
+    box-shadow:
+        0 0 12px rgba(255,40,40,.35),
+        0 0 25px rgba(255,30,30,.15);
+
+    transition:
+        transform .15s ease,
+        box-shadow .2s ease;
+}
+
+.hero-button:active,
+.home-hero button:active{
+    transform:scale(.97);
+
+    box-shadow:
+        0 0 18px rgba(255,40,40,.55),
+        0 0 32px rgba(255,30,30,.20);
+}
+    
 </style>
 </head>
 
