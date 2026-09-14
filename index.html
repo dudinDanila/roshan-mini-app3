@@ -3412,32 +3412,6 @@ body{
 }
 
 
-/* Пиксельный герой до ответа */
-
-.guess-hero-image.silhouette{
-    width:36px;
-    max-width:none;
-    max-height:none;
-
-    image-rendering:pixelated;
-    image-rendering:crisp-edges;
-
-    transform:scale(9);
-
-    filter:
-        brightness(.48)
-        saturate(.55)
-        contrast(1.25);
-
-    opacity:.95;
-
-    box-shadow:
-        0 0 6px rgba(255,25,25,.10);
-
-    border-radius:3px;
-}
-
-
 /* герой после ответа */
 
 .guess-hero-image.revealed{
@@ -3570,6 +3544,71 @@ body{
 
     box-shadow:
         0 0 18px rgba(255,35,35,.22);
+}
+
+/* ============================= */
+/* GUESS HERO — CANVAS PIXEL */
+/* ============================= */
+
+.guess-silhouette-wrap{
+    position:relative;
+    width:100%;
+    min-height:245px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+}
+
+.guess-hero-canvas{
+    width:100%;
+    max-width:400px;
+    height:auto;
+
+    display:block;
+
+    border-radius:18px;
+
+    image-rendering:pixelated;
+
+    box-shadow:
+        0 0 28px rgba(255,30,30,.10);
+}
+
+.guess-hero-image{
+    width:100%;
+    max-width:400px;
+    max-height:240px;
+
+    object-fit:contain;
+
+    border-radius:18px;
+
+    display:none;
+}
+
+.guess-hero-image.revealed{
+    display:block;
+
+    width:100%;
+    max-width:400px;
+    max-height:240px;
+
+    object-fit:contain;
+
+    image-rendering:auto;
+
+    filter:none;
+    opacity:1;
+    transform:none;
+
+    border-radius:18px;
+}
+
+.guess-hero-canvas.hidden{
+    display:none;
 }
     
 </style>
@@ -4463,12 +4502,19 @@ body{
         </div>
 
         <div class="guess-silhouette-wrap">
+
+    <canvas
+        id="guessHeroCanvas"
+        class="guess-hero-canvas"
+    ></canvas>
+
     <img
         id="guessHeroImage"
-        class="guess-hero-image silhouette"
+        class="guess-hero-image"
         src=""
         alt="Hero"
     >
+
 </div>
 
     </div>
@@ -10406,6 +10452,47 @@ function restoreGuessHeroLayout(){
     }
 }
 
+function drawPixelatedHero(image, canvas){
+
+    const ctx = canvas.getContext("2d");
+
+    const sourceWidth = image.naturalWidth;
+    const sourceHeight = image.naturalHeight;
+
+    if(!sourceWidth || !sourceHeight){
+        return;
+    }
+
+    // Чем меньше число — тем крупнее пиксели
+    const pixelWidth = 18;
+
+    const ratio = sourceHeight / sourceWidth;
+
+    const pixelHeight = Math.max(
+        10,
+        Math.round(pixelWidth * ratio)
+    );
+
+    canvas.width = pixelWidth;
+    canvas.height = pixelHeight;
+
+    ctx.imageSmoothingEnabled = false;
+
+    ctx.clearRect(
+        0,
+        0,
+        pixelWidth,
+        pixelHeight
+    );
+
+    ctx.drawImage(
+        image,
+        0,
+        0,
+        pixelWidth,
+        pixelHeight
+    );
+}    
 
 /* загрузить раунд */
 
@@ -10440,24 +10527,37 @@ function loadGuessHeroRound(){
 
 
     const image =
-        document.getElementById(
-            "guessHeroImage"
+    document.getElementById(
+        "guessHeroImage"
+    );
+
+const canvas =
+    document.getElementById(
+        "guessHeroCanvas"
+    );
+
+
+if(image && canvas){
+
+    image.classList.remove(
+        "revealed"
+    );
+
+    canvas.classList.remove(
+        "hidden"
+    );
+
+    image.src =
+        guessHeroCurrent.img;
+
+    image.onload = function(){
+
+        drawPixelatedHero(
+            image,
+            canvas
         );
-
-
-    if(image){
-
-        image.classList.remove(
-            "revealed"
-        );
-
-        image.classList.add(
-            "silhouette"
-        );
-
-        image.src =
-            guessHeroCurrent.img;
-    }
+    };
+}
 
 
     /* создаём ложные ответы */
@@ -10638,21 +10738,28 @@ function answerGuessHero(button){
 
 
     const image =
-        document.getElementById(
-            "guessHeroImage"
-        );
+    document.getElementById(
+        "guessHeroImage"
+    );
+
+const canvas =
+    document.getElementById(
+        "guessHeroCanvas"
+    );
 
 
-    if(image){
+if(canvas){
+    canvas.classList.add(
+        "hidden"
+    );
+}
 
-        image.classList.remove(
-            "silhouette"
-        );
 
-        image.classList.add(
-            "revealed"
-        );
-    }
+if(image){
+    image.classList.add(
+        "revealed"
+    );
+}
 
 
     const score =
