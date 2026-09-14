@@ -3816,6 +3816,226 @@ body{
         font-size:15px;
     }
 }
+
+/* ============================= */
+/* GUESS ITEM GAME */
+/* ============================= */
+
+.item-game-screen{
+    display:none;
+    padding:0 28px 120px;
+}
+
+.item-game-screen.active{
+    display:block;
+}
+
+.item-game-header{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-top:18px;
+    margin-bottom:28px;
+}
+
+.item-back-btn{
+    width:56px;
+    height:56px;
+
+    border-radius:18px;
+    border:1px solid rgba(255,55,55,.35);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(80,15,18,.85),
+            rgba(28,10,12,.95)
+        );
+
+    color:#fff;
+    font-size:38px;
+    line-height:1;
+
+    box-shadow:
+        0 0 22px rgba(255,40,40,.10);
+
+    cursor:pointer;
+}
+
+.item-game-title{
+    font-size:28px;
+    font-weight:800;
+    color:#fff;
+}
+
+.item-game-subtitle{
+    margin-top:4px;
+    font-size:16px;
+    color:rgba(255,255,255,.52);
+}
+
+.item-score-row{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:8px;
+
+    margin-bottom:18px;
+
+    font-size:20px;
+    font-weight:700;
+}
+
+#item-score{
+    color:#ff4d57;
+}
+
+.item-image-card{
+    position:relative;
+
+    min-height:300px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:60px 24px 30px;
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,50,50,.28);
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(120,20,25,.16),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(25,12,14,.96),
+            rgba(8,8,10,.98)
+        );
+
+    box-shadow:
+        inset 0 0 30px rgba(255,35,35,.03),
+        0 0 25px rgba(255,35,35,.04);
+}
+
+.item-question-label{
+    position:absolute;
+    top:22px;
+    left:0;
+    right:0;
+
+    text-align:center;
+
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:4px;
+
+    color:rgba(255,255,255,.35);
+}
+
+.item-image{
+    width:140px;
+    height:105px;
+
+    object-fit:contain;
+
+    border-radius:16px;
+
+    box-shadow:
+        0 0 30px rgba(255,45,45,.12);
+}
+
+.item-answers{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+
+    margin-top:22px;
+}
+
+.item-answer{
+    min-height:92px;
+
+    padding:14px 12px;
+
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,.12);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22,22,24,.98),
+            rgba(11,11,13,.98)
+        );
+
+    color:#fff;
+
+    font-size:16px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        transform .2s ease;
+}
+
+.item-answer:active{
+    transform:scale(.98);
+}
+
+.item-answer.correct{
+    border-color:rgba(50,220,100,.8);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,95,45,.85),
+            rgba(8,45,20,.95)
+        );
+}
+
+.item-answer.wrong{
+    border-color:rgba(255,60,60,.85);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(100,20,25,.85),
+            rgba(50,10,12,.95)
+        );
+}
+
+@media(max-width:420px){
+
+    .item-game-screen{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .item-game-title{
+        font-size:24px;
+    }
+
+    .item-image-card{
+        min-height:270px;
+    }
+
+    .item-image{
+        width:125px;
+        height:94px;
+    }
+
+    .item-answer{
+        min-height:86px;
+        font-size:15px;
+    }
+}
     
 </style>
 </head>
@@ -4619,7 +4839,7 @@ body{
     </div>
 
 
-    <div class="game-card">
+    <div class="game-card" onclick="openItemGame()">
         <div class="game-card-icon">🛡️</div>
 
         <div class="game-card-content">
@@ -4652,6 +4872,67 @@ body{
 
 </div>
 
+<!-- ============================= -->
+<!-- GUESS ITEM GAME -->
+<!-- ============================= -->
+
+<div id="item-game" class="item-game-screen">
+
+    <div class="item-game-header">
+
+        <button
+            class="item-back-btn"
+            onclick="closeItemGame()"
+        >
+            ‹
+        </button>
+
+        <div>
+            <div class="item-game-title">
+                Угадай предмет
+            </div>
+
+            <div class="item-game-subtitle">
+                Определи предмет по иконке
+            </div>
+        </div>
+
+    </div>
+
+    <div class="item-score-row">
+        <span>Счёт</span>
+        <span id="item-score">0</span>
+    </div>
+
+    <div class="item-image-card">
+
+        <div class="item-question-label">
+            ЧТО ЭТО?
+        </div>
+
+        <img
+            id="item-image"
+            class="item-image"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+    <div id="item-answers" class="item-answers">
+
+        <button class="item-answer"></button>
+
+        <button class="item-answer"></button>
+
+        <button class="item-answer"></button>
+
+        <button class="item-answer"></button>
+
+    </div>
+
+</div>
+    
 <!-- ============================= -->
 <!-- GUESS ABILITY GAME -->
 <!-- ============================= -->
@@ -11885,6 +12166,405 @@ function selectAbilityAnswer(
         nextAbilityQuestion,
         1100
     );
+}
+
+/* ============================= */
+/* GUESS ITEM GAME */
+/* ============================= */
+
+let itemGameScore = 0;
+let currentItem = null;
+let itemGameLocked = false;
+
+const itemGameData = [
+
+    ["blink","Blink Dagger"],
+    ["overwhelming_blink","Overwhelming Blink"],
+    ["swift_blink","Swift Blink"],
+    ["arcane_blink","Arcane Blink"],
+
+    ["branches","Iron Branch"],
+    ["magic_stick","Magic Stick"],
+    ["magic_wand","Magic Wand"],
+    ["faerie_fire","Faerie Fire"],
+    ["enchanted_mango","Enchanted Mango"],
+    ["clarity","Clarity"],
+    ["flask","Healing Salve"],
+    ["tango","Tango"],
+    ["ward_observer","Observer Ward"],
+    ["ward_sentry","Sentry Ward"],
+    ["dust","Dust of Appearance"],
+    ["smoke_of_deceit","Smoke of Deceit"],
+
+    ["boots","Boots of Speed"],
+    ["phase_boots","Phase Boots"],
+    ["power_treads","Power Treads"],
+    ["tranquil_boots","Tranquil Boots"],
+    ["arcane_boots","Arcane Boots"],
+    ["travel_boots","Boots of Travel"],
+    ["guardian_greaves","Guardian Greaves"],
+
+    ["quelling_blade","Quelling Blade"],
+    ["orb_of_venom","Orb of Venom"],
+    ["blight_stone","Blight Stone"],
+    ["wind_lace","Wind Lace"],
+    ["ring_of_regen","Ring of Regen"],
+    ["sobi_mask","Sage's Mask"],
+    ["gloves","Gloves of Haste"],
+    ["cloak","Cloak"],
+
+    ["wraith_band","Wraith Band"],
+    ["null_talisman","Null Talisman"],
+    ["bracer","Bracer"],
+    ["soul_ring","Soul Ring"],
+    ["falcon_blade","Falcon Blade"],
+
+    ["hand_of_midas","Hand of Midas"],
+    ["oblivion_staff","Oblivion Staff"],
+    ["pers","Perseverance"],
+    ["power_treads","Power Treads"],
+
+    ["vanguard","Vanguard"],
+    ["crimson_guard","Crimson Guard"],
+    ["hood_of_defiance","Hood of Defiance"],
+    ["pipe","Pipe of Insight"],
+    ["eternal_shroud","Eternal Shroud"],
+    ["blade_mail","Blade Mail"],
+
+    ["energy_booster","Energy Booster"],
+    ["point_booster","Point Booster"],
+    ["vitality_booster","Vitality Booster"],
+    ["mystic_staff","Mystic Staff"],
+    ["ultimate_orb","Ultimate Orb"],
+
+    ["shadow_amulet","Shadow Amulet"],
+    ["glimmer_cape","Glimmer Cape"],
+    ["invis_sword","Shadow Blade"],
+    ["silver_edge","Silver Edge"],
+
+    ["force_staff","Force Staff"],
+    ["hurricane_pike","Hurricane Pike"],
+    ["aether_lens","Aether Lens"],
+    ["aghanims_shard","Aghanim's Shard"],
+    ["ultimate_scepter","Aghanim's Scepter"],
+
+    ["mekansm","Mekansm"],
+    ["holy_locket","Holy Locket"],
+    ["solar_crest","Solar Crest"],
+    ["pavise","Pavise"],
+
+    ["maelstrom","Maelstrom"],
+    ["mjollnir","Mjollnir"],
+    ["gleipnir","Gleipnir"],
+
+    ["bfury","Battle Fury"],
+    ["monkey_king_bar","Monkey King Bar"],
+    ["butterfly","Butterfly"],
+    ["daedalus","Daedalus"],
+    ["desolator","Desolator"],
+    ["radiance","Radiance"],
+    ["rapier","Divine Rapier"],
+
+    ["basher","Skull Basher"],
+    ["abyssal_blade","Abyssal Blade"],
+    ["heavens_halberd","Heaven's Halberd"],
+
+    ["yasha","Yasha"],
+    ["sange","Sange"],
+    ["kaya","Kaya"],
+    ["sange_and_yasha","Sange and Yasha"],
+    ["yasha_and_kaya","Yasha and Kaya"],
+    ["kaya_and_sange","Kaya and Sange"],
+    ["manta","Manta Style"],
+
+    ["black_king_bar","Black King Bar"],
+    ["sphere","Linken's Sphere"],
+    ["lotus_orb","Lotus Orb"],
+    ["aeon_disk","Aeon Disk"],
+
+    ["orchid","Orchid Malevolence"],
+    ["bloodthorn","Bloodthorn"],
+    ["sheepstick","Scythe of Vyse"],
+
+    ["dagon","Dagon"],
+    ["ethereal_blade","Ethereal Blade"],
+    ["veil_of_discord","Veil of Discord"],
+    ["shivas_guard","Shiva's Guard"],
+
+    ["heart","Heart of Tarrasque"],
+    ["satanic","Satanic"],
+    ["skadi","Eye of Skadi"],
+    ["assault","Assault Cuirass"],
+
+    ["moon_shard","Moon Shard"],
+    ["mask_of_madness","Mask of Madness"],
+    ["lifesteal","Morbid Mask"],
+    ["vladmir","Vladmir's Offering"],
+
+    ["gem","Gem of True Sight"],
+    ["bottle","Bottle"]
+]
+.map(([id,name]) => ({
+    id,
+    name,
+    image:
+        "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/" +
+        id +
+        ".png"
+}));
+
+
+function shuffleItemArray(array){
+
+    const copy = [...array];
+
+    for(let i = copy.length - 1; i > 0; i--){
+
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+        [copy[i],copy[j]] =
+            [copy[j],copy[i]];
+    }
+
+    return copy;
+}
+
+
+function openItemGame(){
+
+    const gamesHub =
+        document.querySelector(".games-hub");
+
+    const itemGame =
+        document.getElementById("item-game");
+
+    if(gamesHub){
+        gamesHub.style.display = "none";
+    }
+
+    if(itemGame){
+        itemGame.classList.add("active");
+    }
+
+    itemGameScore = 0;
+    currentItem = null;
+    itemGameLocked = false;
+
+    document.getElementById(
+        "item-score"
+    ).textContent = "0";
+
+    nextItemQuestion();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+function closeItemGame(){
+
+    const gamesHub =
+        document.querySelector(".games-hub");
+
+    const itemGame =
+        document.getElementById("item-game");
+
+    if(itemGame){
+        itemGame.classList.remove("active");
+    }
+
+    if(gamesHub){
+        gamesHub.style.display = "";
+    }
+
+    itemGameLocked = false;
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+function nextItemQuestion(){
+
+    itemGameLocked = false;
+
+    const image =
+        document.getElementById("item-image");
+
+    const buttons = [
+        ...document.querySelectorAll(
+            ".item-answer"
+        )
+    ];
+
+    buttons.forEach(button=>{
+
+        button.classList.remove(
+            "correct",
+            "wrong"
+        );
+
+        button.disabled = false;
+    });
+
+
+    let nextItem;
+
+    do{
+
+        nextItem =
+            itemGameData[
+                Math.floor(
+                    Math.random() *
+                    itemGameData.length
+                )
+            ];
+
+    }while(
+        currentItem &&
+        nextItem.id === currentItem.id
+    );
+
+
+    currentItem = nextItem;
+
+    image.src = currentItem.image;
+    image.alt = "";
+
+
+    image.onerror = ()=>{
+
+        image.onerror = null;
+
+        const index =
+            itemGameData.findIndex(
+                item =>
+                    item.id === currentItem.id
+            );
+
+        if(index !== -1){
+            itemGameData.splice(index,1);
+        }
+
+        nextItemQuestion();
+    };
+
+
+    const wrongAnswers =
+        shuffleItemArray(
+            itemGameData.filter(
+                item =>
+                    item.id !==
+                    currentItem.id &&
+                    item.name !==
+                    currentItem.name
+            )
+        )
+        .slice(0,3);
+
+
+    const answers =
+        shuffleItemArray([
+            currentItem,
+            ...wrongAnswers
+        ]);
+
+
+    buttons.forEach((button,index)=>{
+
+        const answer = answers[index];
+
+        button.textContent =
+            answer.name;
+
+        button.dataset.itemId =
+            answer.id;
+
+        button.onclick = ()=>{
+
+            selectItemAnswer(
+                button,
+                answer
+            );
+        };
+    });
+}
+
+
+function selectItemAnswer(
+    selectedButton,
+    selectedItem
+){
+
+    if(
+        itemGameLocked ||
+        !currentItem
+    ){
+        return;
+    }
+
+    itemGameLocked = true;
+
+    const buttons = [
+        ...document.querySelectorAll(
+            ".item-answer"
+        )
+    ];
+
+    const correct =
+        selectedItem.id ===
+        currentItem.id;
+
+
+    if(correct){
+
+        selectedButton.classList.add(
+            "correct"
+        );
+
+        itemGameScore++;
+
+        document.getElementById(
+            "item-score"
+        ).textContent =
+            itemGameScore;
+
+    }else{
+
+        selectedButton.classList.add(
+            "wrong"
+        );
+
+        const correctButton =
+            buttons.find(
+                button =>
+                    button.dataset.itemId ===
+                    currentItem.id
+            );
+
+        if(correctButton){
+            correctButton.classList.add(
+                "correct"
+            );
+        }
+    }
+
+
+    buttons.forEach(button=>{
+        button.disabled = true;
+    });
+
+
+    setTimeout(()=>{
+        nextItemQuestion();
+    },1100);
 }
     
 buildRoulettePreview();
