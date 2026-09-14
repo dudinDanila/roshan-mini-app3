@@ -301,27 +301,31 @@ const d2ptGuides = {
             ],
 
             talents: [
-                {
-                    level: 10,
-                    recommended: "+150 Unstable Concoction Radius",
-                    alternative: "+1% Corrosive Weaponry Slow / Damage Reduction Per Stack"
-                },
-                {
-                    level: 15,
-                    recommended: "Greevil's Greed provides +3 Damage per stack",
-                    alternative: "+1 Acid Spray Armor Reduction"
-                },
-                {
-                    level: 20,
-                    recommended: "-0.1s Chemical Rage Base Attack Time",
-                    alternative: "+400 Unstable Concoction Max Damage"
-                },
-                {
-                    level: 25,
-                    recommended: "+50 Chemical Rage Movement Speed",
-                    alternative: "+50 Chemical Rage Regeneration"
-                }
-            ]
+    {
+        level: 10,
+        left: "+150 Unstable Concoction Radius",
+        right: "+1% Corrosive Weaponry Slow / Damage Reduction Per Stack",
+        recommended: "left"
+    },
+    {
+        level: 15,
+        left: "Greevil's Greed provides +3 Damage per stack",
+        right: "+1 Acid Spray Armor Reduction",
+        recommended: "left"
+    },
+    {
+        level: 20,
+        left: "+400 Unstable Concoction Max Damage",
+        right: "-0.1s Chemical Rage Base Attack Time",
+        recommended: "right"
+    },
+    {
+        level: 25,
+        left: "+50 Chemical Rage Regeneration",
+        right: "+50 Chemical Rage Movement Speed",
+        recommended: "right"
+    }
+]
         }
     }
 },
@@ -469,27 +473,31 @@ const d2ptGuides = {
             ],
 
             talents: [
-                {
-                    level: 10,
-                    recommended: "+30 Cold Feet Damage Per Second",
-                    alternative: "+300 Chilling Touch Attack Range"
-                },
-                {
-                    level: 15,
-                    recommended: "+250 Cold Feet Break Distance",
-                    alternative: "-2s Ice Vortex Cooldown"
-                },
-                {
-                    level: 20,
-                    recommended: "+4s Ice Blast Frostbitten Duration",
-                    alternative: "+100 Chilling Touch Damage"
-                },
-                {
-                    level: 25,
-                    recommended: "450 AoE Cold Feet",
-                    alternative: "+4% Ice Blast Kill Threshold"
-                }
-            ]
+    {
+        level: 10,
+        left: "+30 Cold Feet Damage Per Second",
+        right: "+300 Chilling Touch Attack Range",
+        recommended: "left"
+    },
+    {
+        level: 15,
+        left: "+250 Cold Feet Break Distance",
+        right: "-2s Ice Vortex Cooldown",
+        recommended: "left"
+    },
+    {
+        level: 20,
+        left: "+100 Chilling Touch Damage",
+        right: "+4s Ice Blast Frostbitten Duration",
+        recommended: "right"
+    },
+    {
+        level: 25,
+        left: "+4% Ice Blast Kill Threshold",
+        right: "450 AoE Cold Feet",
+        recommended: "right"
+    }
+]
         }
     }
 },
@@ -1004,48 +1012,31 @@ const d2ptGuides = {
             ],
 
             talents: [
-
-                {
-
-                    level:10,
-
-                    recommended:"+200 Health",
-
-                    alternative:"+200 Flux Cast Range"
-
-                },
-
-                {
-
-                    level:15,
-
-                    recommended:"+25 Magnetic Field Attack Speed",
-
-                    alternative:"+20% Flux Slow"
-
-                },
-
-                {
-
-                    level:20,
-
-                    recommended:"-4s Magnetic Field Cooldown",
-
-                    alternative:"+30s Spark Wraith Duration"
-
-                },
-
-                {
-
-                    level:25,
-
-                    recommended:"+1 Runic Infusion All Attributes Bonus",
-
-                    alternative:"+240 Spark Wraith Damage"
-
-                }
-
-            ]
+    {
+        level: 10,
+        left: "+200 Health",
+        right: "+200 Flux Cast Range",
+        recommended: "left"
+    },
+    {
+        level: 15,
+        left: "+25 Magnetic Field Attack Speed",
+        right: "+20% Flux Slow",
+        recommended: "left"
+    },
+    {
+        level: 20,
+        left: "-4s Magnetic Field Cooldown",
+        right: "+30s Spark Wraith Duration",
+        recommended: "left"
+    },
+    {
+        level: 25,
+        left: "+240 Spark Wraith Damage",
+        right: "+1 Runic Infusion All Attributes Bonus",
+        recommended: "right"
+    }
+]
 
         }
 
@@ -1271,27 +1262,31 @@ const d2ptGuides = {
             ========================= */
 
             talents: [
-                {
-                    level: 10,
-                    recommended: "+8% Movement Speed per active Battle Hunger",
-                    alternative: "+3s Culling Blade Kill Buff Bonus Duration"
-                },
-                {
-                    level: 15,
-                    recommended: "+8 Battle Hunger Damage Per Second",
-                    alternative: "+10 Berserker's Call Armor"
-                },
-                {
-                    level: 20,
-                    recommended: "+40 Counter Helix Damage",
-                    alternative: "+15 Strength"
-                },
-                {
-                    level: 25,
-                    recommended: "+85 Berserker's Call AoE",
-                    alternative: "+150 Culling Blade Damage"
-                }
-            ]
+    {
+        level: 10,
+        left: "+8% Movement Speed per active Battle Hunger",
+        right: "+3s Culling Blade Kill Buff Bonus Duration",
+        recommended: "left"
+    },
+    {
+        level: 15,
+        left: "+10 Berserker's Call Armor",
+        right: "+8 Battle Hunger Damage Per Second",
+        recommended: "right"
+    },
+    {
+        level: 20,
+        left: "+40 Counter Helix Damage",
+        right: "+15 Strength",
+        recommended: "left"
+    },
+    {
+        level: 25,
+        left: "+150 Culling Blade Damage",
+        right: "+85 Berserker's Call AoE",
+        recommended: "right"
+    }
+]
         }
     }
 },
@@ -1387,48 +1382,31 @@ const d2ptGuides = {
             ],
 
             talents: [
-
-                {
-
-                    level:10,
-
-                    recommended:"+20% Enfeeble Cast Range Reduction",
-
-                    alternative:"+125 Brain Sap Cast Range"
-
-                },
-
-                {
-
-                    level:15,
-
-                    recommended:"+5% Fiend's Grip Max Mana Drain",
-
-                    alternative:"+13 Enfeeble Damage Per Second"
-
-                },
-
-                {
-
-                    level:20,
-
-                    recommended:"-3s Nightmare Cooldown",
-
-                    alternative:"+30 Movement Speed"
-
-                },
-
-                {
-
-                    level:25,
-
-                    recommended:"+3s Fiend's Grip Duration",
-
-                    alternative:"+275 Brain Sap Damage/Heal"
-
-                }
-
-            ]
+    {
+        level: 10,
+        left: "+20% Enfeeble Cast Range Reduction",
+        right: "+125 Brain Sap Cast Range",
+        recommended: "left"
+    },
+    {
+        level: 15,
+        left: "+5% Fiend's Grip Max Mana Drain",
+        right: "+13 Enfeeble Damage Per Second",
+        recommended: "left"
+    },
+    {
+        level: 20,
+        left: "+30 Movement Speed",
+        right: "-3s Nightmare Cooldown",
+        recommended: "right"
+    },
+    {
+        level: 25,
+        left: "+3s Fiend's Grip Duration",
+        right: "+275 Brain Sap Damage/Heal",
+        recommended: "left"
+    }
+]
 
         }
 
@@ -1533,48 +1511,31 @@ const d2ptGuides = {
             ],
 
             talents: [
-
-                {
-
-                    level:10,
-
-                    recommended:"+5% Firefly Max Movement Speed Bonus",
-
-                    alternative:"+1s Smoldering Resin Duration"
-
-                },
-
-                {
-
-                    level:15,
-
-                    recommended:"+30 Firefly Damage Per Second",
-
-                    alternative:"+0.75% Sticky Napalm Movement Slow"
-
-                },
-
-                {
-
-                    level:20,
-
-                    recommended:"Attacks apply 1 Stack of Sticky Napalm",
-
-                    alternative:"-6s Flamebreak Cooldown"
-
-                },
-
-                {
-
-                    level:25,
-
-                    recommended:"Flamebreak applies 4 Sticky Napalm Stacks",
-
-                    alternative:"+0.75s Flaming Lasso Duration"
-
-                }
-
-            ]
+    {
+        level: 10,
+        left: "+1s Smoldering Resin Duration",
+        right: "+5% Firefly Max Movement Speed Bonus",
+        recommended: "right"
+    },
+    {
+        level: 15,
+        left: "+0.75% Sticky Napalm Movement Slow",
+        right: "+30 Firefly Damage Per Second",
+        recommended: "right"
+    },
+    {
+        level: 20,
+        left: "-6s Flamebreak Cooldown",
+        right: "Attacks apply 1 Stack of Sticky Napalm",
+        recommended: "right"
+    },
+    {
+        level: 25,
+        left: "Flamebreak applies 4 Sticky Napalm Stacks",
+        right: "+0.75s Flaming Lasso Duration",
+        recommended: "left"
+    }
+]
 
         }
 
