@@ -114,7 +114,104 @@ const d2ptGuides = {
     }
 },
     "ARC WARDEN": {},
-    "AXE": {},
+    "AXE": {
+    patch: "7.41e",
+
+    builds: {
+        offlane: {
+            role: "Offlane",
+
+            items: [
+                {
+                    name: "Bracer",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bracer.png"
+                },
+                {
+                    name: "Phase Boots",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/phase_boots.png"
+                },
+                {
+                    name: "Magic Wand",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"
+                },
+                {
+                    name: "Blade Mail",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blade_mail.png"
+                },
+                {
+                    name: "Blink Dagger",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"
+                },
+                {
+                    name: "Black King Bar",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"
+                },
+                {
+                    name: "Aghanim's Shard",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"
+                },
+                {
+                    name: "Lotus Orb",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png"
+                },
+                {
+                    name: "Shiva's Guard",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png"
+                }
+            ],
+
+            skills: [
+                {
+                    name: "Battle Hunger",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_battle_hunger.png"
+                },
+                {
+                    name: "Counter Helix",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_counter_helix.png"
+                },
+                {
+                    name: "Counter Helix",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_counter_helix.png"
+                },
+                {
+                    name: "Berserker's Call",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_berserkers_call.png"
+                },
+                {
+                    name: "Counter Helix",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_counter_helix.png"
+                },
+                {
+                    name: "Culling Blade",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_culling_blade.png"
+                },
+                {
+                    name: "Counter Helix",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_counter_helix.png"
+                },
+                {
+                    name: "Berserker's Call",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_berserkers_call.png"
+                },
+                {
+                    name: "Berserker's Call",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_berserkers_call.png"
+                },
+                {
+                    name: "Berserker's Call",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_berserkers_call.png"
+                }
+            ],
+
+            talents: [
+                [10, "+8% Movement Speed per active Battle Hunger"],
+                [15, "+8 Battle Hunger Damage Per Second"],
+                [20, "+40 Counter Helix Damage"],
+                [25, "+85 Berserker's Call AoE"]
+            ]
+        }
+    }
+},
 
     "BANE": {},
     "BATRIDER": {},
