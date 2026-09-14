@@ -3387,6 +3387,7 @@ body{
     justify-content:center;
 
     padding:25px 15px 5px;
+    overflow:hidden;
 }
 
 
@@ -3411,30 +3412,50 @@ body{
 }
 
 
-/* затемнённый герой */
+/* Пиксельный герой до ответа */
 
 .guess-hero-image.silhouette{
+    width:56px;
+    max-width:none;
+    max-height:none;
+
+    image-rendering:pixelated;
+    image-rendering:crisp-edges;
+
+    transform:scale(6);
+
     filter:
-        brightness(0)
-        contrast(2);
+        brightness(.60)
+        saturate(.65)
+        contrast(1.15);
 
-    opacity:.92;
-
-    transform:scale(.96);
+    opacity:.95;
 
     box-shadow:
-        0 0 35px rgba(255,25,25,.16);
+        0 0 6px rgba(255,25,25,.10);
+
+    border-radius:3px;
 }
 
 
 /* герой после ответа */
 
 .guess-hero-image.revealed{
+    width:100%;
+    max-width:400px;
+    max-height:240px;
+
+    object-fit:contain;
+
+    image-rendering:auto;
+
     filter:none;
 
     opacity:1;
 
     transform:scale(1);
+
+    border-radius:18px;
 
     box-shadow:
         0 0 25px rgba(255,45,45,.12);
