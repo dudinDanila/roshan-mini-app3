@@ -3373,6 +3373,183 @@ body{
     border-color:
         rgba(255,60,60,.45);
 }
+
+/* ============================= */
+/* GUESS HERO — GAME STATES */
+/* ============================= */
+
+.guess-silhouette-wrap{
+    width:100%;
+    min-height:245px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:25px 15px 5px;
+}
+
+
+/* изображение героя */
+
+.guess-hero-image{
+    width:100%;
+    max-width:400px;
+    max-height:240px;
+
+    object-fit:contain;
+
+    border-radius:18px;
+
+    transition:
+        filter .35s ease,
+        opacity .35s ease,
+        transform .35s ease;
+
+    user-select:none;
+    -webkit-user-drag:none;
+}
+
+
+/* затемнённый герой */
+
+.guess-hero-image.silhouette{
+    filter:
+        brightness(0)
+        contrast(2);
+
+    opacity:.92;
+
+    transform:scale(.96);
+
+    box-shadow:
+        0 0 35px rgba(255,25,25,.16);
+}
+
+
+/* герой после ответа */
+
+.guess-hero-image.revealed{
+    filter:none;
+
+    opacity:1;
+
+    transform:scale(1);
+
+    box-shadow:
+        0 0 25px rgba(255,45,45,.12);
+}
+
+
+/* правильный ответ */
+
+.guess-answer.correct{
+    border-color:rgba(60,220,110,.75) !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25,100,50,.75),
+            rgba(10,45,25,.95)
+        ) !important;
+
+    box-shadow:
+        0 0 18px rgba(45,220,100,.20);
+}
+
+
+/* неправильный */
+
+.guess-answer.wrong{
+    border-color:rgba(255,55,55,.75) !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(120,25,30,.80),
+            rgba(55,12,15,.95)
+        ) !important;
+
+    box-shadow:
+        0 0 18px rgba(255,40,40,.20);
+}
+
+
+/* пока выбран ответ */
+
+.guess-answer:disabled{
+    opacity:1;
+}
+
+
+/* финальный результат */
+
+.guess-result{
+    text-align:center;
+
+    padding:50px 20px;
+
+    border:1px solid rgba(255,60,60,.30);
+    border-radius:24px;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(160,25,30,.18),
+            transparent 45%
+        ),
+        #0d0d0f;
+}
+
+.guess-result-icon{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.guess-result-title{
+    font-size:26px;
+    font-weight:900;
+}
+
+.guess-result-score{
+    margin-top:10px;
+
+    font-size:18px;
+    color:#ff5757;
+    font-weight:800;
+}
+
+.guess-result-best{
+    margin-top:7px;
+
+    font-size:13px;
+    color:#777;
+}
+
+.guess-restart-btn{
+    margin-top:25px;
+
+    width:100%;
+    min-height:54px;
+
+    border:none;
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e33434,
+            #94171b
+        );
+
+    color:#fff;
+
+    font-size:15px;
+    font-weight:900;
+
+    box-shadow:
+        0 0 18px rgba(255,35,35,.22);
+}
     
 </style>
 </head>
@@ -4265,31 +4442,40 @@ body{
         </div>
 
         <div class="guess-silhouette-wrap">
-            <div class="guess-placeholder">?</div>
-        </div>
+    <img
+        id="guessHeroImage"
+        class="guess-hero-image silhouette"
+        src=""
+        alt="Hero"
+    >
+</div>
 
     </div>
 
 
     <div class="guess-answers">
 
-        <button class="guess-answer">
-            Вариант 1
-        </button>
+    <button
+        class="guess-answer"
+        onclick="answerGuessHero(this)"
+    ></button>
 
-        <button class="guess-answer">
-            Вариант 2
-        </button>
+    <button
+        class="guess-answer"
+        onclick="answerGuessHero(this)"
+    ></button>
 
-        <button class="guess-answer">
-            Вариант 3
-        </button>
+    <button
+        class="guess-answer"
+        onclick="answerGuessHero(this)"
+    ></button>
 
-        <button class="guess-answer">
-            Вариант 4
-        </button>
+    <button
+        class="guess-answer"
+        onclick="answerGuessHero(this)"
+    ></button>
 
-    </div>
+</div>
 
 </div>
     
@@ -10072,6 +10258,19 @@ document.addEventListener(
 /* GUESS HERO GAME */
 /* ============================= */
 
+let guessHeroRound = 1;
+let guessHeroScore = 0;
+
+let guessHeroCurrent = null;
+let guessHeroLocked = false;
+
+let guessHeroUsed = [];
+
+const GUESS_HERO_MAX_ROUNDS = 10;
+
+
+/* открыть игру */
+
 function openGuessHeroGame(){
 
     const hub =
@@ -10080,13 +10279,14 @@ function openGuessHeroGame(){
     const game =
         document.getElementById("guessHeroGame");
 
-    if(hub){
-        hub.style.display = "none";
+    if(!hub || !game){
+        return;
     }
 
-    if(game){
-        game.classList.add("active");
-    }
+    hub.style.display = "none";
+    game.classList.add("active");
+
+    startGuessHeroGame();
 
     window.scrollTo({
         top:0,
@@ -10094,6 +10294,8 @@ function openGuessHeroGame(){
     });
 }
 
+
+/* закрыть игру */
 
 function closeGuessHeroGame(){
 
@@ -10115,6 +10317,482 @@ function closeGuessHeroGame(){
         top:0,
         behavior:"smooth"
     });
+}
+
+
+/* новая игра */
+
+function startGuessHeroGame(){
+
+    guessHeroRound = 1;
+    guessHeroScore = 0;
+
+    guessHeroCurrent = null;
+    guessHeroLocked = false;
+
+    guessHeroUsed = [];
+
+    restoreGuessHeroLayout();
+
+    loadGuessHeroRound();
+}
+
+
+/* вернуть обычный экран после результата */
+
+function restoreGuessHeroLayout(){
+
+    const game =
+        document.getElementById("guessHeroGame");
+
+    if(!game){
+        return;
+    }
+
+    const result =
+        game.querySelector(".guess-result");
+
+    if(result){
+        result.remove();
+    }
+
+    const scoreRow =
+        game.querySelector(".guess-score-row");
+
+    const progress =
+        game.querySelector(".guess-progress");
+
+    const character =
+        game.querySelector(".guess-character-card");
+
+    const answers =
+        game.querySelector(".guess-answers");
+
+    if(scoreRow){
+        scoreRow.style.display = "";
+    }
+
+    if(progress){
+        progress.style.display = "";
+    }
+
+    if(character){
+        character.style.display = "";
+    }
+
+    if(answers){
+        answers.style.display = "";
+    }
+}
+
+
+/* загрузить раунд */
+
+function loadGuessHeroRound(){
+
+    guessHeroLocked = false;
+
+    const available =
+        heroes.filter(hero =>
+            !guessHeroUsed.includes(hero.name)
+        );
+
+
+    if(!available.length){
+        finishGuessHeroGame();
+        return;
+    }
+
+
+    guessHeroCurrent =
+        available[
+            Math.floor(
+                Math.random() *
+                available.length
+            )
+        ];
+
+
+    guessHeroUsed.push(
+        guessHeroCurrent.name
+    );
+
+
+    const image =
+        document.getElementById(
+            "guessHeroImage"
+        );
+
+
+    if(image){
+
+        image.classList.remove(
+            "revealed"
+        );
+
+        image.classList.add(
+            "silhouette"
+        );
+
+        image.src =
+            guessHeroCurrent.img;
+    }
+
+
+    /* создаём ложные ответы */
+
+    const wrongHeroes =
+        heroes
+            .filter(
+                hero =>
+                    hero.name !==
+                    guessHeroCurrent.name
+            )
+            .sort(
+                () =>
+                    Math.random() - .5
+            )
+            .slice(0,3);
+
+
+    const options = [
+        guessHeroCurrent,
+        ...wrongHeroes
+    ]
+        .sort(
+            () =>
+                Math.random() - .5
+        );
+
+
+    const buttons =
+        document.querySelectorAll(
+            "#guessHeroGame .guess-answer"
+        );
+
+
+    buttons.forEach(
+        (button,index)=>{
+
+            const hero =
+                options[index];
+
+            button.textContent =
+                hero.name;
+
+            button.dataset.hero =
+                hero.name;
+
+            button.disabled = false;
+
+            button.classList.remove(
+                "correct",
+                "wrong"
+            );
+        }
+    );
+
+
+    updateGuessHeroUI();
+}
+
+
+/* обновить счёт */
+
+function updateGuessHeroUI(){
+
+    const round =
+        document.getElementById(
+            "guessRound"
+        );
+
+    const score =
+        document.getElementById(
+            "guessScore"
+        );
+
+    const progress =
+        document.getElementById(
+            "guessProgressBar"
+        );
+
+
+    if(round){
+        round.textContent =
+            guessHeroRound;
+    }
+
+
+    if(score){
+        score.textContent =
+            guessHeroScore;
+    }
+
+
+    if(progress){
+
+        progress.style.width =
+            (
+                guessHeroRound /
+                GUESS_HERO_MAX_ROUNDS *
+                100
+            ) + "%";
+    }
+}
+
+
+/* ответ */
+
+function answerGuessHero(button){
+
+    if(
+        guessHeroLocked ||
+        !guessHeroCurrent
+    ){
+        return;
+    }
+
+
+    guessHeroLocked = true;
+
+
+    const selected =
+        button.dataset.hero;
+
+
+    const buttons =
+        document.querySelectorAll(
+            "#guessHeroGame .guess-answer"
+        );
+
+
+    buttons.forEach(btn=>{
+
+        btn.disabled = true;
+
+        if(
+            btn.dataset.hero ===
+            guessHeroCurrent.name
+        ){
+            btn.classList.add(
+                "correct"
+            );
+        }
+    });
+
+
+    if(
+        selected ===
+        guessHeroCurrent.name
+    ){
+
+        guessHeroScore++;
+
+        if(
+            tg &&
+            tg.HapticFeedback
+        ){
+            tg.HapticFeedback
+                .notificationOccurred(
+                    "success"
+                );
+        }
+
+    }else{
+
+        button.classList.add(
+            "wrong"
+        );
+
+        if(
+            tg &&
+            tg.HapticFeedback
+        ){
+            tg.HapticFeedback
+                .notificationOccurred(
+                    "error"
+                );
+        }
+    }
+
+
+    const image =
+        document.getElementById(
+            "guessHeroImage"
+        );
+
+
+    if(image){
+
+        image.classList.remove(
+            "silhouette"
+        );
+
+        image.classList.add(
+            "revealed"
+        );
+    }
+
+
+    const score =
+        document.getElementById(
+            "guessScore"
+        );
+
+    if(score){
+        score.textContent =
+            guessHeroScore;
+    }
+
+
+    setTimeout(()=>{
+
+        if(
+            guessHeroRound >=
+            GUESS_HERO_MAX_ROUNDS
+        ){
+
+            finishGuessHeroGame();
+
+        }else{
+
+            guessHeroRound++;
+
+            loadGuessHeroRound();
+        }
+
+    },1200);
+}
+
+
+/* конец игры */
+
+function finishGuessHeroGame(){
+
+    const game =
+        document.getElementById(
+            "guessHeroGame"
+        );
+
+
+    if(!game){
+        return;
+    }
+
+
+    const scoreRow =
+        game.querySelector(
+            ".guess-score-row"
+        );
+
+    const progress =
+        game.querySelector(
+            ".guess-progress"
+        );
+
+    const character =
+        game.querySelector(
+            ".guess-character-card"
+        );
+
+    const answers =
+        game.querySelector(
+            ".guess-answers"
+        );
+
+
+    if(scoreRow){
+        scoreRow.style.display =
+            "none";
+    }
+
+    if(progress){
+        progress.style.display =
+            "none";
+    }
+
+    if(character){
+        character.style.display =
+            "none";
+    }
+
+    if(answers){
+        answers.style.display =
+            "none";
+    }
+
+
+    let best =
+        Number(
+            localStorage.getItem(
+                "roshanGuessHeroBest"
+            ) || 0
+        );
+
+
+    if(guessHeroScore > best){
+
+        best =
+            guessHeroScore;
+
+        localStorage.setItem(
+            "roshanGuessHeroBest",
+            best
+        );
+    }
+
+
+    const result =
+        document.createElement(
+            "div"
+        );
+
+    result.className =
+        "guess-result";
+
+
+    let icon = "🎮";
+
+    if(guessHeroScore >= 9){
+        icon = "🏆";
+    }
+    else if(guessHeroScore >= 7){
+        icon = "🔥";
+    }
+    else if(guessHeroScore >= 5){
+        icon = "⚔️";
+    }
+
+
+    result.innerHTML = `
+        <div class="guess-result-icon">
+            ${icon}
+        </div>
+
+        <div class="guess-result-title">
+            Игра окончена
+        </div>
+
+        <div class="guess-result-score">
+            ${guessHeroScore} / ${GUESS_HERO_MAX_ROUNDS}
+        </div>
+
+        <div class="guess-result-best">
+            Лучший результат: ${best}/10
+        </div>
+
+        <button
+            class="guess-restart-btn"
+            onclick="startGuessHeroGame()"
+        >
+            Играть ещё
+        </button>
+    `;
+
+
+    game.appendChild(
+        result
+    );
 }
     
 buildRoulettePreview();
