@@ -5004,7 +5004,7 @@ const d2ptGuides = {
 
     }
 
-};
+},
 
     "LEGION COMMANDER": {
 
