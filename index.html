@@ -9660,44 +9660,189 @@ else{
         );
 
 
-    /* =====================================
-       ITEMS
-    ===================================== */
+    /* =========================================================
+   ITEMS
+========================================================= */
 
-    items.innerHTML = "";
+items.innerHTML = "";
+
+
+function renderGuideItemSection(title, itemList){
 
     if(
-        guide.items &&
-        guide.items.length
+        !itemList ||
+        !itemList.length
     ){
-
-        guide.items.forEach(
-            item=>{
-
-                const element =
-                    document.createElement(
-                        "div"
-                    );
-
-                element.className =
-                    "guide-item";
-
-                element.textContent =
-                    item;
-
-                items.appendChild(
-                    element
-                );
-
-            }
-        );
-
-    }else{
-
-        items.innerHTML =
-            '<div class="guide-item">Нет данных о предметах</div>';
-
+        return;
     }
+
+
+    const section =
+        document.createElement("div");
+
+    section.style.width = "100%";
+    section.style.marginBottom = "14px";
+
+
+    const sectionTitle =
+        document.createElement("div");
+
+    sectionTitle.textContent =
+        title;
+
+    sectionTitle.style.fontSize = "11px";
+    sectionTitle.style.fontWeight = "800";
+    sectionTitle.style.color = "#8f8f8f";
+    sectionTitle.style.marginBottom = "8px";
+    sectionTitle.style.textTransform = "uppercase";
+
+
+    const itemGrid =
+        document.createElement("div");
+
+    itemGrid.style.display = "grid";
+    itemGrid.style.gridTemplateColumns =
+        "repeat(3, 1fr)";
+    itemGrid.style.gap = "7px";
+
+
+    itemList.forEach(item=>{
+
+        const element =
+            document.createElement("div");
+
+        element.className =
+            "guide-item";
+
+        element.style.display = "flex";
+        element.style.flexDirection = "column";
+        element.style.alignItems = "center";
+        element.style.justifyContent = "center";
+        element.style.gap = "6px";
+        element.style.minHeight = "66px";
+
+
+        if(
+            typeof item === "object" &&
+            item !== null
+        ){
+
+            element.innerHTML = `
+                <img
+                    src="${item.icon}"
+                    alt="${item.name}"
+                    style="
+                        width:48px;
+                        height:34px;
+                        object-fit:cover;
+                        border-radius:6px;
+                        display:block;
+                    "
+                >
+
+                <div
+                    style="
+                        text-align:center;
+                        font-size:9px;
+                        line-height:1.15;
+                    "
+                >
+                    ${item.name}
+                </div>
+            `;
+
+        }else{
+
+            element.textContent =
+                item;
+        }
+
+
+        itemGrid.appendChild(
+            element
+        );
+    });
+
+
+    section.appendChild(
+        sectionTitle
+    );
+
+    section.appendChild(
+        itemGrid
+    );
+
+    items.appendChild(
+        section
+    );
+}
+
+
+/* FULL GUIDE FORMAT */
+
+if(
+    guide.startingItems ||
+    guide.earlyItems ||
+    guide.coreItems ||
+    guide.situationalItems ||
+    guide.lateItems
+){
+
+    renderGuideItemSection(
+        "Стартовый закуп",
+        guide.startingItems
+    );
+
+
+    renderGuideItemSection(
+        "Ранняя игра",
+        guide.earlyItems
+    );
+
+
+    renderGuideItemSection(
+        "Основная сборка",
+        guide.coreItems
+    );
+
+
+    renderGuideItemSection(
+        "Ситуативные",
+        guide.situationalItems
+    );
+
+
+    renderGuideItemSection(
+        "Лейт",
+        guide.lateItems
+    );
+
+}
+
+
+/* OLD GUIDE FORMAT */
+
+else if(
+    guide.items &&
+    guide.items.length
+){
+
+    renderGuideItemSection(
+        "Предметы",
+        guide.items
+    );
+
+}
+
+
+/* NO DATA */
+
+else{
+
+    items.innerHTML =
+        '<div class="guide-item">Нет данных о предметах</div>';
+
+}
 
 
     /* =====================================
