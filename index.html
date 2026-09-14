@@ -2464,9 +2464,12 @@ button{
                 Support • Offlane
             </div>
 
-            <button class="daily-hero-btn" id="dailyHeroButton">
-                Подробнее →
-            </button>
+            <button
+    class="daily-hero-btn"
+    id="dailyHeroButton"
+>
+    Подробнее →
+</button>
         </div>
 
     </div>
@@ -4249,7 +4252,9 @@ function renderDailyHero(){
 
     const image = document.getElementById("dailyHeroImage");
     const name = document.getElementById("dailyHeroName");
-
+    const role = document.getElementById("dailyHeroRole");
+const button = document.getElementById("dailyHeroButton");
+    
     if(image){
         image.src = hero.img;
         image.alt = hero.name;
@@ -4258,8 +4263,35 @@ function renderDailyHero(){
     if(name){
         name.textContent = hero.name;
     }
+
+    const dailyHeroRoles = {
+        "HUSKAR":"Mid • Carry",
+        "PUDGE":"Support • Offlane",
+        "AXE":"Offlane",
+        "ANTI-MAGE":"Carry",
+        "DROW RANGER":"Carry",
+        "INVOKER":"Mid",
+        "WRAITH KING":"Carry",
+        "ZEUS":"Mid • Support",
+        "WITCH DOCTOR":"Support",
+        "ABADDON":"Support • Offlane",
+        "ALCHEMIST":"Carry • Mid",
+        "ANCIENT APPARITION":"Support",
+        "ARC WARDEN":"Carry • Mid"
+    };
+
+    if(role){
+        role.textContent =
+            dailyHeroRoles[hero.name] || "Dota 2 Hero";
+    }
+    if(button){
+    button.onclick = () => {
+        if(typeof openHero === "function"){
+            openHero(hero);
+        }
+    };
 }
-    
+}    
 const sortedHeroes =
     [...heroes].sort(
         (a,b)=>
