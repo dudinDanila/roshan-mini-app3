@@ -232,34 +232,100 @@ button{
 
 .quick-card{
     position:relative;
-    min-height:115px;
-    padding:17px;
-    border-radius:17px;
-    background:#111;
-    border:1px solid #282828;
+    min-height:122px;
+    padding:18px;
+
+    border-radius:18px;
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(120,20,20,.16),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            #151515,
+            #101010
+        );
+
+    border:1px solid #2f2f2f;
+
     overflow:hidden;
     text-align:left;
     color:white;
+
+    transition:
+        transform .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease;
+}
+
+.quick-card::after{
+    content:"›";
+
+    position:absolute;
+    right:16px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:30px;
+    font-weight:300;
+
+    color:#555;
+
+    transition:
+        transform .18s ease,
+        color .18s ease;
 }
 
 .quick-card:active{
-    transform:scale(.98);
+    transform:scale(.97);
+
+    border-color:#5a2525;
+
+    box-shadow:
+        0 0 18px rgba(160,25,25,.15);
+}
+
+.quick-card:active::after{
+    transform:
+        translateY(-50%)
+        translateX(3px);
+
+    color:#d84b4b;
 }
 
 .quick-icon{
-    font-size:27px;
-    margin-bottom:12px;
+    font-size:29px;
+    margin-bottom:14px;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,255,255,.05)
+        );
 }
 
 .quick-card h3{
     margin:0 0 5px;
-    font-size:15px;
+
+    font-size:16px;
+    font-weight:800;
+
+    letter-spacing:.1px;
 }
 
 .quick-card p{
     margin:0;
-    color:#777;
+
+    max-width:80%;
+
+    color:#828282;
+
     font-size:11px;
+    line-height:1.35;
 }
 
 /* ================================================= */
