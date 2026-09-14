@@ -8,9 +8,491 @@ const D2PT_PATCH = "7.41e";
 
 const d2ptGuides = {
 
-    "ABADDON": {},
-    "ALCHEMIST": {},
-    "ANCIENT APPARITION": {},
+   "ABADDON": {
+    patch: "7.41e",
+
+    builds: {
+
+        hardSupport: {
+
+            role: "Hard Support",
+
+            startingItems: [
+                {
+                    name: "Tango",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"
+                },
+                {
+                    name: "Blood Grenade",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"
+                },
+                {
+                    name: "Magic Stick",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"
+                },
+                {
+                    name: "Iron Branch",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"
+                },
+                {
+                    name: "Iron Branch",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"
+                }
+            ],
+
+            earlyItems: [
+                {
+                    name: "Magic Wand",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"
+                },
+                {
+                    name: "Arcane Boots",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"
+                }
+            ],
+
+            coreItems: [
+                {
+                    name: "Holy Locket",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/holy_locket.png"
+                },
+                {
+                    name: "Aghanim's Shard",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"
+                },
+                {
+                    name: "Glimmer Cape",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"
+                }
+            ],
+
+            situationalItems: [
+                {
+                    name: "Force Staff",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"
+                },
+                {
+                    name: "Solar Crest",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/solar_crest.png"
+                },
+                {
+                    name: "Lotus Orb",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png"
+                },
+                {
+                    name: "Pipe of Insight",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/pipe.png"
+                }
+            ],
+
+            lateItems: [
+                {
+                    name: "Aghanim's Scepter",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png"
+                },
+                {
+                    name: "Guardian Greaves",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/guardian_greaves.png"
+                }
+            ],
+
+            skills: [
+                {
+                    level: 1,
+                    name: "Aphotic Shield",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_aphotic_shield.png"
+                },
+                {
+                    level: 2,
+                    name: "Mist Coil",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_death_coil.png"
+                },
+                {
+                    level: 3,
+                    name: "Aphotic Shield",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_aphotic_shield.png"
+                },
+                {
+                    level: 4,
+                    name: "Mist Coil",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_death_coil.png"
+                },
+                {
+                    level: 5,
+                    name: "Aphotic Shield",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_aphotic_shield.png"
+                },
+                {
+                    level: 6,
+                    name: "Borrowed Time",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_borrowed_time.png"
+                },
+                {
+                    level: 7,
+                    name: "Aphotic Shield",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_aphotic_shield.png"
+                },
+                {
+                    level: 8,
+                    name: "Mist Coil",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_death_coil.png"
+                },
+                {
+                    level: 9,
+                    name: "Mist Coil",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_death_coil.png"
+                },
+                {
+                    level: 10,
+                    name: "Curse of Avernus",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_frostmourne.png"
+                }
+            ],
+
+            talents: []
+        }
+    }
+},
+
+
+"ALCHEMIST": {
+    patch: "7.41e",
+
+    builds: {
+
+        carry: {
+
+            role: "Carry",
+
+            startingItems: [
+                {
+                    name: "Tango",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"
+                },
+                {
+                    name: "Quelling Blade",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/quelling_blade.png"
+                },
+                {
+                    name: "Gauntlets of Strength",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gauntlets.png"
+                },
+                {
+                    name: "Iron Branch",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"
+                }
+            ],
+
+            earlyItems: [
+                {
+                    name: "Magic Wand",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"
+                },
+                {
+                    name: "Phase Boots",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/phase_boots.png"
+                },
+                {
+                    name: "Soul Ring",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/soul_ring.png"
+                }
+            ],
+
+            coreItems: [
+                {
+                    name: "Radiance",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/radiance.png"
+                },
+                {
+                    name: "Blink Dagger",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"
+                },
+                {
+                    name: "Black King Bar",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"
+                },
+                {
+                    name: "Assault Cuirass",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/assault.png"
+                }
+            ],
+
+            situationalItems: [
+                {
+                    name: "Skull Basher",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png"
+                },
+                {
+                    name: "Abyssal Blade",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png"
+                },
+                {
+                    name: "Manta Style",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/manta.png"
+                },
+                {
+                    name: "Sange and Yasha",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sange_and_yasha.png"
+                }
+            ],
+
+            lateItems: [
+                {
+                    name: "Overwhelming Blink",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/overwhelming_blink.png"
+                },
+                {
+                    name: "Moon Shard",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/moon_shard.png"
+                }
+            ],
+
+            skills: [
+                {
+                    level: 1,
+                    name: "Unstable Concoction",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_unstable_concoction.png"
+                },
+                {
+                    level: 2,
+                    name: "Acid Spray",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_acid_spray.png"
+                },
+                {
+                    level: 3,
+                    name: "Acid Spray",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_acid_spray.png"
+                },
+                {
+                    level: 4,
+                    name: "Unstable Concoction",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_unstable_concoction.png"
+                },
+                {
+                    level: 5,
+                    name: "Acid Spray",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_acid_spray.png"
+                },
+                {
+                    level: 6,
+                    name: "Chemical Rage",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png"
+                },
+                {
+                    level: 7,
+                    name: "Acid Spray",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_acid_spray.png"
+                },
+                {
+                    level: 8,
+                    name: "Unstable Concoction",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_unstable_concoction.png"
+                },
+                {
+                    level: 9,
+                    name: "Unstable Concoction",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_unstable_concoction.png"
+                },
+                {
+                    level: 10,
+                    name: "Corrosive Weaponry",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_corrosive_weaponry.png"
+                }
+            ],
+
+            talents: [
+                {
+                    level: 10,
+                    recommended: "+150 Unstable Concoction Radius",
+                    alternative: "+1% Corrosive Weaponry Slow / Damage Reduction Per Stack"
+                },
+                {
+                    level: 15,
+                    recommended: "Greevil's Greed provides +3 Damage per stack",
+                    alternative: "+1 Acid Spray Armor Reduction"
+                },
+                {
+                    level: 20,
+                    recommended: "-0.1s Chemical Rage Base Attack Time",
+                    alternative: "+400 Unstable Concoction Max Damage"
+                },
+                {
+                    level: 25,
+                    recommended: "+50 Chemical Rage Movement Speed",
+                    alternative: "+50 Chemical Rage Regeneration"
+                }
+            ]
+        }
+    }
+},
+
+
+"ANCIENT APPARITION": {
+    patch: "7.41e",
+
+    builds: {
+
+        hardSupport: {
+
+            role: "Hard Support",
+
+            startingItems: [
+                {
+                    name: "Tango",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png"
+                },
+                {
+                    name: "Blood Grenade",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blood_grenade.png"
+                },
+                {
+                    name: "Magic Stick",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png"
+                },
+                {
+                    name: "Iron Branch",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png"
+                }
+            ],
+
+            earlyItems: [
+                {
+                    name: "Magic Wand",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png"
+                },
+                {
+                    name: "Arcane Boots",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/arcane_boots.png"
+                }
+            ],
+
+            coreItems: [
+                {
+                    name: "Aghanim's Shard",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png"
+                },
+                {
+                    name: "Glimmer Cape",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/glimmer_cape.png"
+                },
+                {
+                    name: "Force Staff",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/force_staff.png"
+                }
+            ],
+
+            situationalItems: [
+                {
+                    name: "Rod of Atos",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/rod_of_atos.png"
+                },
+                {
+                    name: "Eul's Scepter of Divinity",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/euls.png"
+                },
+                {
+                    name: "Blink Dagger",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png"
+                },
+                {
+                    name: "Aeon Disk",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aeon_disk.png"
+                },
+                {
+                    name: "Lotus Orb",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png"
+                }
+            ],
+
+            lateItems: [
+                {
+                    name: "Scythe of Vyse",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png"
+                },
+                {
+                    name: "Octarine Core",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/octarine_core.png"
+                }
+            ],
+
+            skills: [
+                {
+                    level: 1,
+                    name: "Chilling Touch",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ancient_apparition_chilling_touch.png"
+                },
+                {
+                    level: 2,
+                    name: "Cold Feet",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ancient_apparition_cold_feet.png"
+                },
+                {
+                    level: 3,
+                    name: "Ice Vortex",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ancient_apparition_ice_vortex.png"
+                },
+                {
+                    level: 4,
+                    name: "Ice Vortex",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ancient_apparition_ice_vortex.png"
+                },
+                {
+                    level: 5,
+                    name: "Ice Vortex",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ancient_apparition_ice_vortex.png"
+                },
+                {
+                    level: 6,
+                    name: "Ice Blast",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ancient_apparition_ice_blast.png"
+                },
+                {
+                    level: 7,
+                    name: "Ice Vortex",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ancient_apparition_ice_vortex.png"
+                },
+                {
+                    level: 8,
+                    name: "Cold Feet",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ancient_apparition_cold_feet.png"
+                },
+                {
+                    level: 9,
+                    name: "Cold Feet",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ancient_apparition_cold_feet.png"
+                },
+                {
+                    level: 10,
+                    name: "Cold Feet",
+                    icon: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ancient_apparition_cold_feet.png"
+                }
+            ],
+
+            talents: [
+                {
+                    level: 10,
+                    recommended: "+30 Cold Feet Damage Per Second",
+                    alternative: "+300 Chilling Touch Attack Range"
+                },
+                {
+                    level: 15,
+                    recommended: "+250 Cold Feet Break Distance",
+                    alternative: "-2s Ice Vortex Cooldown"
+                },
+                {
+                    level: 20,
+                    recommended: "+4s Ice Blast Frostbitten Duration",
+                    alternative: "+100 Chilling Touch Damage"
+                },
+                {
+                    level: 25,
+                    recommended: "450 AoE Cold Feet",
+                    alternative: "+4% Ice Blast Kill Threshold"
+                }
+            ]
+        }
+    }
+},
     "ANTI-MAGE": {
     patch: "7.41e",
 
