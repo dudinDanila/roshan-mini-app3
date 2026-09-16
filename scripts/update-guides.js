@@ -620,6 +620,11 @@ for (
         of candidates
     ) {
 
+const currentRank =
+    abilityRanks.get(
+        row.abilityId
+    ) || 0;
+        
         const abilityName =
     abilityIdToName.get(
         row.abilityId
