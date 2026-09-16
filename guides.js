@@ -77,57 +77,84 @@ function getDotaItem(itemId) {
 }
 
 let dotaAbilities = {};
+let dotaAbilityIds = {};
 
 async function loadDotaAbilities() {
     try {
-        const response = await fetch(
-            "https://raw.githubusercontent.com/odota/dotaconstants/master/build/abilities.json"
-        );
+        const [abilitiesResponse, idsResponse] = await Promise.all([
+            fetch(
+                "https://raw.githubusercontent.com/odota/dotaconstants/master/build/abilities.json"
+            ),
+            fetch(
+                "https://raw.githubusercontent.com/odota/dotaconstants/master/build/ability_ids.json"
+            )
+        ]);
 
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
+        if (!abilitiesResponse.ok) {
+            throw new Error(
+                `abilities.json HTTP ${abilitiesResponse.status}`
+            );
         }
 
-        const rawAbilities = await response.json();
+        if (!idsResponse.ok) {
+            throw new Error(
+                `ability_ids.json HTTP ${idsResponse.status}`
+            );
+        }
+
+        const rawAbilities =
+            await abilitiesResponse.json();
+
+        dotaAbilityIds =
+            await idsResponse.json();
 
         dotaAbilities = {};
 
-Object.entries(rawAbilities).forEach(([key, ability]) => {
-    if (!ability) return;
+        Object.entries(dotaAbilityIds).forEach(
+            ([abilityId, abilityName]) => {
 
-    const abilityId =
-    ability.id ??
-    ability.ability_id ??
-    ability.abilityId ??
-    (Number.isFinite(Number(key)) ? Number(key) : null);
+                const ability =
+                    rawAbilities[abilityName];
 
-    if (abilityId == null) return;
+                if (!ability) return;
 
-    dotaAbilities[String(abilityId)] = {
-        ...ability,
-        name: ability.dname || ability.name || key,
-        dname: ability.dname || ability.name || key,
-        img: ability.img || ""
-    };
-});
+                dotaAbilities[String(abilityId)] = {
+                    ...ability,
 
-console.log(
-    "Dota abilities converted:",
-    Object.keys(dotaAbilities).length,
-    "Ability 5003:",
-    dotaAbilities["5003"]
-);
+                    name:
+                        ability.dname ||
+                        ability.name ||
+                        abilityName,
+
+                    dname:
+                        ability.dname ||
+                        ability.name ||
+                        abilityName,
+
+                    img:
+                        ability.img || ""
+                };
+            }
+        );
 
         console.log(
-            "Dota abilities loaded:",
-            Object.keys(dotaAbilities).length
+            "Dota abilities converted:",
+            Object.keys(dotaAbilities).length,
+            "Ability 5003:",
+            dotaAbilities["5003"]
         );
 
         return dotaAbilities;
 
     } catch (error) {
-        console.error("Failed to load Dota abilities:", error);
+        console.error(
+            "Failed to load Dota abilities:",
+            error
+        );
+
         dotaAbilities = {};
+        dotaAbilityIds = {};
+
         return {};
     }
 }
