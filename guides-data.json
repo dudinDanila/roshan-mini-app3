@@ -1,7 +1,7 @@
 {
   "ok": true,
   "source": "STRATZ",
-  "updatedAt": "2026-09-16T19:03:43.267Z",
+  "updatedAt": "2026-09-16T19:11:45.647Z",
   "heroCount": 126,
   "updateStats": {
     "success": 126,
@@ -573,10 +573,10 @@
       "name": "CRYSTAL MAIDEN",
       "boots": {
         "itemId": 214,
-        "matches": 150021,
-        "wins": 76666,
+        "matches": 153025,
+        "wins": 78200,
         "winRate": 51.1,
-        "averageTime": 462.6
+        "averageTime": 462.5
       },
       "earlyItems": [
         {
@@ -4990,10 +4990,10 @@
       "name": "TINKER",
       "boots": {
         "itemId": 29,
-        "matches": 705,
-        "wins": 250,
-        "winRate": 35.46,
-        "averageTime": 426.4
+        "matches": 718,
+        "wins": 254,
+        "winRate": 35.38,
+        "averageTime": 426.5
       },
       "earlyItems": [
         {
@@ -14617,10 +14617,10 @@
       "name": "SKYWRATH MAGE",
       "boots": {
         "itemId": 180,
-        "matches": 101250,
-        "wins": 50539,
-        "winRate": 49.92,
-        "averageTime": 761.7
+        "matches": 103332,
+        "wins": 51567,
+        "winRate": 49.9,
+        "averageTime": 761.8
       },
       "earlyItems": [
         {
