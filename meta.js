@@ -1,6 +1,5 @@
 /* =========================================================
    ROSHAN — META
-   Dota 2 meta system
    ========================================================= */
 
 const META_CONFIG = {
@@ -11,10 +10,7 @@ const META_CONFIG = {
 
 
 /* =========================================================
-   FALLBACK META DATA
-
-   Эти данные используются, если автоматический источник
-   временно недоступен. Поэтому вкладка "Мета" не сломается.
+   META DATA
    ========================================================= */
 
 const metaData = {
@@ -41,6 +37,7 @@ const metaData = {
         ]
     },
 
+
     mid: {
         title: "🔥 Топ мидеров",
 
@@ -62,6 +59,7 @@ const metaData = {
             ["ARC WARDEN", "52.7%", "1.7K", "49"]
         ]
     },
+
 
     offlane: {
         title: "🛡️ Топ оффлейнеров",
@@ -85,6 +83,7 @@ const metaData = {
         ]
     },
 
+
     support: {
         title: "✨ Топ саппортов",
 
@@ -104,6 +103,7 @@ const metaData = {
             ["KEEPER OF THE LIGHT", "51.1%", "1.7K", "66"]
         ]
     },
+
 
     hardSupport: {
         title: "💎 Топ хард-саппортов",
@@ -130,49 +130,137 @@ const metaData = {
 
 
 /* =========================================================
-   HERO SEARCH
+   HERO IMAGE
+   Не зависит от массива heroes из index.html
    ========================================================= */
 
-function getHeroByName(name) {
-    const heroList = window.roshanHeroes || [];
-    return heroList.find(
-        hero => hero.name.toUpperCase() === name.toUpperCase()
-    );
+const META_HERO_IDS = {
+
+    "PHANTOM LANCER": "phantom_lancer",
+    "NECROPHOS": "necrolyte",
+    "SPECTRE": "spectre",
+    "LIFESTEALER": "life_stealer",
+    "WINDRANGER": "windrunner",
+    "SLARK": "slark",
+    "SVEN": "sven",
+
+    "INVOKER": "invoker",
+    "KEEPER OF THE LIGHT": "keeper_of_the_light",
+    "LINA": "lina",
+    "EARTH SPIRIT": "earth_spirit",
+    "EMBER SPIRIT": "ember_spirit",
+    "OUTWORLD DESTROYER": "obsidian_destroyer",
+    "ARC WARDEN": "arc_warden",
+
+    "ENIGMA": "enigma",
+    "PUDGE": "pudge",
+    "DARK SEER": "dark_seer",
+    "NIGHT STALKER": "night_stalker",
+    "PRIMAL BEAST": "primal_beast",
+    "MAGNUS": "magnataur",
+    "DRAGON KNIGHT": "dragon_knight",
+
+    "BOUNTY HUNTER": "bounty_hunter",
+    "SPIRIT BREAKER": "spirit_breaker",
+    "NYX ASSASSIN": "nyx_assassin",
+    "DARK WILLOW": "dark_willow",
+
+    "TREANT PROTECTOR": "treant",
+    "WINTER WYVERN": "winter_wyvern",
+    "ORACLE": "oracle",
+    "BANE": "bane",
+    "CLOCKWERK": "rattletrap",
+    "DISRUPTOR": "disruptor",
+    "RINGMASTER": "ringmaster"
+};
+
+
+function getMetaHero(name) {
+
+    const id = META_HERO_IDS[name];
+
+    if (!id) {
+        return {
+            name: name,
+            img: ""
+        };
+    }
+
+    return {
+        name: name,
+
+        img:
+            "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/" +
+            id +
+            ".png"
+    };
 }
 
 
 /* =========================================================
-   META RENDER
+   RENDER
    ========================================================= */
 
 function renderMetaRole(role, button) {
 
     const data = metaData[role];
 
-    if (!data) return;
-
-
-    document
-        .querySelectorAll(".meta-role-btn")
-        .forEach(btn => btn.classList.remove("active"));
-
-
-    if (button) {
-        button.classList.add("active");
+    if (!data) {
+        console.error("Meta role not found:", role);
+        return;
     }
 
 
-    const featuredHero = getHeroByName(data.featured.name);
+    /* ACTIVE BUTTON */
 
-    const featured = document.getElementById("metaFeatured");
+    document
+        .querySelectorAll(".meta-role-btn")
+        .forEach(btn => {
+            btn.classList.remove("active");
+        });
 
 
-    if (featuredHero) {
+    if (button) {
+
+        button.classList.add("active");
+
+    } else {
+
+        const buttons =
+            document.querySelectorAll(".meta-role-btn");
+
+        const roles = [
+            "carry",
+            "mid",
+            "offlane",
+            "support",
+            "hardSupport"
+        ];
+
+        const index = roles.indexOf(role);
+
+        if (buttons[index]) {
+            buttons[index].classList.add("active");
+        }
+    }
+
+
+    /* FEATURED HERO */
+
+    const featured =
+        document.getElementById("metaFeatured");
+
+    if (featured) {
+
+        const hero =
+            getMetaHero(data.featured.name);
+
 
         featured.innerHTML = `
+
             <img
-                src="${featuredHero.img}"
-                alt="${featuredHero.name}"
+                src="${hero.img}"
+                alt="${data.featured.name}"
             >
 
             <div class="meta-featured-content">
@@ -186,55 +274,88 @@ function renderMetaRole(role, button) {
                 </h2>
 
                 <div class="meta-featured-role">
-                    ${data.featured.role} • ${META_CONFIG.patch}
+                    ${data.featured.role}
+                    •
+                    ${META_CONFIG.patch}
                 </div>
 
                 <div class="meta-stats">
 
                     <div class="meta-stat">
-                        <strong>${data.featured.wr}</strong>
-                        <span>WINRATE</span>
+                        <strong>
+                            ${data.featured.wr}
+                        </strong>
+
+                        <span>
+                            WINRATE
+                        </span>
                     </div>
 
-                    <div class="meta-stat">
-                        <strong>${data.featured.matches}</strong>
-                        <span>МАТЧЕЙ</span>
-                    </div>
 
                     <div class="meta-stat">
-                        <strong>${data.featured.rating}</strong>
-                        <span>D2PT</span>
+                        <strong>
+                            ${data.featured.matches}
+                        </strong>
+
+                        <span>
+                            МАТЧЕЙ
+                        </span>
+                    </div>
+
+
+                    <div class="meta-stat">
+                        <strong>
+                            ${data.featured.rating}
+                        </strong>
+
+                        <span>
+                            D2PT
+                        </span>
                     </div>
 
                 </div>
 
             </div>
         `;
-
-
-        featured.onclick = () => openHero(featuredHero);
     }
 
 
-    document.getElementById("metaListTitle").textContent =
-        data.title;
+    /* TITLE */
+
+    const title =
+        document.getElementById("metaListTitle");
+
+    if (title) {
+        title.textContent = data.title;
+    }
 
 
-    const list = document.getElementById("metaList");
+    /* HERO LIST */
+
+    const list =
+        document.getElementById("metaList");
+
+    if (!list) {
+        console.error("metaList not found");
+        return;
+    }
+
 
     list.innerHTML = "";
 
 
     data.heroes.forEach((item, index) => {
 
-        const hero = getHeroByName(item[0]);
+        const hero =
+            getMetaHero(item[0]);
 
-        if (!hero) return;
+
+        const card =
+            document.createElement("div");
 
 
-        const card = document.createElement("div");
-
-        card.className = "meta-list-item";
+        card.className =
+            "meta-list-item";
 
 
         card.innerHTML = `
@@ -243,17 +364,19 @@ function renderMetaRole(role, button) {
                 ${index + 1}
             </div>
 
+
             <img
                 class="meta-list-img"
                 src="${hero.img}"
-                alt="${hero.name}"
+                alt="${item[0]}"
                 loading="lazy"
             >
+
 
             <div class="meta-list-info">
 
                 <div class="meta-list-name">
-                    ${hero.name}
+                    ${item[0]}
                 </div>
 
                 <div class="meta-list-rating">
@@ -261,6 +384,7 @@ function renderMetaRole(role, button) {
                 </div>
 
             </div>
+
 
             <div class="meta-list-right">
 
@@ -276,23 +400,26 @@ function renderMetaRole(role, button) {
         `;
 
 
-        card.onclick = () => openHero(hero);
-
         list.appendChild(card);
     });
 }
 
 
 /* =========================================================
-   META HEADER
+   HEADER
    ========================================================= */
 
 function updateMetaHeader() {
 
     const element =
-        document.querySelector(".meta-hero-version");
+        document.querySelector(
+            ".meta-hero-version"
+        );
 
-    if (!element) return;
+
+    if (!element) {
+        return;
+    }
 
 
     element.textContent =
@@ -303,7 +430,7 @@ function updateMetaHeader() {
 
 
 /* =========================================================
-   START META
+   START
    ========================================================= */
 
 function initMeta() {
@@ -312,3 +439,15 @@ function initMeta() {
 
     renderMetaRole("carry");
 }
+
+
+/* =========================================================
+   EXPOSE FUNCTIONS
+   Нужны для onclick в index.html
+   ========================================================= */
+
+window.renderMetaRole =
+    renderMetaRole;
+
+window.initMeta =
+    initMeta;
