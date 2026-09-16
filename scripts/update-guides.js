@@ -7,48 +7,11 @@ if (!STRATZ_TOKEN) {
 
 const API_URL = "https://api.stratz.com/graphql";
 
-/*
-    Первый тест:
-    узнаём, какие поля реально доступны
-    внутри HeroStatsType.
-*/
-
 const QUERY = `
 {
-    __type(name: "HeroStatsType") {
-        name
-
-        fields {
+    __schema {
+        types {
             name
-
-            args {
-                name
-
-                type {
-                    kind
-                    name
-
-                    ofType {
-                        kind
-                        name
-
-                        ofType {
-                            kind
-                            name
-                        }
-                    }
-                }
-            }
-
-            type {
-                kind
-                name
-
-                ofType {
-                    kind
-                    name
-                }
-            }
         }
     }
 }
@@ -56,128 +19,76 @@ const QUERY = `
 
 async function main() {
 
-    console.log("Checking STRATZ guide API...");
+    console.log("Checking STRATZ GraphQL types...");
 
-    const response = await fetch(
-        API_URL,
-        {
-            method: "POST",
+    const response = await fetch(API_URL, {
+        method: "POST",
 
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${STRATZ_TOKEN}`,
-                "User-Agent": "Roshan-Dota-Guides"
-            },
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${STRATZ_TOKEN}`,
+            "User-Agent": "Roshan-Dota-Guides"
+        },
 
-            body: JSON.stringify({
-                query: QUERY
-            })
-        }
-    );
+        body: JSON.stringify({
+            query: QUERY
+        })
+    });
 
     const text = await response.text();
 
     if (!response.ok) {
-
         throw new Error(
             `STRATZ HTTP ${response.status}: ${text.slice(0, 1000)}`
         );
     }
 
-
-    let json;
-
-    try {
-
-        json = JSON.parse(text);
-
-    } catch {
-
-        throw new Error(
-            "STRATZ returned invalid JSON:\n" +
-            text.slice(0, 1000)
-        );
-    }
-
+    const json = JSON.parse(text);
 
     if (json.errors?.length) {
-
         console.error(
-            "GraphQL errors:"
+            JSON.stringify(json.errors, null, 2)
         );
-
-        console.error(
-            JSON.stringify(
-                json.errors,
-                null,
-                2
-            )
-        );
-
         process.exit(1);
     }
 
+    const types =
+        json?.data?.__schema?.types || [];
 
-    const fields =
-        json?.data?.__type?.fields;
+    const interesting = types
+        .map(type => type.name)
+        .filter(Boolean)
+        .filter(name => {
+            const value =
+                name.toLowerCase();
 
-
-    if (!fields) {
-
-        console.log(
-            "HeroStatsType was not found."
-        );
-
-        console.log(
-            JSON.stringify(
-                json,
-                null,
-                2
-            )
-        );
-
-        return;
-    }
-
+            return (
+                value.includes("hero") ||
+                value.includes("item") ||
+                value.includes("ability") ||
+                value.includes("talent") ||
+                value.includes("stat")
+            );
+        })
+        .sort();
 
     console.log(
-        "\n=== HERO STATS FIELDS ===\n"
+        "\n=== RELEVANT STRATZ TYPES ===\n"
     );
 
-
-    for (const field of fields) {
-
-        console.log(
-            "FIELD:",
-            field.name
-        );
-
-
-        if (field.args?.length) {
-
-            console.log(
-                "ARGS:",
-                field.args
-                    .map(arg => arg.name)
-                    .join(", ")
-            );
-        }
-
-
-        console.log("----------------");
-    }
-
+    interesting.forEach(name => {
+        console.log("TYPE:", name);
+    });
 
     console.log(
-        "\nSTRATZ schema check completed."
+        "\nTotal relevant types:",
+        interesting.length
     );
 }
 
-
 main().catch(error => {
-
     console.error(
-        "Guide API check failed:"
+        "Schema check failed:"
     );
 
     console.error(error);
