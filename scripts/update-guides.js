@@ -56,6 +56,13 @@ async function loadDotaAbilityData() {
     dotaHeroAbilities =
         await heroAbilitiesResponse.json();
 
+console.log(
+    "HERO ABILITIES DEBUG",
+    Object.keys(
+        dotaHeroAbilities
+    ).slice(0, 10)
+);
+    
     dotaAbilityIds =
         await abilityIdsResponse.json();
 
