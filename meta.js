@@ -1,199 +1,446 @@
 /* =========================================================
-   ROSHAN — META
+   ROSHAN — AUTO META
+   Данные автоматически загружаются из meta-data.json
+   ========================================================= */
+
+
+/* =========================================================
+   CONFIG
    ========================================================= */
 
 const META_CONFIG = {
-    patch: "7.41e",
-    bracket: "7000+ MMR",
-    source: "D2PT"
+    source: "STRATZ",
+    bracket: "Divine + Immortal",
+    period: "Last 7 days"
 };
 
 
 /* =========================================================
-   META DATA
+   ROLE SETTINGS
    ========================================================= */
 
-const metaData = {
+const META_ROLES = {
 
     carry: {
         title: "⚔️ Топ керри",
-
-        featured: {
-            name: "NECROPHOS",
-            wr: "55.1%",
-            matches: "2.1K",
-            rating: "73",
-            role: "Carry"
-        },
-
-        heroes: [
-            ["PHANTOM LANCER", "52.2%", "6.6K", "81"],
-            ["NECROPHOS", "55.1%", "2.1K", "73"],
-            ["SPECTRE", "53.1%", "4.4K", "69"],
-            ["LIFESTEALER", "51.7%", "10.1K", "66"],
-            ["WINDRANGER", "53.3%", "2.6K", "63"],
-            ["SLARK", "52.3%", "3.2K", "62"],
-            ["SVEN", "51.2%", "4.9K", "60"]
-        ]
+        role: "Carry"
     },
-
 
     mid: {
         title: "🔥 Топ мидеров",
-
-        featured: {
-            name: "INVOKER",
-            wr: "52.3%",
-            matches: "8.7K",
-            rating: "81",
-            role: "Mid"
-        },
-
-        heroes: [
-            ["INVOKER", "52.3%", "8.7K", "81"],
-            ["KEEPER OF THE LIGHT", "56.8%", "2.9K", "74"],
-            ["LINA", "50.3%", "10.2K", "72"],
-            ["EARTH SPIRIT", "53.0%", "4.6K", "61"],
-            ["EMBER SPIRIT", "50.5%", "8.1K", "61"],
-            ["OUTWORLD DESTROYER", "51.9%", "5.0K", "57"],
-            ["ARC WARDEN", "52.7%", "1.7K", "49"]
-        ]
+        role: "Mid"
     },
-
 
     offlane: {
         title: "🛡️ Топ оффлейнеров",
-
-        featured: {
-            name: "ENIGMA",
-            wr: "56.9%",
-            matches: "4.2K",
-            rating: "83",
-            role: "Offlane"
-        },
-
-        heroes: [
-            ["ENIGMA", "56.9%", "4.2K", "83"],
-            ["PUDGE", "53.2%", "3.0K", "75"],
-            ["DARK SEER", "52.9%", "7.5K", "65"],
-            ["NIGHT STALKER", "50.1%", "5.0K", "58"],
-            ["PRIMAL BEAST", "53.6%", "1.3K", "56"],
-            ["MAGNUS", "51.1%", "2.6K", "55"],
-            ["DRAGON KNIGHT", "52.5%", "1.5K", "55"]
-        ]
+        role: "Offlane"
     },
-
 
     support: {
         title: "✨ Топ саппортов",
-
-        featured: {
-            name: "BOUNTY HUNTER",
-            wr: "56.2%",
-            matches: "10.9K",
-            rating: "93",
-            role: "Support"
-        },
-
-        heroes: [
-            ["BOUNTY HUNTER", "56.2%", "10.9K", "93"],
-            ["SPIRIT BREAKER", "53.1%", "8.0K", "68"],
-            ["NYX ASSASSIN", "54.4%", "2.1K", "64"],
-            ["DARK WILLOW", "50.5%", "3.9K", "55"],
-            ["KEEPER OF THE LIGHT", "51.1%", "1.7K", "66"]
-        ]
+        role: "Support"
     },
-
 
     hardSupport: {
         title: "💎 Топ хард-саппортов",
-
-        featured: {
-            name: "TREANT PROTECTOR",
-            wr: "52.6%",
-            matches: "7.9K",
-            rating: "95",
-            role: "Hard Support"
-        },
-
-        heroes: [
-            ["TREANT PROTECTOR", "52.6%", "7.9K", "95"],
-            ["WINTER WYVERN", "52.1%", "7.1K", "89"],
-            ["ORACLE", "54.7%", "2.4K", "74"],
-            ["BANE", "52.3%", "2.7K", "67"],
-            ["CLOCKWERK", "52.3%", "2.2K", "67"],
-            ["DISRUPTOR", "50.1%", "4.0K", "51"],
-            ["RINGMASTER", "51.1%", "2.7K", "47"]
-        ]
+        role: "Hard Support"
     }
 };
 
 
 /* =========================================================
-   HERO IMAGE
-   Не зависит от массива heroes из index.html
+   HERO ID → DOTA HERO
+   STRATZ использует стандартные Dota 2 heroId
    ========================================================= */
 
-const META_HERO_IDS = {
+const META_HEROES = {
 
-    "PHANTOM LANCER": "phantom_lancer",
-    "NECROPHOS": "necrolyte",
-    "SPECTRE": "spectre",
-    "LIFESTEALER": "life_stealer",
-    "WINDRANGER": "windrunner",
-    "SLARK": "slark",
-    "SVEN": "sven",
-
-    "INVOKER": "invoker",
-    "KEEPER OF THE LIGHT": "keeper_of_the_light",
-    "LINA": "lina",
-    "EARTH SPIRIT": "earth_spirit",
-    "EMBER SPIRIT": "ember_spirit",
-    "OUTWORLD DESTROYER": "obsidian_destroyer",
-    "ARC WARDEN": "arc_warden",
-
-    "ENIGMA": "enigma",
-    "PUDGE": "pudge",
-    "DARK SEER": "dark_seer",
-    "NIGHT STALKER": "night_stalker",
-    "PRIMAL BEAST": "primal_beast",
-    "MAGNUS": "magnataur",
-    "DRAGON KNIGHT": "dragon_knight",
-
-    "BOUNTY HUNTER": "bounty_hunter",
-    "SPIRIT BREAKER": "spirit_breaker",
-    "NYX ASSASSIN": "nyx_assassin",
-    "DARK WILLOW": "dark_willow",
-
-    "TREANT PROTECTOR": "treant",
-    "WINTER WYVERN": "winter_wyvern",
-    "ORACLE": "oracle",
-    "BANE": "bane",
-    "CLOCKWERK": "rattletrap",
-    "DISRUPTOR": "disruptor",
-    "RINGMASTER": "ringmaster"
+    1: ["ANTI-MAGE", "antimage"],
+    2: ["AXE", "axe"],
+    3: ["BANE", "bane"],
+    4: ["BLOODSEEKER", "bloodseeker"],
+    5: ["CRYSTAL MAIDEN", "crystal_maiden"],
+    6: ["DROW RANGER", "drow_ranger"],
+    7: ["EARTHSHAKER", "earthshaker"],
+    8: ["JUGGERNAUT", "juggernaut"],
+    9: ["MIRANA", "mirana"],
+    10: ["MORPHLING", "morphling"],
+    11: ["SHADOW FIEND", "nevermore"],
+    12: ["PHANTOM LANCER", "phantom_lancer"],
+    13: ["PUCK", "puck"],
+    14: ["PUDGE", "pudge"],
+    15: ["RAZOR", "razor"],
+    16: ["SAND KING", "sand_king"],
+    17: ["STORM SPIRIT", "storm_spirit"],
+    18: ["SVEN", "sven"],
+    19: ["TINY", "tiny"],
+    20: ["VENGEFUL SPIRIT", "vengefulspirit"],
+    21: ["WINDRANGER", "windrunner"],
+    22: ["ZEUS", "zuus"],
+    23: ["KUNKKA", "kunkka"],
+    25: ["LINA", "lina"],
+    26: ["LION", "lion"],
+    27: ["SHADOW SHAMAN", "shadow_shaman"],
+    28: ["SLARDAR", "slardar"],
+    29: ["TIDEHUNTER", "tidehunter"],
+    30: ["WITCH DOCTOR", "witch_doctor"],
+    31: ["LICH", "lich"],
+    32: ["RIKI", "riki"],
+    33: ["ENIGMA", "enigma"],
+    34: ["TINKER", "tinker"],
+    35: ["SNIPER", "sniper"],
+    36: ["NECROPHOS", "necrolyte"],
+    37: ["WARLOCK", "warlock"],
+    38: ["BEASTMASTER", "beastmaster"],
+    39: ["QUEEN OF PAIN", "queenofpain"],
+    40: ["VENOMANCER", "venomancer"],
+    41: ["FACELESS VOID", "faceless_void"],
+    42: ["WRAITH KING", "skeleton_king"],
+    43: ["DEATH PROPHET", "death_prophet"],
+    44: ["PHANTOM ASSASSIN", "phantom_assassin"],
+    45: ["PUGNA", "pugna"],
+    46: ["TEMPLAR ASSASSIN", "templar_assassin"],
+    47: ["VIPER", "viper"],
+    48: ["LUNA", "luna"],
+    49: ["DRAGON KNIGHT", "dragon_knight"],
+    50: ["DAZZLE", "dazzle"],
+    51: ["CLOCKWERK", "rattletrap"],
+    52: ["LESHRAC", "leshrac"],
+    53: ["NATURE'S PROPHET", "furion"],
+    54: ["LIFESTEALER", "life_stealer"],
+    55: ["DARK SEER", "dark_seer"],
+    56: ["CLINKZ", "clinkz"],
+    57: ["OMNIKNIGHT", "omniknight"],
+    58: ["ENCHANTRESS", "enchantress"],
+    59: ["HUSKAR", "huskar"],
+    60: ["NIGHT STALKER", "night_stalker"],
+    61: ["BROODMOTHER", "broodmother"],
+    62: ["BOUNTY HUNTER", "bounty_hunter"],
+    63: ["WEAVER", "weaver"],
+    64: ["JAKIRO", "jakiro"],
+    65: ["BATRIDER", "batrider"],
+    66: ["CHEN", "chen"],
+    67: ["SPECTRE", "spectre"],
+    68: ["ANCIENT APPARITION", "ancient_apparition"],
+    69: ["DOOM", "doom_bringer"],
+    70: ["URSA", "ursa"],
+    71: ["SPIRIT BREAKER", "spirit_breaker"],
+    72: ["GYROCOPTER", "gyrocopter"],
+    73: ["ALCHEMIST", "alchemist"],
+    74: ["INVOKER", "invoker"],
+    75: ["SILENCER", "silencer"],
+    76: ["OUTWORLD DESTROYER", "obsidian_destroyer"],
+    77: ["LYCAN", "lycan"],
+    78: ["BREWMASTER", "brewmaster"],
+    79: ["SHADOW DEMON", "shadow_demon"],
+    80: ["LONE DRUID", "lone_druid"],
+    81: ["CHAOS KNIGHT", "chaos_knight"],
+    82: ["MEEPO", "meepo"],
+    83: ["TREANT PROTECTOR", "treant"],
+    84: ["OGRE MAGI", "ogre_magi"],
+    85: ["UNDYING", "undying"],
+    86: ["RUBICK", "rubick"],
+    87: ["DISRUPTOR", "disruptor"],
+    88: ["NYX ASSASSIN", "nyx_assassin"],
+    89: ["NAGA SIREN", "naga_siren"],
+    90: ["KEEPER OF THE LIGHT", "keeper_of_the_light"],
+    91: ["IO", "wisp"],
+    92: ["VISAGE", "visage"],
+    93: ["SLARK", "slark"],
+    94: ["MEDUSA", "medusa"],
+    95: ["TROLL WARLORD", "troll_warlord"],
+    96: ["CENTAUR WARRUNNER", "centaur"],
+    97: ["MAGNUS", "magnataur"],
+    98: ["TIMBERSAW", "shredder"],
+    99: ["BRISTLEBACK", "bristleback"],
+    100: ["TUSK", "tusk"],
+    101: ["SKYWRATH MAGE", "skywrath_mage"],
+    102: ["ABADDON", "abaddon"],
+    103: ["ELDER TITAN", "elder_titan"],
+    104: ["LEGION COMMANDER", "legion_commander"],
+    105: ["TECHIES", "techies"],
+    106: ["EMBER SPIRIT", "ember_spirit"],
+    107: ["EARTH SPIRIT", "earth_spirit"],
+    108: ["UNDERLORD", "abyssal_underlord"],
+    109: ["TERRORBLADE", "terrorblade"],
+    110: ["PHOENIX", "phoenix"],
+    111: ["ORACLE", "oracle"],
+    112: ["WINTER WYVERN", "winter_wyvern"],
+    113: ["ARC WARDEN", "arc_warden"],
+    114: ["MONKEY KING", "monkey_king"],
+    119: ["DARK WILLOW", "dark_willow"],
+    120: ["PANGOLIER", "pangolier"],
+    121: ["GRIMSTROKE", "grimstroke"],
+    123: ["HOODWINK", "hoodwink"],
+    126: ["VOID SPIRIT", "void_spirit"],
+    128: ["SNAPFIRE", "snapfire"],
+    129: ["MARS", "mars"],
+    135: ["DAWNBREAKER", "dawnbreaker"],
+    136: ["MARCI", "marci"],
+    137: ["PRIMAL BEAST", "primal_beast"],
+    138: ["MUERTA", "muerta"],
+    145: ["KEZ", "kez"],
+    146: ["RINGMASTER", "ringmaster"]
 };
 
 
-function getMetaHero(name) {
+/* =========================================================
+   DATA
+   ========================================================= */
 
-    const id = META_HERO_IDS[name];
+let metaData = null;
 
-    if (!id) {
+let currentMetaRole = "carry";
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+function getMetaHero(heroId) {
+
+    const hero = META_HEROES[heroId];
+
+    if (!hero) {
+
+        console.warn(
+            "Unknown heroId:",
+            heroId
+        );
+
         return {
-            name: name,
+            name: `HERO ${heroId}`,
             img: ""
         };
     }
 
+
     return {
-        name: name,
+
+        name: hero[0],
 
         img:
             "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/" +
-            id +
+            hero[1] +
             ".png"
     };
+}
+
+
+/* =========================================================
+   FORMAT MATCHES
+   ========================================================= */
+
+function formatMetaMatches(number) {
+
+    const value = Number(number) || 0;
+
+
+    if (value >= 1000000) {
+
+        return (
+            (value / 1000000)
+                .toFixed(1)
+                .replace(".0", "") +
+            "M"
+        );
+    }
+
+
+    if (value >= 1000) {
+
+        return (
+            (value / 1000)
+                .toFixed(1)
+                .replace(".0", "") +
+            "K"
+        );
+    }
+
+
+    return value.toString();
+}
+
+
+/* =========================================================
+   RATING
+   Относительный рейтинг внутри текущей роли.
+   Лучший герой = 100.
+   ========================================================= */
+
+function calculateMetaRating(hero, heroes) {
+
+    if (!heroes.length) {
+        return 0;
+    }
+
+
+    const bestWR =
+        Math.max(
+            ...heroes.map(
+                item =>
+                    Number(item.winRate) || 0
+            )
+        );
+
+
+    if (!bestWR) {
+        return 0;
+    }
+
+
+    return Math.max(
+        1,
+        Math.min(
+            100,
+            Math.round(
+                (
+                    Number(hero.winRate) /
+                    bestWR
+                ) * 100
+            )
+        )
+    );
+}
+
+
+/* =========================================================
+   LOAD JSON
+   ========================================================= */
+
+async function loadMetaData() {
+
+    try {
+
+        const response =
+            await fetch(
+                "./meta-data.json?ts=" +
+                Date.now(),
+                {
+                    cache: "no-store"
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+        }
+
+
+        const json =
+            await response.json();
+
+
+        if (
+            !json ||
+            json.ok !== true ||
+            !json.roles
+        ) {
+
+            throw new Error(
+                "Invalid meta-data.json"
+            );
+        }
+
+
+        metaData = json;
+
+
+        if (json.source) {
+            META_CONFIG.source =
+                json.source;
+        }
+
+
+        if (json.bracket) {
+            META_CONFIG.bracket =
+                json.bracket;
+        }
+
+
+        if (json.period) {
+            META_CONFIG.period =
+                json.period;
+        }
+
+
+        console.log(
+            "ROSHAN META loaded:",
+            json.updatedAt
+        );
+
+
+        return true;
+
+    } catch (error) {
+
+        console.error(
+            "Failed to load meta:",
+            error
+        );
+
+
+        showMetaError();
+
+
+        return false;
+    }
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+function showMetaError() {
+
+    const featured =
+        document.getElementById(
+            "metaFeatured"
+        );
+
+
+    const list =
+        document.getElementById(
+            "metaList"
+        );
+
+
+    const title =
+        document.getElementById(
+            "metaListTitle"
+        );
+
+
+    if (featured) {
+
+        featured.innerHTML = `
+            <div class="meta-featured-content">
+                <h2>
+                    Не удалось загрузить мету
+                </h2>
+
+                <div class="meta-featured-role">
+                    Попробуй открыть страницу ещё раз
+                </div>
+            </div>
+        `;
+    }
+
+
+    if (title) {
+        title.textContent =
+            "Мета временно недоступна";
+    }
+
+
+    if (list) {
+        list.innerHTML = "";
+    }
 }
 
 
@@ -203,10 +450,36 @@ function getMetaHero(name) {
 
 function renderMetaRole(role, button) {
 
-    const data = metaData[role];
+    currentMetaRole = role;
 
-    if (!data) {
-        console.error("Meta role not found:", role);
+
+    if (
+        !metaData ||
+        !metaData.roles
+    ) {
+
+        return;
+    }
+
+
+    const heroes =
+        metaData.roles[role];
+
+
+    const roleConfig =
+        META_ROLES[role];
+
+
+    if (
+        !Array.isArray(heroes) ||
+        !roleConfig
+    ) {
+
+        console.error(
+            "Meta role not found:",
+            role
+        );
+
         return;
     }
 
@@ -214,20 +487,30 @@ function renderMetaRole(role, button) {
     /* ACTIVE BUTTON */
 
     document
-        .querySelectorAll(".meta-role-btn")
+        .querySelectorAll(
+            ".meta-role-btn"
+        )
         .forEach(btn => {
-            btn.classList.remove("active");
+
+            btn.classList.remove(
+                "active"
+            );
         });
 
 
     if (button) {
 
-        button.classList.add("active");
+        button.classList.add(
+            "active"
+        );
 
     } else {
 
         const buttons =
-            document.querySelectorAll(".meta-role-btn");
+            document.querySelectorAll(
+                ".meta-role-btn"
+            );
+
 
         const roles = [
             "carry",
@@ -237,30 +520,77 @@ function renderMetaRole(role, button) {
             "hardSupport"
         ];
 
-        const index = roles.indexOf(role);
+
+        const index =
+            roles.indexOf(role);
+
 
         if (buttons[index]) {
-            buttons[index].classList.add("active");
+
+            buttons[index]
+                .classList.add(
+                    "active"
+                );
         }
     }
 
 
-    /* FEATURED HERO */
+    /* NO DATA */
+
+    if (!heroes.length) {
+
+        const list =
+            document.getElementById(
+                "metaList"
+            );
+
+
+        if (list) {
+
+            list.innerHTML = `
+                <div class="meta-list-item">
+                    Нет данных для этой роли
+                </div>
+            `;
+        }
+
+
+        return;
+    }
+
+
+    /* FEATURED */
+
+    const featuredData =
+        heroes[0];
+
+
+    const featuredHero =
+        getMetaHero(
+            featuredData.heroId
+        );
+
+
+    const featuredRating =
+        calculateMetaRating(
+            featuredData,
+            heroes
+        );
+
 
     const featured =
-        document.getElementById("metaFeatured");
+        document.getElementById(
+            "metaFeatured"
+        );
+
 
     if (featured) {
-
-        const hero =
-            getMetaHero(data.featured.name);
-
 
         featured.innerHTML = `
 
             <img
-                src="${hero.img}"
-                alt="${data.featured.name}"
+                src="${featuredHero.img}"
+                alt="${featuredHero.name}"
             >
 
             <div class="meta-featured-content">
@@ -270,47 +600,58 @@ function renderMetaRole(role, button) {
                 </div>
 
                 <h2>
-                    ${data.featured.name}
+                    ${featuredHero.name}
                 </h2>
 
                 <div class="meta-featured-role">
-                    ${data.featured.role}
+                    ${roleConfig.role}
                     •
-                    ${META_CONFIG.patch}
+                    ${META_CONFIG.period}
                 </div>
+
 
                 <div class="meta-stats">
 
                     <div class="meta-stat">
+
                         <strong>
-                            ${data.featured.wr}
+                            ${Number(
+                                featuredData.winRate
+                            ).toFixed(2)}%
                         </strong>
 
                         <span>
                             WINRATE
                         </span>
+
                     </div>
 
 
                     <div class="meta-stat">
+
                         <strong>
-                            ${data.featured.matches}
+                            ${formatMetaMatches(
+                                featuredData.matches
+                            )}
                         </strong>
 
                         <span>
                             МАТЧЕЙ
                         </span>
+
                     </div>
 
 
                     <div class="meta-stat">
+
                         <strong>
-                            ${data.featured.rating}
+                            ${featuredRating}
                         </strong>
 
                         <span>
-                            D2PT
+                            META
                         </span>
+
                     </div>
 
                 </div>
@@ -323,20 +664,32 @@ function renderMetaRole(role, button) {
     /* TITLE */
 
     const title =
-        document.getElementById("metaListTitle");
+        document.getElementById(
+            "metaListTitle"
+        );
+
 
     if (title) {
-        title.textContent = data.title;
+
+        title.textContent =
+            roleConfig.title;
     }
 
 
-    /* HERO LIST */
+    /* LIST */
 
     const list =
-        document.getElementById("metaList");
+        document.getElementById(
+            "metaList"
+        );
+
 
     if (!list) {
-        console.error("metaList not found");
+
+        console.error(
+            "metaList not found"
+        );
+
         return;
     }
 
@@ -344,64 +697,87 @@ function renderMetaRole(role, button) {
     list.innerHTML = "";
 
 
-    data.heroes.forEach((item, index) => {
+    heroes.forEach(
+        (item, index) => {
 
-        const hero =
-            getMetaHero(item[0]);
-
-
-        const card =
-            document.createElement("div");
-
-
-        card.className =
-            "meta-list-item";
+            const hero =
+                getMetaHero(
+                    item.heroId
+                );
 
 
-        card.innerHTML = `
-
-            <div class="meta-list-rank">
-                ${index + 1}
-            </div>
-
-
-            <img
-                class="meta-list-img"
-                src="${hero.img}"
-                alt="${item[0]}"
-                loading="lazy"
-            >
+            const rating =
+                calculateMetaRating(
+                    item,
+                    heroes
+                );
 
 
-            <div class="meta-list-info">
+            const card =
+                document.createElement(
+                    "div"
+                );
 
-                <div class="meta-list-name">
-                    ${item[0]}
+
+            card.className =
+                "meta-list-item";
+
+
+            card.innerHTML = `
+
+                <div class="meta-list-rank">
+                    ${index + 1}
                 </div>
 
-                <div class="meta-list-rating">
-                    D2PT Rating ${item[3]}/100
+
+                <img
+                    class="meta-list-img"
+                    src="${hero.img}"
+                    alt="${hero.name}"
+                    loading="lazy"
+                >
+
+
+                <div class="meta-list-info">
+
+                    <div class="meta-list-name">
+                        ${hero.name}
+                    </div>
+
+
+                    <div class="meta-list-rating">
+                        Meta Rating
+                        ${rating}/100
+                    </div>
+
                 </div>
 
-            </div>
+
+                <div class="meta-list-right">
+
+                    <div class="meta-wr">
+                        ${Number(
+                            item.winRate
+                        ).toFixed(2)}%
+                    </div>
 
 
-            <div class="meta-list-right">
+                    <div class="meta-matches">
+                        ${formatMetaMatches(
+                            item.matches
+                        )}
+                        матчей
+                    </div>
 
-                <div class="meta-wr">
-                    ${item[1]}
                 </div>
-
-                <div class="meta-matches">
-                    ${item[2]} матчей
-                </div>
-
-            </div>
-        `;
+            `;
 
 
-        list.appendChild(card);
-    });
+            list.appendChild(
+                card
+            );
+        }
+    );
 }
 
 
@@ -425,7 +801,35 @@ function updateMetaHeader() {
     element.textContent =
         `${META_CONFIG.source} • ` +
         `${META_CONFIG.bracket} • ` +
-        `Патч ${META_CONFIG.patch}`;
+        `${META_CONFIG.period}`;
+}
+
+
+/* =========================================================
+   UPDATED TIME
+   ========================================================= */
+
+function logMetaUpdateTime() {
+
+    if (
+        !metaData ||
+        !metaData.updatedAt
+    ) {
+
+        return;
+    }
+
+
+    const date =
+        new Date(
+            metaData.updatedAt
+        );
+
+
+    console.log(
+        "Последнее обновление меты:",
+        date.toLocaleString("ru-RU")
+    );
 }
 
 
@@ -433,17 +837,29 @@ function updateMetaHeader() {
    START
    ========================================================= */
 
-function initMeta() {
+async function initMeta() {
+
+    const loaded =
+        await loadMetaData();
+
+
+    if (!loaded) {
+        return;
+    }
+
 
     updateMetaHeader();
 
-    renderMetaRole("carry");
+    logMetaUpdateTime();
+
+    renderMetaRole(
+        currentMetaRole
+    );
 }
 
 
 /* =========================================================
-   EXPOSE FUNCTIONS
-   Нужны для onclick в index.html
+   EXPOSE
    ========================================================= */
 
 window.renderMetaRole =
