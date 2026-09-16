@@ -559,8 +559,80 @@ if (heroId === 1) {
     const combined =
         [...map.values()];
 
-    const levelMap =
-    new Map();
+    const levelMap = new Map();
+
+/*
+ * STRATZ abilityMinLevel / abilityMaxLevel —
+ * это статистика популярности, а не готовая
+ * последовательность прокачки.
+ *
+ * Поэтому сначала определяем приоритет
+ * способностей, а затем строим допустимый
+ * skill build.
+ */
+
+const abilityStats = new Map();
+
+for (const row of combined) {
+
+    if (!abilityStats.has(row.abilityId)) {
+        abilityStats.set(row.abilityId, {
+            abilityId: row.abilityId,
+            matches: 0,
+            wins: 0
+        });
+    }
+
+    const stat =
+        abilityStats.get(row.abilityId);
+
+    stat.matches += row.matches;
+    stat.wins += row.wins;
+}
+
+
+/*
+ * Определяем ультимейт.
+ *
+ * В hero_abilities ультимейт обычно находится
+ * последним среди способностей героя.
+ */
+
+const ultimateName =
+    [...heroAbilityNames]
+        .reverse()
+        .find(name =>
+            abilityNameToId.has(name)
+        );
+
+const ultimateId =
+    abilityNameToId.get(
+        ultimateName
+    );
+
+
+/*
+ * Обычные способности.
+ * Убираем ультимейт и сортируем
+ * по популярности STRATZ.
+ */
+
+const normalAbilities =
+    [...abilityStats.values()]
+        .filter(stat =>
+            stat.abilityId !==
+            ultimateId
+        )
+        .sort(
+            (a, b) =>
+                b.matches -
+                a.matches
+        );
+
+
+/*
+ * Текущий ранг каждой способности.
+ */
 
 const abilityRanks =
     new Map();
@@ -572,193 +644,281 @@ for (const abilityId of validAbilityIds) {
     );
 }
 
-/*
- * Общая популярность каждой способности.
- * STRATZ не даёт готовую последовательность
- * прокачки, поэтому используем статистику
- * как вес для построения рекомендации.
- */
-const abilityPriority =
-    new Map();
 
-for (const row of combined) {
-    const current =
-        abilityPriority.get(
-            row.abilityId
+/*
+ * Возвращает максимально допустимый
+ * ранг способности.
+ *
+ * Пока для обычных способностей — 4,
+ * для ультимейта — 3.
+ */
+
+function getMaxRank(abilityId) {
+
+    if (abilityId === ultimateId) {
+        return 3;
+    }
+
+    return 4;
+}
+
+
+/*
+ * Можно ли прокачать следующий ранг
+ * способности на данном уровне героя.
+ */
+
+function canLevelAbility(
+    abilityId,
+    heroLevel
+) {
+
+    const currentRank =
+        abilityRanks.get(
+            abilityId
         ) || 0;
 
-    abilityPriority.set(
-        row.abilityId,
-        current + row.matches
+    const nextRank =
+        currentRank + 1;
+
+    const maxRank =
+        getMaxRank(
+            abilityId
+        );
+
+    if (nextRank > maxRank) {
+        return false;
+    }
+
+
+    /*
+     * Ультимейт:
+     * 1 ранг — 6
+     * 2 ранг — 12
+     * 3 ранг — 18
+     */
+
+    if (abilityId === ultimateId) {
+
+        const requiredLevel =
+            nextRank * 6;
+
+        return (
+            heroLevel >=
+            requiredLevel
+        );
+    }
+
+
+    /*
+     * Обычная способность:
+     *
+     * 1 ранг — с 1
+     * 2 ранг — с 3
+     * 3 ранг — с 5
+     * 4 ранг — с 7
+     */
+
+    const requiredLevel =
+        nextRank * 2 - 1;
+
+    return (
+        heroLevel >=
+        requiredLevel
     );
 }
 
-/*
- * Определяем ультимейт.
- * Берём способность, которая чаще всего
- * встречается на 6 уровне.
- */
-const ultimateCandidates =
-    combined
-        .filter(
-            row =>
-                row.level === 6
-        )
-        .sort(
-            (a, b) =>
-                b.matches -
-                a.matches
-        );
-
-const ultimateAbilityId =
-    ultimateCandidates.length
-        ? ultimateCandidates[0].abilityId
-        : null;
 
 /*
- * На уровнях 10 и 15 пока не выдаём
- * очко способности — позже сюда
- * добавим таланты.
+ * Находим наиболее подходящую
+ * строку STRATZ для отображения
+ * matches / winRate.
  */
-const talentLevels =
-    new Set([
-        10,
-        15
-    ]);
+
+function getBestRow(
+    abilityId,
+    level
+) {
+
+    const rows =
+        combined
+            .filter(row =>
+                row.abilityId ===
+                abilityId
+            )
+            .sort(
+                (a, b) => {
+
+                    const distanceA =
+                        Math.abs(
+                            a.level -
+                            level
+                        );
+
+                    const distanceB =
+                        Math.abs(
+                            b.level -
+                            level
+                        );
+
+                    if (
+                        distanceA !==
+                        distanceB
+                    ) {
+                        return (
+                            distanceA -
+                            distanceB
+                        );
+                    }
+
+                    return (
+                        b.matches -
+                        a.matches
+                    );
+                }
+            );
+
+    return rows[0] || {
+        abilityId,
+        level,
+        matches: 0,
+        wins: 0
+    };
+}
+
+
+/*
+ * Строим прокачку.
+ *
+ * Уровни 10 и 15 пока оставляем свободными
+ * под таланты.
+ *
+ * Уровни после 15 пока не строим —
+ * сначала добиваем корректную базовую
+ * прокачку способностей.
+ */
 
 for (
     let level = 1;
-    level <= 18;
+    level <= 15;
     level++
 ) {
 
     if (
-        talentLevels.has(level)
+        level === 10 ||
+        level === 15
     ) {
         continue;
     }
 
-    const candidates = [];
 
-    for (
-        const abilityId
-        of validAbilityIds
+    /*
+     * Если доступен новый уровень ультимейта,
+     * сначала берём его.
+     */
+
+    if (
+        ultimateId &&
+        canLevelAbility(
+            ultimateId,
+            level
+        ) &&
+        (
+            level === 6 ||
+            level === 12
+        )
     ) {
 
-        const currentRank =
-            abilityRanks.get(
-                abilityId
-            ) || 0;
-
-        const isUltimate =
-            abilityId ===
-            ultimateAbilityId;
-
-        const maxRank =
-            isUltimate
-                ? 3
-                : 4;
-
-        if (
-            currentRank >= maxRank
-        ) {
-            continue;
-        }
-
-        const nextRank =
-            currentRank + 1;
-
-        const minimumLevel =
-            isUltimate
-                ? nextRank * 6
-                : nextRank * 2 - 1;
-
-        if (
-            level < minimumLevel
-        ) {
-            continue;
-        }
-
-        /*
-         * Сначала ищем статистику STRATZ
-         * именно для этого уровня.
-         */
-        const exactRows =
-            combined.filter(
-                row =>
-                    row.abilityId ===
-                        abilityId &&
-                    row.level === level
+        const row =
+            getBestRow(
+                ultimateId,
+                level
             );
 
-        const exactMatches =
-            exactRows.reduce(
-                (sum, row) =>
-                    sum + row.matches,
-                0
-            );
-
-        const exactWins =
-            exactRows.reduce(
-                (sum, row) =>
-                    sum + row.wins,
-                0
-            );
-
-        /*
-         * Если точной строки нет,
-         * используем общую популярность
-         * способности как запасной вес.
-         */
-        const fallbackMatches =
-            abilityPriority.get(
-                abilityId
-            ) || 0;
-
-        const score =
-            exactMatches > 0
-                ? exactMatches *
-                    1000
-                : fallbackMatches;
-
-        candidates.push({
-            abilityId,
+        levelMap.set(
             level,
-            matches:
-                exactMatches > 0
-                    ? exactMatches
-                    : fallbackMatches,
-            wins:
-                exactMatches > 0
-                    ? exactWins
-                    : 0,
-            score,
-            isUltimate
-        });
-    }
+            {
+                ...row,
+                level
+            }
+        );
 
-    if (!candidates.length) {
+        abilityRanks.set(
+            ultimateId,
+            (
+                abilityRanks.get(
+                    ultimateId
+                ) || 0
+            ) + 1
+        );
+
         continue;
     }
 
-    candidates.sort(
-        (a, b) =>
-            b.score - a.score
+
+    /*
+     * Среди обычных способностей выбираем
+     * самую популярную, которую сейчас
+     * разрешено прокачать.
+     */
+
+    const available =
+        normalAbilities.filter(
+            ability =>
+                canLevelAbility(
+                    ability.abilityId,
+                    level
+                )
+        );
+
+    if (!available.length) {
+        continue;
+    }
+
+
+    /*
+     * Не максимизируем один скилл вслепую.
+     * Сначала смотрим статистику STRATZ
+     * конкретно около текущего уровня.
+     */
+
+    available.sort(
+        (a, b) => {
+
+            const rowA =
+                getBestRow(
+                    a.abilityId,
+                    level
+                );
+
+            const rowB =
+                getBestRow(
+                    b.abilityId,
+                    level
+                );
+
+            return (
+                rowB.matches -
+                rowA.matches
+            );
+        }
     );
 
+
     const selected =
-        candidates[0];
+        available[0];
+
+    const row =
+        getBestRow(
+            selected.abilityId,
+            level
+        );
 
     levelMap.set(
         level,
         {
-            level,
-            abilityId:
-                selected.abilityId,
-            matches:
-                selected.matches,
-            wins:
-                selected.wins
+            ...row,
+            level
         }
     );
 
