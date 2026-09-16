@@ -1,7 +1,7 @@
 {
   "ok": true,
   "source": "STRATZ",
-  "updatedAt": "2026-09-16T20:06:39.738Z",
+  "updatedAt": "2026-09-16T20:20:04.589Z",
   "heroCount": 126,
   "updateStats": {
     "success": 126,
@@ -395,10 +395,10 @@
       "name": "AXE",
       "boots": {
         "itemId": 50,
-        "matches": 197328,
-        "wins": 99429,
-        "winRate": 50.39,
-        "averageTime": 521.2
+        "matches": 201457,
+        "wins": 101562,
+        "winRate": 50.41,
+        "averageTime": 520.9
       },
       "earlyItems": [
         {
@@ -588,26 +588,26 @@
         {
           "level": 7,
           "abilityId": 5009,
-          "matches": 145964,
-          "winRate": 49.91
+          "matches": 149138,
+          "winRate": 49.94
         },
         {
           "level": 8,
           "abilityId": 5009,
-          "matches": 43328,
-          "winRate": 49.48
+          "matches": 44144,
+          "winRate": 49.47
         },
         {
           "level": 9,
           "abilityId": 5009,
-          "matches": 15238,
-          "winRate": 49.89
+          "matches": 15493,
+          "winRate": 49.82
         },
         {
           "level": 11,
           "abilityId": 5007,
-          "matches": 32868,
-          "winRate": 50.2
+          "matches": 33630,
+          "winRate": 50.25
         },
         {
           "level": 12,
@@ -618,14 +618,14 @@
         {
           "level": 13,
           "abilityId": 5008,
-          "matches": 293,
-          "winRate": 50.51
+          "matches": 298,
+          "winRate": 50
         },
         {
           "level": 14,
           "abilityId": 5008,
-          "matches": 5045,
-          "winRate": 52.13
+          "matches": 5152,
+          "winRate": 52.15
         }
       ],
       "abilities": {
@@ -637,18 +637,18 @@
           },
           {
             "level": 10,
-            "matches": 79488,
-            "winRate": 50.21
+            "matches": 81173,
+            "winRate": 50.22
           },
           {
             "level": 15,
-            "matches": 47084,
-            "winRate": 52.73
+            "matches": 48015,
+            "winRate": 52.75
           },
           {
             "level": 12,
-            "matches": 43485,
-            "winRate": 49.48
+            "matches": 44312,
+            "winRate": 49.51
           },
           {
             "level": 3,
@@ -657,13 +657,13 @@
           },
           {
             "level": 11,
-            "matches": 32868,
-            "winRate": 50.2
+            "matches": 33630,
+            "winRate": 50.25
           },
           {
             "level": 14,
-            "matches": 16058,
-            "winRate": 50.26
+            "matches": 16363,
+            "winRate": 50.22
           },
           {
             "level": 2,
@@ -679,18 +679,18 @@
           },
           {
             "level": 15,
-            "matches": 157301,
-            "winRate": 52.1
+            "matches": 160614,
+            "winRate": 52.11
           },
           {
             "level": 10,
-            "matches": 19497,
-            "winRate": 50.46
+            "matches": 19904,
+            "winRate": 50.47
           },
           {
             "level": 7,
-            "matches": 11867,
-            "winRate": 50.27
+            "matches": 12073,
+            "winRate": 50.33
           },
           {
             "level": 2,
@@ -699,18 +699,18 @@
           },
           {
             "level": 12,
-            "matches": 6233,
+            "matches": 6333,
             "winRate": 49.72
           },
           {
             "level": 14,
-            "matches": 5045,
-            "winRate": 52.13
+            "matches": 5152,
+            "winRate": 52.15
           },
           {
             "level": 8,
-            "matches": 4871,
-            "winRate": 50.05
+            "matches": 4970,
+            "winRate": 50.22
           }
         ],
         "5009": [
@@ -721,18 +721,18 @@
           },
           {
             "level": 7,
-            "matches": 145964,
-            "winRate": 49.91
+            "matches": 149138,
+            "winRate": 49.94
           },
           {
             "level": 8,
-            "matches": 43328,
-            "winRate": 49.48
+            "matches": 44144,
+            "winRate": 49.47
           },
           {
             "level": 9,
-            "matches": 15238,
-            "winRate": 49.89
+            "matches": 15493,
+            "winRate": 49.82
           },
           {
             "level": 1,
@@ -741,8 +741,8 @@
           },
           {
             "level": 10,
-            "matches": 13246,
-            "winRate": 50.85
+            "matches": 13510,
+            "winRate": 51.03
           },
           {
             "level": 3,
@@ -751,8 +751,8 @@
           },
           {
             "level": 12,
-            "matches": 3156,
-            "winRate": 48.86
+            "matches": 3197,
+            "winRate": 48.89
           }
         ],
         "5010": [
@@ -5791,10 +5791,10 @@
       "name": "SAND KING",
       "boots": {
         "itemId": 50,
-        "matches": 18709,
-        "wins": 9366,
-        "winRate": 50.06,
-        "averageTime": 546
+        "matches": 19142,
+        "wins": 9577,
+        "winRate": 50.03,
+        "averageTime": 545.6
       },
       "earlyItems": [
         {
@@ -5941,234 +5941,234 @@
         {
           "level": 1,
           "abilityId": 5103,
-          "matches": 23190,
-          "winRate": 49.28
+          "matches": 23688,
+          "winRate": 49.18
         },
         {
           "level": 2,
           "abilityId": 5102,
-          "matches": 15893,
-          "winRate": 48.46
+          "matches": 16198,
+          "winRate": 48.37
         },
         {
           "level": 3,
           "abilityId": 1229,
-          "matches": 7226,
-          "winRate": 48.09
+          "matches": 7382,
+          "winRate": 48.02
         },
         {
           "level": 4,
           "abilityId": 1229,
-          "matches": 17522,
-          "winRate": 48.33
+          "matches": 17865,
+          "winRate": 48.28
         },
         {
           "level": 5,
           "abilityId": 1229,
-          "matches": 587,
-          "winRate": 42.76
+          "matches": 601,
+          "winRate": 42.43
         },
         {
           "level": 6,
           "abilityId": 5105,
-          "matches": 44278,
-          "winRate": 48.57
+          "matches": 45172,
+          "winRate": 48.54
         },
         {
           "level": 7,
           "abilityId": 5103,
-          "matches": 32964,
-          "winRate": 49.61
+          "matches": 33678,
+          "winRate": 49.57
         },
         {
           "level": 8,
           "abilityId": 5103,
-          "matches": 4186,
-          "winRate": 49.12
+          "matches": 4270,
+          "winRate": 48.92
         },
         {
           "level": 9,
           "abilityId": 5102,
-          "matches": 3453,
-          "winRate": 48.77
+          "matches": 3515,
+          "winRate": 48.73
         },
         {
           "level": 11,
           "abilityId": 5102,
-          "matches": 4107,
-          "winRate": 48.84
+          "matches": 4191,
+          "winRate": 48.7
         },
         {
           "level": 12,
           "abilityId": 5105,
-          "matches": 330,
-          "winRate": 56.36
+          "matches": 339,
+          "winRate": 56.05
         },
         {
           "level": 13,
           "abilityId": 5103,
-          "matches": 1024,
-          "winRate": 43.26
+          "matches": 1040,
+          "winRate": 43.17
         },
         {
           "level": 14,
           "abilityId": 1229,
-          "matches": 1647,
-          "winRate": 47.6
+          "matches": 1680,
+          "winRate": 47.5
         }
       ],
       "abilities": {
         "1229": [
           {
             "level": 15,
-            "matches": 33522,
-            "winRate": 51.42
+            "matches": 34214,
+            "winRate": 51.38
           },
           {
             "level": 4,
-            "matches": 17522,
-            "winRate": 48.33
+            "matches": 17865,
+            "winRate": 48.28
           },
           {
             "level": 2,
-            "matches": 12943,
-            "winRate": 49.63
+            "matches": 13237,
+            "winRate": 49.6
           },
           {
             "level": 3,
-            "matches": 7226,
-            "winRate": 48.09
+            "matches": 7382,
+            "winRate": 48.02
           },
           {
             "level": 10,
-            "matches": 6044,
-            "winRate": 48.61
+            "matches": 6160,
+            "winRate": 48.59
           },
           {
             "level": 1,
-            "matches": 3861,
-            "winRate": 49.21
+            "matches": 3926,
+            "winRate": 49.36
           },
           {
             "level": 12,
-            "matches": 1987,
-            "winRate": 47.01
+            "matches": 2027,
+            "winRate": 46.92
           },
           {
             "level": 11,
-            "matches": 1859,
-            "winRate": 49.06
+            "matches": 1891,
+            "winRate": 49.02
           }
         ],
         "5102": [
           {
             "level": 1,
-            "matches": 20023,
-            "winRate": 47.86
+            "matches": 20415,
+            "winRate": 47.85
           },
           {
             "level": 10,
-            "matches": 19933,
-            "winRate": 50.17
+            "matches": 20353,
+            "winRate": 50.14
           },
           {
             "level": 2,
-            "matches": 15893,
-            "winRate": 48.46
+            "matches": 16198,
+            "winRate": 48.37
           },
           {
             "level": 4,
-            "matches": 7242,
-            "winRate": 51.8
+            "matches": 7401,
+            "winRate": 51.72
           },
           {
             "level": 15,
-            "matches": 6568,
-            "winRate": 49.94
+            "matches": 6710,
+            "winRate": 49.9
           },
           {
             "level": 12,
-            "matches": 5353,
-            "winRate": 49.45
+            "matches": 5479,
+            "winRate": 49.48
           },
           {
             "level": 11,
-            "matches": 4107,
-            "winRate": 48.84
+            "matches": 4191,
+            "winRate": 48.7
           },
           {
-            "level": 7,
-            "matches": 3455,
-            "winRate": 45.96
+            "level": 9,
+            "matches": 3515,
+            "winRate": 48.73
           }
         ],
         "5103": [
           {
             "level": 7,
-            "matches": 32964,
-            "winRate": 49.61
+            "matches": 33678,
+            "winRate": 49.57
           },
           {
             "level": 1,
-            "matches": 23190,
-            "winRate": 49.28
+            "matches": 23688,
+            "winRate": 49.18
           },
           {
             "level": 2,
-            "matches": 18198,
+            "matches": 18554,
             "winRate": 48.22
           },
           {
             "level": 8,
-            "matches": 4186,
-            "winRate": 49.12
+            "matches": 4270,
+            "winRate": 48.92
           },
           {
             "level": 3,
-            "matches": 3540,
-            "winRate": 47.74
+            "matches": 3615,
+            "winRate": 47.88
           },
           {
             "level": 15,
-            "matches": 3058,
-            "winRate": 49.25
+            "matches": 3099,
+            "winRate": 49.31
           },
           {
             "level": 9,
-            "matches": 2187,
-            "winRate": 47.37
+            "matches": 2223,
+            "winRate": 47.32
           },
           {
             "level": 10,
-            "matches": 2087,
-            "winRate": 46.14
+            "matches": 2120,
+            "winRate": 46.18
           }
         ],
         "5105": [
           {
             "level": 6,
-            "matches": 44278,
-            "winRate": 48.57
+            "matches": 45172,
+            "winRate": 48.54
           },
           {
             "level": 8,
-            "matches": 966,
-            "winRate": 52.48
+            "matches": 990,
+            "winRate": 52.53
           },
           {
             "level": 7,
-            "matches": 722,
-            "winRate": 49.45
+            "matches": 738,
+            "winRate": 49.32
           },
           {
             "level": 9,
-            "matches": 553,
-            "winRate": 50.81
+            "matches": 560,
+            "winRate": 50.54
           },
           {
             "level": 10,
-            "matches": 330,
-            "winRate": 56.36
+            "matches": 339,
+            "winRate": 56.05
           }
         ]
       }
@@ -6178,10 +6178,10 @@
       "name": "STORM SPIRIT",
       "boots": {
         "itemId": 63,
-        "matches": 68061,
-        "wins": 31530,
-        "winRate": 46.33,
-        "averageTime": 544.4
+        "matches": 69477,
+        "wins": 32200,
+        "winRate": 46.35,
+        "averageTime": 544.2
       },
       "earlyItems": [
         {
@@ -6359,8 +6359,8 @@
         {
           "level": 5,
           "abilityId": 5098,
-          "matches": 52413,
-          "winRate": 45.93
+          "matches": 53529,
+          "winRate": 45.98
         },
         {
           "level": 6,
@@ -6371,26 +6371,26 @@
         {
           "level": 7,
           "abilityId": 5098,
-          "matches": 52413,
-          "winRate": 45.93
+          "matches": 53529,
+          "winRate": 45.98
         },
         {
           "level": 8,
           "abilityId": 5098,
-          "matches": 11178,
-          "winRate": 44.48
+          "matches": 11387,
+          "winRate": 44.5
         },
         {
           "level": 9,
           "abilityId": 5100,
-          "matches": 9635,
-          "winRate": 47.88
+          "matches": 9839,
+          "winRate": 47.89
         },
         {
           "level": 11,
           "abilityId": 5100,
-          "matches": 7505,
-          "winRate": 46
+          "matches": 7665,
+          "winRate": 45.91
         },
         {
           "level": 12,
@@ -6401,14 +6401,14 @@
         {
           "level": 13,
           "abilityId": 5100,
-          "matches": 1885,
-          "winRate": 42.07
+          "matches": 1917,
+          "winRate": 42.15
         },
         {
           "level": 14,
           "abilityId": 5099,
-          "matches": 545,
-          "winRate": 45.87
+          "matches": 552,
+          "winRate": 46.01
         }
       ],
       "abilities": {
@@ -6420,28 +6420,28 @@
           },
           {
             "level": 7,
-            "matches": 52413,
-            "winRate": 45.93
+            "matches": 53529,
+            "winRate": 45.98
           },
           {
             "level": 8,
-            "matches": 11178,
-            "winRate": 44.48
+            "matches": 11387,
+            "winRate": 44.5
           },
           {
             "level": 10,
-            "matches": 4830,
-            "winRate": 52.3
+            "matches": 4921,
+            "winRate": 52.29
           },
           {
             "level": 9,
-            "matches": 2871,
-            "winRate": 44.58
+            "matches": 2934,
+            "winRate": 44.48
           },
           {
             "level": 11,
-            "matches": 1073,
-            "winRate": 48.93
+            "matches": 1096,
+            "winRate": 48.63
           },
           {
             "level": 2,
@@ -6450,15 +6450,15 @@
           },
           {
             "level": 12,
-            "matches": 415,
-            "winRate": 40.48
+            "matches": 425,
+            "winRate": 40
           }
         ],
         "5099": [
           {
             "level": 15,
-            "matches": 68203,
-            "winRate": 47.68
+            "matches": 69634,
+            "winRate": 47.7
           },
           {
             "level": 4,
@@ -6504,33 +6504,33 @@
           },
           {
             "level": 10,
-            "matches": 48178,
-            "winRate": 45.5
+            "matches": 49186,
+            "winRate": 45.57
           },
           {
             "level": 9,
-            "matches": 9635,
-            "winRate": 47.88
+            "matches": 9839,
+            "winRate": 47.89
           },
           {
             "level": 11,
-            "matches": 7505,
-            "winRate": 46
+            "matches": 7665,
+            "winRate": 45.91
           },
           {
             "level": 7,
-            "matches": 2778,
-            "winRate": 52.09
+            "matches": 2818,
+            "winRate": 51.95
           },
           {
             "level": 8,
-            "matches": 2187,
-            "winRate": 50.21
+            "matches": 2244,
+            "winRate": 50.04
           },
           {
             "level": 12,
-            "matches": 1885,
-            "winRate": 42.07
+            "matches": 1917,
+            "winRate": 42.15
           },
           {
             "level": 3,
@@ -6961,10 +6961,10 @@
       "name": "TINY",
       "boots": {
         "itemId": 63,
-        "matches": 34290,
-        "wins": 14970,
-        "winRate": 43.66,
-        "averageTime": 495
+        "matches": 35122,
+        "wins": 15338,
+        "winRate": 43.67,
+        "averageTime": 494.9
       },
       "earlyItems": [
         {
@@ -7118,32 +7118,32 @@
         {
           "level": 1,
           "abilityId": 5109,
-          "matches": 41644,
-          "winRate": 44.03
+          "matches": 42641,
+          "winRate": 44.04
         },
         {
           "level": 2,
           "abilityId": 5106,
-          "matches": 32423,
-          "winRate": 44.07
+          "matches": 33188,
+          "winRate": 44.05
         },
         {
           "level": 3,
           "abilityId": 5109,
-          "matches": 41644,
-          "winRate": 44.03
+          "matches": 42641,
+          "winRate": 44.04
         },
         {
           "level": 4,
           "abilityId": 5107,
-          "matches": 11124,
-          "winRate": 43.31
+          "matches": 11406,
+          "winRate": 43.27
         },
         {
           "level": 5,
           "abilityId": 5109,
-          "matches": 41644,
-          "winRate": 44.03
+          "matches": 42641,
+          "winRate": 44.04
         },
         {
           "level": 6,
@@ -7154,26 +7154,26 @@
         {
           "level": 7,
           "abilityId": 5107,
-          "matches": 16971,
-          "winRate": 44.64
+          "matches": 17365,
+          "winRate": 44.69
         },
         {
           "level": 8,
           "abilityId": 5107,
-          "matches": 8711,
-          "winRate": 43.4
+          "matches": 8906,
+          "winRate": 43.33
         },
         {
           "level": 9,
           "abilityId": 5106,
-          "matches": 15937,
-          "winRate": 44.51
+          "matches": 16283,
+          "winRate": 44.65
         },
         {
           "level": 11,
           "abilityId": 5107,
-          "matches": 3506,
-          "winRate": 44.69
+          "matches": 3592,
+          "winRate": 44.77
         },
         {
           "level": 12,
@@ -7184,183 +7184,183 @@
         {
           "level": 13,
           "abilityId": 5109,
-          "matches": 341,
-          "winRate": 40.76
+          "matches": 348,
+          "winRate": 40.23
         },
         {
           "level": 14,
           "abilityId": 5106,
-          "matches": 746,
-          "winRate": 42.63
+          "matches": 760,
+          "winRate": 42.37
         }
       ],
       "abilities": {
         "5106": [
           {
             "level": 2,
-            "matches": 32423,
-            "winRate": 44.07
+            "matches": 33188,
+            "winRate": 44.05
           },
           {
             "level": 9,
-            "matches": 15937,
-            "winRate": 44.51
+            "matches": 16283,
+            "winRate": 44.65
           },
           {
             "level": 1,
-            "matches": 15617,
-            "winRate": 43.86
+            "matches": 15945,
+            "winRate": 43.92
           },
           {
             "level": 10,
-            "matches": 12110,
-            "winRate": 44.08
+            "matches": 12409,
+            "winRate": 44.06
           },
           {
             "level": 7,
-            "matches": 10363,
-            "winRate": 44.95
+            "matches": 10587,
+            "winRate": 44.86
           },
           {
             "level": 8,
-            "matches": 4826,
-            "winRate": 43.8
+            "matches": 4934,
+            "winRate": 43.74
           },
           {
             "level": 15,
-            "matches": 3206,
-            "winRate": 45.1
+            "matches": 3294,
+            "winRate": 45.02
           },
           {
             "level": 3,
-            "matches": 2737,
-            "winRate": 42.64
+            "matches": 2800,
+            "winRate": 42.79
           }
         ],
         "5107": [
           {
             "level": 15,
-            "matches": 24123,
-            "winRate": 45.84
+            "matches": 24695,
+            "winRate": 45.89
           },
           {
             "level": 7,
-            "matches": 16971,
-            "winRate": 44.64
+            "matches": 17365,
+            "winRate": 44.69
           },
           {
             "level": 3,
-            "matches": 15907,
-            "winRate": 43.35
+            "matches": 16289,
+            "winRate": 43.34
           },
           {
             "level": 10,
-            "matches": 14777,
-            "winRate": 44.29
+            "matches": 15122,
+            "winRate": 44.33
           },
           {
             "level": 2,
-            "matches": 14265,
-            "winRate": 43.69
-          },
-          {
-            "level": 12,
-            "matches": 11138,
-            "winRate": 45.17
+            "matches": 14574,
+            "winRate": 43.77
           },
           {
             "level": 4,
-            "matches": 11124,
-            "winRate": 43.31
+            "matches": 11406,
+            "winRate": 43.27
+          },
+          {
+            "level": 12,
+            "matches": 11370,
+            "winRate": 45.09
           },
           {
             "level": 8,
-            "matches": 8711,
-            "winRate": 43.4
+            "matches": 8906,
+            "winRate": 43.33
           }
         ],
         "5108": [
           {
             "level": 1,
-            "matches": 32647,
+            "matches": 33440,
             "winRate": 43.92
           },
           {
             "level": 2,
-            "matches": 5896,
-            "winRate": 44.03
+            "matches": 6035,
+            "winRate": 44.04
           },
           {
             "level": 10,
-            "matches": 4963,
-            "winRate": 45.17
+            "matches": 5064,
+            "winRate": 45.18
           },
           {
             "level": 11,
-            "matches": 3002,
-            "winRate": 45.67
+            "matches": 3060,
+            "winRate": 45.65
           },
           {
             "level": 15,
-            "matches": 2819,
-            "winRate": 47.29
+            "matches": 2891,
+            "winRate": 47.35
           },
           {
             "level": 7,
-            "matches": 2718,
-            "winRate": 45.29
+            "matches": 2778,
+            "winRate": 45.39
           },
           {
             "level": 9,
-            "matches": 1870,
-            "winRate": 44.6
+            "matches": 1901,
+            "winRate": 44.61
           },
           {
-            "level": 4,
-            "matches": 1225,
-            "winRate": 38.12
+            "level": 3,
+            "matches": 1252,
+            "winRate": 42.81
           }
         ],
         "5109": [
           {
             "level": 6,
-            "matches": 41644,
-            "winRate": 44.03
+            "matches": 42641,
+            "winRate": 44.04
           },
           {
             "level": 9,
-            "matches": 3714,
-            "winRate": 45.13
+            "matches": 3788,
+            "winRate": 45.06
           },
           {
             "level": 10,
-            "matches": 1767,
-            "winRate": 42.61
+            "matches": 1800,
+            "winRate": 42.78
           },
           {
             "level": 7,
-            "matches": 1277,
-            "winRate": 42.83
+            "matches": 1309,
+            "winRate": 42.78
           },
           {
             "level": 8,
-            "matches": 1220,
-            "winRate": 44.51
+            "matches": 1245,
+            "winRate": 44.58
           },
           {
             "level": 14,
-            "matches": 1117,
-            "winRate": 44.23
+            "matches": 1139,
+            "winRate": 44.6
           },
           {
             "level": 12,
-            "matches": 672,
-            "winRate": 43.3
+            "matches": 684,
+            "winRate": 43.42
           },
           {
             "level": 11,
-            "matches": 502,
-            "winRate": 45.82
+            "matches": 512,
+            "winRate": 45.7
           }
         ]
       }
@@ -11220,10 +11220,10 @@
       "name": "LICH",
       "boots": {
         "itemId": 214,
-        "matches": 119211,
-        "wins": 62570,
-        "winRate": 52.49,
-        "averageTime": 439.8
+        "matches": 121710,
+        "wins": 63906,
+        "winRate": 52.51,
+        "averageTime": 439.9
       },
       "earlyItems": [
         {
@@ -11377,224 +11377,224 @@
         {
           "level": 1,
           "abilityId": 5134,
-          "matches": 126353,
-          "winRate": 52.41
+          "matches": 128993,
+          "winRate": 52.43
         },
         {
           "level": 2,
           "abilityId": 7325,
-          "matches": 91238,
-          "winRate": 52.88
+          "matches": 93145,
+          "winRate": 52.9
         },
         {
           "level": 3,
           "abilityId": 5136,
-          "matches": 16679,
-          "winRate": 52.05
+          "matches": 17028,
+          "winRate": 52.06
         },
         {
           "level": 4,
           "abilityId": 5136,
-          "matches": 66666,
+          "matches": 68064,
           "winRate": 53.2
         },
         {
           "level": 5,
           "abilityId": 5136,
-          "matches": 2073,
-          "winRate": 53.16
+          "matches": 2113,
+          "winRate": 53.34
         },
         {
           "level": 6,
           "abilityId": 5137,
-          "matches": 135813,
-          "winRate": 52.38
+          "matches": 138653,
+          "winRate": 52.39
         },
         {
           "level": 7,
           "abilityId": 5134,
-          "matches": 100653,
-          "winRate": 52.83
+          "matches": 102752,
+          "winRate": 52.84
         },
         {
           "level": 8,
           "abilityId": 5134,
-          "matches": 11865,
-          "winRate": 51.57
+          "matches": 12097,
+          "winRate": 51.65
         },
         {
           "level": 9,
           "abilityId": 5136,
-          "matches": 4937,
-          "winRate": 50.68
+          "matches": 5037,
+          "winRate": 50.51
         },
         {
           "level": 11,
           "abilityId": 7325,
-          "matches": 7334,
-          "winRate": 53.74
+          "matches": 7494,
+          "winRate": 53.58
         },
         {
           "level": 12,
           "abilityId": 5137,
-          "matches": 240,
-          "winRate": 47.92
+          "matches": 243,
+          "winRate": 48.15
         },
         {
           "level": 13,
           "abilityId": 7325,
-          "matches": 380,
-          "winRate": 50
+          "matches": 386,
+          "winRate": 49.74
         },
         {
           "level": 14,
           "abilityId": 7325,
-          "matches": 6036,
-          "winRate": 54.34
+          "matches": 6148,
+          "winRate": 54.39
         }
       ],
       "abilities": {
         "5134": [
           {
             "level": 1,
-            "matches": 126353,
-            "winRate": 52.41
+            "matches": 128993,
+            "winRate": 52.43
           },
           {
             "level": 7,
-            "matches": 100653,
-            "winRate": 52.83
+            "matches": 102752,
+            "winRate": 52.84
           },
           {
             "level": 8,
-            "matches": 11865,
-            "winRate": 51.57
+            "matches": 12097,
+            "winRate": 51.65
           },
           {
             "level": 2,
-            "matches": 8115,
-            "winRate": 52.37
+            "matches": 8288,
+            "winRate": 52.41
           },
           {
             "level": 15,
-            "matches": 6168,
-            "winRate": 56.16
+            "matches": 6299,
+            "winRate": 56.34
           },
           {
             "level": 10,
-            "matches": 4822,
-            "winRate": 52.9
+            "matches": 4928,
+            "winRate": 52.84
           },
           {
             "level": 9,
-            "matches": 4124,
-            "winRate": 50.44
+            "matches": 4198,
+            "winRate": 50.33
           },
           {
             "level": 11,
-            "matches": 3000,
-            "winRate": 49.83
+            "matches": 3082,
+            "winRate": 49.9
           }
         ],
         "5136": [
           {
             "level": 4,
-            "matches": 66666,
+            "matches": 68064,
             "winRate": 53.2
           },
           {
             "level": 10,
-            "matches": 44917,
-            "winRate": 52.84
+            "matches": 45891,
+            "winRate": 52.87
           },
           {
             "level": 2,
-            "matches": 36955,
-            "winRate": 50.98
+            "matches": 37723,
+            "winRate": 50.97
           },
           {
             "level": 15,
-            "matches": 32516,
-            "winRate": 58.13
+            "matches": 33165,
+            "winRate": 58.09
           },
           {
             "level": 11,
-            "matches": 21090,
-            "winRate": 52.37
+            "matches": 21545,
+            "winRate": 52.38
           },
           {
             "level": 3,
-            "matches": 16679,
-            "winRate": 52.05
+            "matches": 17028,
+            "winRate": 52.06
           },
           {
             "level": 12,
-            "matches": 13157,
-            "winRate": 53.07
+            "matches": 13412,
+            "winRate": 53.1
           },
           {
             "level": 8,
-            "matches": 10289,
-            "winRate": 52.84
+            "matches": 10517,
+            "winRate": 53.02
           }
         ],
         "5137": [
           {
             "level": 6,
-            "matches": 135813,
-            "winRate": 52.38
+            "matches": 138653,
+            "winRate": 52.39
           },
           {
             "level": 7,
-            "matches": 240,
-            "winRate": 47.92
+            "matches": 243,
+            "winRate": 48.15
           },
           {
             "level": 5,
-            "matches": 235,
-            "winRate": 38.72
+            "matches": 239,
+            "winRate": 38.49
           }
         ],
         "7325": [
           {
             "level": 2,
-            "matches": 91238,
-            "winRate": 52.88
+            "matches": 93145,
+            "winRate": 52.9
           },
           {
             "level": 15,
-            "matches": 78841,
-            "winRate": 56.85
+            "matches": 80493,
+            "winRate": 56.89
           },
           {
             "level": 4,
-            "matches": 22082,
-            "winRate": 51.35
+            "matches": 22542,
+            "winRate": 51.39
           },
           {
             "level": 10,
-            "matches": 16223,
-            "winRate": 54.3
+            "matches": 16557,
+            "winRate": 54.31
           },
           {
             "level": 3,
-            "matches": 13595,
-            "winRate": 50.96
+            "matches": 13901,
+            "winRate": 50.9
           },
           {
             "level": 12,
-            "matches": 9056,
+            "matches": 9250,
             "winRate": 54.64
           },
           {
             "level": 11,
-            "matches": 7334,
-            "winRate": 53.74
+            "matches": 7494,
+            "winRate": 53.58
           },
           {
             "level": 14,
-            "matches": 6036,
-            "winRate": 54.34
+            "matches": 6148,
+            "winRate": 54.39
           }
         ]
       }
@@ -14555,9 +14555,9 @@
       "name": "VENOMANCER",
       "boots": {
         "itemId": 180,
-        "matches": 59464,
-        "wins": 28673,
-        "winRate": 48.22,
+        "matches": 60626,
+        "wins": 29237,
+        "winRate": 48.23,
         "averageTime": 746.1
       },
       "earlyItems": [
@@ -14712,169 +14712,169 @@
         {
           "level": 1,
           "abilityId": 5178,
-          "matches": 70178,
-          "winRate": 47.63
+          "matches": 71540,
+          "winRate": 47.65
         },
         {
           "level": 2,
           "abilityId": 5180,
-          "matches": 31691,
-          "winRate": 47.14
+          "matches": 32321,
+          "winRate": 47.2
         },
         {
           "level": 3,
           "abilityId": 5180,
-          "matches": 19365,
-          "winRate": 46.69
+          "matches": 19736,
+          "winRate": 46.7
         },
         {
           "level": 4,
           "abilityId": 5178,
-          "matches": 771,
-          "winRate": 45.01
+          "matches": 784,
+          "winRate": 44.9
         },
         {
           "level": 5,
           "abilityId": 5180,
-          "matches": 1787,
-          "winRate": 46.73
+          "matches": 1817,
+          "winRate": 46.56
         },
         {
           "level": 6,
           "abilityId": 1105,
-          "matches": 82020,
-          "winRate": 47.45
+          "matches": 83602,
+          "winRate": 47.47
         },
         {
           "level": 7,
           "abilityId": 5180,
-          "matches": 34356,
-          "winRate": 47.07
+          "matches": 35061,
+          "winRate": 47.11
         },
         {
           "level": 8,
           "abilityId": 5178,
-          "matches": 5351,
-          "winRate": 46.63
+          "matches": 5445,
+          "winRate": 46.59
         },
         {
           "level": 9,
           "abilityId": 5178,
-          "matches": 9583,
-          "winRate": 47.65
+          "matches": 9780,
+          "winRate": 47.78
         },
         {
           "level": 12,
           "abilityId": 1105,
-          "matches": 170,
-          "winRate": 43.53
+          "matches": 174,
+          "winRate": 43.1
         }
       ],
       "abilities": {
         "1105": [
           {
             "level": 6,
-            "matches": 82020,
-            "winRate": 47.45
+            "matches": 83602,
+            "winRate": 47.47
           },
           {
             "level": 7,
-            "matches": 434,
-            "winRate": 43.55
+            "matches": 439,
+            "winRate": 43.28
           },
           {
             "level": 8,
-            "matches": 170,
-            "winRate": 43.53
+            "matches": 174,
+            "winRate": 43.1
           },
           {
             "level": 5,
-            "matches": 143,
-            "winRate": 37.06
+            "matches": 147,
+            "winRate": 36.05
           }
         ],
         "5178": [
           {
             "level": 1,
-            "matches": 70178,
-            "winRate": 47.63
-          },
-          {
-            "level": 15,
-            "matches": 18990,
-            "winRate": 52.21
-          },
-          {
-            "level": 7,
-            "matches": 15816,
-            "winRate": 49.48
-          },
-          {
-            "level": 10,
-            "matches": 13358,
-            "winRate": 47.36
-          },
-          {
-            "level": 2,
-            "matches": 10579,
-            "winRate": 46.23
-          },
-          {
-            "level": 9,
-            "matches": 9583,
+            "matches": 71540,
             "winRate": 47.65
           },
           {
+            "level": 15,
+            "matches": 19360,
+            "winRate": 52.18
+          },
+          {
+            "level": 7,
+            "matches": 16111,
+            "winRate": 49.44
+          },
+          {
+            "level": 10,
+            "matches": 13612,
+            "winRate": 47.38
+          },
+          {
+            "level": 2,
+            "matches": 10782,
+            "winRate": 46.19
+          },
+          {
+            "level": 9,
+            "matches": 9780,
+            "winRate": 47.78
+          },
+          {
             "level": 11,
-            "matches": 6282,
-            "winRate": 47.79
+            "matches": 6407,
+            "winRate": 47.82
           },
           {
             "level": 12,
-            "matches": 5970,
+            "matches": 6083,
             "winRate": 48.74
           }
         ],
         "5180": [
           {
             "level": 7,
-            "matches": 34356,
-            "winRate": 47.07
+            "matches": 35061,
+            "winRate": 47.11
           },
           {
             "level": 2,
-            "matches": 31691,
-            "winRate": 47.14
+            "matches": 32321,
+            "winRate": 47.2
           },
           {
             "level": 3,
-            "matches": 19365,
-            "winRate": 46.69
+            "matches": 19736,
+            "winRate": 46.7
           },
           {
             "level": 15,
-            "matches": 12831,
-            "winRate": 52.65
+            "matches": 13082,
+            "winRate": 52.61
           },
           {
             "level": 4,
-            "matches": 12475,
+            "matches": 12706,
             "winRate": 47.72
           },
           {
             "level": 8,
-            "matches": 12034,
-            "winRate": 47.52
+            "matches": 12267,
+            "winRate": 47.57
           },
           {
             "level": 10,
-            "matches": 9807,
-            "winRate": 48.67
+            "matches": 9982,
+            "winRate": 48.64
           },
           {
             "level": 9,
-            "matches": 8968,
-            "winRate": 48.9
+            "matches": 9134,
+            "winRate": 48.87
           }
         ]
       }
@@ -19110,10 +19110,10 @@
       "name": "LESHRAC",
       "boots": {
         "itemId": 180,
-        "matches": 16912,
-        "wins": 8659,
+        "matches": 17268,
+        "wins": 8841,
         "winRate": 51.2,
-        "averageTime": 516
+        "averageTime": 515.9
       },
       "earlyItems": [
         {
@@ -19253,229 +19253,229 @@
         {
           "level": 1,
           "abilityId": 5243,
-          "matches": 16910,
-          "winRate": 51.89
+          "matches": 17282,
+          "winRate": 51.84
         },
         {
           "level": 2,
           "abilityId": 5242,
-          "matches": 13334,
-          "winRate": 51.4
+          "matches": 13623,
+          "winRate": 51.39
         },
         {
           "level": 3,
           "abilityId": 5242,
-          "matches": 1315,
-          "winRate": 49.43
+          "matches": 1340,
+          "winRate": 49.03
         },
         {
           "level": 4,
           "abilityId": 5241,
-          "matches": 1991,
-          "winRate": 47.31
+          "matches": 2024,
+          "winRate": 47.43
         },
         {
           "level": 5,
-          "abilityId": 5243,
-          "matches": 450,
-          "winRate": 46.22
+          "abilityId": 5241,
+          "matches": 457,
+          "winRate": 47.05
         },
         {
           "level": 6,
           "abilityId": 5244,
-          "matches": 20647,
-          "winRate": 51.08
+          "matches": 21078,
+          "winRate": 51.09
         },
         {
           "level": 7,
           "abilityId": 5242,
-          "matches": 11014,
-          "winRate": 51.09
+          "matches": 11252,
+          "winRate": 51.03
         },
         {
           "level": 8,
           "abilityId": 5242,
-          "matches": 3561,
-          "winRate": 50.8
+          "matches": 3622,
+          "winRate": 50.77
         },
         {
           "level": 9,
           "abilityId": 5243,
-          "matches": 5937,
-          "winRate": 51.89
+          "matches": 6057,
+          "winRate": 51.91
         },
         {
           "level": 11,
           "abilityId": 5241,
-          "matches": 1949,
-          "winRate": 52.54
+          "matches": 1979,
+          "winRate": 52.5
         },
         {
           "level": 12,
           "abilityId": 5244,
-          "matches": 135,
-          "winRate": 48.15
+          "matches": 142,
+          "winRate": 47.18
         },
         {
           "level": 13,
           "abilityId": 5243,
-          "matches": 986,
-          "winRate": 52.13
+          "matches": 1004,
+          "winRate": 51.99
         },
         {
           "level": 14,
           "abilityId": 5241,
-          "matches": 1083,
-          "winRate": 50.69
+          "matches": 1103,
+          "winRate": 50.5
         }
       ],
       "abilities": {
         "5241": [
           {
             "level": 15,
-            "matches": 15179,
+            "matches": 15508,
             "winRate": 53.47
           },
           {
             "level": 10,
-            "matches": 6358,
-            "winRate": 53.24
+            "matches": 6501,
+            "winRate": 53.27
           },
           {
             "level": 2,
-            "matches": 4375,
-            "winRate": 50.95
+            "matches": 4461,
+            "winRate": 50.89
           },
           {
             "level": 8,
-            "matches": 3331,
-            "winRate": 51.85
+            "matches": 3413,
+            "winRate": 51.71
           },
           {
             "level": 12,
-            "matches": 2195,
-            "winRate": 52.8
+            "matches": 2243,
+            "winRate": 52.88
           },
           {
             "level": 4,
-            "matches": 1991,
-            "winRate": 47.31
-          },
-          {
-            "level": 11,
-            "matches": 1949,
-            "winRate": 52.54
+            "matches": 2024,
+            "winRate": 47.43
           },
           {
             "level": 9,
-            "matches": 1939,
-            "winRate": 48.74
+            "matches": 1980,
+            "winRate": 48.79
+          },
+          {
+            "level": 11,
+            "matches": 1979,
+            "winRate": 52.5
           }
         ],
         "5242": [
           {
             "level": 2,
-            "matches": 13334,
-            "winRate": 51.4
+            "matches": 13623,
+            "winRate": 51.39
           },
           {
             "level": 7,
-            "matches": 11014,
-            "winRate": 51.09
+            "matches": 11252,
+            "winRate": 51.03
           },
           {
             "level": 8,
-            "matches": 3561,
-            "winRate": 50.8
+            "matches": 3622,
+            "winRate": 50.77
           },
           {
             "level": 9,
-            "matches": 3359,
-            "winRate": 54.54
+            "matches": 3441,
+            "winRate": 54.69
           },
           {
             "level": 1,
-            "matches": 3119,
-            "winRate": 48.28
+            "matches": 3174,
+            "winRate": 48.36
           },
           {
             "level": 10,
-            "matches": 2253,
-            "winRate": 49.45
+            "matches": 2298,
+            "winRate": 49.3
           },
           {
             "level": 4,
-            "matches": 1984,
+            "matches": 2027,
             "winRate": 50.81
           },
           {
             "level": 3,
-            "matches": 1315,
-            "winRate": 49.43
+            "matches": 1340,
+            "winRate": 49.03
           }
         ],
         "5243": [
           {
             "level": 1,
-            "matches": 16910,
-            "winRate": 51.89
+            "matches": 17282,
+            "winRate": 51.84
           },
           {
             "level": 9,
-            "matches": 5937,
-            "winRate": 51.89
+            "matches": 6057,
+            "winRate": 51.91
           },
           {
             "level": 7,
-            "matches": 4475,
-            "winRate": 52.78
+            "matches": 4569,
+            "winRate": 52.75
           },
           {
             "level": 10,
-            "matches": 3870,
-            "winRate": 49.97
+            "matches": 3953,
+            "winRate": 50.04
           },
           {
             "level": 15,
-            "matches": 3577,
-            "winRate": 52.84
+            "matches": 3654,
+            "winRate": 52.79
           },
           {
             "level": 2,
-            "matches": 3371,
-            "winRate": 47.79
+            "matches": 3433,
+            "winRate": 47.92
           },
           {
             "level": 11,
-            "matches": 1011,
-            "winRate": 46.79
+            "matches": 1032,
+            "winRate": 46.71
           },
           {
             "level": 12,
-            "matches": 986,
-            "winRate": 52.13
+            "matches": 1004,
+            "winRate": 51.99
           }
         ],
         "5244": [
           {
             "level": 6,
-            "matches": 20647,
-            "winRate": 51.08
+            "matches": 21078,
+            "winRate": 51.09
           },
           {
             "level": 7,
-            "matches": 283,
-            "winRate": 42.4
+            "matches": 288,
+            "winRate": 42.36
           },
           {
             "level": 8,
-            "matches": 180,
-            "winRate": 48.33
+            "matches": 181,
+            "winRate": 48.07
           },
           {
             "level": 9,
-            "matches": 135,
-            "winRate": 48.15
+            "matches": 142,
+            "winRate": 47.18
           }
         ]
       }
@@ -20031,32 +20031,32 @@
         {
           "level": 1,
           "abilityId": 5250,
-          "matches": 225349,
-          "winRate": 53.51
+          "matches": 229649,
+          "winRate": 53.5
         },
         {
           "level": 2,
           "abilityId": 5251,
-          "matches": 181801,
-          "winRate": 53.85
+          "matches": 185320,
+          "winRate": 53.84
         },
         {
           "level": 3,
           "abilityId": 5249,
-          "matches": 48708,
-          "winRate": 52.14
+          "matches": 49656,
+          "winRate": 52.15
         },
         {
           "level": 4,
           "abilityId": 5249,
-          "matches": 140191,
-          "winRate": 54.38
+          "matches": 142894,
+          "winRate": 54.37
         },
         {
           "level": 5,
           "abilityId": 5249,
-          "matches": 2577,
-          "winRate": 53.24
+          "matches": 2612,
+          "winRate": 53.29
         },
         {
           "level": 6,
@@ -20067,26 +20067,26 @@
         {
           "level": 7,
           "abilityId": 5250,
-          "matches": 224121,
-          "winRate": 53.66
+          "matches": 228438,
+          "winRate": 53.65
         },
         {
           "level": 8,
           "abilityId": 5250,
-          "matches": 13714,
-          "winRate": 51.46
+          "matches": 13949,
+          "winRate": 51.48
         },
         {
           "level": 9,
           "abilityId": 5250,
-          "matches": 3561,
-          "winRate": 50.13
+          "matches": 3610,
+          "winRate": 50.22
         },
         {
           "level": 11,
           "abilityId": 5249,
-          "matches": 32419,
-          "winRate": 53.02
+          "matches": 32943,
+          "winRate": 53
         },
         {
           "level": 12,
@@ -20097,183 +20097,183 @@
         {
           "level": 13,
           "abilityId": 5252,
-          "matches": 1828,
-          "winRate": 50.38
+          "matches": 1881,
+          "winRate": 50.13
         },
         {
           "level": 14,
           "abilityId": 5251,
-          "matches": 7016,
-          "winRate": 54.42
+          "matches": 7153,
+          "winRate": 54.54
         }
       ],
       "abilities": {
         "5249": [
           {
             "level": 10,
-            "matches": 145061,
-            "winRate": 53.66
+            "matches": 147967,
+            "winRate": 53.67
           },
           {
             "level": 4,
-            "matches": 140191,
-            "winRate": 54.38
+            "matches": 142894,
+            "winRate": 54.37
           },
           {
             "level": 3,
-            "matches": 48708,
-            "winRate": 52.14
+            "matches": 49656,
+            "winRate": 52.15
           },
           {
             "level": 2,
-            "matches": 43244,
+            "matches": 44020,
             "winRate": 51.75
           },
           {
             "level": 11,
-            "matches": 32419,
-            "winRate": 53.02
+            "matches": 32943,
+            "winRate": 53
           },
           {
             "level": 12,
-            "matches": 27547,
-            "winRate": 53.62
+            "matches": 28019,
+            "winRate": 53.59
           },
           {
             "level": 15,
-            "matches": 24084,
-            "winRate": 55.4
+            "matches": 24559,
+            "winRate": 55.44
           },
           {
             "level": 14,
-            "matches": 11421,
-            "winRate": 53.94
+            "matches": 11617,
+            "winRate": 53.81
           }
         ],
         "5250": [
           {
             "level": 1,
-            "matches": 225349,
-            "winRate": 53.51
+            "matches": 229649,
+            "winRate": 53.5
           },
           {
             "level": 7,
-            "matches": 224121,
-            "winRate": 53.66
+            "matches": 228438,
+            "winRate": 53.65
           },
           {
             "level": 2,
-            "matches": 21065,
-            "winRate": 52.42
+            "matches": 21436,
+            "winRate": 52.45
           },
           {
             "level": 8,
-            "matches": 13714,
-            "winRate": 51.46
+            "matches": 13949,
+            "winRate": 51.48
           },
           {
             "level": 9,
-            "matches": 3561,
-            "winRate": 50.13
+            "matches": 3610,
+            "winRate": 50.22
           },
           {
             "level": 10,
-            "matches": 1987,
-            "winRate": 49.22
+            "matches": 2013,
+            "winRate": 49.13
           },
           {
             "level": 3,
-            "matches": 1543,
-            "winRate": 47.12
+            "matches": 1573,
+            "winRate": 47.11
           },
           {
             "level": 15,
-            "matches": 1199,
-            "winRate": 51.96
+            "matches": 1217,
+            "winRate": 52.01
           }
         ],
         "5251": [
           {
             "level": 15,
-            "matches": 203647,
-            "winRate": 54.88
+            "matches": 207537,
+            "winRate": 54.87
           },
           {
             "level": 2,
-            "matches": 181801,
-            "winRate": 53.85
+            "matches": 185320,
+            "winRate": 53.84
           },
           {
             "level": 4,
-            "matches": 25285,
-            "winRate": 52.58
+            "matches": 25753,
+            "winRate": 52.57
           },
           {
             "level": 3,
-            "matches": 24990,
-            "winRate": 51.8
+            "matches": 25427,
+            "winRate": 51.78
           },
           {
             "level": 1,
-            "matches": 13685,
-            "winRate": 52.2
+            "matches": 13933,
+            "winRate": 52.24
           },
           {
             "level": 10,
-            "matches": 10381,
-            "winRate": 54.48
+            "matches": 10586,
+            "winRate": 54.49
           },
           {
             "level": 12,
-            "matches": 7705,
-            "winRate": 53.1
+            "matches": 7841,
+            "winRate": 53.19
           },
           {
             "level": 14,
-            "matches": 7016,
-            "winRate": 54.42
+            "matches": 7153,
+            "winRate": 54.54
           }
         ],
         "5252": [
           {
             "level": 6,
-            "matches": 244430,
+            "matches": 249074,
             "winRate": 53.37
           },
           {
             "level": 18,
-            "matches": 3464,
-            "winRate": 58.49
+            "matches": 3528,
+            "winRate": 58.65
           },
           {
             "level": 13,
-            "matches": 1828,
-            "winRate": 50.38
+            "matches": 1881,
+            "winRate": 50.13
           },
           {
             "level": 7,
-            "matches": 1634,
-            "winRate": 52.33
+            "matches": 1664,
+            "winRate": 52.46
           },
           {
             "level": 8,
-            "matches": 869,
-            "winRate": 54.43
+            "matches": 879,
+            "winRate": 54.15
           },
           {
             "level": 5,
-            "matches": 368,
-            "winRate": 52.72
+            "matches": 375,
+            "winRate": 52.53
           },
           {
             "level": 9,
-            "matches": 332,
-            "winRate": 57.53
+            "matches": 338,
+            "winRate": 57.4
           },
           {
             "level": 12,
-            "matches": 168,
-            "winRate": 55.95
+            "matches": 171,
+            "winRate": 56.73
           }
         ]
       }
@@ -23154,10 +23154,10 @@
       "name": "WEAVER",
       "boots": {
         "itemId": 63,
-        "matches": 29960,
-        "wins": 13619,
-        "winRate": 45.46,
-        "averageTime": 648.2
+        "matches": 30587,
+        "wins": 13916,
+        "winRate": 45.5,
+        "averageTime": 648.3
       },
       "earlyItems": [
         {
@@ -23311,32 +23311,32 @@
         {
           "level": 1,
           "abilityId": 5290,
-          "matches": 45321,
-          "winRate": 47.09
+          "matches": 46219,
+          "winRate": 47.1
         },
         {
           "level": 2,
           "abilityId": 5291,
-          "matches": 30202,
-          "winRate": 46.35
+          "matches": 30778,
+          "winRate": 46.33
         },
         {
           "level": 3,
           "abilityId": 5289,
-          "matches": 18981,
-          "winRate": 46.58
+          "matches": 19345,
+          "winRate": 46.55
         },
         {
           "level": 4,
           "abilityId": 5289,
-          "matches": 9112,
+          "matches": 9285,
           "winRate": 46.02
         },
         {
           "level": 5,
           "abilityId": 5289,
-          "matches": 837,
-          "winRate": 44.8
+          "matches": 854,
+          "winRate": 44.85
         },
         {
           "level": 6,
@@ -23347,26 +23347,26 @@
         {
           "level": 7,
           "abilityId": 5290,
-          "matches": 29423,
-          "winRate": 47.82
+          "matches": 29987,
+          "winRate": 47.79
         },
         {
           "level": 8,
           "abilityId": 5290,
-          "matches": 6681,
-          "winRate": 45.32
+          "matches": 6830,
+          "winRate": 45.45
         },
         {
           "level": 9,
           "abilityId": 5290,
-          "matches": 5711,
-          "winRate": 47.14
+          "matches": 5833,
+          "winRate": 47.28
         },
         {
           "level": 11,
           "abilityId": 5291,
-          "matches": 4315,
-          "winRate": 46.19
+          "matches": 4393,
+          "winRate": 46.3
         },
         {
           "level": 12,
@@ -23377,168 +23377,168 @@
         {
           "level": 13,
           "abilityId": 5291,
-          "matches": 508,
-          "winRate": 46.26
+          "matches": 518,
+          "winRate": 46.33
         },
         {
           "level": 14,
           "abilityId": 5291,
-          "matches": 3402,
-          "winRate": 49
+          "matches": 3471,
+          "winRate": 48.98
         }
       ],
       "abilities": {
         "5289": [
           {
             "level": 15,
-            "matches": 29239,
-            "winRate": 47.31
+            "matches": 29848,
+            "winRate": 47.29
           },
           {
             "level": 3,
-            "matches": 18981,
-            "winRate": 46.58
+            "matches": 19345,
+            "winRate": 46.55
           },
           {
             "level": 2,
-            "matches": 16905,
-            "winRate": 48.33
+            "matches": 17253,
+            "winRate": 48.4
           },
           {
             "level": 4,
-            "matches": 9112,
+            "matches": 9285,
             "winRate": 46.02
           },
           {
             "level": 1,
-            "matches": 8849,
-            "winRate": 47.84
+            "matches": 9035,
+            "winRate": 47.95
           },
           {
             "level": 7,
-            "matches": 8367,
-            "winRate": 49.05
+            "matches": 8541,
+            "winRate": 49.12
           },
           {
             "level": 10,
-            "matches": 7961,
-            "winRate": 49.49
+            "matches": 8099,
+            "winRate": 49.43
           },
           {
             "level": 8,
-            "matches": 2661,
-            "winRate": 48.37
+            "matches": 2717,
+            "winRate": 48.18
           }
         ],
         "5290": [
           {
             "level": 1,
-            "matches": 45321,
-            "winRate": 47.09
+            "matches": 46219,
+            "winRate": 47.1
           },
           {
             "level": 7,
-            "matches": 29423,
-            "winRate": 47.82
+            "matches": 29987,
+            "winRate": 47.79
           },
           {
             "level": 2,
-            "matches": 10760,
-            "winRate": 47.18
+            "matches": 10987,
+            "winRate": 47.25
           },
           {
             "level": 10,
-            "matches": 8347,
-            "winRate": 47.15
+            "matches": 8517,
+            "winRate": 47.13
           },
           {
             "level": 8,
-            "matches": 6681,
-            "winRate": 45.32
+            "matches": 6830,
+            "winRate": 45.45
           },
           {
             "level": 9,
-            "matches": 5711,
-            "winRate": 47.14
+            "matches": 5833,
+            "winRate": 47.28
           },
           {
             "level": 11,
-            "matches": 2462,
-            "winRate": 46.83
+            "matches": 2508,
+            "winRate": 47.09
           },
           {
             "level": 12,
-            "matches": 1977,
-            "winRate": 45.73
+            "matches": 2019,
+            "winRate": 45.62
           }
         ],
         "5291": [
           {
             "level": 2,
-            "matches": 30202,
-            "winRate": 46.35
+            "matches": 30778,
+            "winRate": 46.33
           },
           {
             "level": 10,
-            "matches": 20233,
+            "matches": 20671,
             "winRate": 47.6
           },
           {
             "level": 15,
-            "matches": 18397,
-            "winRate": 52.02
+            "matches": 18758,
+            "winRate": 52.11
           },
           {
             "level": 3,
-            "matches": 9774,
-            "winRate": 47.24
+            "matches": 9979,
+            "winRate": 47.34
           },
           {
             "level": 4,
-            "matches": 8359,
-            "winRate": 48.92
+            "matches": 8549,
+            "winRate": 49
           },
           {
             "level": 11,
-            "matches": 4315,
-            "winRate": 46.19
+            "matches": 4393,
+            "winRate": 46.3
           },
           {
             "level": 7,
-            "matches": 4306,
-            "winRate": 45.01
+            "matches": 4392,
+            "winRate": 44.85
           },
           {
             "level": 12,
-            "matches": 3963,
-            "winRate": 45.67
+            "matches": 4038,
+            "winRate": 45.72
           }
         ],
         "5292": [
           {
             "level": 6,
-            "matches": 55724,
-            "winRate": 47.16
+            "matches": 56825,
+            "winRate": 47.18
           },
           {
             "level": 7,
-            "matches": 927,
-            "winRate": 44.98
+            "matches": 955,
+            "winRate": 45.24
           },
           {
             "level": 8,
-            "matches": 472,
-            "winRate": 48.52
+            "matches": 482,
+            "winRate": 48.13
           },
           {
             "level": 9,
-            "matches": 282,
-            "winRate": 44.68
+            "matches": 290,
+            "winRate": 44.48
           },
           {
             "level": 10,
-            "matches": 166,
-            "winRate": 42.77
+            "matches": 167,
+            "winRate": 42.51
           },
           {
             "level": 5,
@@ -39091,10 +39091,10 @@
       "name": "EMBER SPIRIT",
       "boots": {
         "itemId": 50,
-        "matches": 90741,
-        "wins": 45389,
+        "matches": 92661,
+        "wins": 46350,
         "winRate": 50.02,
-        "averageTime": 597.9
+        "averageTime": 597.8
       },
       "earlyItems": [
         {
@@ -39248,219 +39248,219 @@
         {
           "level": 1,
           "abilityId": 5605,
-          "matches": 75409,
-          "winRate": 49.59
+          "matches": 77028,
+          "winRate": 49.6
         },
         {
           "level": 2,
           "abilityId": 5604,
-          "matches": 70014,
-          "winRate": 49.27
+          "matches": 71508,
+          "winRate": 49.29
         },
         {
           "level": 3,
           "abilityId": 5603,
-          "matches": 7129,
-          "winRate": 47.08
+          "matches": 7281,
+          "winRate": 47.15
         },
         {
           "level": 4,
           "abilityId": 5603,
-          "matches": 65640,
-          "winRate": 49.88
+          "matches": 67056,
+          "winRate": 49.86
         },
         {
           "level": 5,
           "abilityId": 5603,
-          "matches": 2602,
-          "winRate": 45.77
+          "matches": 2661,
+          "winRate": 45.81
         },
         {
           "level": 6,
           "abilityId": 5606,
-          "matches": 105618,
-          "winRate": 49.31
+          "matches": 107823,
+          "winRate": 49.32
         },
         {
           "level": 7,
           "abilityId": 5605,
-          "matches": 76755,
-          "winRate": 50.27
+          "matches": 78425,
+          "winRate": 50.26
         },
         {
           "level": 8,
           "abilityId": 5605,
-          "matches": 10421,
-          "winRate": 47.62
+          "matches": 10610,
+          "winRate": 47.72
         },
         {
           "level": 9,
           "abilityId": 5603,
-          "matches": 4248,
-          "winRate": 50.64
+          "matches": 4323,
+          "winRate": 50.59
         },
         {
           "level": 11,
           "abilityId": 5604,
-          "matches": 5264,
-          "winRate": 46.37
+          "matches": 5394,
+          "winRate": 46.46
         },
         {
           "level": 12,
           "abilityId": 5606,
-          "matches": 405,
-          "winRate": 47.16
+          "matches": 408,
+          "winRate": 46.81
         },
         {
           "level": 13,
           "abilityId": 5604,
-          "matches": 865,
-          "winRate": 52.02
+          "matches": 881,
+          "winRate": 51.87
         },
         {
           "level": 14,
           "abilityId": 5604,
-          "matches": 12291,
-          "winRate": 53.85
+          "matches": 12557,
+          "winRate": 53.83
         }
       ],
       "abilities": {
         "5603": [
           {
             "level": 4,
-            "matches": 65640,
-            "winRate": 49.88
+            "matches": 67056,
+            "winRate": 49.86
           },
           {
             "level": 15,
-            "matches": 50441,
-            "winRate": 49.68
+            "matches": 51510,
+            "winRate": 49.67
           },
           {
             "level": 10,
-            "matches": 27341,
-            "winRate": 52.02
+            "matches": 27921,
+            "winRate": 51.98
           },
           {
             "level": 2,
-            "matches": 15989,
-            "winRate": 49.05
+            "matches": 16285,
+            "winRate": 49.03
           },
           {
             "level": 14,
-            "matches": 9269,
-            "winRate": 52.14
+            "matches": 9460,
+            "winRate": 52.27
           },
           {
             "level": 1,
-            "matches": 8188,
-            "winRate": 48.78
+            "matches": 8350,
+            "winRate": 48.86
           },
           {
             "level": 3,
-            "matches": 7129,
-            "winRate": 47.08
+            "matches": 7281,
+            "winRate": 47.15
           },
           {
             "level": 12,
-            "matches": 6648,
-            "winRate": 48.9
+            "matches": 6767,
+            "winRate": 49.03
           }
         ],
         "5604": [
           {
             "level": 2,
-            "matches": 70014,
-            "winRate": 49.27
+            "matches": 71508,
+            "winRate": 49.29
           },
           {
             "level": 10,
-            "matches": 38276,
-            "winRate": 48.95
+            "matches": 39104,
+            "winRate": 48.98
           },
           {
             "level": 15,
-            "matches": 26893,
-            "winRate": 51.74
+            "matches": 27443,
+            "winRate": 51.72
           },
           {
             "level": 1,
-            "matches": 22805,
-            "winRate": 48.51
+            "matches": 23236,
+            "winRate": 48.46
           },
           {
             "level": 14,
-            "matches": 12291,
-            "winRate": 53.85
+            "matches": 12557,
+            "winRate": 53.83
           },
           {
             "level": 7,
-            "matches": 8843,
-            "winRate": 48.69
+            "matches": 8998,
+            "winRate": 48.68
           },
           {
             "level": 4,
-            "matches": 7915,
-            "winRate": 51.86
+            "matches": 8074,
+            "winRate": 51.87
           },
           {
             "level": 12,
-            "matches": 6560,
-            "winRate": 49.51
+            "matches": 6688,
+            "winRate": 49.43
           }
         ],
         "5605": [
           {
             "level": 7,
-            "matches": 76755,
-            "winRate": 50.27
+            "matches": 78425,
+            "winRate": 50.26
           },
           {
             "level": 1,
-            "matches": 75409,
-            "winRate": 49.59
+            "matches": 77028,
+            "winRate": 49.6
           },
           {
             "level": 2,
-            "matches": 20030,
-            "winRate": 49.47
+            "matches": 20449,
+            "winRate": 49.44
           },
           {
             "level": 8,
-            "matches": 10421,
-            "winRate": 47.62
+            "matches": 10610,
+            "winRate": 47.72
           },
           {
             "level": 10,
-            "matches": 7696,
+            "matches": 7841,
             "winRate": 47.91
           },
           {
             "level": 15,
-            "matches": 5657,
-            "winRate": 47.2
+            "matches": 5749,
+            "winRate": 47.23
           },
           {
             "level": 9,
-            "matches": 3759,
-            "winRate": 46.08
+            "matches": 3836,
+            "winRate": 46.06
           },
           {
             "level": 3,
-            "matches": 3389,
-            "winRate": 45.38
+            "matches": 3442,
+            "winRate": 45.55
           }
         ],
         "5606": [
           {
             "level": 6,
-            "matches": 105618,
-            "winRate": 49.31
+            "matches": 107823,
+            "winRate": 49.32
           },
           {
             "level": 7,
-            "matches": 405,
-            "winRate": 47.16
+            "matches": 408,
+            "winRate": 46.81
           },
           {
             "level": 5,
