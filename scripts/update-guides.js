@@ -7,60 +7,75 @@ if (!STRATZ_TOKEN) {
 
 const API_URL = "https://api.stratz.com/graphql";
 
-const TYPES = [
-    "HeroItemPurchaseType",
-    "HeroItemStartingPurchaseType",
-    "HeroItemBootPurchaseType",
-    "HeroAbilityMinType",
-    "HeroAbilityMaxType"
-];
-
-function makeTypeQuery(name, index) {
-    return `
-        t${index}: __type(name: "${name}") {
-            name
-            fields {
-                name
-                type {
-                    kind
-                    name
-                    ofType {
-                        kind
-                        name
-                        ofType {
-                            kind
-                            name
-                        }
-                    }
-                }
-            }
-        }
-    `;
-}
+// Pudge
+const HERO_ID = 14;
 
 const QUERY = `
 query {
-    ${TYPES.map(makeTypeQuery).join("\n")}
+    heroStats {
+        itemStartingPurchase(
+            heroId: ${HERO_ID}
+        ) {
+            heroId
+            itemId
+            instance
+            wasGiven
+            matchCount
+            winCount
+            winsAverage
+        }
+
+        itemBootPurchase(
+            heroId: ${HERO_ID}
+        ) {
+            heroId
+            itemId
+            instance
+            time
+            timeAverage
+            matchCount
+            winCount
+            winAverage
+        }
+
+        itemFullPurchase(
+            heroId: ${HERO_ID}
+        ) {
+            heroId
+            itemId
+            instance
+            time
+            matchCount
+            winCount
+            winsAverage
+        }
+
+        abilityMinLevel(
+            heroId: ${HERO_ID}
+        ) {
+            heroId
+            abilityId
+            level
+            matchCount
+            winCount
+        }
+
+        abilityMaxLevel(
+            heroId: ${HERO_ID}
+        ) {
+            heroId
+            abilityId
+            level
+            matchCount
+            winCount
+        }
+    }
 }
 `;
 
-function getTypeName(type) {
-    if (!type) return "unknown";
-
-    if (type.name) {
-        return type.name;
-    }
-
-    if (type.ofType) {
-        return getTypeName(type.ofType);
-    }
-
-    return type.kind || "unknown";
-}
-
 async function main() {
 
-    console.log("Checking guide result fields...");
+    console.log("Loading REAL Pudge guide data from STRATZ...");
 
     const response = await fetch(API_URL, {
         method: "POST",
@@ -79,10 +94,7 @@ async function main() {
     const text = await response.text();
 
     if (!response.ok) {
-        console.error(
-            `STRATZ HTTP ${response.status}`
-        );
-
+        console.error(`STRATZ HTTP ${response.status}`);
         console.error(text);
         process.exit(1);
     }
@@ -90,35 +102,72 @@ async function main() {
     const json = JSON.parse(text);
 
     if (json.errors?.length) {
+        console.error("STRATZ GraphQL errors:");
         console.error(
             JSON.stringify(json.errors, null, 2)
         );
-
         process.exit(1);
     }
 
-    for (let i = 0; i < TYPES.length; i++) {
+    const data = json?.data?.heroStats;
 
-        const type = json.data[`t${i}`];
-
-        console.log(
-            `\n=== ${TYPES[i]} ===`
-        );
-
-        if (!type) {
-            console.log("TYPE NOT FOUND");
-            continue;
-        }
-
-        for (const field of type.fields || []) {
-            console.log(
-                `${field.name}: ${getTypeName(field.type)}`
-            );
-        }
+    if (!data) {
+        console.error("No heroStats returned.");
+        process.exit(1);
     }
+
+    console.log("\n==============================");
+    console.log("PUDGE — HERO ID 14");
+    console.log("==============================");
+
+    console.log("\n=== STARTING ITEMS ===");
+    console.log(
+        JSON.stringify(
+            (data.itemStartingPurchase || []).slice(0, 15),
+            null,
+            2
+        )
+    );
+
+    console.log("\n=== BOOTS ===");
+    console.log(
+        JSON.stringify(
+            (data.itemBootPurchase || []).slice(0, 15),
+            null,
+            2
+        )
+    );
+
+    console.log("\n=== FULL ITEMS ===");
+    console.log(
+        JSON.stringify(
+            (data.itemFullPurchase || []).slice(0, 25),
+            null,
+            2
+        )
+    );
+
+    console.log("\n=== ABILITY MIN LEVEL ===");
+    console.log(
+        JSON.stringify(
+            (data.abilityMinLevel || []).slice(0, 30),
+            null,
+            2
+        )
+    );
+
+    console.log("\n=== ABILITY MAX LEVEL ===");
+    console.log(
+        JSON.stringify(
+            (data.abilityMaxLevel || []).slice(0, 30),
+            null,
+            2
+        )
+    );
 }
 
 main().catch(error => {
+    console.error("Pudge guide test failed:");
     console.error(error);
     process.exit(1);
 });
