@@ -92,15 +92,31 @@ async function loadDotaAbilities() {
 
         dotaAbilities = {};
 
-        Object.entries(rawAbilities).forEach(([key, ability]) => {
-            if (!ability || ability.id == null) return;
+Object.entries(rawAbilities).forEach(([key, ability]) => {
+    if (!ability) return;
 
-            dotaAbilities[String(ability.id)] = {
-                ...ability,
-                name: ability.dname || ability.name || key,
-                img: ability.img || ""
-            };
-        });
+    const abilityId =
+    ability.id ??
+    ability.ability_id ??
+    ability.abilityId ??
+    (Number.isFinite(Number(key)) ? Number(key) : null);
+
+    if (abilityId == null) return;
+
+    dotaAbilities[String(abilityId)] = {
+        ...ability,
+        name: ability.dname || ability.name || key,
+        dname: ability.dname || ability.name || key,
+        img: ability.img || ""
+    };
+});
+
+console.log(
+    "Dota abilities converted:",
+    Object.keys(dotaAbilities).length,
+    "Ability 5003:",
+    dotaAbilities["5003"]
+);
 
         console.log(
             "Dota abilities loaded:",
