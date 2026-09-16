@@ -18,6 +18,8 @@ async function loadStratzGuides() {
 
         stratzGuides = await response.json();
 
+window.stratzGuides = stratzGuides;
+       
         console.log(
             "STRATZ guides loaded:",
             stratzGuides?.heroCount ?? 0,
