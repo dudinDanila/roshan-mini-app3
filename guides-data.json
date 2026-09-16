@@ -1,7 +1,7 @@
 {
   "ok": true,
   "source": "STRATZ",
-  "updatedAt": "2026-09-16T19:11:45.647Z",
+  "updatedAt": "2026-09-16T19:19:22.039Z",
   "heroCount": 126,
   "updateStats": {
     "success": 126,
@@ -5312,9 +5312,9 @@
       "name": "NECROPHOS",
       "boots": {
         "itemId": 48,
-        "matches": 180571,
-        "wins": 102950,
-        "winRate": 57.01,
+        "matches": 183971,
+        "wins": 104868,
+        "winRate": 57,
         "averageTime": 1317.9
       },
       "earlyItems": [
@@ -5473,10 +5473,10 @@
       "name": "WARLOCK",
       "boots": {
         "itemId": 180,
-        "matches": 65331,
-        "wins": 32221,
-        "winRate": 49.32,
-        "averageTime": 624.6
+        "matches": 66765,
+        "wins": 32915,
+        "winRate": 49.3,
+        "averageTime": 624.8
       },
       "earlyItems": [
         {
@@ -6845,10 +6845,10 @@
       "name": "TEMPLAR ASSASSIN",
       "boots": {
         "itemId": 63,
-        "matches": 62637,
-        "wins": 28767,
-        "winRate": 45.93,
-        "averageTime": 455.5
+        "matches": 63963,
+        "wins": 29390,
+        "winRate": 45.95,
+        "averageTime": 455.4
       },
       "earlyItems": [
         {
@@ -7489,10 +7489,10 @@
       "name": "DAZZLE",
       "boots": {
         "itemId": 180,
-        "matches": 51402,
-        "wins": 26763,
-        "winRate": 52.07,
-        "averageTime": 694.3
+        "matches": 52526,
+        "wins": 27329,
+        "winRate": 52.03,
+        "averageTime": 694.2
       },
       "earlyItems": [
         {
@@ -10052,141 +10052,141 @@
       "earlyItems": [
         {
           "itemId": 73,
-          "matches": 51864,
-          "wins": 24694,
-          "winRate": 47.61,
+          "matches": 52866,
+          "wins": 25186,
+          "winRate": 47.64,
           "averageTime": 2
         },
         {
           "itemId": 36,
-          "matches": 41466,
-          "wins": 20080,
-          "winRate": 48.43,
+          "matches": 42268,
+          "wins": 20478,
+          "winRate": 48.45,
           "averageTime": 4
         },
         {
           "itemId": 185,
-          "matches": 24919,
-          "wins": 12600,
-          "winRate": 50.56,
+          "matches": 25388,
+          "wins": 12852,
+          "winRate": 50.62,
           "averageTime": 12
         },
         {
           "itemId": 94,
-          "matches": 24780,
-          "wins": 12507,
-          "winRate": 50.47,
+          "matches": 25249,
+          "wins": 12758,
+          "winRate": 50.53,
           "averageTime": 9
         }
       ],
       "coreItems": [
         {
           "itemId": 1,
-          "matches": 61311,
-          "wins": 29939,
-          "winRate": 48.83,
+          "matches": 62713,
+          "wins": 30613,
+          "winRate": 48.81,
           "averageTime": 19
         },
         {
           "itemId": 116,
-          "matches": 46533,
-          "wins": 23874,
+          "matches": 47463,
+          "wins": 24352,
           "winRate": 51.31,
           "averageTime": 28
         },
         {
           "itemId": 137,
-          "matches": 20920,
-          "wins": 10686,
-          "winRate": 51.08,
+          "matches": 21332,
+          "wins": 10886,
+          "winRate": 51.03,
           "averageTime": 19
         },
         {
           "itemId": 609,
-          "matches": 8650,
-          "wins": 4484,
-          "winRate": 51.84,
-          "averageTime": 20
+          "matches": 9063,
+          "wins": 4711,
+          "winRate": 51.98,
+          "averageTime": 21
         },
         {
           "itemId": 4205,
-          "matches": 7811,
-          "wins": 4426,
-          "winRate": 56.66,
+          "matches": 7959,
+          "wins": 4508,
+          "winRate": 56.64,
           "averageTime": 26
         }
       ],
       "situationalItems": [
         {
           "itemId": 65,
-          "matches": 13865,
-          "wins": 5754,
+          "matches": 14146,
+          "wins": 5871,
           "winRate": 41.5,
           "averageTime": 12
         },
         {
           "itemId": 244,
-          "matches": 13439,
-          "wins": 6659,
-          "winRate": 49.55,
+          "matches": 13695,
+          "wins": 6787,
+          "winRate": 49.56,
           "averageTime": 7
         },
         {
           "itemId": 178,
-          "matches": 9854,
-          "wins": 4957,
-          "winRate": 50.3,
+          "matches": 10050,
+          "wins": 5060,
+          "winRate": 50.35,
           "averageTime": 9
         },
         {
           "itemId": 265,
-          "matches": 4967,
-          "wins": 2361,
-          "winRate": 47.53,
+          "matches": 5058,
+          "wins": 2400,
+          "winRate": 47.45,
           "averageTime": 6
         },
         {
-          "itemId": 4206,
-          "matches": 2942,
-          "wins": 1746,
-          "winRate": 59.35,
-          "averageTime": 39
+          "itemId": 600,
+          "matches": 2997,
+          "wins": 2249,
+          "winRate": 75.04,
+          "averageTime": 44
         },
         {
-          "itemId": 600,
-          "matches": 2682,
-          "wins": 2023,
-          "winRate": 75.43,
-          "averageTime": 44
+          "itemId": 4206,
+          "matches": 2994,
+          "wins": 1777,
+          "winRate": 59.35,
+          "averageTime": 39
         }
       ],
       "lateItems": [
         {
           "itemId": 119,
-          "matches": 33388,
-          "wins": 20484,
-          "winRate": 61.35,
+          "matches": 34061,
+          "wins": 20899,
+          "winRate": 61.36,
           "averageTime": 33
         },
         {
           "itemId": 108,
-          "matches": 24646,
-          "wins": 14715,
-          "winRate": 59.71,
+          "matches": 25384,
+          "wins": 15131,
+          "winRate": 59.61,
           "averageTime": 37
         },
         {
           "itemId": 129,
-          "matches": 4624,
-          "wins": 3175,
-          "winRate": 68.66,
+          "matches": 4704,
+          "wins": 3231,
+          "winRate": 68.69,
           "averageTime": 35
         },
         {
           "itemId": 271,
-          "matches": 3454,
-          "wins": 2284,
-          "winRate": 66.13,
+          "matches": 3515,
+          "wins": 2327,
+          "winRate": 66.2,
           "averageTime": 46
         }
       ],
@@ -18185,10 +18185,10 @@
       "name": "MUERTA",
       "boots": {
         "itemId": 63,
-        "matches": 28128,
-        "wins": 13408,
-        "winRate": 47.67,
-        "averageTime": 549
+        "matches": 28676,
+        "wins": 13674,
+        "winRate": 47.68,
+        "averageTime": 548.7
       },
       "earlyItems": [
         {
