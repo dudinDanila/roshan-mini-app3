@@ -226,9 +226,16 @@ function convertStratzHeroGuide(hero) {
 
 skills: Array.isArray(hero.abilityBuild)
     ? [...hero.abilityBuild]
+        .filter(entry => {
+            const ability =
+                getDotaAbility(entry.abilityId);
+
+            return Boolean(ability.icon);
+        })
         .sort((a, b) => a.level - b.level)
         .map(entry => {
-            const ability = getDotaAbility(entry.abilityId);
+            const ability =
+                getDotaAbility(entry.abilityId);
 
             return {
                 level: entry.level,
