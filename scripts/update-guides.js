@@ -9,7 +9,9 @@ const API_URL = "https://api.stratz.com/graphql";
 
 const QUERY = `
 query {
-    __type(name: "Query") {
+    __type(name: "HeroStatsQuery") {
+        name
+
         fields {
             name
 
@@ -51,26 +53,23 @@ query {
 }
 `;
 
-function typeName(type) {
-
-    if (!type) {
-        return "unknown";
-    }
+function getTypeName(type) {
+    if (!type) return "unknown";
 
     if (type.name) {
         return type.name;
     }
 
     if (type.ofType) {
-        return typeName(type.ofType);
+        return getTypeName(type.ofType);
     }
 
-    return type.kind;
+    return type.kind || "unknown";
 }
 
 async function main() {
 
-    console.log("Finding STRATZ guide queries...");
+    console.log("Checking HeroStatsQuery...");
 
     const response = await fetch(API_URL, {
         method: "POST",
@@ -90,8 +89,7 @@ async function main() {
 
     if (!response.ok) {
         console.error(
-            "STRATZ HTTP:",
-            response.status
+            `STRATZ HTTP ${response.status}`
         );
 
         console.error(text);
@@ -108,69 +106,44 @@ async function main() {
         process.exit(1);
     }
 
-    const fields =
-        json?.data?.__type?.fields || [];
+    const type =
+        json?.data?.__type;
 
-    const interesting =
-        fields.filter(field => {
+    if (!type) {
+        console.error(
+            "HeroStatsQuery was not found."
+        );
 
-            const name =
-                field.name.toLowerCase();
-
-            const result =
-                typeName(field.type)
-                    .toLowerCase();
-
-            return (
-                name.includes("guide") ||
-                name.includes("ability") ||
-                name.includes("talent") ||
-                name.includes("item") ||
-                name.includes("herostat") ||
-                result.includes("guide") ||
-                result.includes("ability") ||
-                result.includes("talent")
-            );
-        });
+        process.exit(1);
+    }
 
     console.log(
-        "\n=== RELEVANT QUERY FIELDS ===\n"
+        "\n=== HERO STATS QUERY FIELDS ===\n"
     );
 
-    for (const field of interesting) {
+    for (const field of type.fields || []) {
 
         console.log(
-            "QUERY:",
-            field.name
+            `FIELD: ${field.name}`
         );
 
         console.log(
-            "RETURNS:",
-            typeName(field.type)
+            `RETURNS: ${getTypeName(field.type)}`
         );
 
-        if (field.args.length) {
+        if (field.args?.length) {
 
             console.log("ARGS:");
 
             for (const arg of field.args) {
-
                 console.log(
-                    " -",
-                    arg.name,
-                    ":",
-                    typeName(arg.type)
+                    ` - ${arg.name}: ${getTypeName(arg.type)}`
                 );
             }
         }
 
         console.log("----------------");
     }
-
-    console.log(
-        "Found:",
-        interesting.length
-    );
 }
 
 main().catch(error => {
