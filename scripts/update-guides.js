@@ -9,6 +9,13 @@ if (!STRATZ_TOKEN) {
 
 const API_URL = "https://api.stratz.com/graphql";
 const OUTPUT_FILE = "guides-data.json";
+const OPENDOTA_BASE =
+    "https://api.opendota.com/api/constants";
+
+let dotaHeroes = {};
+let dotaHeroAbilities = {};
+let dotaAbilityIds = {};
+let dotaAbilities = {};
 
 // Пауза между героями, чтобы не отправлять
 // слишком много запросов STRATZ подряд.
@@ -17,6 +24,48 @@ const REQUEST_DELAY = 350;
 // Повторяем временно неудачный запрос.
 const MAX_RETRIES = 3;
 
+async function loadDotaAbilityData() {
+    console.log("Loading Dota ability metadata...");
+
+    const [
+    heroesResponse,
+    heroAbilitiesResponse,
+    abilityIdsResponse,
+    abilitiesResponse
+] = await Promise.all([
+    fetch(`${OPENDOTA_BASE}/heroes`),
+    fetch(`${OPENDOTA_BASE}/hero_abilities`),
+    fetch(`${OPENDOTA_BASE}/ability_ids`),
+    fetch(`${OPENDOTA_BASE}/abilities`)
+]);
+
+    if (
+        !heroesResponse.ok ||
+        !heroAbilitiesResponse.ok ||
+        !abilityIdsResponse.ok ||
+        !abilitiesResponse.ok
+    ) {
+        throw new Error(
+            "Failed to load OpenDota ability metadata."
+        );
+    }
+
+    dotaHeroes =
+        await heroesResponse.json();
+
+    dotaHeroAbilities =
+        await heroAbilitiesResponse.json();
+
+    dotaAbilityIds =
+        await abilityIdsResponse.json();
+
+dotaAbilities =
+    await abilitiesResponse.json();
+    
+    console.log(
+        "Dota ability metadata loaded."
+    );
+}
 
 // ======================================================
 // ГЕРОИ
@@ -372,20 +421,78 @@ function buildItems(rows) {
 
 function buildAbilityData(
     minRows,
-    maxRows
+    maxRows,
+    heroId
 ) {
 
+const hero =
+    dotaHeroes[String(heroId)];
+
+const heroKey =
+    hero?.name
+        ?.replace(
+            "npc_dota_hero_",
+            ""
+        );
+
+const heroAbilityNames =
+    dotaHeroAbilities[heroKey]
+        ?.abilities || [];
+
+const abilityNameToId =
+    new Map(
+        Object.entries(
+            dotaAbilityIds
+        ).map(
+            ([id, name]) => [
+                name,
+                Number(id)
+            ]
+        )
+    );
+
+const abilityIdToName =
+    new Map(
+        Object.entries(
+            dotaAbilityIds
+        ).map(
+            ([id, name]) => [
+                Number(id),
+                name
+            ]
+        )
+    );
+    
+const validAbilityIds =
+    new Set(
+        heroAbilityNames
+            .map(name =>
+                abilityNameToId.get(name)
+            )
+            .filter(id =>
+                Number.isFinite(id)
+            )
+    );
+    
     const allRows = [
         ...(minRows || []),
         ...(maxRows || [])
     ];
 
     const clean =
-        allRows.filter(row =>
-            number(row.abilityId) > 0 &&
+    allRows.filter(row => {
+        const abilityId =
+            number(row.abilityId);
+
+        return (
+            abilityId > 0 &&
+            validAbilityIds.has(
+                abilityId
+            ) &&
             number(row.level) > 0 &&
             number(row.matchCount) >= 100
         );
+    });
 
     const map = new Map();
 
@@ -424,24 +531,135 @@ function buildAbilityData(
         [...map.values()];
 
     const levelMap =
-        new Map();
+    new Map();
 
-    for (const row of combined) {
+const abilityRanks =
+    new Map();
 
-        const current =
-            levelMap.get(row.level);
+for (
+    const abilityId
+    of validAbilityIds
+) {
+    abilityRanks.set(
+        abilityId,
+        0
+    );
+}
 
-        if (
-            !current ||
-            row.matches >
-                current.matches
-        ) {
-            levelMap.set(
-                row.level,
-                row
-            );
-        }
+const rowsByLevel =
+    new Map();
+
+for (const row of combined) {
+
+    if (
+        !rowsByLevel.has(
+            row.level
+        )
+    ) {
+        rowsByLevel.set(
+            row.level,
+            []
+        );
     }
+
+    rowsByLevel
+        .get(row.level)
+        .push(row);
+}
+
+for (
+    const [
+        level,
+        rows
+    ]
+    of [...rowsByLevel.entries()]
+        .sort(
+            (a, b) =>
+                a[0] - b[0]
+        )
+) {
+
+    const candidates =
+        [...rows].sort(
+            (a, b) =>
+                b.matches -
+                a.matches
+        );
+
+    for (
+        const row
+        of candidates
+    ) {
+
+        const abilityName =
+    abilityIdToName.get(
+        row.abilityId
+    );
+
+const abilityInfo =
+    dotaAbilities[
+        abilityName
+    ] || {};
+
+const maxLevel =
+    number(
+        abilityInfo.max_level
+    ) || 4;
+
+const nextRank =
+    currentRank + 1;
+
+const abilityRows =
+    combined.filter(
+        item =>
+            item.abilityId ===
+            row.abilityId
+    );
+
+const earliestPopularLevel =
+    abilityRows
+        .filter(
+            item =>
+                item.matches >= 1000
+        )
+        .reduce(
+            (min, item) =>
+                Math.min(
+                    min,
+                    item.level
+                ),
+            Infinity
+        );
+
+const isUltimate =
+    maxLevel === 3 &&
+    earliestPopularLevel >= 6;
+
+const minimumLevel =
+    isUltimate
+        ? nextRank * 6
+        : nextRank * 2 - 1;
+
+if (
+    currentRank >= maxLevel ||
+    level < minimumLevel
+) {
+    continue;
+}
+
+        levelMap.set(
+            level,
+            row
+        );
+
+        abilityRanks.set(
+            row.abilityId,
+            nextRank
+        );
+
+        break;
+    }
+}
 
     const build = [
         ...levelMap.values()
@@ -722,10 +940,11 @@ async function buildHeroGuide(
 
 
     const abilityData =
-        buildAbilityData(
-            data.abilityMinLevel,
-            data.abilityMaxLevel
-        );
+    buildAbilityData(
+        data.abilityMinLevel,
+        data.abilityMaxLevel,
+        heroId
+    );
 
 
     return {
@@ -811,6 +1030,7 @@ async function main() {
 
     console.log("");
 
+  await loadDotaAbilityData();  
 
     const previousHeroes =
         loadPreviousHeroes();
