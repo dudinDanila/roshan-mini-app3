@@ -76,6 +76,66 @@ function getDotaItem(itemId) {
     };
 }
 
+let dotaAbilities = {};
+
+async function loadDotaAbilities() {
+    try {
+        const response = await fetch(
+            "https://raw.githubusercontent.com/odota/dotaconstants/master/build/abilities.json"
+        );
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const rawAbilities = await response.json();
+
+        dotaAbilities = {};
+
+        Object.entries(rawAbilities).forEach(([key, ability]) => {
+            if (!ability || ability.id == null) return;
+
+            dotaAbilities[String(ability.id)] = {
+                ...ability,
+                name: ability.dname || ability.name || key,
+                img: ability.img || ""
+            };
+        });
+
+        console.log(
+            "Dota abilities loaded:",
+            Object.keys(dotaAbilities).length
+        );
+
+        return dotaAbilities;
+
+    } catch (error) {
+        console.error("Failed to load Dota abilities:", error);
+        dotaAbilities = {};
+        return {};
+    }
+}
+
+function getDotaAbility(abilityId) {
+    const ability = dotaAbilities[String(abilityId)];
+
+    if (!ability) {
+        return {
+            id: abilityId,
+            name: `Ability ${abilityId}`,
+            icon: ""
+        };
+    }
+
+    return {
+        id: abilityId,
+        name: ability.dname || ability.name || `Ability ${abilityId}`,
+        icon: ability.img
+            ? `https://cdn.cloudflare.steamstatic.com${ability.img}`
+            : ""
+    };
+}
+
 function convertStratzItems(items) {
     if (!Array.isArray(items)) {
         return [];
@@ -122,14 +182,20 @@ function convertStratzHeroGuide(hero) {
         ),
 
 skills: Array.isArray(hero.abilityBuild)
-    ? hero.abilityBuild
+    ? [...hero.abilityBuild]
         .sort((a, b) => a.level - b.level)
-        .map(entry => ({
-            level: entry.level,
-            abilityId: entry.abilityId,
-            matches: entry.matches,
-            winRate: entry.winRate
-        }))
+        .map(entry => {
+            const ability = getDotaAbility(entry.abilityId);
+
+            return {
+                level: entry.level,
+                abilityId: entry.abilityId,
+                name: ability.name,
+                icon: ability.icon,
+                matches: entry.matches,
+                winRate: entry.winRate
+            };
+        })
     : []
        
     };
@@ -12147,5 +12213,6 @@ window.convertStratzHeroGuide =
 
 (async function initGuides() {
     await loadDotaItems();
+    await loadDotaAbilities();
     await loadStratzGuides();
 })();
