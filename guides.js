@@ -8,6 +8,101 @@ const D2PT_PATCH = "7.41e";
 
 let stratzGuides = null;
 
+let dotaItems = {};
+
+async function loadDotaItems() {
+    try {
+        const response = await fetch(
+            "https://raw.githubusercontent.com/odota/dotaconstants/master/build/items.json"
+        );
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        dotaItems = await response.json();
+
+        console.log(
+            "Dota items loaded:",
+            Object.keys(dotaItems).length
+        );
+
+        return dotaItems;
+
+    } catch (error) {
+        console.error("Failed to load Dota items:", error);
+        dotaItems = {};
+        return {};
+    }
+}
+
+function getDotaItem(itemId) {
+    const item = dotaItems[String(itemId)];
+
+    if (!item) {
+        return {
+            id: itemId,
+            name: `Item ${itemId}`,
+            icon: ""
+        };
+    }
+
+    return {
+        id: itemId,
+        name: item.dname || item.name || `Item ${itemId}`,
+        icon: item.img
+            ? `https://cdn.cloudflare.steamstatic.com${item.img}`
+            : ""
+    };
+}
+
+function convertStratzItems(items) {
+    if (!Array.isArray(items)) {
+        return [];
+    }
+
+    return items.map(entry => {
+        const item = getDotaItem(entry.itemId);
+
+        return {
+            ...entry,
+            id: entry.itemId,
+            name: item.name,
+            icon: item.icon
+        };
+    });
+}
+
+function convertStratzHeroGuide(hero) {
+    if (!hero) {
+        return null;
+    }
+
+    return {
+        ...hero,
+
+        startingItems: convertStratzItems(
+            hero.startingItems || []
+        ),
+
+        earlyItems: convertStratzItems(
+            hero.earlyItems || []
+        ),
+
+        coreItems: convertStratzItems(
+            hero.coreItems || []
+        ),
+
+        situationalItems: convertStratzItems(
+            hero.situationalItems || []
+        ),
+
+        lateItems: convertStratzItems(
+            hero.lateItems || []
+        )
+    };
+}
+
 async function loadStratzGuides() {
     try {
         const response = await fetch("./guides-data.json");
@@ -12015,4 +12110,7 @@ window.getHeroGuideRoles =
 window.D2PT_PATCH =
     D2PT_PATCH;
 
-loadStratzGuides();
+(async function initGuides() {
+    await loadDotaItems();
+    await loadStratzGuides();
+})();
