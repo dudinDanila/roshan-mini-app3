@@ -6,6 +6,32 @@
 
 const D2PT_PATCH = "7.41e";
 
+let stratzGuides = null;
+
+async function loadStratzGuides() {
+    try {
+        const response = await fetch("./guides-data.json");
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        stratzGuides = await response.json();
+
+        console.log(
+            "STRATZ guides loaded:",
+            stratzGuides?.heroCount ?? 0,
+            "heroes"
+        );
+
+        return stratzGuides;
+    } catch (error) {
+        console.error("Failed to load STRATZ guides:", error);
+        stratzGuides = null;
+        return null;
+    }
+}
+
 const d2ptGuides = {
 
    "ABADDON": {
@@ -11891,16 +11917,43 @@ const d2ptGuides = {
    GUIDE HELPERS
 ========================================================= */
 
-function getHeroGuide(heroName){
-
-    if(!heroName){
+function getStratzHeroByName(heroName) {
+    if (!stratzGuides?.heroes || !heroName) {
         return null;
     }
 
-    const key =
-        heroName
+    const key = heroName
+        .trim()
+        .toUpperCase()
+        .replace(/_/g, "-");
+
+    return Object.values(stratzGuides.heroes).find(hero => {
+        const name = String(hero.name || "")
             .trim()
-            .toUpperCase();
+            .toUpperCase()
+            .replace(/_/g, "-");
+
+        return name === key;
+    }) || null;
+}
+
+function getHeroGuide(heroName) {
+    if (!heroName) {
+        return null;
+    }
+
+    // Сначала пробуем автоматически обновляемые данные STRATZ
+    const stratzHero = getStratzHeroByName(heroName);
+
+    if (stratzHero) {
+        return stratzHero;
+    }
+
+    // Если STRATZ ещё не загрузился или героя там нет —
+    // используем старый гайд как резерв
+    const key = heroName
+        .trim()
+        .toUpperCase();
 
     return d2ptGuides[key] || null;
 }
@@ -11959,3 +12012,5 @@ window.getHeroGuideRoles =
 
 window.D2PT_PATCH =
     D2PT_PATCH;
+
+loadStratzGuides();
