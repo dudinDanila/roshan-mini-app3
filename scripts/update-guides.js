@@ -7,25 +7,26 @@ if (!STRATZ_TOKEN) {
 
 const API_URL = "https://api.stratz.com/graphql";
 
-const QUERY = `
-query {
-    __type(name: "HeroStatsQuery") {
-        name
+const TYPES = [
+    "HeroItemPurchaseType",
+    "HeroItemStartingPurchaseType",
+    "HeroItemBootPurchaseType",
+    "HeroAbilityMinType",
+    "HeroAbilityMaxType"
+];
 
-        fields {
+function makeTypeQuery(name, index) {
+    return `
+        t${index}: __type(name: "${name}") {
             name
-
-            args {
+            fields {
                 name
-
                 type {
                     kind
                     name
-
                     ofType {
                         kind
                         name
-
                         ofType {
                             kind
                             name
@@ -33,23 +34,13 @@ query {
                     }
                 }
             }
-
-            type {
-                kind
-                name
-
-                ofType {
-                    kind
-                    name
-
-                    ofType {
-                        kind
-                        name
-                    }
-                }
-            }
         }
-    }
+    `;
+}
+
+const QUERY = `
+query {
+    ${TYPES.map(makeTypeQuery).join("\n")}
 }
 `;
 
@@ -69,7 +60,7 @@ function getTypeName(type) {
 
 async function main() {
 
-    console.log("Checking HeroStatsQuery...");
+    console.log("Checking guide result fields...");
 
     const response = await fetch(API_URL, {
         method: "POST",
@@ -106,43 +97,24 @@ async function main() {
         process.exit(1);
     }
 
-    const type =
-        json?.data?.__type;
+    for (let i = 0; i < TYPES.length; i++) {
 
-    if (!type) {
-        console.error(
-            "HeroStatsQuery was not found."
-        );
-
-        process.exit(1);
-    }
-
-    console.log(
-        "\n=== HERO STATS QUERY FIELDS ===\n"
-    );
-
-    for (const field of type.fields || []) {
+        const type = json.data[`t${i}`];
 
         console.log(
-            `FIELD: ${field.name}`
+            `\n=== ${TYPES[i]} ===`
         );
 
-        console.log(
-            `RETURNS: ${getTypeName(field.type)}`
-        );
-
-        if (field.args?.length) {
-
-            console.log("ARGS:");
-
-            for (const arg of field.args) {
-                console.log(
-                    ` - ${arg.name}: ${getTypeName(arg.type)}`
-                );
-            }
+        if (!type) {
+            console.log("TYPE NOT FOUND");
+            continue;
         }
 
-        console.log("----------------");
+        for (const field of type.fields || []) {
+            console.log(
+                `${field.name}: ${getTypeName(field.type)}`
+            );
+        }
     }
 }
 
