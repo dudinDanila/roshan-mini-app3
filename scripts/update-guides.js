@@ -9,54 +9,37 @@ const API_URL = "https://api.stratz.com/graphql";
 
 const QUERY = `
 query {
-    matchPlayer: __type(name: "MatchPlayerType") {
-        name
+    __type(name: "Query") {
         fields {
             name
-            type {
-                kind
+
+            args {
                 name
-                ofType {
+
+                type {
                     kind
                     name
+
                     ofType {
                         kind
                         name
+
+                        ofType {
+                            kind
+                            name
+                        }
                     }
                 }
             }
-        }
-    }
 
-    heroAbility: __type(name: "HeroAbilityType") {
-        name
-        fields {
-            name
             type {
                 kind
                 name
-                ofType {
-                    kind
-                    name
-                    ofType {
-                        kind
-                        name
-                    }
-                }
-            }
-        }
-    }
 
-    heroAbilityTalent: __type(name: "HeroAbilityTalentType") {
-        name
-        fields {
-            name
-            type {
-                kind
-                name
                 ofType {
                     kind
                     name
+
                     ofType {
                         kind
                         name
@@ -68,9 +51,26 @@ query {
 }
 `;
 
+function typeName(type) {
+
+    if (!type) {
+        return "unknown";
+    }
+
+    if (type.name) {
+        return type.name;
+    }
+
+    if (type.ofType) {
+        return typeName(type.ofType);
+    }
+
+    return type.kind;
+}
+
 async function main() {
 
-    console.log("Checking abilities and MatchPlayer...");
+    console.log("Finding STRATZ guide queries...");
 
     const response = await fetch(API_URL, {
         method: "POST",
@@ -108,48 +108,69 @@ async function main() {
         process.exit(1);
     }
 
-    const data = json.data;
+    const fields =
+        json?.data?.__type?.fields || [];
 
-    console.log("\n=== MATCH PLAYER FIELDS ===");
+    const interesting =
+        fields.filter(field => {
 
-    for (const field of data.matchPlayer?.fields || []) {
-        const name = field.name.toLowerCase();
+            const name =
+                field.name.toLowerCase();
 
-        if (
-            name.includes("ability") ||
-            name.includes("item") ||
-            name.includes("talent") ||
-            name.includes("level") ||
-            name.includes("position") ||
-            name.includes("role")
-        ) {
-            console.log(
-                field.name,
-                JSON.stringify(field.type)
+            const result =
+                typeName(field.type)
+                    .toLowerCase();
+
+            return (
+                name.includes("guide") ||
+                name.includes("ability") ||
+                name.includes("talent") ||
+                name.includes("item") ||
+                name.includes("herostat") ||
+                result.includes("guide") ||
+                result.includes("ability") ||
+                result.includes("talent")
             );
+        });
+
+    console.log(
+        "\n=== RELEVANT QUERY FIELDS ===\n"
+    );
+
+    for (const field of interesting) {
+
+        console.log(
+            "QUERY:",
+            field.name
+        );
+
+        console.log(
+            "RETURNS:",
+            typeName(field.type)
+        );
+
+        if (field.args.length) {
+
+            console.log("ARGS:");
+
+            for (const arg of field.args) {
+
+                console.log(
+                    " -",
+                    arg.name,
+                    ":",
+                    typeName(arg.type)
+                );
+            }
         }
+
+        console.log("----------------");
     }
 
-    console.log("\n=== HERO ABILITY TYPE ===");
-
-    for (const field of data.heroAbility?.fields || []) {
-        console.log(
-            field.name,
-            JSON.stringify(field.type)
-        );
-    }
-
-    console.log("\n=== HERO ABILITY TALENT TYPE ===");
-
-    for (
-        const field
-        of data.heroAbilityTalent?.fields || []
-    ) {
-        console.log(
-            field.name,
-            JSON.stringify(field.type)
-        );
-    }
+    console.log(
+        "Found:",
+        interesting.length
+    );
 }
 
 main().catch(error => {
