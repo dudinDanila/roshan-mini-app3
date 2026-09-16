@@ -1,11 +1,11 @@
 {
   "ok": true,
   "source": "STRATZ",
-  "updatedAt": "2026-09-16T19:19:22.039Z",
+  "updatedAt": "2026-09-16T19:24:52.750Z",
   "heroCount": 126,
   "updateStats": {
-    "success": 126,
-    "failed": 0
+    "success": 0,
+    "failed": 126
   },
   "heroes": {
     "1": {
