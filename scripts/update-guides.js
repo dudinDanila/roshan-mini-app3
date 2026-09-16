@@ -473,6 +473,32 @@ const validAbilityIds =
                 Number.isFinite(id)
             )
     );
+
+if (heroId === 1) {
+    console.log(
+        "ANTI-MAGE DEBUG",
+        {
+            heroKey,
+            heroAbilityNames,
+            validAbilityIds:
+                [...validAbilityIds],
+            stratzAbilityIds:
+                [
+                    ...new Set(
+                        [
+                            ...(minRows || []),
+                            ...(maxRows || [])
+                        ].map(
+                            row =>
+                                Number(
+                                    row.abilityId
+                                )
+                        )
+                    )
+                ]
+        }
+    );
+}
     
     const allRows = [
         ...(minRows || []),
