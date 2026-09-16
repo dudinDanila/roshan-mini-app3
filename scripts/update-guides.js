@@ -436,11 +436,7 @@ const hero =
     dotaHeroes[String(heroId)];
 
 const heroKey =
-    hero?.name
-        ?.replace(
-            "npc_dota_hero_",
-            ""
-        );
+    hero?.name;
 
 const heroAbilityNames =
     dotaHeroAbilities[heroKey]
