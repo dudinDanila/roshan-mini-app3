@@ -3,8 +3,11 @@ name: Update Dota Guides
 on:
   workflow_dispatch:
 
+  schedule:
+    - cron: "37 */6 * * *"
+
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   update-guides:
@@ -19,7 +22,21 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Test STRATZ guides API
+      - name: Update guides data
         env:
           STRATZ_TOKEN: ${{ secrets.STRATZ_TOKEN }}
         run: node scripts/update-guides.js
+
+      - name: Commit updated guides
+        run: |
+          if git diff --quiet -- guides-data.json; then
+            echo "Guides data has not changed."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add guides-data.json
+          git commit -m "Auto-update Dota guides"
+          git push
