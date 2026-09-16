@@ -247,11 +247,12 @@ function buildItems(rows) {
 
     for (const row of source) {
 
-        const itemId =
-            number(row.itemId);
+        const itemId = number(row.itemId);
+        const matches = number(row.matchCount);
+        const wins = number(row.winCount);
+        const time = number(row.time);
 
         if (!map.has(itemId)) {
-
             map.set(itemId, {
                 itemId,
                 matches: 0,
@@ -260,26 +261,14 @@ function buildItems(rows) {
             });
         }
 
-        const item =
-            map.get(itemId);
-
-        const matches =
-            number(row.matchCount);
-
-        const wins =
-            number(row.winCount);
-
-        const time =
-            number(row.time);
+        const item = map.get(itemId);
 
         item.matches += matches;
         item.wins += wins;
-
-        item.weightedTime +=
-            time * matches;
+        item.weightedTime += time * matches;
     }
 
-    const result = [];
+    const allItems = [];
 
     for (const item of map.values()) {
 
@@ -287,14 +276,18 @@ function buildItems(rows) {
             continue;
         }
 
-        result.push({
+        const averageTime =
+            item.matches > 0
+                ? Math.round(
+                    item.weightedTime /
+                    item.matches
+                )
+                : 0;
+
+        allItems.push({
             itemId: item.itemId,
-
-            matches:
-                item.matches,
-
-            wins:
-                item.wins,
+            matches: item.matches,
+            wins: item.wins,
 
             winRate:
                 item.matches > 0
@@ -307,24 +300,71 @@ function buildItems(rows) {
                     )
                     : 0,
 
-            averageTime:
-                item.matches > 0
-                    ? Math.round(
-                        item.weightedTime /
-                        item.matches
-                    )
-                    : 0
+            averageTime
         });
     }
 
-    result.sort(
+    allItems.sort(
         (a, b) =>
             b.matches - a.matches
     );
 
-    return result.slice(0, 12);
-}
+    const early = [];
+    const core = [];
+    const late = [];
 
+    for (const item of allItems) {
+
+        const time = item.averageTime;
+
+        if (time > 0 && time <= 12) {
+            early.push(item);
+
+        } else if (time > 12 && time <= 28) {
+            core.push(item);
+
+        } else if (time > 28) {
+            late.push(item);
+        }
+    }
+
+    const earlyItems =
+        early.slice(0, 4);
+
+    const coreItems =
+        core.slice(0, 6);
+
+    const lateItems =
+        late.slice(0, 4);
+
+    const usedIds = new Set([
+        ...earlyItems.map(item => item.itemId),
+        ...coreItems.map(item => item.itemId),
+        ...lateItems.map(item => item.itemId)
+    ]);
+
+    const situationalItems = [];
+
+    for (const item of allItems) {
+
+        if (usedIds.has(item.itemId)) {
+            continue;
+        }
+
+        situationalItems.push(item);
+
+        if (situationalItems.length >= 6) {
+            break;
+        }
+    }
+
+    return {
+        early: earlyItems,
+        core: coreItems,
+        situational: situationalItems,
+        late: lateItems
+    };
+}
 
 // ======================================================
 // СПОСОБНОСТИ
@@ -694,7 +734,10 @@ async function buildHeroGuide(
 
         boots,
 
-        items,
+        earlyItems: items.early,
+coreItems: items.core,
+situationalItems: items.situational,
+lateItems: items.late,
 
         abilityBuild:
             abilityData.build,
@@ -820,8 +863,8 @@ async function main() {
 
 
             console.log(
-                `✓ items:${guide.items.length} abilities:${guide.abilityBuild.length}`
-            );
+    `✓ early:${guide.earlyItems.length} core:${guide.coreItems.length} situational:${guide.situationalItems.length} late:${guide.lateItems.length} abilities:${guide.abilityBuild.length}`
+);
 
         } catch (error) {
 
