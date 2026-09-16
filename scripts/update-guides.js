@@ -559,6 +559,25 @@ if (heroId === 1) {
     const combined =
         [...map.values()];
 
+if (heroId === 1) {
+    console.log(
+        "ANTI-MAGE ABILITY STATS",
+        combined
+            .filter(
+                row =>
+                    row.abilityId === 5003 ||
+                    row.abilityId === 5004 ||
+                    row.abilityId === 7314 ||
+                    row.abilityId === 5006
+            )
+            .sort(
+                (a, b) =>
+                    a.abilityId - b.abilityId ||
+                    a.level - b.level
+            )
+    );
+}
+    
     const levelMap = new Map();
 
 /*
