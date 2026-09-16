@@ -565,134 +565,211 @@ if (heroId === 1) {
 const abilityRanks =
     new Map();
 
-for (
-    const abilityId
-    of validAbilityIds
-) {
+for (const abilityId of validAbilityIds) {
     abilityRanks.set(
         abilityId,
         0
     );
 }
 
-const rowsByLevel =
+/*
+ * Общая популярность каждой способности.
+ * STRATZ не даёт готовую последовательность
+ * прокачки, поэтому используем статистику
+ * как вес для построения рекомендации.
+ */
+const abilityPriority =
     new Map();
 
 for (const row of combined) {
+    const current =
+        abilityPriority.get(
+            row.abilityId
+        ) || 0;
 
-    if (
-        !rowsByLevel.has(
-            row.level
-        )
-    ) {
-        rowsByLevel.set(
-            row.level,
-            []
-        );
-    }
-
-    rowsByLevel
-        .get(row.level)
-        .push(row);
+    abilityPriority.set(
+        row.abilityId,
+        current + row.matches
+    );
 }
 
-for (
-    const [
-        level,
-        rows
-    ]
-    of [...rowsByLevel.entries()]
-        .sort(
-            (a, b) =>
-                a[0] - b[0]
+/*
+ * Определяем ультимейт.
+ * Берём способность, которая чаще всего
+ * встречается на 6 уровне.
+ */
+const ultimateCandidates =
+    combined
+        .filter(
+            row =>
+                row.level === 6
         )
-) {
-
-    const candidates =
-        [...rows].sort(
+        .sort(
             (a, b) =>
                 b.matches -
                 a.matches
         );
 
+const ultimateAbilityId =
+    ultimateCandidates.length
+        ? ultimateCandidates[0].abilityId
+        : null;
+
+/*
+ * На уровнях 10 и 15 пока не выдаём
+ * очко способности — позже сюда
+ * добавим таланты.
+ */
+const talentLevels =
+    new Set([
+        10,
+        15
+    ]);
+
+for (
+    let level = 1;
+    level <= 18;
+    level++
+) {
+
+    if (
+        talentLevels.has(level)
+    ) {
+        continue;
+    }
+
+    const candidates = [];
+
     for (
-        const row
-        of candidates
+        const abilityId
+        of validAbilityIds
     ) {
 
-const currentRank =
-    abilityRanks.get(
-        row.abilityId
-    ) || 0;
-        
-        const abilityName =
-    abilityIdToName.get(
-        row.abilityId
-    );
+        const currentRank =
+            abilityRanks.get(
+                abilityId
+            ) || 0;
 
-const abilityInfo =
-    dotaAbilities[
-        abilityName
-    ] || {};
+        const isUltimate =
+            abilityId ===
+            ultimateAbilityId;
 
-const maxLevel =
-    number(
-        abilityInfo.max_level
-    ) || 4;
+        const maxRank =
+            isUltimate
+                ? 3
+                : 4;
 
-const nextRank =
-    currentRank + 1;
+        if (
+            currentRank >= maxRank
+        ) {
+            continue;
+        }
 
-const abilityRows =
-    combined.filter(
-        item =>
-            item.abilityId ===
-            row.abilityId
-    );
+        const nextRank =
+            currentRank + 1;
 
-const earliestPopularLevel =
-    abilityRows
-        .filter(
-            item =>
-                item.matches >= 1000
-        )
-        .reduce(
-            (min, item) =>
-                Math.min(
-                    min,
-                    item.level
-                ),
-            Infinity
-        );
+        const minimumLevel =
+            isUltimate
+                ? nextRank * 6
+                : nextRank * 2 - 1;
 
-const isUltimate =
-    maxLevel === 3 &&
-    earliestPopularLevel >= 6;
+        if (
+            level < minimumLevel
+        ) {
+            continue;
+        }
 
-const minimumLevel =
-    isUltimate
-        ? nextRank * 6
-        : nextRank * 2 - 1;
+        /*
+         * Сначала ищем статистику STRATZ
+         * именно для этого уровня.
+         */
+        const exactRows =
+            combined.filter(
+                row =>
+                    row.abilityId ===
+                        abilityId &&
+                    row.level === level
+            );
 
-if (
-    currentRank >= maxLevel ||
-    level < minimumLevel
-) {
-    continue;
-}
+        const exactMatches =
+            exactRows.reduce(
+                (sum, row) =>
+                    sum + row.matches,
+                0
+            );
 
-        levelMap.set(
+        const exactWins =
+            exactRows.reduce(
+                (sum, row) =>
+                    sum + row.wins,
+                0
+            );
+
+        /*
+         * Если точной строки нет,
+         * используем общую популярность
+         * способности как запасной вес.
+         */
+        const fallbackMatches =
+            abilityPriority.get(
+                abilityId
+            ) || 0;
+
+        const score =
+            exactMatches > 0
+                ? exactMatches *
+                    1000
+                : fallbackMatches;
+
+        candidates.push({
+            abilityId,
             level,
-            row
-        );
-
-        abilityRanks.set(
-            row.abilityId,
-            nextRank
-        );
-
-        break;
+            matches:
+                exactMatches > 0
+                    ? exactMatches
+                    : fallbackMatches,
+            wins:
+                exactMatches > 0
+                    ? exactWins
+                    : 0,
+            score,
+            isUltimate
+        });
     }
+
+    if (!candidates.length) {
+        continue;
+    }
+
+    candidates.sort(
+        (a, b) =>
+            b.score - a.score
+    );
+
+    const selected =
+        candidates[0];
+
+    levelMap.set(
+        level,
+        {
+            level,
+            abilityId:
+                selected.abilityId,
+            matches:
+                selected.matches,
+            wins:
+                selected.wins
+        }
+    );
+
+    abilityRanks.set(
+        selected.abilityId,
+        (
+            abilityRanks.get(
+                selected.abilityId
+            ) || 0
+        ) + 1
+    );
 }
 
     const build = [
