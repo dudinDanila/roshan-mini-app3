@@ -134,7 +134,8 @@ const metaData = {
    ========================================================= */
 
 function getHeroByName(name) {
-    return heroes.find(
+    const heroList = window.roshanHeroes || [];
+    return heroList.find(
         hero => hero.name.toUpperCase() === name.toUpperCase()
     );
 }
