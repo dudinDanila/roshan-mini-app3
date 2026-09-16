@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 const STRATZ_TOKEN = process.env.STRATZ_TOKEN;
 
 if (!STRATZ_TOKEN) {
@@ -6,149 +8,952 @@ if (!STRATZ_TOKEN) {
 }
 
 const API_URL = "https://api.stratz.com/graphql";
+const OUTPUT_FILE = "guides-data.json";
 
-const QUERY = `
-query {
-    queryType: __type(name: "Query") {
-        fields {
-            name
-            type {
-                kind
-                name
-                ofType {
-                    kind
-                    name
-                    ofType {
-                        kind
-                        name
-                    }
-                }
-            }
-            args {
-                name
-                type {
-                    kind
-                    name
-                    ofType {
-                        kind
-                        name
-                    }
-                }
-            }
+// Пауза между героями, чтобы не отправлять
+// слишком много запросов STRATZ подряд.
+const REQUEST_DELAY = 350;
+
+// Повторяем временно неудачный запрос.
+const MAX_RETRIES = 3;
+
+
+// ======================================================
+// ГЕРОИ
+// ======================================================
+
+const HEROES = [
+    [1, "ANTI-MAGE"],
+    [2, "AXE"],
+    [3, "BANE"],
+    [4, "BLOODSEEKER"],
+    [5, "CRYSTAL MAIDEN"],
+    [6, "DROW RANGER"],
+    [7, "EARTHSHAKER"],
+    [8, "JUGGERNAUT"],
+    [9, "MIRANA"],
+    [10, "MORPHLING"],
+    [11, "SHADOW FIEND"],
+    [12, "PHANTOM LANCER"],
+    [13, "PUCK"],
+    [14, "PUDGE"],
+    [15, "RAZOR"],
+    [16, "SAND KING"],
+    [17, "STORM SPIRIT"],
+    [18, "SVEN"],
+    [19, "TINY"],
+    [20, "VENGEFUL SPIRIT"],
+    [21, "WINDRANGER"],
+    [22, "ZEUS"],
+    [23, "KUNKKA"],
+    [25, "LINA"],
+    [26, "LION"],
+    [27, "SHADOW SHAMAN"],
+    [28, "SLARDAR"],
+    [29, "TIDEHUNTER"],
+    [30, "WITCH DOCTOR"],
+    [31, "LICH"],
+    [32, "RIKI"],
+    [33, "ENIGMA"],
+    [34, "TINKER"],
+    [35, "SNIPER"],
+    [36, "NECROPHOS"],
+    [37, "WARLOCK"],
+    [38, "BEASTMASTER"],
+    [39, "QUEEN OF PAIN"],
+    [40, "VENOMANCER"],
+    [41, "FACELESS VOID"],
+    [42, "WRAITH KING"],
+    [43, "DEATH PROPHET"],
+    [44, "PHANTOM ASSASSIN"],
+    [45, "PUGNA"],
+    [46, "TEMPLAR ASSASSIN"],
+    [47, "VIPER"],
+    [48, "LUNA"],
+    [49, "DRAGON KNIGHT"],
+    [50, "DAZZLE"],
+    [51, "CLOCKWERK"],
+    [52, "LESHRAC"],
+    [53, "NATURE'S PROPHET"],
+    [54, "LIFESTEALER"],
+    [55, "DARK SEER"],
+    [56, "CLINKZ"],
+    [57, "OMNIKNIGHT"],
+    [58, "ENCHANTRESS"],
+    [59, "HUSKAR"],
+    [60, "NIGHT STALKER"],
+    [61, "BROODMOTHER"],
+    [62, "BOUNTY HUNTER"],
+    [63, "WEAVER"],
+    [64, "JAKIRO"],
+    [65, "BATRIDER"],
+    [66, "CHEN"],
+    [67, "SPECTRE"],
+    [68, "ANCIENT APPARITION"],
+    [69, "DOOM"],
+    [70, "URSA"],
+    [71, "SPIRIT BREAKER"],
+    [72, "GYROCOPTER"],
+    [73, "ALCHEMIST"],
+    [74, "INVOKER"],
+    [75, "SILENCER"],
+    [76, "OUTWORLD DESTROYER"],
+    [77, "LYCAN"],
+    [78, "BREWMASTER"],
+    [79, "SHADOW DEMON"],
+    [80, "LONE DRUID"],
+    [81, "CHAOS KNIGHT"],
+    [82, "MEEPO"],
+    [83, "TREANT PROTECTOR"],
+    [84, "OGRE MAGI"],
+    [85, "UNDYING"],
+    [86, "RUBICK"],
+    [87, "DISRUPTOR"],
+    [88, "NYX ASSASSIN"],
+    [89, "NAGA SIREN"],
+    [90, "KEEPER OF THE LIGHT"],
+    [91, "IO"],
+    [92, "VISAGE"],
+    [93, "SLARK"],
+    [94, "MEDUSA"],
+    [95, "TROLL WARLORD"],
+    [96, "CENTAUR WARRUNNER"],
+    [97, "MAGNUS"],
+    [98, "TIMBERSAW"],
+    [99, "BRISTLEBACK"],
+    [100, "TUSK"],
+    [101, "SKYWRATH MAGE"],
+    [102, "ABADDON"],
+    [103, "ELDER TITAN"],
+    [104, "LEGION COMMANDER"],
+    [105, "TECHIES"],
+    [106, "EMBER SPIRIT"],
+    [107, "EARTH SPIRIT"],
+    [108, "UNDERLORD"],
+    [109, "TERRORBLADE"],
+    [110, "PHOENIX"],
+    [111, "ORACLE"],
+    [112, "WINTER WYVERN"],
+    [113, "ARC WARDEN"],
+    [114, "MONKEY KING"],
+    [119, "DARK WILLOW"],
+    [120, "PANGOLIER"],
+    [121, "GRIMSTROKE"],
+    [123, "HOODWINK"],
+    [126, "VOID SPIRIT"],
+    [128, "SNAPFIRE"],
+    [129, "MARS"],
+    [135, "DAWNBREAKER"],
+    [136, "MARCI"],
+    [137, "PRIMAL BEAST"],
+    [138, "MUERTA"],
+    [145, "KEZ"],
+    [155, "RINGMASTER"]
+];
+
+
+// ======================================================
+// ОБЩИЕ ФУНКЦИИ
+// ======================================================
+
+function number(value) {
+    const result = Number(value);
+
+    return Number.isFinite(result)
+        ? result
+        : 0;
+}
+
+
+function sleep(ms) {
+    return new Promise(resolve =>
+        setTimeout(resolve, ms)
+    );
+}
+
+
+function sortByMatches(a, b) {
+    return number(b.matchCount) -
+        number(a.matchCount);
+}
+
+
+// ======================================================
+// БОТИНКИ
+// ======================================================
+
+function buildBoots(rows) {
+
+    const clean = (rows || [])
+        .filter(row =>
+            number(row.itemId) > 0 &&
+            number(row.matchCount) >= 100
+        )
+        .sort(sortByMatches);
+
+    if (!clean.length) {
+        return null;
+    }
+
+    const best = clean[0];
+
+    const matches =
+        number(best.matchCount);
+
+    const wins =
+        number(best.winCount);
+
+    return {
+        itemId: number(best.itemId),
+
+        matches,
+
+        wins,
+
+        winRate:
+            matches > 0
+                ? Number(
+                    (
+                        wins /
+                        matches *
+                        100
+                    ).toFixed(2)
+                )
+                : 0,
+
+        averageTime:
+            Number(
+                number(
+                    best.timeAverage
+                ).toFixed(1)
+            )
+    };
+}
+
+
+// ======================================================
+// ОСНОВНЫЕ ПРЕДМЕТЫ
+// ======================================================
+
+function buildItems(rows) {
+
+    const source = (rows || [])
+        .filter(row =>
+            number(row.itemId) > 0 &&
+            number(row.matchCount) >= 100
+        );
+
+    const map = new Map();
+
+    for (const row of source) {
+
+        const itemId =
+            number(row.itemId);
+
+        if (!map.has(itemId)) {
+
+            map.set(itemId, {
+                itemId,
+                matches: 0,
+                wins: 0,
+                weightedTime: 0
+            });
+        }
+
+        const item =
+            map.get(itemId);
+
+        const matches =
+            number(row.matchCount);
+
+        const wins =
+            number(row.winCount);
+
+        const time =
+            number(row.time);
+
+        item.matches += matches;
+        item.wins += wins;
+
+        item.weightedTime +=
+            time * matches;
+    }
+
+    const result = [];
+
+    for (const item of map.values()) {
+
+        if (item.matches < 500) {
+            continue;
+        }
+
+        result.push({
+            itemId: item.itemId,
+
+            matches:
+                item.matches,
+
+            wins:
+                item.wins,
+
+            winRate:
+                item.matches > 0
+                    ? Number(
+                        (
+                            item.wins /
+                            item.matches *
+                            100
+                        ).toFixed(2)
+                    )
+                    : 0,
+
+            averageTime:
+                item.matches > 0
+                    ? Math.round(
+                        item.weightedTime /
+                        item.matches
+                    )
+                    : 0
+        });
+    }
+
+    result.sort(
+        (a, b) =>
+            b.matches - a.matches
+    );
+
+    return result.slice(0, 12);
+}
+
+
+// ======================================================
+// СПОСОБНОСТИ
+// ======================================================
+
+function buildAbilityData(
+    minRows,
+    maxRows
+) {
+
+    const allRows = [
+        ...(minRows || []),
+        ...(maxRows || [])
+    ];
+
+    const clean =
+        allRows.filter(row =>
+            number(row.abilityId) > 0 &&
+            number(row.level) > 0 &&
+            number(row.matchCount) >= 100
+        );
+
+    const map = new Map();
+
+    for (const row of clean) {
+
+        const abilityId =
+            number(row.abilityId);
+
+        const level =
+            number(row.level);
+
+        const key =
+            `${abilityId}:${level}`;
+
+        if (!map.has(key)) {
+
+            map.set(key, {
+                abilityId,
+                level,
+                matches: 0,
+                wins: 0
+            });
+        }
+
+        const entry =
+            map.get(key);
+
+        entry.matches +=
+            number(row.matchCount);
+
+        entry.wins +=
+            number(row.winCount);
+    }
+
+    const combined =
+        [...map.values()];
+
+    const levelMap =
+        new Map();
+
+    for (const row of combined) {
+
+        const current =
+            levelMap.get(row.level);
+
+        if (
+            !current ||
+            row.matches >
+                current.matches
+        ) {
+            levelMap.set(
+                row.level,
+                row
+            );
         }
     }
 
-    heroType: __type(name: "HeroType") {
-        fields {
-            name
-            type {
-                kind
-                name
-                ofType {
-                    kind
-                    name
-                    ofType {
-                        kind
-                        name
-                    }
-                }
+    const build = [
+        ...levelMap.values()
+    ]
+        .sort(
+            (a, b) =>
+                a.level - b.level
+        )
+        .map(row => ({
+            level:
+                row.level,
+
+            abilityId:
+                row.abilityId,
+
+            matches:
+                row.matches,
+
+            winRate:
+                row.matches > 0
+                    ? Number(
+                        (
+                            row.wins /
+                            row.matches *
+                            100
+                        ).toFixed(2)
+                    )
+                    : 0
+        }));
+
+
+    const abilityMap =
+        new Map();
+
+    for (const row of combined) {
+
+        if (
+            !abilityMap.has(
+                row.abilityId
+            )
+        ) {
+            abilityMap.set(
+                row.abilityId,
+                []
+            );
+        }
+
+        abilityMap
+            .get(row.abilityId)
+            .push(row);
+    }
+
+    const abilities = {};
+
+    for (
+        const [abilityId, rows]
+        of abilityMap.entries()
+    ) {
+
+        rows.sort(
+            (a, b) =>
+                b.matches -
+                a.matches
+        );
+
+        abilities[abilityId] =
+            rows
+                .slice(0, 8)
+                .map(row => ({
+                    level:
+                        row.level,
+
+                    matches:
+                        row.matches,
+
+                    winRate:
+                        row.matches > 0
+                            ? Number(
+                                (
+                                    row.wins /
+                                    row.matches *
+                                    100
+                                ).toFixed(2)
+                            )
+                            : 0
+                }));
+    }
+
+    return {
+        build,
+        abilities
+    };
+}
+
+
+// ======================================================
+// GRAPHQL
+// ======================================================
+
+function createQuery(heroId) {
+
+    return `
+    query {
+        heroStats {
+
+            itemBootPurchase(
+                heroId: ${heroId}
+            ) {
+                heroId
+                itemId
+                instance
+                time
+                timeAverage
+                matchCount
+                winCount
+                winAverage
+            }
+
+            itemFullPurchase(
+                heroId: ${heroId}
+            ) {
+                heroId
+                itemId
+                instance
+                time
+                matchCount
+                winCount
+                winsAverage
+            }
+
+            abilityMinLevel(
+                heroId: ${heroId}
+            ) {
+                heroId
+                abilityId
+                level
+                matchCount
+                winCount
+            }
+
+            abilityMaxLevel(
+                heroId: ${heroId}
+            ) {
+                heroId
+                abilityId
+                level
+                matchCount
+                winCount
             }
         }
     }
+    `;
 }
-`;
 
-function typeName(type) {
-    if (!type) return "";
 
-    if (type.name) {
-        return type.name;
+// ======================================================
+// ЗАПРОС ОДНОГО ГЕРОЯ
+// ======================================================
+
+async function requestHero(
+    heroId,
+    attempt = 1
+) {
+
+    const response =
+        await fetch(
+            API_URL,
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json",
+
+                    "Authorization":
+                        `Bearer ${STRATZ_TOKEN}`,
+
+                    "User-Agent":
+                        "Roshan-Dota-Guides"
+                },
+
+                body:
+                    JSON.stringify({
+                        query:
+                            createQuery(
+                                heroId
+                            )
+                    })
+            }
+        );
+
+
+    const text =
+        await response.text();
+
+
+    if (!response.ok) {
+
+        if (
+            attempt <
+            MAX_RETRIES
+        ) {
+
+            console.log(
+                `HTTP ${response.status}. Retry ${attempt}/${MAX_RETRIES - 1}...`
+            );
+
+            await sleep(
+                1500 * attempt
+            );
+
+            return requestHero(
+                heroId,
+                attempt + 1
+            );
+        }
+
+        throw new Error(
+            `STRATZ HTTP ${response.status}: ${text.slice(0, 300)}`
+        );
     }
 
-    return typeName(type.ofType);
+
+    const json =
+        JSON.parse(text);
+
+
+    if (json.errors?.length) {
+
+        throw new Error(
+            JSON.stringify(
+                json.errors
+            )
+        );
+    }
+
+
+    const data =
+        json?.data?.heroStats;
+
+
+    if (!data) {
+        throw new Error(
+            "No heroStats returned."
+        );
+    }
+
+
+    return data;
 }
+
+
+// ======================================================
+// ОБРАБОТКА ОДНОГО ГЕРОЯ
+// ======================================================
+
+async function buildHeroGuide(
+    heroId,
+    heroName
+) {
+
+    const data =
+        await requestHero(
+            heroId
+        );
+
+
+    const boots =
+        buildBoots(
+            data.itemBootPurchase
+        );
+
+
+    const items =
+        buildItems(
+            data.itemFullPurchase
+        );
+
+
+    const abilityData =
+        buildAbilityData(
+            data.abilityMinLevel,
+            data.abilityMaxLevel
+        );
+
+
+    return {
+        heroId,
+        name: heroName,
+
+        boots,
+
+        items,
+
+        abilityBuild:
+            abilityData.build,
+
+        abilities:
+            abilityData.abilities
+    };
+}
+
+
+// ======================================================
+// СТАРЫЙ JSON
+// ======================================================
+
+function loadPreviousHeroes() {
+
+    if (
+        !fs.existsSync(
+            OUTPUT_FILE
+        )
+    ) {
+        return {};
+    }
+
+    try {
+
+        const oldData =
+            JSON.parse(
+                fs.readFileSync(
+                    OUTPUT_FILE,
+                    "utf8"
+                )
+            );
+
+        return (
+            oldData?.heroes || {}
+        );
+
+    } catch (error) {
+
+        console.log(
+            "Could not read previous guides-data.json."
+        );
+
+        return {};
+    }
+}
+
+
+// ======================================================
+// MAIN
+// ======================================================
 
 async function main() {
 
-    console.log("Searching STRATZ hero list API...");
+    console.log(
+        "================================"
+    );
 
-    const response = await fetch(API_URL, {
-        method: "POST",
+    console.log(
+        "ROSHAN — STRATZ GUIDE UPDATE"
+    );
 
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${STRATZ_TOKEN}`,
-            "User-Agent": "Roshan-Dota-Guides"
-        },
+    console.log(
+        "================================"
+    );
 
-        body: JSON.stringify({
-            query: QUERY
-        })
-    });
+    console.log(
+        `Heroes: ${HEROES.length}`
+    );
 
-    const text = await response.text();
+    console.log("");
 
-    if (!response.ok) {
-        console.error(`STRATZ HTTP ${response.status}`);
-        console.error(text);
-        process.exit(1);
-    }
 
-    const json = JSON.parse(text);
+    const previousHeroes =
+        loadPreviousHeroes();
 
-    if (json.errors?.length) {
-        console.error(
-            JSON.stringify(json.errors, null, 2)
+
+    const heroes = {
+        ...previousHeroes
+    };
+
+
+    let success = 0;
+    let failed = 0;
+
+
+    for (
+        let i = 0;
+        i < HEROES.length;
+        i++
+    ) {
+
+        const [
+            heroId,
+            heroName
+        ] = HEROES[i];
+
+
+        const progress =
+            `${i + 1}/${HEROES.length}`;
+
+
+        process.stdout.write(
+            `${progress} — ${heroName}... `
         );
-        process.exit(1);
-    }
 
-    console.log("\n=== ROOT FIELDS RELATED TO HERO ===");
 
-    const fields =
-        json?.data?.queryType?.fields || [];
+        try {
 
-    for (const field of fields) {
+            const guide =
+                await buildHeroGuide(
+                    heroId,
+                    heroName
+                );
 
-        const name =
-            String(field.name || "").toLowerCase();
 
-        const resultType =
-            typeName(field.type);
+            heroes[heroId] =
+                guide;
 
-        if (
-            name.includes("hero") ||
-            resultType.includes("Hero")
-        ) {
+
+            success++;
+
+
             console.log(
-                `\n${field.name} -> ${resultType}`
+                `✓ items:${guide.items.length} abilities:${guide.abilityBuild.length}`
             );
 
-            if (field.args?.length) {
+        } catch (error) {
+
+            failed++;
+
+
+            if (
+                previousHeroes[
+                    heroId
+                ]
+            ) {
+
                 console.log(
-                    "args:",
-                    field.args.map(arg =>
-                        `${arg.name}: ${typeName(arg.type)}`
-                    ).join(", ")
+                    "⚠ failed — keeping previous data"
+                );
+
+            } else {
+
+                console.log(
+                    "✗ failed"
                 );
             }
+
+
+            console.error(
+                `   ${String(
+                    error.message ||
+                    error
+                ).slice(0, 300)}`
+            );
+        }
+
+
+        if (
+            i <
+            HEROES.length - 1
+        ) {
+            await sleep(
+                REQUEST_DELAY
+            );
         }
     }
 
 
-    console.log("\n=== HeroType FIELDS ===");
+    // Не считаем обновление успешным,
+    // если вообще ни одного героя получить не удалось.
+    if (
+        success === 0 &&
+        Object.keys(heroes).length === 0
+    ) {
 
-    const heroFields =
-        json?.data?.heroType?.fields || [];
-
-    for (const field of heroFields) {
-        console.log(
-            `${field.name}: ${typeName(field.type)}`
+        throw new Error(
+            "No hero guides could be generated."
         );
     }
+
+
+    const output = {
+
+        ok: true,
+
+        source:
+            "STRATZ",
+
+        updatedAt:
+            new Date().toISOString(),
+
+        heroCount:
+            Object.keys(
+                heroes
+            ).length,
+
+        updateStats: {
+            success,
+            failed
+        },
+
+        heroes
+    };
+
+
+    fs.writeFileSync(
+        OUTPUT_FILE,
+
+        JSON.stringify(
+            output,
+            null,
+            2
+        ) + "\n",
+
+        "utf8"
+    );
+
+
+    console.log("");
+    console.log(
+        "================================"
+    );
+
+    console.log(
+        "GUIDE UPDATE COMPLETE"
+    );
+
+    console.log(
+        "================================"
+    );
+
+    console.log(
+        `Updated: ${success}`
+    );
+
+    console.log(
+        `Failed: ${failed}`
+    );
+
+    console.log(
+        `Heroes in JSON: ${output.heroCount}`
+    );
+
+    console.log(
+        `${OUTPUT_FILE} created successfully.`
+    );
 }
 
+
 main().catch(error => {
+
+    console.error(
+        "Guide generation failed:"
+    );
+
     console.error(error);
+
     process.exit(1);
 });
