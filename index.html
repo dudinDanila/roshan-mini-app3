@@ -8987,8 +8987,8 @@ function openHero(hero){
         .toUpperCase();
 
 const heroGuide =
-    window.stratzGuides?.[guideKey] || null;
-
+    Object.values(window.stratzGuides?.heroes || {})
+        .find(g => g.name === guideKey) || null;
 
 /* =========================================
    ЕСЛИ ГАЙДА ПОКА НЕТ
