@@ -12110,6 +12110,9 @@ window.getHeroGuideRoles =
 window.D2PT_PATCH =
     D2PT_PATCH;
 
+window.convertStratzHeroGuide =
+    convertStratzHeroGuide;
+
 (async function initGuides() {
     await loadDotaItems();
     await loadStratzGuides();
