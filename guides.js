@@ -119,7 +119,19 @@ function convertStratzHeroGuide(hero) {
 
         lateItems: convertStratzItems(
             hero.lateItems || []
-        )
+        ),
+
+skills: Array.isArray(hero.abilityBuild)
+    ? hero.abilityBuild
+        .sort((a, b) => a.level - b.level)
+        .map(entry => ({
+            level: entry.level,
+            abilityId: entry.abilityId,
+            matches: entry.matches,
+            winRate: entry.winRate
+        }))
+    : []
+       
     };
 }
 
