@@ -8986,10 +8986,14 @@ function openHero(hero){
         .trim()
         .toUpperCase();
 
-const heroGuide =
+const rawHeroGuide =
     Object.values(window.stratzGuides?.heroes || {})
         .find(g => g.name === guideKey) || null;
 
+const heroGuide =
+    rawHeroGuide && window.convertStratzHeroGuide
+        ? window.convertStratzHeroGuide(rawHeroGuide)
+        : rawHeroGuide;
 /* =========================================
    ЕСЛИ ГАЙДА ПОКА НЕТ
 ========================================= */
