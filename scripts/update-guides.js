@@ -963,7 +963,7 @@ function buildAbilityData(
 
     for (
         let level = 4;
-        level <= 15;
+        level <= 18;
         level++
     ) {
 
@@ -979,7 +979,8 @@ function buildAbilityData(
             ultimateId &&
             (
                 level === 6 ||
-                level === 12
+                level === 12 ||
+                level === 18
             )
         ) {
 
