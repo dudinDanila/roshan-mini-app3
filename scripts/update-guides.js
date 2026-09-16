@@ -620,13 +620,27 @@ function buildAbilityData(
      * Обычные способности.
      */
 
-    const normalAbilityIds =
-        [...validAbilityIds]
-            .filter(
-                abilityId =>
-                    abilityId !==
-                    ultimateId
-            );
+    const stratzAbilityIds =
+    new Set(
+        [
+            ...minData,
+            ...maxData
+        ].map(
+            row =>
+                row.abilityId
+        )
+    );
+
+const normalAbilityIds =
+    [...validAbilityIds]
+        .filter(
+            abilityId =>
+                abilityId !==
+                    ultimateId &&
+                stratzAbilityIds.has(
+                    abilityId
+                )
+        );
 
 
     /*
