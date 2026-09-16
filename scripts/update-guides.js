@@ -432,554 +432,628 @@ function buildAbilityData(
     heroId
 ) {
 
-const hero =
-    dotaHeroes[String(heroId)];
+    const hero =
+        dotaHeroes[String(heroId)];
 
-const heroKey =
-    hero?.name;
+    const heroKey =
+        hero?.name;
 
-const heroAbilityNames =
-    dotaHeroAbilities[heroKey]
-        ?.abilities || [];
+    const heroAbilityNames =
+        dotaHeroAbilities[heroKey]
+            ?.abilities || [];
 
-const abilityNameToId =
-    new Map(
-        Object.entries(
-            dotaAbilityIds
-        ).map(
-            ([id, name]) => [
-                name,
-                Number(id)
-            ]
-        )
-    );
-
-const abilityIdToName =
-    new Map(
-        Object.entries(
-            dotaAbilityIds
-        ).map(
-            ([id, name]) => [
-                Number(id),
-                name
-            ]
-        )
-    );
-    
-const validAbilityIds =
-    new Set(
-        heroAbilityNames
-            .map(name =>
-                abilityNameToId.get(name)
-            )
-            .filter(id =>
-                Number.isFinite(id)
-            )
-    );
-
-if (heroId === 1) {
-    console.log(
-        "ANTI-MAGE DEBUG",
-        {
-            heroKey,
-            heroAbilityNames,
-            validAbilityIds:
-                [...validAbilityIds],
-            stratzAbilityIds:
-                [
-                    ...new Set(
-                        [
-                            ...(minRows || []),
-                            ...(maxRows || [])
-                        ].map(
-                            row =>
-                                Number(
-                                    row.abilityId
-                                )
-                        )
-                    )
+    const abilityNameToId =
+        new Map(
+            Object.entries(
+                dotaAbilityIds
+            ).map(
+                ([id, name]) => [
+                    name,
+                    Number(id)
                 ]
-        }
-    );
-}
-    
-    const allRows = [
-        ...(minRows || []),
-        ...(maxRows || [])
-    ];
-
-    const clean =
-    allRows.filter(row => {
-        const abilityId =
-            number(row.abilityId);
-
-        return (
-            abilityId > 0 &&
-            validAbilityIds.has(
-                abilityId
-            ) &&
-            number(row.level) > 0 &&
-            number(row.matchCount) >= 100
+            )
         );
-    });
 
-    const map = new Map();
+    const validAbilityIds =
+        new Set(
+            heroAbilityNames
+                .map(name =>
+                    abilityNameToId.get(name)
+                )
+                .filter(id =>
+                    Number.isFinite(id)
+                )
+        );
 
-    for (const row of clean) {
 
-        const abilityId =
-            number(row.abilityId);
+    /*
+     * Подготавливаем строки STRATZ.
+     *
+     * ВАЖНО:
+     * minRows и maxRows больше
+     * не смешиваем до анализа.
+     */
 
-        const level =
-            number(row.level);
+    function prepareRows(rows) {
+
+        return (rows || [])
+            .map(row => ({
+                abilityId:
+                    number(
+                        row.abilityId
+                    ),
+
+                level:
+                    number(
+                        row.level
+                    ),
+
+                matches:
+                    number(
+                        row.matchCount
+                    ),
+
+                wins:
+                    number(
+                        row.winCount
+                    )
+            }))
+            .filter(row =>
+                row.abilityId > 0 &&
+                validAbilityIds.has(
+                    row.abilityId
+                ) &&
+                row.level > 0 &&
+                row.matches >= 100
+            );
+    }
+
+
+    const minData =
+        prepareRows(minRows);
+
+    const maxData =
+        prepareRows(maxRows);
+
+
+    /*
+     * Объединённые данные оставляем
+     * только для отображения статистики.
+     */
+
+    const combinedMap =
+        new Map();
+
+    for (
+        const row
+        of [
+            ...minData,
+            ...maxData
+        ]
+    ) {
 
         const key =
-            `${abilityId}:${level}`;
+            `${row.abilityId}:${row.level}`;
 
-        if (!map.has(key)) {
+        if (!combinedMap.has(key)) {
 
-            map.set(key, {
-                abilityId,
-                level,
-                matches: 0,
-                wins: 0
-            });
+            combinedMap.set(
+                key,
+                {
+                    abilityId:
+                        row.abilityId,
+
+                    level:
+                        row.level,
+
+                    matches: 0,
+                    wins: 0
+                }
+            );
         }
 
         const entry =
-            map.get(key);
+            combinedMap.get(key);
 
         entry.matches +=
-            number(row.matchCount);
+            row.matches;
 
         entry.wins +=
-            number(row.winCount);
+            row.wins;
     }
+
 
     const combined =
-        [...map.values()];
+        [...combinedMap.values()];
 
-if (heroId === 1) {
-    console.log(
-        "ANTI-MAGE ABILITY STATS",
-        combined
-            .filter(
-                row =>
-                    row.abilityId === 5003 ||
-                    row.abilityId === 5004 ||
-                    row.abilityId === 7314 ||
-                    row.abilityId === 5006
-            )
+
+    /*
+     * Определяем ультимейт.
+     *
+     * Не полагаемся только на порядок
+     * hero_abilities.
+     *
+     * У ультимейта должен быть сильный
+     * пик первого изучения около 6 уровня.
+     */
+
+    const ultimateCandidates =
+        [...validAbilityIds]
+            .map(abilityId => {
+
+                const rows =
+                    minData.filter(
+                        row =>
+                            row.abilityId ===
+                            abilityId
+                    );
+
+                const level6 =
+                    rows.find(
+                        row =>
+                            row.level === 6
+                    );
+
+                return {
+                    abilityId,
+                    matches:
+                        level6
+                            ?.matches || 0
+                };
+            })
             .sort(
                 (a, b) =>
-                    a.abilityId - b.abilityId ||
-                    a.level - b.level
-            )
-    );
-}
-    
-    const levelMap = new Map();
-
-/*
- * STRATZ abilityMinLevel / abilityMaxLevel —
- * это статистика популярности, а не готовая
- * последовательность прокачки.
- *
- * Поэтому сначала определяем приоритет
- * способностей, а затем строим допустимый
- * skill build.
- */
-
-const abilityStats = new Map();
-
-for (const row of combined) {
-
-    if (!abilityStats.has(row.abilityId)) {
-        abilityStats.set(row.abilityId, {
-            abilityId: row.abilityId,
-            matches: 0,
-            wins: 0
-        });
-    }
-
-    const stat =
-        abilityStats.get(row.abilityId);
-
-    stat.matches += row.matches;
-    stat.wins += row.wins;
-}
+                    b.matches -
+                    a.matches
+            );
 
 
-/*
- * Определяем ультимейт.
- *
- * В hero_abilities ультимейт обычно находится
- * последним среди способностей героя.
- */
-
-const ultimateName =
-    [...heroAbilityNames]
-        .reverse()
-        .find(name =>
-            abilityNameToId.has(name)
-        );
-
-const ultimateId =
-    abilityNameToId.get(
-        ultimateName
-    );
-
-
-/*
- * Обычные способности.
- * Убираем ультимейт и сортируем
- * по популярности STRATZ.
- */
-
-const normalAbilities =
-    [...abilityStats.values()]
-        .filter(stat =>
-            stat.abilityId !==
-            ultimateId
-        )
-        .sort(
-            (a, b) =>
-                b.matches -
-                a.matches
-        );
-
-
-/*
- * Текущий ранг каждой способности.
- */
-
-const abilityRanks =
-    new Map();
-
-for (const abilityId of validAbilityIds) {
-    abilityRanks.set(
-        abilityId,
-        0
-    );
-}
-
-
-/*
- * Возвращает максимально допустимый
- * ранг способности.
- *
- * Пока для обычных способностей — 4,
- * для ультимейта — 3.
- */
-
-function getMaxRank(abilityId) {
-
-    if (abilityId === ultimateId) {
-        return 3;
-    }
-
-    return 4;
-}
-
-
-/*
- * Можно ли прокачать следующий ранг
- * способности на данном уровне героя.
- */
-
-function canLevelAbility(
-    abilityId,
-    heroLevel
-) {
-
-    const currentRank =
-        abilityRanks.get(
-            abilityId
-        ) || 0;
-
-    const nextRank =
-        currentRank + 1;
-
-    const maxRank =
-        getMaxRank(
-            abilityId
-        );
-
-    if (nextRank > maxRank) {
-        return false;
-    }
+    const ultimateId =
+        ultimateCandidates[0]
+            ?.matches > 0
+            ? ultimateCandidates[0]
+                .abilityId
+            : null;
 
 
     /*
-     * Ультимейт:
-     * 1 ранг — 6
-     * 2 ранг — 12
-     * 3 ранг — 18
+     * Обычные способности.
      */
 
-    if (abilityId === ultimateId) {
-
-        const requiredLevel =
-            nextRank * 6;
-
-        return (
-            heroLevel >=
-            requiredLevel
-        );
-    }
+    const normalAbilityIds =
+        [...validAbilityIds]
+            .filter(
+                abilityId =>
+                    abilityId !==
+                    ultimateId
+            );
 
 
     /*
-     * Обычная способность:
+     * Находим самый популярный уровень
+     * ПЕРВОГО изучения способности.
      *
-     * 1 ранг — с 1
-     * 2 ранг — с 3
-     * 3 ранг — с 5
-     * 4 ранг — с 7
+     * Здесь используем только minData.
      */
 
-    const requiredLevel =
-        nextRank * 2 - 1;
+    function getFirstLevelStat(
+        abilityId
+    ) {
 
-    return (
-        heroLevel >=
-        requiredLevel
-    );
-}
+        const rows =
+            minData
+                .filter(
+                    row =>
+                        row.abilityId ===
+                        abilityId
+                )
+                .sort(
+                    (a, b) =>
+                        b.matches -
+                        a.matches
+                );
+
+        return rows[0] || null;
+    }
 
 
-/*
- * Находим наиболее подходящую
- * строку STRATZ для отображения
- * matches / winRate.
- */
+    /*
+     * Находим самый популярный уровень,
+     * на котором способность обычно
+     * достигает максимального ранга.
+     *
+     * Здесь используем только maxData.
+     */
 
-function getBestRow(
-    abilityId,
-    level
-) {
+    function getMaxLevelStat(
+        abilityId
+    ) {
 
-    const rows =
-        combined
-            .filter(row =>
-                row.abilityId ===
-                abilityId
-            )
+        const rows =
+            maxData
+                .filter(
+                    row =>
+                        row.abilityId ===
+                        abilityId
+                )
+                .sort(
+                    (a, b) =>
+                        b.matches -
+                        a.matches
+                );
+
+        return rows[0] || null;
+    }
+
+
+    /*
+     * Приоритет первого изучения.
+     */
+
+    const firstOrder =
+        normalAbilityIds
+            .map(abilityId => ({
+                abilityId,
+
+                stat:
+                    getFirstLevelStat(
+                        abilityId
+                    )
+            }))
             .sort(
                 (a, b) => {
 
-                    const distanceA =
-                        Math.abs(
-                            a.level -
-                            level
-                        );
+                    if (
+                        !a.stat &&
+                        !b.stat
+                    ) {
+                        return 0;
+                    }
 
-                    const distanceB =
-                        Math.abs(
-                            b.level -
-                            level
-                        );
+                    if (!a.stat) {
+                        return 1;
+                    }
+
+                    if (!b.stat) {
+                        return -1;
+                    }
 
                     if (
-                        distanceA !==
-                        distanceB
+                        a.stat.level !==
+                        b.stat.level
                     ) {
                         return (
-                            distanceA -
-                            distanceB
+                            a.stat.level -
+                            b.stat.level
                         );
                     }
 
                     return (
-                        b.matches -
-                        a.matches
+                        b.stat.matches -
+                        a.stat.matches
                     );
                 }
             );
 
-    return rows[0] || {
-        abilityId,
-        level,
-        matches: 0,
-        wins: 0
-    };
-}
 
+    /*
+     * Приоритет максимизации.
+     *
+     * Чем раньше способность обычно
+     * достигает максимума, тем выше
+     * её приоритет.
+     */
 
-/*
- * Строим прокачку.
- *
- * Уровни 10 и 15 пока оставляем свободными
- * под таланты.
- *
- * Уровни после 15 пока не строим —
- * сначала добиваем корректную базовую
- * прокачку способностей.
- */
+    const maxOrder =
+        normalAbilityIds
+            .map(abilityId => ({
+                abilityId,
 
-for (
-    let level = 1;
-    level <= 15;
-    level++
-) {
+                stat:
+                    getMaxLevelStat(
+                        abilityId
+                    )
+            }))
+            .sort(
+                (a, b) => {
 
-    if (
-        level === 10 ||
-        level === 15
-    ) {
-        continue;
-    }
+                    if (
+                        !a.stat &&
+                        !b.stat
+                    ) {
+                        return 0;
+                    }
+
+                    if (!a.stat) {
+                        return 1;
+                    }
+
+                    if (!b.stat) {
+                        return -1;
+                    }
+
+                    if (
+                        a.stat.level !==
+                        b.stat.level
+                    ) {
+                        return (
+                            a.stat.level -
+                            b.stat.level
+                        );
+                    }
+
+                    return (
+                        b.stat.matches -
+                        a.stat.matches
+                    );
+                }
+            );
 
 
     /*
-     * Если доступен новый уровень ультимейта,
-     * сначала берём его.
+     * Текущие ранги.
      */
 
-    if (
-        ultimateId &&
-        canLevelAbility(
-            ultimateId,
-            level
-        ) &&
-        (
-            level === 6 ||
-            level === 12
-        )
+    const abilityRanks =
+        new Map();
+
+    for (
+        const abilityId
+        of validAbilityIds
     ) {
 
-        const row =
-            getBestRow(
-                ultimateId,
+        abilityRanks.set(
+            abilityId,
+            0
+        );
+    }
+
+
+    const levelMap =
+        new Map();
+
+
+    /*
+     * Получаем статистику для записи
+     * конкретного пункта билда.
+     */
+
+    function getDisplayStat(
+        abilityId,
+        level
+    ) {
+
+        const exact =
+            combined.find(
+                row =>
+                    row.abilityId ===
+                        abilityId &&
+                    row.level ===
+                        level
+            );
+
+        if (exact) {
+            return exact;
+        }
+
+
+        const rows =
+            combined
+                .filter(
+                    row =>
+                        row.abilityId ===
+                        abilityId
+                )
+                .sort(
+                    (a, b) => {
+
+                        const da =
+                            Math.abs(
+                                a.level -
+                                level
+                            );
+
+                        const db =
+                            Math.abs(
+                                b.level -
+                                level
+                            );
+
+                        if (da !== db) {
+                            return da - db;
+                        }
+
+                        return (
+                            b.matches -
+                            a.matches
+                        );
+                    }
+                );
+
+
+        return rows[0] || {
+            abilityId,
+            level,
+            matches: 0,
+            wins: 0
+        };
+    }
+
+
+    function addAbility(
+        level,
+        abilityId
+    ) {
+
+        const stat =
+            getDisplayStat(
+                abilityId,
                 level
             );
 
         levelMap.set(
             level,
             {
-                ...row,
-                level
+                level,
+
+                abilityId,
+
+                matches:
+                    stat.matches,
+
+                wins:
+                    stat.wins
             }
         );
 
         abilityRanks.set(
-            ultimateId,
+            abilityId,
             (
                 abilityRanks.get(
-                    ultimateId
+                    abilityId
                 ) || 0
             ) + 1
         );
-
-        continue;
     }
 
 
     /*
-     * Среди обычных способностей выбираем
-     * самую популярную, которую сейчас
-     * разрешено прокачать.
+     * 1–3 уровни.
+     *
+     * Стараемся сначала дать первое
+     * очко разным способностям согласно
+     * abilityMinLevel.
      */
 
-    const available =
-        normalAbilities.filter(
-            ability =>
-                canLevelAbility(
-                    ability.abilityId,
-                    level
-                )
-        );
+    for (
+        let level = 1;
+        level <= 3;
+        level++
+    ) {
 
-    if (!available.length) {
-        continue;
-    }
+        const candidate =
+            firstOrder.find(
+                ability =>
+                    (
+                        abilityRanks.get(
+                            ability.abilityId
+                        ) || 0
+                    ) === 0
+            );
 
+        if (candidate) {
 
-    /*
-     * Не максимизируем один скилл вслепую.
-     * Сначала смотрим статистику STRATZ
-     * конкретно около текущего уровня.
-     */
-
-    available.sort(
-        (a, b) => {
-
-            const rowA =
-                getBestRow(
-                    a.abilityId,
-                    level
-                );
-
-            const rowB =
-                getBestRow(
-                    b.abilityId,
-                    level
-                );
-
-            return (
-                rowB.matches -
-                rowA.matches
+            addAbility(
+                level,
+                candidate.abilityId
             );
         }
-    );
+    }
 
 
-    const selected =
-        available[0];
+    /*
+     * Дальше используем порядок
+     * максимизации из abilityMaxLevel.
+     *
+     * Ультимейт принудительно занимает
+     * 6 и 12.
+     *
+     * 10 и 15 оставляем талантам.
+     */
 
-    const row =
-        getBestRow(
-            selected.abilityId,
-            level
-        );
+    for (
+        let level = 4;
+        level <= 15;
+        level++
+    ) {
 
-    levelMap.set(
-        level,
-        {
-            ...row,
-            level
+        if (
+            level === 10 ||
+            level === 15
+        ) {
+            continue;
         }
-    );
 
-    abilityRanks.set(
-        selected.abilityId,
-        (
-            abilityRanks.get(
-                selected.abilityId
-            ) || 0
-        ) + 1
-    );
-}
 
-    const build = [
-        ...levelMap.values()
-    ]
-        .sort(
-            (a, b) =>
-                a.level - b.level
-        )
-        .map(row => ({
-            level:
-                row.level,
+        if (
+            ultimateId &&
+            (
+                level === 6 ||
+                level === 12
+            )
+        ) {
 
-            abilityId:
-                row.abilityId,
+            addAbility(
+                level,
+                ultimateId
+            );
 
-            matches:
-                row.matches,
+            continue;
+        }
 
-            winRate:
-                row.matches > 0
-                    ? Number(
-                        (
-                            row.wins /
-                            row.matches *
-                            100
-                        ).toFixed(2)
-                    )
-                    : 0
-        }));
 
+        const candidate =
+            maxOrder.find(
+                ability =>
+                    (
+                        abilityRanks.get(
+                            ability.abilityId
+                        ) || 0
+                    ) < 4
+            );
+
+
+        if (!candidate) {
+            continue;
+        }
+
+
+        addAbility(
+            level,
+            candidate.abilityId
+        );
+    }
+
+
+    /*
+     * Финальный abilityBuild.
+     */
+
+    const build =
+        [...levelMap.values()]
+            .sort(
+                (a, b) =>
+                    a.level -
+                    b.level
+            )
+            .map(row => ({
+
+                level:
+                    row.level,
+
+                abilityId:
+                    row.abilityId,
+
+                matches:
+                    row.matches,
+
+                winRate:
+                    row.matches > 0
+                        ? Number(
+                            (
+                                row.wins /
+                                row.matches *
+                                100
+                            ).toFixed(2)
+                        )
+                        : 0
+            }));
+
+
+    /*
+     * Статистика способности для
+     * остальных частей guides-data.
+     */
 
     const abilityMap =
         new Map();
@@ -991,6 +1065,7 @@ for (
                 row.abilityId
             )
         ) {
+
             abilityMap.set(
                 row.abilityId,
                 []
@@ -1002,7 +1077,9 @@ for (
             .push(row);
     }
 
+
     const abilities = {};
+
 
     for (
         const [abilityId, rows]
@@ -1019,6 +1096,7 @@ for (
             rows
                 .slice(0, 8)
                 .map(row => ({
+
                     level:
                         row.level,
 
@@ -1037,6 +1115,7 @@ for (
                             : 0
                 }));
     }
+
 
     return {
         build,
