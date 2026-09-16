@@ -8,10 +8,42 @@ if (!STRATZ_TOKEN) {
 const API_URL = "https://api.stratz.com/graphql";
 
 const QUERY = `
-{
-    __schema {
-        types {
+query {
+    guide: __type(name: "HeroGuideType") {
+        name
+        fields {
             name
+            type {
+                kind
+                name
+                ofType {
+                    kind
+                    name
+                    ofType {
+                        kind
+                        name
+                    }
+                }
+            }
+        }
+    }
+
+    guideList: __type(name: "HeroGuideListType") {
+        name
+        fields {
+            name
+            type {
+                kind
+                name
+                ofType {
+                    kind
+                    name
+                    ofType {
+                        kind
+                        name
+                    }
+                }
+            }
         }
     }
 }
@@ -19,7 +51,7 @@ const QUERY = `
 
 async function main() {
 
-    console.log("Checking STRATZ GraphQL types...");
+    console.log("Checking STRATZ guide fields...");
 
     const response = await fetch(API_URL, {
         method: "POST",
@@ -38,60 +70,27 @@ async function main() {
     const text = await response.text();
 
     if (!response.ok) {
-        throw new Error(
-            `STRATZ HTTP ${response.status}: ${text.slice(0, 1000)}`
-        );
+        console.error("STRATZ HTTP:", response.status);
+        console.error(text);
+        process.exit(1);
     }
 
     const json = JSON.parse(text);
 
-    if (json.errors?.length) {
+    if (json.errors) {
         console.error(
             JSON.stringify(json.errors, null, 2)
         );
+
         process.exit(1);
     }
 
-    const types =
-        json?.data?.__schema?.types || [];
-
-    const interesting = types
-        .map(type => type.name)
-        .filter(Boolean)
-        .filter(name => {
-            const value =
-                name.toLowerCase();
-
-            return (
-                value.includes("hero") ||
-                value.includes("item") ||
-                value.includes("ability") ||
-                value.includes("talent") ||
-                value.includes("stat")
-            );
-        })
-        .sort();
-
     console.log(
-        "\n=== RELEVANT STRATZ TYPES ===\n"
-    );
-
-    interesting.forEach(name => {
-        console.log("TYPE:", name);
-    });
-
-    console.log(
-        "\nTotal relevant types:",
-        interesting.length
+        JSON.stringify(json.data, null, 2)
     );
 }
 
 main().catch(error => {
-    console.error(
-        "Schema check failed:"
-    );
-
     console.error(error);
-
     process.exit(1);
 });
