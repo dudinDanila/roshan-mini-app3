@@ -20,7 +20,27 @@ async function loadDotaItems() {
             throw new Error(`HTTP ${response.status}`);
         }
 
-        dotaItems = await response.json();
+        const rawItems = await response.json();
+
+dotaItems = {};
+
+Object.entries(rawItems).forEach(([key, item]) => {
+    if (!item || item.id == null) return;
+
+    dotaItems[String(item.id)] = {
+        ...item,
+        name: item.dname || item.name || key,
+        dname: item.dname || item.name || key,
+        img: item.img || ""
+    };
+});
+
+console.log(
+    "Dota items converted:",
+    Object.keys(dotaItems).length,
+    "Item 69:",
+    dotaItems["69"]
+);
 
         console.log(
             "Dota items loaded:",
