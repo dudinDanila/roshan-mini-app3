@@ -3,916 +3,916 @@
   "source": "STRATZ",
   "bracket": "Divine + Immortal",
   "period": "Last 7 days",
-  "updatedAt": "2026-10-11T06:41:12.815Z",
+  "updatedAt": "2026-10-11T12:40:37.468Z",
   "roles": {
     "carry": [
       {
         "heroId": 67,
-        "matches": 758652,
-        "wins": 409408,
-        "winRate": 53.97
+        "matches": 816804,
+        "wins": 438955,
+        "winRate": 53.74
       },
       {
         "heroId": 12,
-        "matches": 714005,
-        "wins": 380565,
-        "winRate": 53.3
-      },
-      {
-        "heroId": 54,
-        "matches": 940766,
-        "wins": 498492,
-        "winRate": 52.99
+        "matches": 813271,
+        "wins": 433759,
+        "winRate": 53.34
       },
       {
         "heroId": 42,
-        "matches": 238999,
-        "wins": 125519,
-        "winRate": 52.52
+        "matches": 257453,
+        "wins": 135985,
+        "winRate": 52.82
+      },
+      {
+        "heroId": 54,
+        "matches": 1085135,
+        "wins": 571471,
+        "winRate": 52.66
       },
       {
         "heroId": 8,
-        "matches": 958374,
-        "wins": 500951,
-        "winRate": 52.27
+        "matches": 1101941,
+        "wins": 577540,
+        "winRate": 52.41
       },
       {
         "heroId": 36,
-        "matches": 221421,
-        "wins": 115278,
-        "winRate": 52.06
-      },
-      {
-        "heroId": 56,
-        "matches": 222661,
-        "wins": 115823,
-        "winRate": 52.02
+        "matches": 238660,
+        "wins": 124560,
+        "winRate": 52.19
       },
       {
         "heroId": 81,
-        "matches": 69665,
-        "wins": 36165,
-        "winRate": 51.91
+        "matches": 75993,
+        "wins": 39573,
+        "winRate": 52.07
       },
       {
         "heroId": 20,
-        "matches": 259104,
-        "wins": 134433,
-        "winRate": 51.88
+        "matches": 285554,
+        "wins": 148267,
+        "winRate": 51.92
+      },
+      {
+        "heroId": 56,
+        "matches": 237438,
+        "wins": 123260,
+        "winRate": 51.91
       },
       {
         "heroId": 4,
-        "matches": 100604,
-        "wins": 52086,
-        "winRate": 51.77
-      },
-      {
-        "heroId": 41,
-        "matches": 742391,
-        "wins": 382586,
-        "winRate": 51.53
+        "matches": 101860,
+        "wins": 52631,
+        "winRate": 51.67
       },
       {
         "heroId": 18,
-        "matches": 417743,
-        "wins": 214274,
-        "winRate": 51.29
+        "matches": 561566,
+        "wins": 289550,
+        "winRate": 51.56
+      },
+      {
+        "heroId": 41,
+        "matches": 680878,
+        "wins": 347254,
+        "winRate": 51
       },
       {
         "heroId": 32,
-        "matches": 103538,
-        "wins": 52711,
-        "winRate": 50.91
-      },
-      {
-        "heroId": 44,
-        "matches": 585533,
-        "wins": 296701,
-        "winRate": 50.67
-      },
-      {
-        "heroId": 89,
-        "matches": 61921,
-        "wins": 31363,
-        "winRate": 50.65
+        "matches": 107688,
+        "wins": 54891,
+        "winRate": 50.97
       },
       {
         "heroId": 95,
-        "matches": 115697,
-        "wins": 58594,
-        "winRate": 50.64
+        "matches": 127358,
+        "wins": 64805,
+        "winRate": 50.88
+      },
+      {
+        "heroId": 44,
+        "matches": 607726,
+        "wins": 308334,
+        "winRate": 50.74
+      },
+      {
+        "heroId": 89,
+        "matches": 64859,
+        "wins": 32812,
+        "winRate": 50.59
       },
       {
         "heroId": 93,
-        "matches": 624861,
-        "wins": 316298,
-        "winRate": 50.62
-      },
-      {
-        "heroId": 35,
-        "matches": 168636,
-        "wins": 84880,
-        "winRate": 50.33
-      },
-      {
-        "heroId": 6,
-        "matches": 957953,
-        "wins": 481083,
-        "winRate": 50.22
+        "matches": 668643,
+        "wins": 338203,
+        "winRate": 50.58
       },
       {
         "heroId": 21,
-        "matches": 272182,
-        "wins": 136021,
-        "winRate": 49.97
+        "matches": 310649,
+        "wins": 155685,
+        "winRate": 50.12
       },
       {
-        "heroId": 48,
-        "matches": 783631,
-        "wins": 390535,
-        "winRate": 49.84
-      },
-      {
-        "heroId": 94,
-        "matches": 171264,
-        "wins": 85237,
-        "winRate": 49.77
-      },
-      {
-        "heroId": 14,
-        "matches": 51385,
-        "wins": 25524,
-        "winRate": 49.67
+        "heroId": 35,
+        "matches": 170006,
+        "wins": 85034,
+        "winRate": 50.02
       },
       {
         "heroId": 1,
-        "matches": 521979,
-        "wins": 258169,
-        "winRate": 49.46
+        "matches": 586035,
+        "wins": 293005,
+        "winRate": 50
       },
       {
-        "heroId": 11,
-        "matches": 886849,
-        "wins": 435838,
-        "winRate": 49.14
+        "heroId": 48,
+        "matches": 904167,
+        "wins": 450971,
+        "winRate": 49.88
       },
       {
-        "heroId": 109,
-        "matches": 318157,
-        "wins": 155376,
-        "winRate": 48.84
+        "heroId": 94,
+        "matches": 171904,
+        "wins": 85288,
+        "winRate": 49.61
       },
       {
-        "heroId": 80,
-        "matches": 182180,
-        "wins": 88934,
-        "winRate": 48.82
+        "heroId": 6,
+        "matches": 934748,
+        "wins": 463021,
+        "winRate": 49.53
       },
       {
         "heroId": 70,
-        "matches": 396048,
-        "wins": 192019,
-        "winRate": 48.48
+        "matches": 421181,
+        "wins": 206270,
+        "winRate": 48.97
+      },
+      {
+        "heroId": 80,
+        "matches": 193535,
+        "wins": 94355,
+        "winRate": 48.75
+      },
+      {
+        "heroId": 109,
+        "matches": 361708,
+        "wins": 175534,
+        "winRate": 48.53
       },
       {
         "heroId": 10,
-        "matches": 292082,
-        "wins": 141270,
-        "winRate": 48.37
+        "matches": 327343,
+        "wins": 158723,
+        "winRate": 48.49
       },
       {
         "heroId": 15,
-        "matches": 73754,
-        "wins": 35567,
-        "winRate": 48.22
+        "matches": 83507,
+        "wins": 40488,
+        "winRate": 48.48
+      },
+      {
+        "heroId": 11,
+        "matches": 916070,
+        "wins": 442385,
+        "winRate": 48.29
+      },
+      {
+        "heroId": 138,
+        "matches": 235198,
+        "wins": 111580,
+        "winRate": 47.44
       }
     ],
     "mid": [
       {
         "heroId": 136,
-        "matches": 95957,
-        "wins": 54127,
-        "winRate": 56.41
-      },
-      {
-        "heroId": 90,
-        "matches": 307145,
-        "wins": 167447,
-        "winRate": 54.52
+        "matches": 109003,
+        "wins": 61461,
+        "winRate": 56.38
       },
       {
         "heroId": 137,
-        "matches": 77358,
-        "wins": 42070,
-        "winRate": 54.38
+        "matches": 80795,
+        "wins": 44438,
+        "winRate": 55
       },
       {
         "heroId": 82,
-        "matches": 70460,
-        "wins": 38162,
-        "winRate": 54.16
+        "matches": 77908,
+        "wins": 42533,
+        "winRate": 54.59
+      },
+      {
+        "heroId": 90,
+        "matches": 318959,
+        "wins": 173149,
+        "winRate": 54.29
       },
       {
         "heroId": 32,
-        "matches": 102563,
-        "wins": 55355,
-        "winRate": 53.97
-      },
-      {
-        "heroId": 128,
-        "matches": 509709,
-        "wins": 273079,
-        "winRate": 53.58
-      },
-      {
-        "heroId": 110,
-        "matches": 95307,
-        "wins": 50742,
-        "winRate": 53.24
-      },
-      {
-        "heroId": 74,
-        "matches": 1173698,
-        "wins": 623779,
-        "winRate": 53.15
-      },
-      {
-        "heroId": 113,
-        "matches": 192153,
-        "wins": 102036,
-        "winRate": 53.1
-      },
-      {
-        "heroId": 107,
-        "matches": 292670,
-        "wins": 154942,
-        "winRate": 52.94
+        "matches": 112932,
+        "wins": 60977,
+        "winRate": 53.99
       },
       {
         "heroId": 76,
-        "matches": 374856,
-        "wins": 198124,
-        "winRate": 52.85
+        "matches": 541376,
+        "wins": 290171,
+        "winRate": 53.6
+      },
+      {
+        "heroId": 110,
+        "matches": 100496,
+        "wins": 53693,
+        "winRate": 53.43
+      },
+      {
+        "heroId": 128,
+        "matches": 516044,
+        "wins": 275360,
+        "winRate": 53.36
+      },
+      {
+        "heroId": 113,
+        "matches": 228717,
+        "wins": 122024,
+        "winRate": 53.35
+      },
+      {
+        "heroId": 74,
+        "matches": 1264259,
+        "wins": 669013,
+        "winRate": 52.92
+      },
+      {
+        "heroId": 107,
+        "matches": 327369,
+        "wins": 172849,
+        "winRate": 52.8
       },
       {
         "heroId": 93,
-        "matches": 72311,
-        "wins": 37696,
-        "winRate": 52.13
-      },
-      {
-        "heroId": 52,
-        "matches": 132146,
-        "wins": 68399,
-        "winRate": 51.76
-      },
-      {
-        "heroId": 61,
-        "matches": 59803,
-        "wins": 30654,
-        "winRate": 51.26
-      },
-      {
-        "heroId": 28,
-        "matches": 87941,
-        "wins": 45011,
-        "winRate": 51.18
-      },
-      {
-        "heroId": 25,
-        "matches": 990223,
-        "wins": 505816,
-        "winRate": 51.08
-      },
-      {
-        "heroId": 7,
-        "matches": 250635,
-        "wins": 127983,
-        "winRate": 51.06
-      },
-      {
-        "heroId": 88,
-        "matches": 88024,
-        "wins": 44879,
-        "winRate": 50.98
-      },
-      {
-        "heroId": 56,
-        "matches": 73419,
-        "wins": 37332,
-        "winRate": 50.85
-      },
-      {
-        "heroId": 106,
-        "matches": 756781,
-        "wins": 384434,
-        "winRate": 50.8
+        "matches": 92031,
+        "wins": 48033,
+        "winRate": 52.19
       },
       {
         "heroId": 49,
-        "matches": 101309,
-        "wins": 51421,
-        "winRate": 50.76
+        "matches": 176874,
+        "wins": 92245,
+        "winRate": 52.15
+      },
+      {
+        "heroId": 52,
+        "matches": 144392,
+        "wins": 75030,
+        "winRate": 51.96
+      },
+      {
+        "heroId": 88,
+        "matches": 102254,
+        "wins": 52522,
+        "winRate": 51.36
+      },
+      {
+        "heroId": 7,
+        "matches": 298051,
+        "wins": 152868,
+        "winRate": 51.29
+      },
+      {
+        "heroId": 28,
+        "matches": 86647,
+        "wins": 44114,
+        "winRate": 50.91
       },
       {
         "heroId": 14,
-        "matches": 210388,
-        "wins": 106765,
+        "matches": 224905,
+        "wins": 114394,
+        "winRate": 50.86
+      },
+      {
+        "heroId": 106,
+        "matches": 822887,
+        "wins": 417594,
         "winRate": 50.75
       },
       {
+        "heroId": 56,
+        "matches": 78814,
+        "wins": 39923,
+        "winRate": 50.65
+      },
+      {
+        "heroId": 25,
+        "matches": 1111176,
+        "wins": 561683,
+        "winRate": 50.55
+      },
+      {
         "heroId": 97,
-        "matches": 189709,
-        "wins": 95475,
-        "winRate": 50.33
+        "matches": 208401,
+        "wins": 104991,
+        "winRate": 50.38
       },
       {
         "heroId": 34,
-        "matches": 341500,
-        "wins": 171226,
-        "winRate": 50.14
-      },
-      {
-        "heroId": 35,
-        "matches": 618573,
-        "wins": 308392,
-        "winRate": 49.86
+        "matches": 370959,
+        "wins": 186293,
+        "winRate": 50.22
       },
       {
         "heroId": 84,
-        "matches": 78299,
-        "wins": 38879,
+        "matches": 87247,
+        "wins": 43317,
         "winRate": 49.65
       },
       {
         "heroId": 126,
-        "matches": 412360,
-        "wins": 204284,
-        "winRate": 49.54
+        "matches": 426695,
+        "wins": 211662,
+        "winRate": 49.6
       },
       {
-        "heroId": 13,
-        "matches": 400453,
-        "wins": 198148,
-        "winRate": 49.48
-      },
-      {
-        "heroId": 21,
-        "matches": 226371,
-        "wins": 111745,
-        "winRate": 49.36
+        "heroId": 35,
+        "matches": 650686,
+        "wins": 321564,
+        "winRate": 49.42
       },
       {
         "heroId": 47,
-        "matches": 193657,
-        "wins": 95560,
+        "matches": 203522,
+        "wins": 100554,
+        "winRate": 49.41
+      },
+      {
+        "heroId": 13,
+        "matches": 403079,
+        "wins": 198931,
+        "winRate": 49.35
+      },
+      {
+        "heroId": 21,
+        "matches": 253245,
+        "wins": 124961,
         "winRate": 49.34
+      },
+      {
+        "heroId": 114,
+        "matches": 123380,
+        "wins": 60628,
+        "winRate": 49.14
       }
     ],
     "offlane": [
       {
         "heroId": 33,
-        "matches": 181436,
-        "wins": 102571,
-        "winRate": 56.53
+        "matches": 222855,
+        "wins": 125840,
+        "winRate": 56.47
       },
       {
         "heroId": 92,
-        "matches": 61846,
-        "wins": 33927,
-        "winRate": 54.86
+        "matches": 68372,
+        "wins": 37553,
+        "winRate": 54.92
       },
       {
         "heroId": 60,
-        "matches": 660563,
-        "wins": 354696,
-        "winRate": 53.7
+        "matches": 724280,
+        "wins": 387371,
+        "winRate": 53.48
       },
       {
         "heroId": 14,
-        "matches": 472862,
-        "wins": 251431,
-        "winRate": 53.17
+        "matches": 508952,
+        "wins": 270794,
+        "winRate": 53.21
       },
       {
         "heroId": 42,
-        "matches": 321923,
-        "wins": 169979,
-        "winRate": 52.8
+        "matches": 367020,
+        "wins": 194338,
+        "winRate": 52.95
       },
       {
         "heroId": 20,
-        "matches": 141609,
-        "wins": 74370,
-        "winRate": 52.52
+        "matches": 151717,
+        "wins": 79571,
+        "winRate": 52.45
       },
       {
         "heroId": 104,
-        "matches": 703402,
-        "wins": 367422,
-        "winRate": 52.23
+        "matches": 758536,
+        "wins": 395953,
+        "winRate": 52.2
       },
       {
         "heroId": 78,
-        "matches": 137303,
-        "wins": 71708,
-        "winRate": 52.23
+        "matches": 165330,
+        "wins": 86182,
+        "winRate": 52.13
       },
       {
         "heroId": 135,
-        "matches": 810030,
-        "wins": 421269,
-        "winRate": 52.01
+        "matches": 849611,
+        "wins": 441797,
+        "winRate": 52
       },
       {
         "heroId": 107,
-        "matches": 95387,
-        "wins": 49475,
-        "winRate": 51.87
-      },
-      {
-        "heroId": 77,
-        "matches": 110848,
-        "wins": 57040,
-        "winRate": 51.46
+        "matches": 103288,
+        "wins": 53234,
+        "winRate": 51.54
       },
       {
         "heroId": 55,
-        "matches": 353211,
-        "wins": 181150,
+        "matches": 457471,
+        "wins": 234616,
         "winRate": 51.29
       },
       {
-        "heroId": 128,
-        "matches": 191274,
-        "wins": 97622,
-        "winRate": 51.04
+        "heroId": 49,
+        "matches": 207286,
+        "wins": 106324,
+        "winRate": 51.29
       },
       {
-        "heroId": 81,
-        "matches": 102217,
-        "wins": 52026,
-        "winRate": 50.9
+        "heroId": 77,
+        "matches": 114401,
+        "wins": 58668,
+        "winRate": 51.28
       },
       {
         "heroId": 15,
-        "matches": 200813,
-        "wins": 102195,
-        "winRate": 50.89
+        "matches": 229169,
+        "wins": 117061,
+        "winRate": 51.08
       },
       {
-        "heroId": 110,
-        "matches": 139181,
-        "wins": 70802,
-        "winRate": 50.87
-      },
-      {
-        "heroId": 23,
-        "matches": 190367,
-        "wins": 96615,
-        "winRate": 50.75
-      },
-      {
-        "heroId": 2,
-        "matches": 1146923,
-        "wins": 581864,
-        "winRate": 50.73
+        "heroId": 81,
+        "matches": 116278,
+        "wins": 59310,
+        "winRate": 51.01
       },
       {
         "heroId": 21,
-        "matches": 184135,
-        "wins": 93397,
-        "winRate": 50.72
+        "matches": 210039,
+        "wins": 106913,
+        "winRate": 50.9
       },
       {
-        "heroId": 36,
-        "matches": 451281,
-        "wins": 227998,
-        "winRate": 50.52
+        "heroId": 110,
+        "matches": 140602,
+        "wins": 71529,
+        "winRate": 50.87
       },
       {
-        "heroId": 126,
-        "matches": 58275,
-        "wins": 29428,
-        "winRate": 50.5
+        "heroId": 128,
+        "matches": 199421,
+        "wins": 101409,
+        "winRate": 50.85
+      },
+      {
+        "heroId": 23,
+        "matches": 198769,
+        "wins": 100868,
+        "winRate": 50.75
       },
       {
         "heroId": 7,
-        "matches": 284537,
-        "wins": 143390,
-        "winRate": 50.39
-      },
-      {
-        "heroId": 49,
-        "matches": 111922,
-        "wins": 56375,
-        "winRate": 50.37
+        "matches": 317069,
+        "wins": 160246,
+        "winRate": 50.54
       },
       {
         "heroId": 137,
-        "matches": 196854,
-        "wins": 98721,
-        "winRate": 50.15
+        "matches": 201540,
+        "wins": 101386,
+        "winRate": 50.31
       },
       {
-        "heroId": 97,
-        "matches": 493303,
-        "wins": 247275,
-        "winRate": 50.13
-      },
-      {
-        "heroId": 29,
-        "matches": 605483,
-        "wins": 302855,
-        "winRate": 50.02
-      },
-      {
-        "heroId": 96,
-        "matches": 552532,
-        "wins": 276142,
-        "winRate": 49.98
+        "heroId": 36,
+        "matches": 485168,
+        "wins": 243970,
+        "winRate": 50.29
       },
       {
         "heroId": 57,
-        "matches": 68573,
-        "wins": 34192,
-        "winRate": 49.86
+        "matches": 72362,
+        "wins": 36359,
+        "winRate": 50.25
       },
       {
-        "heroId": 85,
-        "matches": 255754,
-        "wins": 127411,
+        "heroId": 2,
+        "matches": 1214696,
+        "wins": 609595,
+        "winRate": 50.18
+      },
+      {
+        "heroId": 97,
+        "matches": 532853,
+        "wins": 266718,
+        "winRate": 50.05
+      },
+      {
+        "heroId": 29,
+        "matches": 594683,
+        "wins": 296835,
+        "winRate": 49.91
+      },
+      {
+        "heroId": 96,
+        "matches": 602833,
+        "wins": 300330,
         "winRate": 49.82
       },
       {
         "heroId": 84,
-        "matches": 128517,
-        "wins": 63930,
-        "winRate": 49.74
+        "matches": 141131,
+        "wins": 70157,
+        "winRate": 49.71
+      },
+      {
+        "heroId": 69,
+        "matches": 579517,
+        "wins": 287215,
+        "winRate": 49.56
+      },
+      {
+        "heroId": 47,
+        "matches": 148471,
+        "wins": 73099,
+        "winRate": 49.23
       }
     ],
     "support": [
       {
         "heroId": 62,
-        "matches": 445303,
-        "wins": 251276,
-        "winRate": 56.43
+        "matches": 542914,
+        "wins": 306410,
+        "winRate": 56.44
       },
       {
         "heroId": 88,
-        "matches": 327592,
-        "wins": 174877,
-        "winRate": 53.38
+        "matches": 362175,
+        "wins": 193950,
+        "winRate": 53.55
       },
       {
         "heroId": 71,
-        "matches": 691508,
-        "wins": 362484,
-        "winRate": 52.42
+        "matches": 775378,
+        "wins": 407891,
+        "winRate": 52.61
       },
       {
         "heroId": 3,
-        "matches": 109064,
-        "wins": 57063,
-        "winRate": 52.32
-      },
-      {
-        "heroId": 22,
-        "matches": 565958,
-        "wins": 294791,
-        "winRate": 52.09
-      },
-      {
-        "heroId": 20,
-        "matches": 171282,
-        "wins": 89065,
-        "winRate": 52
-      },
-      {
-        "heroId": 85,
-        "matches": 231370,
-        "wins": 120288,
-        "winRate": 51.99
+        "matches": 114742,
+        "wins": 59750,
+        "winRate": 52.07
       },
       {
         "heroId": 121,
-        "matches": 236892,
-        "wins": 122941,
-        "winRate": 51.9
+        "matches": 260713,
+        "wins": 135376,
+        "winRate": 51.93
       },
       {
-        "heroId": 27,
-        "matches": 261389,
-        "wins": 135382,
-        "winRate": 51.79
-      },
-      {
-        "heroId": 7,
-        "matches": 339593,
-        "wins": 175534,
-        "winRate": 51.69
+        "heroId": 20,
+        "matches": 181918,
+        "wins": 94462,
+        "winRate": 51.93
       },
       {
         "heroId": 45,
-        "matches": 108094,
-        "wins": 55810,
-        "winRate": 51.63
+        "matches": 117602,
+        "wins": 61015,
+        "winRate": 51.88
+      },
+      {
+        "heroId": 22,
+        "matches": 567411,
+        "wins": 294068,
+        "winRate": 51.83
+      },
+      {
+        "heroId": 7,
+        "matches": 371507,
+        "wins": 192114,
+        "winRate": 51.71
+      },
+      {
+        "heroId": 27,
+        "matches": 270403,
+        "wins": 139742,
+        "winRate": 51.68
       },
       {
         "heroId": 111,
-        "matches": 75893,
-        "wins": 39125,
+        "matches": 79902,
+        "wins": 41209,
+        "winRate": 51.57
+      },
+      {
+        "heroId": 85,
+        "matches": 253397,
+        "wins": 130615,
         "winRate": 51.55
       },
       {
-        "heroId": 9,
-        "matches": 488370,
-        "wins": 251071,
-        "winRate": 51.41
+        "heroId": 31,
+        "matches": 227114,
+        "wins": 116941,
+        "winRate": 51.49
       },
       {
-        "heroId": 31,
-        "matches": 215119,
-        "wins": 110388,
+        "heroId": 9,
+        "matches": 600558,
+        "wins": 308131,
         "winRate": 51.31
       },
       {
         "heroId": 33,
-        "matches": 60279,
-        "wins": 30827,
-        "winRate": 51.14
-      },
-      {
-        "heroId": 51,
-        "matches": 214572,
-        "wins": 109307,
-        "winRate": 50.94
-      },
-      {
-        "heroId": 83,
-        "matches": 78158,
-        "wins": 39769,
-        "winRate": 50.88
-      },
-      {
-        "heroId": 107,
-        "matches": 226945,
-        "wins": 115303,
-        "winRate": 50.81
+        "matches": 64442,
+        "wins": 33038,
+        "winRate": 51.27
       },
       {
         "heroId": 91,
-        "matches": 72346,
-        "wins": 36759,
+        "matches": 75031,
+        "wins": 38122,
         "winRate": 50.81
       },
       {
-        "heroId": 90,
-        "matches": 152903,
-        "wins": 77602,
-        "winRate": 50.75
-      },
-      {
         "heroId": 112,
-        "matches": 139521,
-        "wins": 70721,
-        "winRate": 50.69
+        "matches": 149024,
+        "wins": 75394,
+        "winRate": 50.59
       },
       {
-        "heroId": 86,
-        "matches": 1109938,
-        "wins": 561059,
-        "winRate": 50.55
+        "heroId": 51,
+        "matches": 214559,
+        "wins": 108519,
+        "winRate": 50.58
+      },
+      {
+        "heroId": 90,
+        "matches": 161633,
+        "wins": 81727,
+        "winRate": 50.56
+      },
+      {
+        "heroId": 107,
+        "matches": 240010,
+        "wins": 121214,
+        "winRate": 50.5
       },
       {
         "heroId": 105,
-        "matches": 402153,
-        "wins": 202972,
-        "winRate": 50.47
+        "matches": 438722,
+        "wins": 221468,
+        "winRate": 50.48
+      },
+      {
+        "heroId": 83,
+        "matches": 79525,
+        "wins": 40124,
+        "winRate": 50.45
+      },
+      {
+        "heroId": 86,
+        "matches": 1187506,
+        "wins": 598725,
+        "winRate": 50.42
       },
       {
         "heroId": 5,
-        "matches": 161338,
-        "wins": 81099,
-        "winRate": 50.27
+        "matches": 176499,
+        "wins": 88759,
+        "winRate": 50.29
       },
       {
         "heroId": 110,
-        "matches": 215615,
-        "wins": 108317,
-        "winRate": 50.24
-      },
-      {
-        "heroId": 84,
-        "matches": 236822,
-        "wins": 118938,
-        "winRate": 50.22
-      },
-      {
-        "heroId": 50,
-        "matches": 56987,
-        "wins": 28610,
-        "winRate": 50.2
-      },
-      {
-        "heroId": 74,
-        "matches": 314175,
-        "wins": 157639,
-        "winRate": 50.18
+        "matches": 214253,
+        "wins": 107678,
+        "winRate": 50.26
       },
       {
         "heroId": 68,
-        "matches": 124141,
-        "wins": 62146,
-        "winRate": 50.06
+        "matches": 133240,
+        "wins": 66815,
+        "winRate": 50.15
       },
       {
-        "heroId": 14,
-        "matches": 781536,
-        "wins": 390191,
-        "winRate": 49.93
+        "heroId": 50,
+        "matches": 60426,
+        "wins": 30295,
+        "winRate": 50.14
+      },
+      {
+        "heroId": 84,
+        "matches": 253906,
+        "wins": 127229,
+        "winRate": 50.11
+      },
+      {
+        "heroId": 119,
+        "matches": 309591,
+        "wins": 154900,
+        "winRate": 50.03
+      },
+      {
+        "heroId": 74,
+        "matches": 320197,
+        "wins": 160124,
+        "winRate": 50.01
       }
     ],
     "hardSupport": [
       {
         "heroId": 57,
-        "matches": 80861,
-        "wins": 43448,
-        "winRate": 53.73
+        "matches": 86329,
+        "wins": 46403,
+        "winRate": 53.75
       },
       {
         "heroId": 62,
-        "matches": 87686,
-        "wins": 46773,
-        "winRate": 53.34
-      },
-      {
-        "heroId": 102,
-        "matches": 131341,
-        "wins": 69078,
-        "winRate": 52.59
+        "matches": 101845,
+        "wins": 54141,
+        "winRate": 53.16
       },
       {
         "heroId": 50,
-        "matches": 204873,
-        "wins": 107659,
-        "winRate": 52.55
+        "matches": 232433,
+        "wins": 122366,
+        "winRate": 52.65
       },
       {
-        "heroId": 83,
-        "matches": 405298,
-        "wins": 212632,
-        "winRate": 52.46
+        "heroId": 102,
+        "matches": 138996,
+        "wins": 73072,
+        "winRate": 52.57
       },
       {
         "heroId": 111,
-        "matches": 296657,
-        "wins": 155454,
+        "matches": 321993,
+        "wins": 168712,
         "winRate": 52.4
       },
       {
-        "heroId": 20,
-        "matches": 204933,
-        "wins": 107192,
-        "winRate": 52.31
+        "heroId": 88,
+        "matches": 103362,
+        "wins": 54083,
+        "winRate": 52.32
       },
       {
-        "heroId": 88,
-        "matches": 96198,
-        "wins": 50271,
-        "winRate": 52.26
+        "heroId": 20,
+        "matches": 219424,
+        "wins": 114543,
+        "winRate": 52.2
       },
       {
         "heroId": 31,
-        "matches": 648964,
-        "wins": 337146,
-        "winRate": 51.95
+        "matches": 696404,
+        "wins": 362896,
+        "winRate": 52.11
       },
       {
-        "heroId": 3,
-        "matches": 227411,
-        "wins": 118064,
-        "winRate": 51.92
-      },
-      {
-        "heroId": 121,
-        "matches": 287012,
-        "wins": 148911,
-        "winRate": 51.88
-      },
-      {
-        "heroId": 22,
-        "matches": 278043,
-        "wins": 144152,
-        "winRate": 51.85
-      },
-      {
-        "heroId": 27,
-        "matches": 577841,
-        "wins": 299409,
-        "winRate": 51.82
+        "heroId": 83,
+        "matches": 407145,
+        "wins": 211875,
+        "winRate": 52.04
       },
       {
         "heroId": 45,
-        "matches": 98633,
-        "wins": 50934,
-        "winRate": 51.64
+        "matches": 108398,
+        "wins": 56311,
+        "winRate": 51.95
+      },
+      {
+        "heroId": 121,
+        "matches": 316629,
+        "wins": 164365,
+        "winRate": 51.91
+      },
+      {
+        "heroId": 27,
+        "matches": 605449,
+        "wins": 313569,
+        "winRate": 51.79
+      },
+      {
+        "heroId": 22,
+        "matches": 278414,
+        "wins": 143896,
+        "winRate": 51.68
+      },
+      {
+        "heroId": 3,
+        "matches": 249373,
+        "wins": 128696,
+        "winRate": 51.61
       },
       {
         "heroId": 112,
-        "matches": 330592,
-        "wins": 170458,
-        "winRate": 51.56
-      },
-      {
-        "heroId": 85,
-        "matches": 440356,
-        "wins": 226412,
-        "winRate": 51.42
-      },
-      {
-        "heroId": 155,
-        "matches": 54529,
-        "wins": 27960,
-        "winRate": 51.28
+        "matches": 400730,
+        "wins": 206699,
+        "winRate": 51.58
       },
       {
         "heroId": 9,
-        "matches": 253392,
-        "wins": 129658,
-        "winRate": 51.17
+        "matches": 326109,
+        "wins": 167045,
+        "winRate": 51.22
       },
       {
         "heroId": 91,
-        "matches": 184399,
-        "wins": 93935,
-        "winRate": 50.94
+        "matches": 194823,
+        "wins": 99729,
+        "winRate": 51.19
       },
       {
         "heroId": 71,
-        "matches": 142579,
-        "wins": 72609,
-        "winRate": 50.93
+        "matches": 155997,
+        "wins": 79746,
+        "winRate": 51.12
       },
       {
-        "heroId": 86,
-        "matches": 521415,
-        "wins": 264554,
-        "winRate": 50.74
+        "heroId": 85,
+        "matches": 485207,
+        "wins": 247249,
+        "winRate": 50.96
       },
       {
-        "heroId": 51,
-        "matches": 240556,
-        "wins": 121990,
-        "winRate": 50.71
+        "heroId": 155,
+        "matches": 57510,
+        "wins": 29278,
+        "winRate": 50.91
       },
       {
         "heroId": 87,
-        "matches": 524747,
-        "wins": 265849,
-        "winRate": 50.66
+        "matches": 587160,
+        "wins": 298755,
+        "winRate": 50.88
+      },
+      {
+        "heroId": 86,
+        "matches": 549021,
+        "wins": 277588,
+        "winRate": 50.56
       },
       {
         "heroId": 110,
-        "matches": 152473,
-        "wins": 76962,
-        "winRate": 50.48
-      },
-      {
-        "heroId": 74,
-        "matches": 125646,
-        "wins": 63249,
-        "winRate": 50.34
+        "matches": 146973,
+        "wins": 74229,
+        "winRate": 50.51
       },
       {
         "heroId": 30,
-        "matches": 547919,
-        "wins": 275705,
-        "winRate": 50.32
+        "matches": 599834,
+        "wins": 302804,
+        "winRate": 50.48
       },
       {
-        "heroId": 75,
-        "matches": 403063,
-        "wins": 202630,
-        "winRate": 50.27
+        "heroId": 51,
+        "matches": 239013,
+        "wins": 120400,
+        "winRate": 50.37
       },
       {
         "heroId": 7,
-        "matches": 93154,
-        "wins": 46815,
-        "winRate": 50.26
+        "matches": 100438,
+        "wins": 50461,
+        "winRate": 50.24
       },
       {
-        "heroId": 105,
-        "matches": 249604,
-        "wins": 125022,
-        "winRate": 50.09
+        "heroId": 75,
+        "matches": 406693,
+        "wins": 204103,
+        "winRate": 50.19
       },
       {
         "heroId": 68,
-        "matches": 266584,
-        "wins": 133487,
-        "winRate": 50.07
+        "matches": 291054,
+        "wins": 146034,
+        "winRate": 50.17
+      },
+      {
+        "heroId": 105,
+        "matches": 273310,
+        "wins": 137060,
+        "winRate": 50.15
+      },
+      {
+        "heroId": 74,
+        "matches": 128221,
+        "wins": 64242,
+        "winRate": 50.1
       }
     ]
   }
